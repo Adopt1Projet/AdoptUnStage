@@ -1,0 +1,9 @@
+.navbar {
+    margin: auto;
+    width: 70%; 
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
