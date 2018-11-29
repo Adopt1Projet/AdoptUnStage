@@ -1,6 +1,10 @@
 .footer {
     background-color : #00ac9a;
-    margin: auto;
+    padding: 15px;
     width : 70%;
-    height: 10vh;
+}
+
+.footerImg img{
+    max-width: 10%;
+    max-height: 50px;
 }
