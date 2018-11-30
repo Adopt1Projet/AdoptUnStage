@@ -13,6 +13,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { BoutonsInscriptionComponent } from './Router/PageConnexion/boutons-inscription/boutons-inscription.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
+import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-
     PagePostulerComponent,
     PageConnexionComponent,
     BoutonsInscriptionComponent,
-    FormulaireConnexionComponent
+    FormulaireConnexionComponent,
+    FormulairePostulerComponent
 
   ],
   imports: [
