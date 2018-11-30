@@ -7,8 +7,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
+
 import { BoutonInscriptionComponent } from './Router/PageAccueil/bouton-inscription/bouton-inscription.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
+import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
+import { BoutonsInscriptionComponent } from './Router/PageConnexion/boutons-inscription/boutons-inscription.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,11 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
     FooterComponent,
     PageAccueilComponent,
     BoutonInscriptionComponent,
-    PagePostulerComponent
+    PagePostulerComponent,
+    PageConnexionComponent,
+    BoutonsInscriptionComponent,
+    FormulaireConnexionComponent
+
   ],
   imports: [
     BrowserModule,
