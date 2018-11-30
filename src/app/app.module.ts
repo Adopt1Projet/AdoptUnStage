@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
+import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
+import { BoutonsInscriptionComponent } from './Router/PageConnexion/boutons-inscription/boutons-inscription.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    PageAccueilComponent
+    PageAccueilComponent,
+    PageConnexionComponent,
+    BoutonsInscriptionComponent,
+    FormulaireConnexionComponent
   ],
   imports: [
     BrowserModule,
