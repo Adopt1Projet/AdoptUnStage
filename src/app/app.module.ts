@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
+import { BoutonInscriptionComponent } from './Router/PageAccueil/bouton-inscription/bouton-inscription.component';
+import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    PageAccueilComponent
+    PageAccueilComponent,
+    BoutonInscriptionComponent,
+    PagePostulerComponent
   ],
   imports: [
     BrowserModule,
