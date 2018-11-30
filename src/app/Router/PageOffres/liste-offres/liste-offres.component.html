@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="list-group">
+          <app-item-offre *ngFor="let offre of offres" [offreTitre]="offre.titre" [offreContenu]="offre.contenu" [logoEntreprise]="offre.logoEntreprise"></app-item-offre>
+      </div>
+    </div>
+  </div>
+  <ngb-pagination class="d-flex justify-content-center pagination" [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true"
+    [boundaryLinks]="true"></ngb-pagination>
+</div>
