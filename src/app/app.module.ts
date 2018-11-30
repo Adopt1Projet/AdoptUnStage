@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PageAccueilComponent } from './page-accueil/page-accueil.component';
+import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
