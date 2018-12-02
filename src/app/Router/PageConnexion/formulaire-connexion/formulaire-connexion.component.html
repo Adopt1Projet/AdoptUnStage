@@ -1,10 +1,12 @@
 <h5 class="text-center">Déjà inscris ?<br/>Identifiez-vous</h5>
-<form class="container col-8 col-md-4">
+<form class="container col-8 col-md-4"
+      [formGroup]="formulaireConnexion"
+      (ngSubmit)="submitFormulaireConnexion()">
   <div class="form-group">
-    <input type="email" class="form-control" id="inputEmail" placeholder="E-Mail">
+    <input formControlName="eMail" type="email" class="form-control" id="eMail" placeholder="E-Mail" email>
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="inputMotDePasse" placeholder="Mot de passe">
+    <input formControlName="motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
   </div>
-  <button type="submit" class="btn btn-primary col-12">Se connecter</button>
+  <button type="submit" [disabled]="!formulaireConnexion.valid" class="btn btn-primary col-12">Se connecter</button>
 </form>
