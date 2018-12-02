@@ -19,7 +19,7 @@ import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-cre
     PageAccueilComponent,
     PageBoardEntrepriseComponent,
     FormulaireCreerOffreComponent,
-    NgbdDatepickerRange
+    NgbdDatepickerRange,
   ],
   imports: [
     BrowserModule,
