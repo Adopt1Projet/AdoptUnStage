@@ -17,6 +17,7 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-po
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
