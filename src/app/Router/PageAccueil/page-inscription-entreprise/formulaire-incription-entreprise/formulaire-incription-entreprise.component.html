@@ -1,0 +1,126 @@
+<div class="container">
+  <form class="col-md-8" action="" method="post">
+    <div class="col-sm-12 titres">
+      <h1>Création d'un compte entreprise</h1>
+    </div>
+    <hr>
+    <div class="col-sm-12 titres">
+      <h2>Informations sur l'entreprise</h2>
+    </div>
+    <div class="form-group">
+      <label for="raisonSociale">Raison sociale*</label>
+      <input type="text" class="form-control" id="raisonSociale" placeholder="Raison sociale">
+    </div>
+
+    <div class="form-group">
+      <label for="secteurActivité">Secteur d'activité*</label>
+      <select class="form-control">
+        <option>Choisissez le secteur d'activité de votre entreprise</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="statut">Statut* (S.A.R.L, Association ...)</label>
+      <input type="text" class="form-control" id="statut" placeholder="Statut">
+    </div>
+
+    <div class="form-group">
+      <label for="siteWeb">Site Web</label>
+      <input type="text" class="form-control" id="siteWeb" placeholder="https://...">
+    </div>
+
+    <div class="form-group">
+      <label for="adresse">Adresse*</label>
+      <input type="text" class="form-control" id="adresse" placeholder="Adresse">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="ville">Ville</label>
+        <input type="text" class="form-control" id="ville" placeholder="Lyon">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codePostal">Code Postal*</label>
+        <input type="text" class="form-control" id="codePostal" placeholder="69009">
+      </div>
+    </div>
+
+    <div class="form-group logo">
+      <label for="logo">Logo</label>
+      <input type="file" class="form-control-file" id="logo">
+    </div>
+
+    <div class="col-sm-12 titres">
+      <h2>Référent de l'entreprise</h2>
+    </div>
+
+    <div class="form-check form-check-inline col-sm-3 mmeMr">
+      <input class="form-check-input check" type="radio" name="gridRadios" id="prenomReferent" value="option1" checked>
+      <label class="form-check-label genre" for="prenomReferent">
+        Madame
+      </label>
+    </div>
+    <div class="form-check form-check-inline col-sm-3 mmeMr">
+      <input class="form-check-input check" type="radio" name="gridRadios" id="nomReferent" value="option2">
+      <label class="form-check-label genre" for="nomReferent">
+        Monsieur
+      </label>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="prenomReferent">Prénom*</label>
+        <input type="text" class="form-control" id="prenomReferent" placeholder="Prénom">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="nomReferent">Nom*</label>
+        <input type="text" class="form-control" id="nomReferent" placeholder="Nom">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fonction">Fonction</label>
+      <input type="password" class="form-control" id="fonction" placeholder="Fonction">
+    </div>
+
+    <div class="form-group">
+      <label for="telephone">Téléphone</label>
+      <input type="text" class="form-control" id="telephone" placeholder="n°">
+    </div>
+
+    <div class="col-sm-12 titres">
+      <h2>Identifiants de l'entreprise</h2>
+    </div>
+
+    <div class="form-group">
+      <label for="mail">E-mail*</label>
+      <input type="email" class="form-control" id="mail" placeholder="E-mail">
+    </div>
+
+    <div class="form-group">
+      <label for="confirmMail">Confirmation E-mail*</label>
+      <input type="email" class="form-control" id="confirmMail" placeholder="Confirmation E-mail">
+    </div>
+
+    <div class="form-group">
+      <label for="motDePasse">Mot de passe*</label>
+      <input type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
+    </div>
+
+    <div class="form-group">
+      <label for="confirmMotdePasse">Password</label>
+      <input type="password" class="form-control" id="confirmMotdePasse" placeholder="Confirmation mot de passe">
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation du site et m'y
+        conformer</label>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <button type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
+      <button type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+    </div>
+  </form>
+</div>
