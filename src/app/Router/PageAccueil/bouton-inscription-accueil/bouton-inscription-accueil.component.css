@@ -1,0 +1,31 @@
+
+
+.btnStagiaire {
+    background-color: #2a9984;
+    border: none;
+    margin: 10%;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+}
+
+.btnEntreprise {
+    background-color: #2a9984;
+    border: none;
+    margin: 10%;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+}
+
+.btnStagiaire h1 {
+    color: black;
+}
+
+.btnEntreprise h1 {
+    color: black;
+}
+
+.btnStagiaire h6 {
+    color: black;
+}
+
+.btnEntreprise h6 {
+    color: black;
+}
