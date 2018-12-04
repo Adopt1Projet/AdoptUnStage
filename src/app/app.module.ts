@@ -32,7 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     PageAccueilComponent,
     PageInscriptionStagiaireComponent,
-    FormulaireInscriptionStagiaireComponent
+    FormulaireInscriptionStagiaireComponent,
     PageInscriptionEntrepriseComponent,
     FormulaireIncriptionEntrepriseComponent,
     PageOffresComponent,
