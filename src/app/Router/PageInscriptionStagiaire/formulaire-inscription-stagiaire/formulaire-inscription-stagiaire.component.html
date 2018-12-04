@@ -1,12 +1,27 @@
-<h2>Informations personnelles</h2>
+<h2 class=mt-3>Informations personnelles</h2>
 <form>
-    <div class="form-group">
+  <div class="row pt-3 pb-3">
+      <div class="form-check col-6">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Madame</label>
+      </div>
+      <div class="form-check col-6">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Monsieur</label>
+      </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-6">
         <label for="exampleInputEmail1">Prénom</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <input type="texte" class="form-control" id="prenom" placeholder="Mon prénom">
     </div>
+    <div class="form-group col-6">
+        <label for="exampleInputEmail1">Nom</label>
+        <input type="texte" class="form-control" id="prenom" placeholder="Mon Nom">
+    </div>
+  </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Etablissement collège</label>
+    <label for="exampleFormControlSelect1">Etablissement (collège)</label>
     <select class="form-control" id="exampleFormControlSelect1">
       <option>Collège 1</option>
       <option>Collège 2</option>
@@ -14,6 +29,18 @@
       <option>Collège 4</option>
       <option>Collège 5</option>
     </select>
+  </div>
+  <div class="form-group">
+      <label for="exampleInputEmail1">Ville du domicile</label>
+      <input type="texte" class="form-control" id="ville" placeholder="Ville">
+  </div>
+  <div class="form-group">
+      <label for="exampleInputEmail1">Code postal</label>
+      <input type="texte" class="form-control" id="codePostal" placeholder="Code postal">
+  </div>
+  <div class="form-group">
+      <label for="exampleInputEmail1">Téléphone</label>
+      <input type="texte" class="form-control" id="telephone" placeholder="n°">
   </div>
 </form>
 
@@ -23,12 +50,10 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Email</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Confirmation Mail</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Mot de passe</label>
@@ -39,11 +64,18 @@
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
 
-    <div class="form-check">
+    <div class="form-check pb-5">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <label class="form-check-label" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
+          du site et m'y conformer</label>
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="row">
+    <div class="col-3">
+      <button type="submit" class="btn btn-primary btn-lg">Retour</button>
+    </div>
+    <div class="col-3 offset-4">
+      <button type="submit" class="btn btn-primary btn-lg">Valider</button>
+    </div>
+  </div>
 </form>
 
