@@ -9,30 +9,55 @@ export class ListeOffresComponent implements OnInit {
 
   offres = [
     {
-      titre: 'Ma première offre',
-      contenu: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.',
+      titre: "Stage d'observation",
+      nomEntreprise: "MONOPRIX",
+      isPourvu: false,
+      pourvu: "",
+      secteur: "Commerce,distribution",
+      dateDebut: "Du 03 déc. 2018",
+      dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/wcs.png'
     },
     {
-      titre: 'Ma deuxième offre',
-      contenu: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.',
+      titre: "Stage découverte de l'immobilier",
+      nomEntreprise: "LYON 9 IMMO",
+      isPourvu: true,
+      pourvu: "",
+      secteur: "Immobilier",
+      dateDebut: "Du 03 déc. 2018",
+      dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/Souffle9.png'
     },
     {
-      titre: 'Encore une offre',
-      contenu: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.',
+      titre: "Découverte des métiers techniques",
+      nomEntreprise: "ENGIE",
+      isPourvu: false,
+      pourvu: "",
+      secteur: "Maintenance, entretien",
+      dateDebut: "Du 03 déc. 2018",
+      dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/proBTP.png'
     },
 
     {
-      titre: 'Cette offre là',
-      contenu: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.',
+      titre: "Découverte des archives",
+      nomEntreprise: "BIBLIOTHEQUE MUNICIPALE",
+      isPourvu: false,
+      pourvu: "",
+      secteur: "Art, culture",
+      dateDebut: "Du 03 déc. 2018",
+      dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/beCOM.png'
     },
 
     {
-      titre: 'Cette offre ci',
-      contenu: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.',
+      titre: "Stage de découverte métier",
+      nomEntreprise: "LE CAESAR PALACE",
+      isPourvu: true,
+      pourvu: "",
+      secteur: "Spectacle, divertissement",
+      dateDebut: "Du 03 déc. 2018",
+      dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/wcs.png'
 
       
@@ -43,7 +68,15 @@ export class ListeOffresComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+    for (let i = 0; i < this.offres.length; i++) {
+      if (this.offres[i].isPourvu) {
+        this.offres[i].pourvu = "Disponible";
+      } else {
+        this.offres[i].pourvu = "Pourvue"
+      }
+    }
   }
 
 }
