@@ -1,13 +1,9 @@
-<div class="container">
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="row">
-      <div class="col-xs-2">
-        <img class="logo" src="{{ logoEntreprise }}">
-      </div>
-      <div class="col-xs-10">
-        <h3>{{ offreTitre }}</h3><span>{{ lastUpdate | date: "short" }}</span>
-        <p>{{ offreContenu }}</p>
-      </div>
-    </div>
-  </a>
-</div>
+<a href="INSERER URL DE L'OFFRE AVEC ID" class="list-group-item list-group-item-action">
+  <div class="row">
+    <div class="col-1 logo"><img src="{{logoEntreprise}}"></div>
+    <div class="col-4 titre">{{offreTitre}} <br> {{offreNomEntreprise}}</div>
+    <div class="col-1 badge" [ngStyle]="{'background-color': getCouleur()}"><p class="textPourvu">{{offrePourvu}}</p></div>
+    <div class="col-4 textSecteur">{{offreSecteur}}</div>
+    <div class="col-2 date">{{offreDateDebut}} <br> {{offreDateFin}}</div>
+  </div>
+</a>
