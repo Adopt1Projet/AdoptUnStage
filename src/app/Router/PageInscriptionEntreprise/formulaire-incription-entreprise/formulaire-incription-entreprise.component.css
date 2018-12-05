@@ -50,3 +50,8 @@ input, select{
   font-size: 1.25rem;
   margin-top: 3vh;
 }
+
+
+.btn:hover {
+  background-color: green;
+}

@@ -6,7 +6,7 @@ import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagi
 import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres.component';
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
-import { PageInscriptionEntrepriseComponent } from './Router/PageAccueil/page-inscription-entreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
 
 const routes: Routes = [
   { path : 'connexion', component: PageConnexionComponent},

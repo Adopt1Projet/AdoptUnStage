@@ -11,8 +11,8 @@ import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-acc
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
 import { FormulaireInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component';
-import { PageInscriptionEntrepriseComponent } from './Router/PageAccueil/page-inscription-entreprise/page-inscription-entreprise/page-inscription-entreprise.component';
-import { FormulaireIncriptionEntrepriseComponent } from './Router/PageAccueil/page-inscription-entreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component';
+import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+import { FormulaireIncriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component';
 import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres.component';
 import { ListeOffresComponent } from './Router/PageOffres//liste-offres/liste-offres.component';
 import { ItemOffreComponent } from './Router/PageOffres//item-offre/item-offre.component';
