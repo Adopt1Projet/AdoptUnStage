@@ -1,0 +1,19 @@
+h5 {
+    font-weight: bolder;
+    color: #2fa89a;
+}
+
+.form-control {
+    background-color: rgb(226, 226, 226);
+}
+
+.connectSubmit {
+    width: 300px;
+    height: 60px;
+    background-color: #2fa89a;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.4em;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+
+}
