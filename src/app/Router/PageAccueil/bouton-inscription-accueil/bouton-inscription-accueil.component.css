@@ -29,3 +29,11 @@
 .btnEntreprise h6 {
     color: black;
 }
+
+.btnStagiaire:hover {
+    background-color: green;
+}
+
+.btnEntreprise:hover {
+    background-color: green;
+}

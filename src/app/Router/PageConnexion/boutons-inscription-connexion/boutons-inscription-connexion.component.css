@@ -8,3 +8,7 @@
     margin-right: 5%;
     margin-top: 10%;
 }
+
+.btnRegisterConnect:hover {
+    background-color: green;
+  }

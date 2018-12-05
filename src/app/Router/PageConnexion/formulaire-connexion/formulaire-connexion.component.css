@@ -17,3 +17,7 @@ h5 {
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
 
 }
+
+.connectSubmit:hover {
+    background-color: green;
+  }
