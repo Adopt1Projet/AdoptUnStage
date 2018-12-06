@@ -1,14 +1,33 @@
-<form>
+<form 
+[formGroup]="formulaireOffre"
+(ngSubmit)="submitOffre()">
+
   <div class="form-group">
-    <label for="exampleFormControlInput1">Intitulé du poste</label>
-    <input type="email" class="form-control" id="IntituleDuPoste" placeholder="exemple : aide à la vente">
+    <label for="example">Intitulé du poste</label>
+    <input 
+          type="text" 
+          [formControl]="formumaireOffre.controls.intitule" 
+          formControlName="intitule"
+          class="form-control" 
+          id="IntituleDuPoste" 
+          placeholder="exemple : aide à la vente">
   </div>
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Descriptif du poste</label>
-    <textarea class="form-control" id="DescriptifDuPoste" rows="3"></textarea>
+    <textarea 
+                class="form-control" 
+                [formControl]="formumaireOffre.controls.descriptif"
+                formControlName="descriptif"
+                id="DescriptifDuPoste" 
+                rows="3"></textarea>
+              
+    <button class="btn btn-primary" type="submit"
+    (click)="submitOffre()">SUBMIT</button>
   </div>
 </form>
+
+<!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
 
 <ngbd-datepicker-range></ngbd-datepicker-range>
 
@@ -17,13 +36,18 @@
 
 <div class="form-group">
   <label for="inputAddress">Adresse</label>
-  <input type="text" class="form-control" id="inputAddresse" placeholder="ex : rue de vaise">
+  <input [formControl]="formumaireOffre.controls.Adresse"
+  type="text" class="form-control" id="inputAddresse" placeholder="ex : rue de vaise">
 </div>
+
 <div class="form-group">
   <label for="inputAddress2">Ville</label>
-  <input type="text" class="form-control" id="inputVille" placeholder="ex : Lyon">
+  <input [formControl]="formumaireOffre.controls.ville"
+  type="text" class="form-control" id="inputVille" placeholder="ex : Lyon">
 </div>
+
 <div class="form-group">
   <label for="inputAddress2">Code postal</label>
-  <input type="text" class="form-control" id="inputCodePostal" placeholder="ex : 69009">
+  <input [formControl]="formumaireOffre.controls.codepostale"
+  type="text" class="form-control" id="inputCodePostal" placeholder="ex : 69009">
 </div>
