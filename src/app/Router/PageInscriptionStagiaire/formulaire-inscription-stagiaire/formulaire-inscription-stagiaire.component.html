@@ -1,82 +1,99 @@
-<div class="container">
-    <h2 class=mt-3>Informations personnelles</h2>
-    <form [formGroup]="formulaireInscription">
-        <div class="row pt-3 pb-3">
-            <div class="form-check col-6">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Madame</label>
+<div class="container bodyFormulaire">
+    <form class="col-md-8" action="" method="post" [formGroup]="formulaireInscription">
+        <div class="col-sm-12 titres">
+            <h1>Création d'un compte stagiaire</h1>
+        </div>
+        <hr>
+        <div class="col-sm-12 titres">
+            <h2>Informations personnelles</h2>
+        </div>
+        <div class="form-check form-check-inline col-sm-3 mmeMr">
+            <input class="form-check-input check" type="radio" name="madame" id="madame" value="option1" checked>
+            <label class="form-check-label genre" for="madame">
+                Madame
+            </label>
+        </div>
+        <div class="form-check form-check-inline col-sm-3 mmeMr">
+            <input class="form-check-input check" type="radio" name="monsieur" id="monsieur" value="option2">
+            <label class="form-check-label genre" for="monsieur">
+                Monsieur
+            </label>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="prenom">Prénom*</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
             </div>
-            <div class="form-check col-6">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Monsieur</label>
+            <div class="form-group col-md-6">
+                <label for="nom">Nom*</label>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
             </div>
         </div>
-        <div class="row">
-            <div class="form-group col-6">
-                <label for="exampleInputEmail1">Prénom</label>
-                <input type="texte" class="form-control" id="prenom" placeholder="Mon prénom">
-            </div>
-            <div class="form-group col-6">
-                <label for="exampleInputEmail1">Nom</label>
-                <input type="texte" class="form-control" id="prenom" placeholder="Mon Nom">
-            </div>
-        </div>
+
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Etablissement (collège)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="etablissement">Établissement*</label>
+            <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
+            <select type="text" class="form-control" id="etablissement" name="etablissement" placeholder="Établissement">
+                <option value=""></option>
                 <option>Collège 1</option>
                 <option>Collège 2</option>
                 <option>Collège 3</option>
-                <option>Collège 4</option>
-                <option>Collège 5</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Ville du domicile</label>
-            <input type="texte" class="form-control" id="ville" placeholder="Ville">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Code postal</label>
-            <input type="texte" class="form-control" id="codePostal" placeholder="Code postal">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Téléphone</label>
-            <input type="texte" class="form-control" id="telephone" placeholder="n°">
-        </div>
-    </form>
 
-    <h2>Identifiants</h2>
-
-    <form [formGroup]="formulaireInscription">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Confirmation Mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Mot de passe</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Confirmation mot de passe</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="ville">Ville du domicile</label>
+                <input type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="codePostal">Code Postal*</label>
+                <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
+            </div>
         </div>
 
-        <div class="form-check pb-5">
+        <div class="form-group">
+            <label for="tel">Téléphone</label>
+            <input type="text" class="form-control" id="tel" name="tel" placeholder="n°">
+        </div>
+
+        <div class="col-sm-12 titres">
+            <h2>Identifiants</h2>
+        </div>
+
+        <div class="form-group">
+            <label for="mail">E-mail*</label>
+            <input type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
+        </div>
+
+        <div class="form-group">
+            <label for="mail">Confirmation d'E-mail*</label>
+            <input type="email" class="form-control" id="mail" name="mail" placeholder="Entre de nouveau ton e-mail">
+        </div>
+
+        <div class="form-group">
+            <label for="mdp">Mot de passe*</label>
+            <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
+        </div>
+
+        <div class="form-group">
+            <label for="mdp">Confirmation de mot de passe*</label>
+            <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre de nouveau ton mot de passe">
+        </div>
+
+        <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
-                du site et m'y conformer</label>
+            <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
+                du site et m'y
+                conformer*</label>
         </div>
-        <div class="row">
-            <div class="col-3">
-                <button type="submit" class="btn btn-primary btn-lg">Retour</button>
-            </div>
-            <div class="col-3 offset-4">
-                <button type="submit" class="btn btn-primary btn-lg">Valider</button>
-            </div>
+
+        <p><i>Les informations suivies d'un astérisque (*) sont obligatoires. </i></p>
+
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
+            <button type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
         </div>
     </form>
 </div>
