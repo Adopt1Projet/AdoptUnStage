@@ -9,45 +9,61 @@
     </div>
     <div class="form-group">
       <label for="raisonSociale">Raison sociale*</label>
-      <input type="text" class="form-control" id="raisonSociale" placeholder="Raison sociale">
+      <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder="Raison sociale">
     </div>
 
     <div class="form-group">
       <label for="secteurActivité">Secteur d'activité*</label>
+      <small id="secteurActivité" name="secteurActivité" class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
       <select class="form-control">
-        <option>Choisissez le secteur d'activité de votre entreprise</option>
+        <option value=""></option>
+        <option>BTP</option>
+        <option>Restauration</option>
+        <option>Artisanat</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="statut">Statut* (S.A.R.L, Association ...)</label>
-      <input type="text" class="form-control" id="statut" placeholder="Statut">
+      <label for="statutEntreprise">Statut* (S.A.R.L, Association ...)</label>
+      <small id="statutEntreprise" name="statutEntreprise" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
+      <select class="form-control">
+        <option value=""></option>
+        <option>EIRL</option>
+        <option>SARL</option>
+        <option>EURL</option>
+        <option>SAS</option>
+        <option>SASU</option>
+        <option>SA</option>
+        <option>SNC</option>
+        <option>Association</option>
+        <option>Autre</option>
+      </select>
     </div>
 
     <div class="form-group">
       <label for="siteWeb">Site Web</label>
-      <input type="text" class="form-control" id="siteWeb" placeholder="https://...">
+      <input type="text" class="form-control" id="siteWeb" name="siteWeb" placeholder="https://...">
     </div>
 
     <div class="form-group">
       <label for="adresse">Adresse*</label>
-      <input type="text" class="form-control" id="adresse" placeholder="Adresse">
+      <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse">
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="ville">Ville</label>
-        <input type="text" class="form-control" id="ville" placeholder="Lyon">
+        <input type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
       </div>
       <div class="form-group col-md-6">
         <label for="codePostal">Code Postal*</label>
-        <input type="text" class="form-control" id="codePostal" placeholder="69009">
+        <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
       </div>
     </div>
 
     <div class="form-group logo">
-      <label for="logo">Logo</label>
-      <input type="file" class="form-control-file" id="logo">
+      <label for="logo" class="label-file">Logo</label>
+      <input type="file" class="form-control-file input-file" id="logo" name="logo">
     </div>
 
     <div class="col-sm-12 titres">
@@ -55,14 +71,14 @@
     </div>
 
     <div class="form-check form-check-inline col-sm-3 mmeMr">
-      <input class="form-check-input check" type="radio" name="gridRadios" id="prenomReferent" value="option1" checked>
-      <label class="form-check-label genre" for="prenomReferent">
+      <input class="form-check-input check" type="radio" name="madame" id="madame" value="option1" checked>
+      <label class="form-check-label genre" for="madame">
         Madame
       </label>
     </div>
     <div class="form-check form-check-inline col-sm-3 mmeMr">
-      <input class="form-check-input check" type="radio" name="gridRadios" id="nomReferent" value="option2">
-      <label class="form-check-label genre" for="nomReferent">
+      <input class="form-check-input check" type="radio" name="monsieur" id="monsieur" value="option2">
+      <label class="form-check-label genre" for="monsieur">
         Monsieur
       </label>
     </div>
@@ -70,22 +86,22 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="prenomReferent">Prénom*</label>
-        <input type="text" class="form-control" id="prenomReferent" placeholder="Prénom">
+        <input type="text" class="form-control" id="prenomReferent" name="prenomReferent" placeholder="Prénom">
       </div>
       <div class="form-group col-md-6">
         <label for="nomReferent">Nom*</label>
-        <input type="text" class="form-control" id="nomReferent" placeholder="Nom">
+        <input type="text" class="form-control" id="nomReferent" name="nomReferent" placeholder="Nom">
       </div>
     </div>
 
     <div class="form-group">
       <label for="fonction">Fonction</label>
-      <input type="password" class="form-control" id="fonction" placeholder="Fonction">
+      <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction">
     </div>
 
     <div class="form-group">
-      <label for="telephone">Téléphone</label>
-      <input type="text" class="form-control" id="telephone" placeholder="n°">
+      <label for="tel">Téléphone</label>
+      <input type="text" class="form-control" id="tel" name="tel" placeholder="n°">
     </div>
 
     <div class="col-sm-12 titres">
@@ -94,29 +110,32 @@
 
     <div class="form-group">
       <label for="mail">E-mail*</label>
-      <input type="email" class="form-control" id="mail" placeholder="E-mail">
+      <input type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
     </div>
 
     <div class="form-group">
-      <label for="confirmMail">Confirmation E-mail*</label>
-      <input type="email" class="form-control" id="confirmMail" placeholder="Confirmation E-mail">
+      <label for="mail">Confirmation d'E-mail*</label>
+      <input type="email" class="form-control" id="mail" name="mail" placeholder="Entrze de nouveau votre e-mail">
     </div>
 
     <div class="form-group">
-      <label for="motDePasse">Mot de passe*</label>
-      <input type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
+      <label for="mdp">Mot de passe*</label>
+      <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez votre mot de passe">
     </div>
 
     <div class="form-group">
-      <label for="confirmMotdePasse">Password</label>
-      <input type="password" class="form-control" id="confirmMotdePasse" placeholder="Confirmation mot de passe">
+      <label for="mdp">Confirmation de mot de passe*</label>
+      <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez de nouveau votre mot de passe">
     </div>
 
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation du site et m'y
-        conformer</label>
+      <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
+        du site et m'y
+        conformer*</label>
     </div>
+
+    <p><i>Les informations suivies d'un astérisque (*) sont obligatoires. </i></p>
 
     <div class="d-flex justify-content-around">
       <button type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
