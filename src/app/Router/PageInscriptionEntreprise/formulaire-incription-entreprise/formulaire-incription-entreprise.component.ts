@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EntrepriseService } from 'src/app/entreprise.service';
+import { Entreprise } from 'src/app/entreprise';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -28,7 +30,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     mdp2: new FormControl(null, [Validators.required])
     });
 
-  constructor(/*private userService: userService, */ private _location: Location) { }
+  constructor(private entrepriseService: EntrepriseService, private _location: Location) { }
 
   retourPage() {
     this._location.back();
@@ -36,12 +38,11 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
   ngOnInit() {
   }
-  /*
+ 
   onSubmit(){
-    const user: User = Object.assign({}, this.formCreate.value);
-    this.userService.createCustomer(user)
+    const user: Entreprise = Object.assign({}, this.formCreate.value);
+    this.entrepriseService.createEntreprise(user)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
-  */
 }

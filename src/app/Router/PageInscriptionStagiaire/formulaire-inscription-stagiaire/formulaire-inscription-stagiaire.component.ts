@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { StagiaireService } from 'src/app/stagiaire.service';
+import { Stagiaire } from 'src/app/stagiaire';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -15,14 +17,14 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     etablissement: new FormControl(null, [Validators.required]),
     ville: new FormControl(null),
     codePostal: new FormControl(null, [Validators.required]),
-    tel: new FormControl(null),
+    tel: new FormControl(null), // Créer une fonction qui supprime les espaces entre les nombres.
     mail: new FormControl(null, [Validators.required]),
     mail2: new FormControl(null, [Validators.required]),
     mdp: new FormControl(null, [Validators.required]),
     mdp2: new FormControl(null, [Validators.required])
     });
 
-  constructor(/*private userService: userService, */ private _location: Location) { }
+  constructor(private stagiaireService: StagiaireService, private _location: Location) { }
 
   ngOnInit() {
   }
@@ -30,12 +32,12 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
-  /*
+  
   onSubmit(){
-    const user: User = Object.assign({}, this.formCreate.value);
-    this.userService.createCustomer(user)
+    const user: Stagiaire = Object.assign({}, this.formCreate.value);
+    this.stagiaireService.createStagiaire(user)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
-  */
+  
 }
