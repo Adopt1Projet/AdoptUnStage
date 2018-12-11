@@ -1,5 +1,5 @@
 <div class="container bodyFormulaire">
-  <form class="col-md-8" action="" method="post" [formGroup]="formulaireInscription">
+  <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
     <div class="col-sm-12 titres">
       <h1>Création d'un compte entreprise</h1>
     </div>
@@ -9,13 +9,13 @@
     </div>
     <div class="form-group">
       <label for="raisonSociale">Raison sociale*</label>
-      <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder="Raison sociale">
+      <input formControlName="raisonSociale" type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder="Raison sociale">
     </div>
 
     <div class="form-group">
-      <label for="secteurActivité">Secteur d'activité*</label>
-      <small id="secteurActivité" name="secteurActivité" class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
-      <select class="form-control">
+      <label for="secteur">Secteur d'activité*</label>
+      <small class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
+      <select formControlName="secteur" type="text" class="form-control" id="secteur" name="secteur" placeholder="Secteur d'activité">
         <option value=""></option>
         <option>BTP</option>
         <option>Restauration</option>
@@ -25,8 +25,8 @@
 
     <div class="form-group">
       <label for="statutEntreprise">Statut* (S.A.R.L, Association ...)</label>
-      <small id="statutEntreprise" name="statutEntreprise" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
-      <select class="form-control">
+      <small class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
+      <select formControlName="statutEntreprise" id="statutEntreprise" name="statutEntreprise" class="form-control" placeholder="Statut de l'entreprise">
         <option value=""></option>
         <option>EIRL</option>
         <option>SARL</option>
@@ -42,28 +42,28 @@
 
     <div class="form-group">
       <label for="siteWeb">Site Web</label>
-      <input type="text" class="form-control" id="siteWeb" name="siteWeb" placeholder="https://...">
+      <input formControlName="siteWeb" type="text" class="form-control" id="siteWeb" name="siteWeb" placeholder="https://...">
     </div>
 
     <div class="form-group">
       <label for="adresse">Adresse*</label>
-      <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse">
+      <input formControlName="adresse" type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse">
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="ville">Ville</label>
-        <input type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
+        <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
       </div>
       <div class="form-group col-md-6">
         <label for="codePostal">Code Postal*</label>
-        <input type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
+        <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
       </div>
     </div>
 
     <div class="form-group logo">
       <label for="logo" class="label-file">Logo</label>
-      <input type="file" class="form-control-file input-file" id="logo" name="logo">
+      <input formControlName="logo" type="file" class="form-control-file input-file" id="logo" name="logo">
     </div>
 
     <div class="col-sm-12 titres">
@@ -86,22 +86,22 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="prenomReferent">Prénom*</label>
-        <input type="text" class="form-control" id="prenomReferent" name="prenomReferent" placeholder="Prénom">
+        <input formControlName="prenom" type="text" class="form-control" id="prenomReferent" name="prenomReferent" placeholder="Prénom">
       </div>
       <div class="form-group col-md-6">
         <label for="nomReferent">Nom*</label>
-        <input type="text" class="form-control" id="nomReferent" name="nomReferent" placeholder="Nom">
+        <input formControlName="nom" type="text" class="form-control" id="nomReferent" name="nomReferent" placeholder="Nom">
       </div>
     </div>
 
     <div class="form-group">
       <label for="fonction">Fonction</label>
-      <input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction">
+      <input formControlName="fonction" type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction">
     </div>
 
     <div class="form-group">
       <label for="tel">Téléphone</label>
-      <input type="text" class="form-control" id="tel" name="tel" placeholder="n°">
+      <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" placeholder="n°">
     </div>
 
     <div class="col-sm-12 titres">
@@ -110,22 +110,22 @@
 
     <div class="form-group">
       <label for="mail">E-mail*</label>
-      <input type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
+      <input formControlName="mail" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
     </div>
 
     <div class="form-group">
-      <label for="mail">Confirmation d'E-mail*</label>
-      <input type="email" class="form-control" id="mail" name="mail" placeholder="Entrze de nouveau votre e-mail">
+      <label for="mail2">Confirmation d'E-mail*</label>
+      <input formControlName="mail2" type="email" class="form-control" id="mail2" name="mail2" placeholder="Entrze de nouveau votre e-mail">
     </div>
 
     <div class="form-group">
       <label for="mdp">Mot de passe*</label>
-      <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez votre mot de passe">
+      <input formControlName="mdp" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez votre mot de passe">
     </div>
 
     <div class="form-group">
-      <label for="mdp">Confirmation de mot de passe*</label>
-      <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez de nouveau votre mot de passe">
+      <label for="mdp2">Confirmation de mot de passe*</label>
+      <input formControlName="mdp2" type="password" class="form-control" id="mdp2" name="mdp2" placeholder="Entrez de nouveau votre mot de passe">
     </div>
 
     <div class="form-group form-check">
@@ -138,8 +138,8 @@
     <p><i>Les informations suivies d'un astérisque (*) sont obligatoires. </i></p>
 
     <div class="d-flex justify-content-around">
-      <button type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-      <button type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+      <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
+      <button [disabled]="!formCreate.valid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
     </div>
   </form>
 </div>
