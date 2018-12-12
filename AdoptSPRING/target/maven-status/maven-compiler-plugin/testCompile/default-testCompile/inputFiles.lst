@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/test/java/com/javasampleapproach/springrest/mysql/SpringRestMySqlApplicationTests.java
+=======
+/home/wilder/Documents/AdoptSPRING/src/test/java/fr/adoptunstage/spring/ApplicationTests.java
+>>>>>>> 3deb72e7e96ae5af204d5b41546938e43ea525d0

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/AdoptunstageApplication.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
@@ -5,3 +6,12 @@
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
+=======
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
+/home/wilder/Documents/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
+>>>>>>> 3deb72e7e96ae5af204d5b41546938e43ea525d0

@@ -1,27 +1,29 @@
-# AdoptUnStage
+# [Adopt'Un Stage]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+Un site responsive qui permet aux élèves de 3ème du 9ème arrondissement de Lyon de trouver leur stage auprès d'entreprises désireuses de faire découvrir leur secteur. Il s'agit d'un projet pour le compte de l'association Souffle 9.
 
-## Development server
+@[Souffle 9](https://www.souffle9.com/)
+@[Wild Code School](https://github.com/WildCodeSchool)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Équipe : 
 
-## Code scaffolding
+* [Magali Klein](https://github.com/Pelican07)
+* [Hugo Hontans](https://github.com/Hugo-Hontans)
+* [Kevin Radlowski](https://github.com/MaidenQuinn)
+* [Julien Chevrot](https://github.com/juliendcode)
+* [Ioannis Nikas](https://github.com/Alvardh)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Objectif :
 
-## Build
+Créer un site afin de faciliter la mise en relation de stagiaires avec des entreprises proches de leurs domiciles/etablissements scolaires. Il est possible de créer des compte, créer et poster des offres de stage, y postuler, mais également de recourir à des rubriques d'aide, une FAQ et des articles régulièrement mis à jour.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Données techniques :
 
-## Running unit tests
+Le site utilise :
+* Angular 7
+* MySQL
+* Spring
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Période de réalisation :
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Novembre 2018 à Janvier 2019
