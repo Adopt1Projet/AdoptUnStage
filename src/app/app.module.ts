@@ -24,6 +24,11 @@ import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/bou
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
+import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/description-entreprise/description-entreprise.component';
+import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
+import { BoutonsOffreComponent } from './Router/PageDetailOffre/boutons-offre/boutons-offre.component';
 
 
 @NgModule({
@@ -44,7 +49,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageConnexionComponent,
     BoutonsInscriptionConnexionComponent,
     FormulaireConnexionComponent,
-    FormulairePostulerComponent
+    FormulairePostulerComponent,
+    PageDetailOffreComponent,
+    DescriptionOffreComponent,
+    DescriptionEntrepriseComponent,
+    InfosStageComponent,
+    BoutonsOffreComponent
   ],
   imports: [
     BrowserModule,
