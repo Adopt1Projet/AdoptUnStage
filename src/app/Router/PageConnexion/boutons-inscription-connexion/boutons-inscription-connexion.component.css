@@ -1,0 +1,13 @@
+.btnRegisterConnect {
+    background-color: #2fa89a;
+    color: white;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 5%;
+    height: 20vh;
+}
+
+.btnRegisterConnect:hover {
+    background-color: green;
+  }

@@ -1,0 +1,17 @@
+a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.drpdwn {
+    background: none;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.774);
+}
+
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}

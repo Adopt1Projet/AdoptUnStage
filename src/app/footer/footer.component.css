@@ -1,0 +1,9 @@
+.footer {
+    background-color : #00ac9a;
+    padding: 15px;
+}
+
+.footerImg img{
+    max-width: 10%;
+    max-height: 50px;
+}

@@ -1,0 +1,41 @@
+<div class="container no-padding navbanner">
+    <nav class="container navbar navbar-expand-lg navbar-light fixed-top">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-3" routerLink="/accueil">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Qui sommes-nous ?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Actualités</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#">Partenaires</a>
+          </li>
+          <li class="nav-item dropdown">
+              <div ngbDropdown class="d-inline-block">
+                  <button class="btn drpdwn" id="dropdownBasic1" ngbDropdownToggle>Boite à outils</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button class="dropdown-item">F.a.q</button>
+                    <button class="dropdown-item">Contactez nous</button>
+                    <button class="dropdown-item">Démarches</button>
+                  </div>
+                </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+    
+    <div class="bannerImg">
+      <img src="/assets/img/banner.png" class="img-fluid w-100" alt="">
+    </div>
+  </div>

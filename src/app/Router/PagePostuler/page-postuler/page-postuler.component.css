@@ -1,0 +1,18 @@
+.bodyPostul {
+    background-color: white;
+}
+
+.headerPostuler h2 {
+    font-weight: bolder;
+    color: #2fa89a;
+}
+
+.headerPostuler {
+    padding-top: 3%;
+}
+
+hr {
+    border: 1px solid black;
+    width: 70%;
+    margin: 50px;
+}
