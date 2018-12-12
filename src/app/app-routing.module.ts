@@ -7,6 +7,7 @@ import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 
 const routes: Routes = [
   { path : 'connexion', component: PageConnexionComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'postuler', component: PagePostulerComponent},
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent},
   { path: 'offres', component: PageOffresComponent },
+  { path: 'partenaires', component: PagePartenairesComponent},
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
