@@ -1,0 +1,40 @@
+<form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="titre">Intitulé du poste</label>
+    <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
+  </div>
+
+  <div class="form-group">
+    <label for="descriptif">Descriptif du poste</label>
+    <textarea class="form-control" formControlName="descriptif" id="descriptif" rows="3">
+    </textarea>
+  </div>
+
+  <!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
+
+  <!-- <ngbd-datepicker-range></ngbd-datepicker-range> -->
+
+
+  <h2 class="text-center">Localisation du stage</h2>
+
+  <div class="form-group">
+    <label for="rue">Rue</label>
+    <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
+  </div>
+
+  <div class="form-group">
+    <label for="ville">Ville</label>
+    <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
+  </div>
+
+  <div class="form-group">
+    <label for="codePostal">Code postal</label>
+    <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
+  </div>
+  <div>
+    <button class="btn btn-primary text-center" type="submit" (click)="onSubmit()">SUBMIT</button>
+
+  </div>
+
+</form>

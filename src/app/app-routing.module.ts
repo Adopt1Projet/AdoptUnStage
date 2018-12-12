@@ -7,15 +7,18 @@ import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 
 const routes: Routes = [
-  { path : 'connexion', component: PageConnexionComponent},
-  { path : 'accueil', component: PageAccueilComponent},
-  { path: 'postuler', component: PagePostulerComponent},
-  { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent},
+  { path: 'connexion', component: PageConnexionComponent },
+  { path: 'accueil', component: PageAccueilComponent },
+  { path: 'postuler', component: PagePostulerComponent },
+  { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
   { path: 'offres', component: PageOffresComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'}
+  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent }
+
 ];
 
 @NgModule({

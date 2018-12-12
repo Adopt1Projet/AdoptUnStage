@@ -24,6 +24,11 @@ import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/bou
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
+import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
+import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
+import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
+import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 
 
 @NgModule({
@@ -44,7 +49,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageConnexionComponent,
     BoutonsInscriptionConnexionComponent,
     FormulaireConnexionComponent,
-    FormulairePostulerComponent
+    FormulairePostulerComponent,
+    PageBoardEntrepriseComponent,
+    FormulaireCreerOffreComponent,
+    NgbdDatepickerRange,
+    GestionDesOffresComponent,
+    InfosEntrepriseComponent,
+
   ],
   imports: [
     BrowserModule,
