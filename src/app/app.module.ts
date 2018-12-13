@@ -30,6 +30,11 @@ import { ParticipantsComponent } from './Router/PagePartenaires/participants/par
 import { ItemEntrepriseComponent } from './Router/PagePartenaires/item-entreprise/item-entreprise.component';
 import { ListeEntreprisesComponent } from './Router/PagePartenaires/liste-entreprises/liste-entreprises.component';
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
+import { BoutonsOffreComponent } from './Router/PageDetailOffre/boutons-offre/boutons-offre.component';
+import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/description-entreprise/description-entreprise.component';
+import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
+import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
+import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 
 
 @NgModule({
@@ -57,6 +62,11 @@ import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenai
     ItemEntrepriseComponent,
     ListeEntreprisesComponent,
     PagePartenairesComponent,
+    BoutonsOffreComponent,
+    DescriptionEntrepriseComponent,
+    DescriptionOffreComponent,
+    InfosStageComponent,
+    PageDetailOffreComponent
   ],
   imports: [
     BrowserModule,
