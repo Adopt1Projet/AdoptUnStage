@@ -1,7 +1,10 @@
 fr/adoptunstage/spring/controllers/StagiaireController.class
 fr/adoptunstage/spring/Application.class
 fr/adoptunstage/spring/repos/StagiaireRepository.class
+fr/adoptunstage/spring/repos/PartenaireRepository.class
 fr/adoptunstage/spring/models/Stagiaire.class
+fr/adoptunstage/spring/controllers/PartenaireController.class
 fr/adoptunstage/spring/models/Entreprise.class
 fr/adoptunstage/spring/repos/EntrepriseRepository.class
 fr/adoptunstage/spring/controllers/EntrepriseController.class
+fr/adoptunstage/spring/models/Partenaire.class
