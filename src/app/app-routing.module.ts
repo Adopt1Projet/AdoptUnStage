@@ -8,7 +8,12 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+<<<<<<< HEAD
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
+=======
+import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
+import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+>>>>>>> dev
 
 const routes: Routes = [
   { path : 'connexion', component: PageConnexionComponent},
@@ -16,6 +21,8 @@ const routes: Routes = [
   { path: 'postuler', component: PagePostulerComponent},
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent},
   { path: 'offres', component: PageOffresComponent },
+  { path: 'partenaires', component: PagePartenairesComponent},
+  { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: 'boardstagiaire', component: PageBoardStagiaireComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
