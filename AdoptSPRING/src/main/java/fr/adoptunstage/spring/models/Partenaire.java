@@ -20,6 +20,9 @@ public class Partenaire {
 	
 	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "site_web")
+	private String siteWeb;
 
 	@Column(name = "logo")
 	private String logo;
@@ -47,6 +50,14 @@ public class Partenaire {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getSiteWeb() {
+		return siteWeb;
+	}
+
+	public void setSiteWeb(String siteWeb) {
+		this.siteWeb = siteWeb;
+	}
 
 	public String getLogo() {
 		return logo;
@@ -57,16 +68,18 @@ public class Partenaire {
 	}
 
 	public Partenaire() {}
-	
-	public Partenaire(String nom, String description, String logo) {
+
+	public Partenaire(String nom, String description, String siteWeb, String logo) {
 		super();
 		this.nom = nom;
 		this.description = description;
-		this.logo = logo;
+		this.siteWeb = siteWeb;
+		this.logo = logo;	
 	}
 
 	@Override
 	public String toString() {
-		return "Partenaire [id=" + id + ", nom=" + nom + ", description=" + description + ", logo=" + logo + "]";
-	}	
+		return "Partenaire [id=" + id + ", nom=" + nom + ", description=" + description + ", siteWeb=" + siteWeb
+				+ ", logo=" + logo + "]";
+	}		
 }

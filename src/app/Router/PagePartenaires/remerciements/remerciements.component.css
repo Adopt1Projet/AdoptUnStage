@@ -14,3 +14,11 @@ img {
     background-color: #E9E9E9;
     padding: 2vh;
 }
+
+a {
+    color: #00AC9A;
+}
+
+a:hover {
+    color: #008472;
+}
