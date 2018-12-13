@@ -20,7 +20,7 @@ export class ItemOffreComponent implements OnInit {
 
   lastUpdate = new Date();
   constructor() { }
-  getCouleur(){
+  getCouleur() {
     if (this.offrePourvu === 'Disponible') {
       return 'green';
     } else {
