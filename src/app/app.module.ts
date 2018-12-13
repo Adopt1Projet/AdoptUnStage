@@ -12,7 +12,9 @@ import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-acc
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
 import { FormulaireInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component';
+// tslint:disable-next-line:max-line-length
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+// tslint:disable-next-line:max-line-length
 import { FormulaireIncriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component';
 import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres.component';
 import { ListeOffresComponent } from './Router/PageOffres//liste-offres/liste-offres.component';
@@ -20,10 +22,14 @@ import { ItemOffreComponent } from './Router/PageOffres//item-offre/item-offre.c
 import { BoutonInscriptionAccueilComponent } from './Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
+// tslint:disable-next-line:max-line-length
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
+import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
+import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
 
 
 @NgModule({
@@ -44,7 +50,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageConnexionComponent,
     BoutonsInscriptionConnexionComponent,
     FormulaireConnexionComponent,
-    FormulairePostulerComponent
+    FormulairePostulerComponent,
+    PageBoardStagiaireComponent,
+    InfosStagiaireComponent,
+    GestionCandidaturesComponent
   ],
   imports: [
     BrowserModule,
