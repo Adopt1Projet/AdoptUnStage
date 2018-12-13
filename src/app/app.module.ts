@@ -35,6 +35,10 @@ import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/descrip
 import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
 import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
+import { PresentationNousComponent } from './Router/PageQuiSommesNous/presentation-nous/presentation-nous.component';
+import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-inscriptions/liens-inscriptions.component';
+import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-presentation/video-presentation.component';
 
 
 @NgModule({
@@ -66,7 +70,11 @@ import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-o
     DescriptionEntrepriseComponent,
     DescriptionOffreComponent,
     InfosStageComponent,
-    PageDetailOffreComponent
+    PageDetailOffreComponent,
+    PageQuiSommesNousComponent,
+    PresentationNousComponent,
+    LiensInscriptionsComponent,
+    VideoPresentationComponent
   ],
   imports: [
     BrowserModule,
