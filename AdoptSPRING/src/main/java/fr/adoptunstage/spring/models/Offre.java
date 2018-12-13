@@ -29,7 +29,9 @@ public class Offre {
 	
 	@Column(name = "codePostal")
 	private int codePostal;
-
+	
+	@Column(name ="pourvu")
+	private boolean pourvu;
 	
 	public long getId() {
 		return id;
@@ -78,6 +80,16 @@ public class Offre {
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}
+	
+	public boolean isPourvu() {
+		return pourvu;
+	}
+
+	public void setPourvu(boolean pourvu) {
+		this.pourvu = pourvu;
+	}
+
+	
 	public Offre() {};
 	
 	public Offre(
@@ -85,19 +97,22 @@ public class Offre {
 				String description, 
 				String rue, 
 				String ville, 
-				int codePostal) {
+				int codePostal,
+				boolean pourvu) {
 									super();
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
+									this.pourvu = pourvu;
 								}
 
+	
 	@Override
 	public String toString() {
 		return "Offre [id=" + id + ", titre=" + titre + ", description=" + description + ", rue=" + rue + ", ville="
-				+ ville + ", codePostal=" + codePostal + "]";
+				+ ville + ", codePostal=" + codePostal + ", pourvu=" + pourvu + "]";
 	}
 
 	

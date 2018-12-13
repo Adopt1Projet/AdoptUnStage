@@ -47,8 +47,9 @@ public class OffreController{
 											offre.getDescription(),
 											offre.getRue(),
 											offre.getVille(),
-											offre.getCodePostal()
-											
+											offre.getCodePostal(),
+											offre.isPourvu()
+
 											));
 		return _offre;
 	}
@@ -85,6 +86,8 @@ public class OffreController{
 			_offre.setRue(offre.getRue());
 			_offre.setVille(offre.getVille());
 			_offre.setCodePostal(offre.getCodePostal());
+			_offre.setPourvu(offre.isPourvu());
+			
 		
 			return new ResponseEntity<>(repository.save(_offre), HttpStatus.OK);
 		} else {

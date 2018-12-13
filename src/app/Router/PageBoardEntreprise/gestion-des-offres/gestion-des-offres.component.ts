@@ -12,8 +12,10 @@ import { Observable } from 'rxjs';
 export class GestionDesOffresComponent implements OnInit {
 
   offres: Observable<Offre[]>;
-
-  constructor(private offreService: OffreService) { }
+  pourvu: boolean;
+  constructor(private offreService: OffreService) {
+    this.pourvu = false;
+  }
 
 
 
