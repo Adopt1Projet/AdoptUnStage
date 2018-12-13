@@ -23,15 +23,7 @@ export class StagiaireService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteStagiaire(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  }
-
   getStagiaireList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
-  }
-
-  deleteAll(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
   }
 }
