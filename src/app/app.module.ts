@@ -35,6 +35,9 @@ import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/descrip
 import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
 import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
+import { ListeFaqComponent } from './Router/PageFAQ/liste-faq/liste-faq.component';
+import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
 
 
 @NgModule({
@@ -66,7 +69,10 @@ import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-o
     DescriptionEntrepriseComponent,
     DescriptionOffreComponent,
     InfosStageComponent,
-    PageDetailOffreComponent
+    PageDetailOffreComponent,
+    PageFaqComponent,
+    ListeFaqComponent,
+    ItemFaqComponent
   ],
   imports: [
     BrowserModule,
