@@ -76,7 +76,7 @@ import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-pre
     PageDetailOffreComponent,
     PageFaqComponent,
     ListeFaqComponent,
-    ItemFaqComponent
+    ItemFaqComponent,
     PageQuiSommesNousComponent,
     PresentationNousComponent,
     LiensInscriptionsComponent,
