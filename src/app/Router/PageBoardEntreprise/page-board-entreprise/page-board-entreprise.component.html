@@ -4,8 +4,8 @@
 
     <nav>
         <a class="btn btn-light active" (click)="toggleEditor('creerOffre')">Créer une annonce</a>
-        <!-- <a class="btn btn-light"  (click)="toggleEditor('gestionOffres')">Gestion des annonces</a>
-        <a class="btn btn-light"  (click)="toggleEditor('infosEntreprise')">Infos de l'entreprise</a> -->
+        <a class="btn btn-light" (click)="toggleEditor('gestionOffres')">Gestion des annonces</a>
+        <a class="btn btn-light" (click)="toggleEditor('infosEntreprise')">Infos de l'entreprise</a>
     </nav>
 
     <div class="row justify-content-center">
@@ -13,8 +13,8 @@
 
 
             <app-formulaire-creer-offre *ngIf="showFormulaireCreerOffreEditor"></app-formulaire-creer-offre>
-            <!-- <app-gestion-des-offres *ngIf="showGestionOffresEditor"></app-gestion-des-offres>
-            <app-infos-entreprise *ngIf="showInfosEntrepriseEditor"></app-infos-entreprise> -->
+            <app-gestion-des-offres *ngIf="showGestionOffresEditor"></app-gestion-des-offres>
+            <app-infos-entreprise *ngIf="showInfosEntrepriseEditor"></app-infos-entreprise>
 
         </div>
     </div>

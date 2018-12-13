@@ -5,4 +5,6 @@ export class Offre {
     rue: string;
     ville: string;
     codePostal: number;
+    pourvu: boolean;
+
 }
