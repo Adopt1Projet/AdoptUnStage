@@ -38,6 +38,10 @@ import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-o
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { ListeFaqComponent } from './Router/PageFAQ/liste-faq/liste-faq.component';
 import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
+import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
+import { PresentationNousComponent } from './Router/PageQuiSommesNous/presentation-nous/presentation-nous.component';
+import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-inscriptions/liens-inscriptions.component';
+import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-presentation/video-presentation.component';
 
 
 @NgModule({
@@ -73,6 +77,10 @@ import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
     PageFaqComponent,
     ListeFaqComponent,
     ItemFaqComponent
+    PageQuiSommesNousComponent,
+    PresentationNousComponent,
+    LiensInscriptionsComponent,
+    VideoPresentationComponent
   ],
   imports: [
     BrowserModule,
