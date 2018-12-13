@@ -24,6 +24,17 @@ import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/bou
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActeursComponent } from './Router/PagePartenaires/acteurs/acteurs.component';
+import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/remerciements.component';
+import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
+import { ItemEntrepriseComponent } from './Router/PagePartenaires/item-entreprise/item-entreprise.component';
+import { ListeEntreprisesComponent } from './Router/PagePartenaires/liste-entreprises/liste-entreprises.component';
+import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
+import { BoutonsOffreComponent } from './Router/PageDetailOffre/boutons-offre/boutons-offre.component';
+import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/description-entreprise/description-entreprise.component';
+import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
+import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
+import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 
 
 @NgModule({
@@ -44,7 +55,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageConnexionComponent,
     BoutonsInscriptionConnexionComponent,
     FormulaireConnexionComponent,
-    FormulairePostulerComponent
+    FormulairePostulerComponent,
+    ActeursComponent,
+    RemerciementsComponent,
+    ParticipantsComponent,
+    ItemEntrepriseComponent,
+    ListeEntreprisesComponent,
+    PagePartenairesComponent,
+    BoutonsOffreComponent,
+    DescriptionEntrepriseComponent,
+    DescriptionOffreComponent,
+    InfosStageComponent,
+    PageDetailOffreComponent
   ],
   imports: [
     BrowserModule,
