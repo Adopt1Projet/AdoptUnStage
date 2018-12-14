@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Offre } from 'src/app/Offre';
 import { OffreService } from 'src/app/offre.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaire-creer-offre',
