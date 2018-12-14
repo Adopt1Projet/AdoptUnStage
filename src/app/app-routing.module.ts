@@ -12,6 +12,7 @@ import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenai
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
+import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 
 const routes: Routes = [
   { path : 'connexion', component: PageConnexionComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
+  { path: 'contact', component: PageContactezNousComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
 

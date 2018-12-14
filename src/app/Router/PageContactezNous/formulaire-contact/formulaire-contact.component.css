@@ -1,0 +1,35 @@
+.bodyFormContact {
+    padding-bottom: 2%;
+}
+
+.personnalInfo {
+    margin: 1%;
+}
+
+.title {
+    padding: 0;
+    color: #26a69a;
+}
+
+.form-control {
+    background-color: rgb(226, 226, 226);
+}
+
+.postArea {
+    height: 200px;
+}
+
+.btn {
+    background-color: #2a9984;
+    border: none;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 5px 25px 5px 25px;
+    font-weight: bolder;
+    margin: 2%;
+}
+
+.btn:hover {
+    background-color: green;
+}
