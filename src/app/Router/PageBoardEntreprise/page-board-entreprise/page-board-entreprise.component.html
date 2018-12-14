@@ -8,16 +8,16 @@
         <a class="btn btn-light" (click)="toggleEditor('infosEntreprise')">Infos de l'entreprise</a>
     </nav> -->
 
-    <!-- <nav>
-        <a [routerLink]="['../gestionOffres']" class="btn btn-primary active" role="button">Gestion
+    <nav>
+        <a routerLink="/boardentreprise/gestionoffres" class="btn btn-primary active" role="button">Gestion
             des annonces</a>
-        <a [routerLink]="['../creerOffre']" class="btn btn-primary active" role="button">Créer
+        <a routerLink="/boardentreprise/creeroffre" class="btn btn-primary active" role="button">Créer
             une
             annonce</a>
-        <a [routerLink]="['../InfosEntreprise']" class="btn btn-primary active" role="button">Infos
+        <a routerLink="/boardentreprise/infosentreprise" class="btn btn-primary active" role="button">Infos
             de
             mon entreprise</a>
-    </nav> -->
+    </nav>
 
 
 
@@ -26,10 +26,10 @@
     <div class="row justify-content-center">
         <div class="col-8">
 
-            <app-formulaire-creer-offre></app-formulaire-creer-offre>
+            <!-- <app-formulaire-creer-offre></app-formulaire-creer-offre>
             <app-gestion-des-offres></app-gestion-des-offres>
-            <app-infos-entreprise></app-infos-entreprise>
-
+            <app-infos-entreprise></app-infos-entreprise> -->
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

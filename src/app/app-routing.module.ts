@@ -20,10 +20,14 @@ const routes: Routes = [
   { path: 'offres', component: PageOffresComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
-  { path: 'creerOffre', component: FormulaireCreerOffreComponent },
-  { path: 'gestionOffres', component: GestionDesOffresComponent },
-  { path: 'infosEntreprise', component: InfosEntrepriseComponent }]
+  {
+    path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
+      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', component: GestionDesOffresComponent },
+      { path: 'infosentreprise', component: InfosEntrepriseComponent },
+      { path: '', redirectTo: '/gestionoffres', pathMatch: 'full' },
+    ]
+  }]
 
 
 @NgModule({
