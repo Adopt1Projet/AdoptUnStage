@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Partenaire } from 'src/app/partenaire';
-import { PartenaireService } from 'src/app/partenaire.service';
+import { Partenaire } from 'src/app/modeles/partenaire';
+import { PartenaireService } from 'src/app/services/partenaire.service';
 
 @Component({
   selector: 'app-liste-entreprises',

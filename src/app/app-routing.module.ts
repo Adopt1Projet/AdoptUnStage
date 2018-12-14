@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
@@ -9,6 +10,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 
@@ -19,8 +21,10 @@ const routes: Routes = [
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent},
   { path: 'offres', component: PageOffresComponent },
   { path: 'partenaires', component: PagePartenairesComponent},
+  { path: 'faq', component: PageFaqComponent},
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: 'contact', component: PageContactezNousComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}

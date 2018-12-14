@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +10,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
+import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
+import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
+import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
+import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -23,7 +30,6 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ActeursComponent } from './Router/PagePartenaires/acteurs/acteurs.component';
 import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/remerciements.component';
 import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
@@ -35,6 +41,9 @@ import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/descrip
 import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
 import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
+import { ListeFaqComponent } from './Router/PageFAQ/liste-faq/liste-faq.component';
+import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PresentationNousComponent } from './Router/PageQuiSommesNous/presentation-nous/presentation-nous.component';
 import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-inscriptions/liens-inscriptions.component';
@@ -42,13 +51,17 @@ import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-pre
 import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     PageAccueilComponent,
+    PageBoardEntrepriseComponent,
+    FormulaireCreerOffreComponent,
+    NgbdDatepickerRange,
+    GestionDesOffresComponent,
+    InfosEntrepriseComponent,
     PageInscriptionStagiaireComponent,
     FormulaireInscriptionStagiaireComponent,
     PageInscriptionEntrepriseComponent,
@@ -73,6 +86,9 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
     DescriptionOffreComponent,
     InfosStageComponent,
     PageDetailOffreComponent,
+    PageFaqComponent,
+    ListeFaqComponent,
+    ItemFaqComponent,
     PageQuiSommesNousComponent,
     PresentationNousComponent,
     LiensInscriptionsComponent,
