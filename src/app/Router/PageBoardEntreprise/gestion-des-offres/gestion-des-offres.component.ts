@@ -17,10 +17,6 @@ export class GestionDesOffresComponent implements OnInit {
     this.pourvu = false;
   }
 
-
-
-
-
   ngOnInit() {
     this.reloadData();
   }
