@@ -1,0 +1,14 @@
+<div class="row bodyFormConnect d-flex justify-content-center">
+<h5 class="text-center col-12">Déjà inscris ?<br/>Identifiez-vous</h5>
+<form class="row d-flex justify-content-center connexionForm col-8 col-md-4"
+      [formGroup]="formulaireConnexion"
+      (ngSubmit)="submitFormulaireConnexion()">
+  <div class="form-group col-12">
+    <input formControlName="eMail" type="email" class="form-control" id="eMail" placeholder="E-Mail" email>
+  </div>
+  <div class="form-group col-12">
+    <input formControlName="motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
+  </div>
+  <button type="submit" [disabled]="!formulaireConnexion.valid" class="btn connectSubmit">Se connecter</button>
+</form>
+</div>

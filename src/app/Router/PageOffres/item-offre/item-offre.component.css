@@ -1,0 +1,25 @@
+img {
+    height: 4vw;
+    width: 4vw;
+}
+
+.titre {
+    font-weight: bold;
+}
+
+.badge {
+    color: white;
+}
+
+.textPourvu {
+    margin-top: 25%;
+    font-size: 120%;
+}
+
+.textSecteur {
+    text-align: center;
+}
+
+.date {
+    text-align: center;
+}

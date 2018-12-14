@@ -1,0 +1,59 @@
+.bodyFormulaire {
+    background-color: white;
+}
+  
+form{
+    color: #26a69a;
+    margin: 0 auto;
+    padding-top: 3vw;
+    padding-bottom: 3vh;
+}
+  
+.titres{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+  
+h1, h2{
+    text-align: center;
+    font-weight: bolder;
+}
+  
+hr{
+    width: 75%;
+    border: 2px solid #000;
+}
+  
+input, select{
+    background-color: #ebebeb;
+    border: none;
+}
+  
+.mmeMr{
+    padding-left: 1rem;
+    padding-bottom: 1vh;
+}
+  
+.genre, .check{
+    padding-left: 0.5rem;
+    vertical-align: middle;
+}
+  
+.btn{
+    background-color: #26a69a;
+    height: 8vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+}
+  
+  
+.btn:hover {
+    background-color: green;
+}
+
+::placeholder { 
+    color: #C2BFCA;
+    opacity: 1; 
+}

@@ -1,0 +1,15 @@
+.linkInscription {
+    border: 2px solid rgb(226, 226, 226);
+    padding: 20px;
+    margin: 4%;
+    background-color: rgb(245, 245, 245);
+}
+
+.linkInscription:hover {
+    background-color: #26a69a;
+    color: white;
+}
+
+.inscription {
+    color: black;
+}

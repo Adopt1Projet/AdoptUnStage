@@ -1,0 +1,17 @@
+.bodyConnexion{
+    background-color: white;
+}
+
+.headerConnexion h2 {
+    font-weight: bolder;
+    color: #2fa89a;
+}
+
+.headerConnexion {
+    padding-top: 3%;
+}
+
+hr {
+    border: 1px solid black;
+    width : 75%;
+}
