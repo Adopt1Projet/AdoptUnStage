@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { EntrepriseService } from 'src/app/entreprise.service';
-import { Entreprise } from 'src/app/entreprise';
+import { EntrepriseService } from 'src/app/services/entreprise.service';
+import { Entreprise } from 'src/app/modeles/entreprise';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
