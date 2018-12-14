@@ -39,6 +39,8 @@ import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-
 import { PresentationNousComponent } from './Router/PageQuiSommesNous/presentation-nous/presentation-nous.component';
 import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-inscriptions/liens-inscriptions.component';
 import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-presentation/video-presentation.component';
+import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
+import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-pre
     PageQuiSommesNousComponent,
     PresentationNousComponent,
     LiensInscriptionsComponent,
-    VideoPresentationComponent
+    VideoPresentationComponent,
+    FormulaireContactComponent,
+    PageContactezNousComponent
   ],
   imports: [
     BrowserModule,
