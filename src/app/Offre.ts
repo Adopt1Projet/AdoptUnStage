@@ -1,5 +1,6 @@
 export class Offre {
     id: number;
+    idEntreprise: number;
     titre: string;
     descriptif: string;
     rue: string;

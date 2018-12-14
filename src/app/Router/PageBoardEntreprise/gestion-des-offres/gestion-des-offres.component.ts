@@ -25,7 +25,7 @@ export class GestionDesOffresComponent implements OnInit {
     this.reloadData();
   }
 
-  deleteCustomers() {
+  deleteOffres() {
     this.offreService.deleteAll()
       .subscribe(
         data => {
