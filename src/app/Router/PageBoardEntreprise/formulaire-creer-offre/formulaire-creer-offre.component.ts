@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { Offre } from 'src/app/Offre';
 import { OffreService } from 'src/app/offre.service';
+
 @Component({
   selector: 'app-formulaire-creer-offre',
   templateUrl: './formulaire-creer-offre.component.html',
@@ -25,7 +26,6 @@ export class FormulaireCreerOffreComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     this.formOffre.reset();
   }
-
 
   ngOnInit() {
   }
