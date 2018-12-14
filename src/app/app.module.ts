@@ -30,6 +30,12 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
+import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
+import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
+import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
+import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { ActeursComponent } from './Router/PagePartenaires/acteurs/acteurs.component';
 import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/remerciements.component';
 import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
@@ -75,6 +81,11 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
     BoutonsInscriptionConnexionComponent,
     FormulaireConnexionComponent,
     FormulairePostulerComponent,
+    PageBoardEntrepriseComponent,
+    FormulaireCreerOffreComponent,
+    NgbdDatepickerRange,
+    GestionDesOffresComponent,
+    InfosEntrepriseComponent,
     ActeursComponent,
     RemerciementsComponent,
     ParticipantsComponent,

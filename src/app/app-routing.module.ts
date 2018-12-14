@@ -8,18 +8,29 @@ import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
+import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
+import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
+import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 
+
 const routes: Routes = [
-  { path : 'connexion', component: PageConnexionComponent},
-  { path : 'accueil', component: PageAccueilComponent},
-  { path: 'postuler', component: PagePostulerComponent},
-  { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent},
+  { path: 'connexion', component: PageConnexionComponent },
+  { path: 'accueil', component: PageAccueilComponent },
+  { path: 'postuler', component: PagePostulerComponent },
+  { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
   { path: 'offres', component: PageOffresComponent },
+  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
+  { path: 'creerOffre', component: FormulaireCreerOffreComponent },
+  { path: 'gestionOffres', component: GestionDesOffresComponent },
+  { path: 'infosEntreprise', component: InfosEntrepriseComponent },
   { path: 'partenaires', component: PagePartenairesComponent},
   { path: 'faq', component: PageFaqComponent},
   { path: 'detailoffre', component: PageDetailOffreComponent },
