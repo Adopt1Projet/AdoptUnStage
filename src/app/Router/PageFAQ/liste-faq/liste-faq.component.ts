@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FaqService } from 'src/app/faq.service';
+import { FaqService } from 'src/app/services/faq.service';
 import { Observable } from 'rxjs';
-import { Faq } from 'src/app/faq';
+import { Faq } from 'src/app/modeles/faq';
 
 @Component({
   selector: 'app-liste-faq',

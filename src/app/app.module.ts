@@ -30,7 +30,6 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
 import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ActeursComponent } from './Router/PagePartenaires/acteurs/acteurs.component';
 import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/remerciements.component';
 import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
