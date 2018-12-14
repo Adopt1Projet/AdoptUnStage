@@ -1,17 +1,14 @@
 <div class="container bodyFormulaire">
-    <form class="col-md-8" [formGroup]="formCreate">
+    
         <div class="col-sm-12 titres">
             <h1>Mon tableau de bord</h1>
         </div>
         <hr>
         <div class="d-flex justify-content-around">
-            <button type="button" class="btn col-4 col-sm-5 shadow">Mes candidatures en cours</button>
-            <button [disabled]="!formCreate.valid" type="submit" class="btn col-4 col-sm-5 shadow">Mes infos de profil</button>
-        </div>
-
-<app-infos-stagiaire></app-infos-stagiaire>
-
-<app-gestion-candidatures></app-gestion-candidatures>
-
-    </form>
+                <button type="button" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire/infosstagiaire">Mes infos de profil</button>
+                <button type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire/gestionstagiaire">Mes candidatures en cours</button>
+            </div>
+   
 </div>
+
+<router-outlet></router-outlet>

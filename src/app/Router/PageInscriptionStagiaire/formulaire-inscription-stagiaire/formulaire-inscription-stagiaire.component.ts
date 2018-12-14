@@ -32,12 +32,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
-  
-  onSubmit(){
+   onSubmit() {
     const user: Stagiaire = Object.assign({}, this.formCreate.value);
     this.stagiaireService.createStagiaire(user)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
-  
 }

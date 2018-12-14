@@ -8,12 +8,11 @@ import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/pa
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
-<<<<<<< HEAD
-import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
-=======
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
->>>>>>> dev
+import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
+import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
+import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
 
 const routes: Routes = [
   { path : 'connexion', component: PageConnexionComponent},
@@ -24,7 +23,11 @@ const routes: Routes = [
   { path: 'partenaires', component: PagePartenairesComponent},
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
-  { path: 'boardstagiaire', component: PageBoardStagiaireComponent },
+  { path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
+    { path: 'gestionstagiaire' , component: GestionCandidaturesComponent },
+    { path: 'infosstagiaire' , component: InfosStagiaireComponent },
+    { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full'},
+  ]},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
 
