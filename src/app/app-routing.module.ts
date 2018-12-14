@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'faq', component: PageFaqComponent},
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
