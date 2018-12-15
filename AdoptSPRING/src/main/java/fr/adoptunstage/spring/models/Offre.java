@@ -13,8 +13,9 @@ public class Offre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private long id;
-
+	
 	@Column(name = "titre")
 	private String titre;
 	
@@ -93,6 +94,7 @@ public class Offre {
 	public Offre() {};
 	
 	public Offre(
+				long id,
 				String titre, 
 				String description, 
 				String rue, 
@@ -100,6 +102,7 @@ public class Offre {
 				int codePostal,
 				boolean pourvu) {
 									super();
+									this.id = id;
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;

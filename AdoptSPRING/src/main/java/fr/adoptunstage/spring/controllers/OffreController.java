@@ -33,16 +33,17 @@ public class OffreController{
 	public List<Offre> getAllOffres() {
 		System.out.println("Affiche toutes les offres");
 
-		List<Offre> offres = new ArrayList<>();
-		repository.findAll().forEach(offres::add);
+		List<Offre> offre = new ArrayList<>();
+		repository.findAll().forEach(offre::add);
 
-		return offres;
+		return offre;
 	}
 
 	@PostMapping(value = "/offre/creer")
 	public Offre postEntreprise(@RequestBody Offre offre) {
 
 		Offre _offre = repository.save(new Offre(
+											offre.getId(),
 											offre.getTitre(),
 											offre.getDescription(),
 											offre.getRue(),
@@ -53,9 +54,13 @@ public class OffreController{
 											));
 		return _offre;
 	}
-
-	@DeleteMapping("/offres/{id}")
-	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
+	
+//	@DeleteMapping(value="/api/customers/{id}")
+//	public void deleteCustomer(@PathVariable Long id){
+//		customers.remove(id);
+//	}
+	@DeleteMapping("api/offre/{id}")
+	public ResponseEntity<String> deleteById(@PathVariable("id") long id) {
 		System.out.println("Suppression de l'offre avec l'ID = " + id + "...");
 
 		repository.deleteById(id);
@@ -63,8 +68,8 @@ public class OffreController{
 		return new ResponseEntity<>("offre a été supprimée !", HttpStatus.OK);
 	}
 
-	@DeleteMapping("/offres/supprimer")
-	public ResponseEntity<String> deleteAllEntreprises() {
+	@DeleteMapping("/offre/supprimer")
+	public ResponseEntity<String> deleteAll() {
 		System.out.println("Suppression de toutes les offres...");
 
 		repository.deleteAll();
@@ -81,6 +86,7 @@ public class OffreController{
 
 		if (offreData.isPresent()) {
 			Offre _offre = offreData.get();
+			_offre.setId(offre.getId());
 			_offre.setTitre(offre.getTitre());
 			_offre.setDescription(offre.getDescription());
 			_offre.setRue(offre.getRue());

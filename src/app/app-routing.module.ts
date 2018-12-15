@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'creeroffre', component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', component: GestionDesOffresComponent },
       { path: 'infosentreprise', component: InfosEntrepriseComponent },
-      { path: '', redirectTo: '/gestionoffres', pathMatch: 'full' },
+      // { path: '', redirectTo: '/gestionoffres', pathMatch: 'full' },
     ]
   }]
 

@@ -5,7 +5,7 @@
   <hr>
   <br>
 </div>
-<div *ngFor="let offre of offres | async" style="width: 300px;">
+<div *ngFor="let offre of offre | async" style="width: 300px;">
   <div>
     <label>référence: </label> {{offre.id}}
   </div>
@@ -21,7 +21,7 @@
 
   <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span> -->
 
-  <span class="button is-small btn-danger" (click)='deleteOffre()'>Delete</span>
+  <span class="button is-small btn-danger" (click)='deleteOffre(id)'>Delete</span>
 
   <hr />
   <!-- </div> -->

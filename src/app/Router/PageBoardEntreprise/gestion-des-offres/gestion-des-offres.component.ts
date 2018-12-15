@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/Offre';
 import { OffreService } from "src/app/offre.service";
 import { Observable } from 'rxjs';
@@ -11,16 +11,28 @@ import { Observable } from 'rxjs';
 })
 export class GestionDesOffresComponent implements OnInit {
 
-  offres: Observable<Offre[]>;
-  pourvu: boolean;
+  // @Input() offre: Offre;
+  offre: Observable<Offre[]>;
+  id: number;
+  // pourvu: boolean;
   constructor(private offreService: OffreService) {
-    this.pourvu = false;
+    // this.pourvu = false;
+
   }
 
   ngOnInit() {
     this.reloadData();
   }
 
+  deleteOffre(id) {
+    this.offreService.deleteOffre(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
   deleteOffres() {
     this.offreService.deleteAll()
       .subscribe(
@@ -32,6 +44,6 @@ export class GestionDesOffresComponent implements OnInit {
   }
 
   reloadData() {
-    this.offres = this.offreService.getOffresList();
+    this.offre = this.offreService.getOffresList();
   }
 }
