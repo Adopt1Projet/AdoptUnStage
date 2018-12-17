@@ -31,3 +31,7 @@ input {
 .connectSubmit:hover {
     background-color: green;
 }
+
+#loginFailed{
+    color: red;
+}

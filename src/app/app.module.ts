@@ -50,6 +50,7 @@ import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-ins
 import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-presentation/video-presentation.component';
 import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,7 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

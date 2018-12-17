@@ -31,7 +31,8 @@
                 </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+            <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+            <a *ngIf="isInfo==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
           </li>
         </ul>
       </div>
