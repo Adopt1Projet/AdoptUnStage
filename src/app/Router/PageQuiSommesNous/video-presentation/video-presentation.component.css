@@ -1,0 +1,20 @@
+@media (min-width: 768px) { 
+    .center {
+        width: 720px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+@media (max-width: 767px){
+    .center {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        padding:0 ;
+    }
+}
+
+.center {
+    padding-bottom: 5%;
+}

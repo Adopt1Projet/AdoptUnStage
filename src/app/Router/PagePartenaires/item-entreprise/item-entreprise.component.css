@@ -10,3 +10,11 @@ img {
 .row {
     margin-bottom: 2vh;
 }
+
+a {
+    color: #00AC9A;
+}
+
+a:hover {
+    color: #008472;
+}

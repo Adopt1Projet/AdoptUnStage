@@ -1,5 +1,5 @@
 <div class="container">
-<div class="row" *ngFor="let partenaire of partenaires">
-    <app-item-entreprise [partenaire]="partenaire"></app-item-entreprise>
-</div>
+    <div class="row" *ngFor="let partenaire of partenaires | async">
+        <app-item-entreprise [partenaire]="partenaire"></app-item-entreprise>
+    </div>
 </div>
