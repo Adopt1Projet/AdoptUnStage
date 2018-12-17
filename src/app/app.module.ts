@@ -53,6 +53,7 @@ import { LiensInscriptionsComponent } from './Router/PageQuiSommesNous/liens-ins
 import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-presentation/video-presentation.component';
 import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
+import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,9 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
     LiensInscriptionsComponent,
     VideoPresentationComponent,
     FormulaireContactComponent,
-    PageContactezNousComponent
+    PageContactezNousComponent,
+    PageAideComponent
+
   ],
   imports: [
     BrowserModule,

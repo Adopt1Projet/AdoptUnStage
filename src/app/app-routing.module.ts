@@ -17,7 +17,7 @@ import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-o
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
-
+import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
   { path: 'partenaires', component: PagePartenairesComponent},
   { path: 'faq', component: PageFaqComponent},
+  { path: 'aide', component: PageAideComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
