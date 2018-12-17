@@ -9,7 +9,9 @@ fr/adoptunstage/spring/models/Question.class
 fr/adoptunstage/spring/controllers/PartenaireController.class
 fr/adoptunstage/spring/models/Offre.class
 fr/adoptunstage/spring/repos/EntrepriseRepository.class
+fr/adoptunstage/spring/services/EntrepriseService.class
 fr/adoptunstage/spring/controllers/EntrepriseController.class
+fr/adoptunstage/spring/services/PartenaireService.class
 fr/adoptunstage/spring/controllers/QuestionController.class
 fr/adoptunstage/spring/models/Entreprise.class
 fr/adoptunstage/spring/repos/OffreRepository.class
