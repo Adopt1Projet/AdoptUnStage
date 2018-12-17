@@ -6,6 +6,7 @@ import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagi
 import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres.component';
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
+// tslint:disable-next-line:max-line-length
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
@@ -16,7 +17,7 @@ import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-o
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
-
+import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
   { path: 'partenaires', component: PagePartenairesComponent},
   { path: 'faq', component: PageFaqComponent},
+  { path: 'aide', component: PageAideComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },

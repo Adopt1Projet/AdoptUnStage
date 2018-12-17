@@ -1,5 +1,6 @@
-.bodyFAQ {
+.bodyAide {
     background-color: white;
+    padding-bottom: 3vh;
 }
 
 a {
@@ -20,15 +21,19 @@ a:hover {
 }
 
 p {
-    text-align: center;
+    text-align: justify;
     margin: 0 auto;
 }
 
-.presentation {
+.blocTexte {
     background-color: #E8E8E8;
     padding: 2vh;
 }
 
-.blocListe{
-    padding-top: 3vh;
+h2 {
+    color: #26a69a;
+}
+
+.blocInfo {
+    padding: 2vh;
 }
