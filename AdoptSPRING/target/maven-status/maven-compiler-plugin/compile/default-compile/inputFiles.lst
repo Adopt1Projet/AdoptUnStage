@@ -1,4 +1,5 @@
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/OffreRepository.java
+/home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
@@ -9,6 +10,7 @@
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Question.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
+/home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/QuestionRepository.java
 /home/wilder/Documents/WildCodeSchool/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
