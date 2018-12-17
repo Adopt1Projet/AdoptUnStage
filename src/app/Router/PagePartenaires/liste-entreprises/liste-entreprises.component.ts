@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Partenaire } from 'src/app/modeles/partenaire';
+import { PartenaireService } from 'src/app/services/partenaire.service';
 
 @Component({
   selector: 'app-liste-entreprises',
@@ -7,42 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeEntreprisesComponent implements OnInit {
 
-  partenaires = [
-    {
-      nom: "Burger King",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    },
-    {
-      nom: "Mac Donald's",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    },
-    {
-      nom: "Pizza Hut",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    },
-    {
-      nom: "Taco Bell",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    },
-    {
-      nom: "Le Camion Qui Fume",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    },
-    {
-      nom: "Pomme de pain",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo provident omnis nostrum blanditiis ab incidunt architecto inventore voluptatibus at. Numquam doloremque iure pariatur adipisci atque quidem delectus recusandae quibusdam tempora.",
-      logo: "https://statewideguttercompany.com/wp-content/uploads/2012/07/logo-placeholder.jpg"
-    }
-  ];
+  partenaires: Observable<Partenaire[]>;
 
-  constructor() { }
+  constructor(private partenaireService : PartenaireService) { }
 
   ngOnInit() {
+    this.partenaires = this.partenaireService.getPartenairesList();
   }
-
 }

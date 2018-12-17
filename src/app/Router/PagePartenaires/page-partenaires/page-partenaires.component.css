@@ -10,3 +10,13 @@
     padding-top: 3vw;
     padding-bottom: 3vh;
 }
+
+p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.presentation {
+    background-color: #E8E8E8;
+    padding: 2vh;
+}
