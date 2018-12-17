@@ -14,6 +14,9 @@ import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
+import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
+import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
@@ -38,6 +41,11 @@ const routes: Routes = [
   { path: 'quisommesnous', component: PageQuiSommesNousComponent},
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
+  { path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
+    { path: 'gestionstagiaire' , component: GestionCandidaturesComponent },
+    { path: 'infosstagiaire' , component: InfosStagiaireComponent },
+    { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full'},
+  ]},
   { path: 'contact', component: PageContactezNousComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];

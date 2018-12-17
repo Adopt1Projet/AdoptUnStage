@@ -1,0 +1,84 @@
+
+<div class="container bodyFormulaire">
+    <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
+
+        <div class="blocUpdateProfil">
+            <div class="form-check form-check-inline col-sm-3 mmeMr">
+                    <input class="form-check-input check" type="radio" name="madame" id="madame" value="option1" checked>
+                    <label class="form-check-label genre" for="madame">
+                        Madame
+                    </label>
+                </div>
+                <div class="form-check form-check-inline col-sm-3 mmeMr">
+                    <input class="form-check-input check" type="radio" name="monsieur" id="monsieur" value="option2">
+                    <label class="form-check-label genre" for="monsieur">
+                        Monsieur
+                    </label>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="prenom">Prénom*</label>
+                        <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nom">Nom*</label>
+                        <input formControlName="nom" type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="etablissement">Établissement*</label>
+                    <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
+                    <select formControlName="etablissement" type="text" class="form-control" id="etablissement" name="etablissement" placeholder="Établissement">
+                        <option value=""></option>
+                        <option>Collège 1</option>
+                        <option>Collège 2</option>
+                        <option>Collège 3</option>
+                    </select>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ville">Ville du domicile</label>
+                        <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="codePostal">Code Postal*</label>
+                        <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="tel">Téléphone</label>
+                    <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" placeholder="n°">
+                </div>
+
+                <div class="form-group">
+                    <label for="mail">Modifier l'email</label>
+                    <input formControlName="mail" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
+                </div>
+            
+                <div class="form-group">
+                    <label for="mail">Confirmer le nouvel email</label>
+                    <input formControlName="mail2" type="email2" class="form-control" id="mail2" name="mail2" placeholder="Entre de nouveau ton e-mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="mdp">Modifier le mot de passe</label>
+                    <input formControlName="mdp" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
+                </div>
+            
+                <div class="form-group">
+                    <label for="mdp2">Confirmer le nouveau mot de passe</label>
+                    <input formControlName="mdp2" type="password" class="form-control" id="mdp2" name="mdp2" placeholder="Entre de nouveau ton mot de passe">
+                </div>
+
+                <div>
+                    <button type="button" class="btn shadow">Valider les modifications</button>
+                </div>
+
+            </div>
+    </form> 
+</div>
+
