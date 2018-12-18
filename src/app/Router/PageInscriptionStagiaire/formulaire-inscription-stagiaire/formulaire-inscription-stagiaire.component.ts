@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { StagiaireService } from 'src/app/stagiaire.service';
-import { Stagiaire } from 'src/app/stagiaire';
+import { StagiaireService } from 'src/app/services/stagiaire.service';
+import { Stagiaire } from 'src/app/modeles/stagiaire';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -32,12 +32,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
-  
-  onSubmit(){
+   onSubmit() {
     const user: Stagiaire = Object.assign({}, this.formCreate.value);
     this.stagiaireService.createStagiaire(user)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
-  
 }

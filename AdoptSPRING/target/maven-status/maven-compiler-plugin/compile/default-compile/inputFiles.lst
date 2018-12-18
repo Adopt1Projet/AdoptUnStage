@@ -1,10 +1,23 @@
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/OffreRepository.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
-/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
+
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/OffreService.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/QuestionController.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/OffreRepository.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Question.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/QuestionRepository.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Partenaire.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
+/home/Hugo/Documents/Projet 3/presentationSonia/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/QuestionService.java
+
