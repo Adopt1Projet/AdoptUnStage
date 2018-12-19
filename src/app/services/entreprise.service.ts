@@ -16,7 +16,7 @@ export class EntrepriseService {
   }
 
   createEntreprise(customer: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}` + `/creer`, customer);
+    return this.http.post(`http://localhost:8080/api/auth/signup`, customer);
   }
 
   updateEntreprise(id: number, value: any): Observable<Object> {

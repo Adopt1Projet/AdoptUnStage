@@ -20,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adoptunstage.spring.message.request.SignUpForm;
+
 import fr.adoptunstage.spring.message.request.LoginForm;
 import fr.adoptunstage.spring.message.response.JwtResponse;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
+import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.User;
@@ -40,6 +43,7 @@ public class AuthRestAPIs {
 
 	@Autowired
 	UserRepository userRepository;
+
 
 	@Autowired
 	RoleRepository roleRepository;
@@ -62,6 +66,53 @@ public class AuthRestAPIs {
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
+	}
+	
+	@PostMapping("/signup")
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
+					HttpStatus.BAD_REQUEST);
+		}
+
+		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+			return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
+					HttpStatus.BAD_REQUEST);
+		}
+
+		// Creating user's account
+		Entreprise user = new Entreprise(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getLogo(), signUpRequest.getPrenom(), signUpRequest.getFonction(), signUpRequest.getTel());
+
+		Set<String> strRoles = new HashSet<String>();
+		strRoles.add("user");
+		Set<Role> roles = new HashSet<>();
+
+		strRoles.forEach(role -> {
+			switch (role) {
+			case "admin":
+				Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(adminRole);
+
+				break;
+			case "pm":
+				Role pmRole = roleRepository.findByName(RoleName.ROLE_PM)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(pmRole);
+
+				break;
+			default:
+				Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(userRole);
+			}
+		});
+
+		user.setRoles(roles);
+		userRepository.save(user);
+
+		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 
 	

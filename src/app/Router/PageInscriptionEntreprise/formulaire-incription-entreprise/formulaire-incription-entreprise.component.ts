@@ -12,22 +12,28 @@ import { Entreprise } from 'src/app/modeles/entreprise';
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
   formCreate = new FormGroup({
+    name: new FormControl(null, [Validators.required]),
+    email: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [Validators.required]),
+
     raisonSociale: new FormControl(null, [Validators.required]),
     secteur: new FormControl(null, [Validators.required]),
+
     statutEntreprise: new FormControl(null, [Validators.required]),
-    siteWeb: new FormControl(null),
     adresse: new FormControl(null, [Validators.required]),
+   
     ville: new FormControl(null),
-    codePostal: new FormControl(null, [Validators.required]),
+    codePostal: new FormControl(0, [Validators.required]),
+    
+    
     logo: new FormControl(null),
     prenom: new FormControl(null, [Validators.required]),
-    nom: new FormControl(null, [Validators.required]),
+    
     fonction: new FormControl(null),
-    tel: new FormControl(null),
-    mail: new FormControl(null, [Validators.required]),
-    mail2: new FormControl(null, [Validators.required]),
-    mdp: new FormControl(null, [Validators.required]),
-    mdp2: new FormControl(null, [Validators.required])
+    tel: new FormControl(0), 
+
+    siteWeb: new FormControl(null), 
+    
     });
 
   constructor(private entrepriseService: EntrepriseService, private _location: Location) { }
@@ -40,9 +46,11 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   }
  
   onSubmit(){
-    const user: Entreprise = Object.assign({}, this.formCreate.value);
-    this.entrepriseService.createEntreprise(user)
+    const entreprise: Entreprise = this.formCreate.value;
+    entreprise.username = entreprise.email;
+    this.entrepriseService.createEntreprise(entreprise)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
+
 }
