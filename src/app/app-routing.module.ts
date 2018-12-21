@@ -6,6 +6,7 @@ import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagi
 import { PageOffresComponent } from './Router/PageOffres/page-offres/page-offres.component';
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
 import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-postuler.component';
+// tslint:disable-next-line:max-line-length
 import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntreprise/page-inscription-entreprise/page-inscription-entreprise.component';
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
@@ -13,10 +14,13 @@ import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
+import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
+import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
-
+import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -30,14 +34,31 @@ const routes: Routes = [
   { path: 'creerOffre', component: FormulaireCreerOffreComponent },
   { path: 'gestionOffres', component: GestionDesOffresComponent },
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
-  { path: 'partenaires', component: PagePartenairesComponent},
-  { path: 'faq', component: PageFaqComponent},
+  { path: 'partenaires', component: PagePartenairesComponent },
+  { path: 'faq', component: PageFaqComponent },
+  { path: 'aide', component: PageAideComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
-  { path: 'quisommesnous', component: PageQuiSommesNousComponent},
+  { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
-  { path: 'contact', component: PageContactezNousComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'}
+  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
+  {
+    path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
+      { path: 'gestionstagiaire', component: GestionCandidaturesComponent },
+      { path: 'infosstagiaire', component: InfosStagiaireComponent },
+      { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
+    ]
+  },
+  { path: 'contact', component: PageContactezNousComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  {
+    path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
+      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', component: GestionDesOffresComponent },
+      { path: 'infosentreprise', component: InfosEntrepriseComponent },
+      { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
+    ]
+  },
+
 ];
 
 @NgModule({

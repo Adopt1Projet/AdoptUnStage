@@ -3,6 +3,16 @@
         <div class="col-sm-12 titres">
             <h1>Création d'un compte stagiaire</h1>
         </div>
+        <div class="modeEmploi">
+            <p>Inscris-toi en quelques clics et trouve le stage qui te plait ! </p>
+            <ol>
+                <li>Remplis le formulaire ci-dessous pour créer ton compte personnel</li>
+                <li>Réponds aux annonces de stages en ligne avec ton CV et ta lettre de motivation</li>
+                <li>Gère tes candidature en ligne directement sur le site internet</li>
+                <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage</li>
+            </ol>
+            <p>Des questions ? Consultes notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta question <a id="lienFaq" routerLink="/contact">ici</a>.</p>
+        </div>
         <hr>
         <div class="col-sm-12 titres">
             <h2>Informations personnelles</h2>
@@ -93,7 +103,7 @@
 
         <div class="d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-            <button [disabled]="!formCreate.valid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+            <button type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
         </div>
     </form>
 </div>
