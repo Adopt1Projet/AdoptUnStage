@@ -1,0 +1,21 @@
+<div *ngIf="actu">
+  <h2>{{actu.titre}}</h2>
+  <br>
+  <blockquote *ngIf="actu.exergue"><i>{{actu.exergue}}</i></blockquote>
+  <br>
+  <figure>
+    <img *ngIf="actu.image" src="{{actu.image}}" alt="image actu">
+    <figcaption>{{actu.legendeImage}}</figcaption>
+  </figure>
+  <br>
+  <p *ngIf="actu.paragraphe1">{{actu.paragraphe1}}</p>
+  <br>
+  <h4 *ngIf="actu.intertitre1">{{actu.intertitre1}}</h4>
+  <br>
+  <p *ngIf="actu.paragraphe2">{{actu.paragraphe2}}</p>
+  <br>
+  <h4 *ngIf="actu.intertitre2">{{actu.intertitre2}}</h4>
+  <br>
+  <p *ngIf="actu.paragraphe3">{{actu.paragraphe3}}</p>
+  <br>
+</div>

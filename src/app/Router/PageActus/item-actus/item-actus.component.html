@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-2">
+    <img *ngIf="actu.image" src="{{actu.image}}"
+      alt="picto article">
+      <img *ngIf="!actu.image" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
+      alt="picto article">
+  </div>
+  <div class="col-md-10">
+    <h5 class="mb-1">{{actu.titre}}</h5>
+    <small>3 days ago</small>
+    <p class="mb-1 paragraphe">{{actu.paragraphe1}}</p>
+  </div>

@@ -1,0 +1,9 @@
+.paragraphe {
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+img {
+    width: 20vh;
+}

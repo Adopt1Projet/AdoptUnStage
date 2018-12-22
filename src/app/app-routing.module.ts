@@ -21,6 +21,8 @@ import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
+import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
+import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -47,6 +49,8 @@ const routes: Routes = [
     { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full'},
   ]},
   { path: 'contact', component: PageContactezNousComponent},
+  { path: 'actus', component: PageActusComponent},
+  { path: 'article/:id', component: ActuDetailComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
 
