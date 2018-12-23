@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Offre } from 'src/app/Offre';
-import { OffreService } from "src/app/offre.service";
+import { Offre } from 'src/app/modeles/offre';
+import { OffreService } from "src/app/services/offre.service";
 import { Observable } from 'rxjs';
 
 
@@ -16,10 +16,6 @@ export class GestionDesOffresComponent implements OnInit {
   constructor(private offreService: OffreService) {
     this.pourvu = false;
   }
-
-
-
-
 
   ngOnInit() {
     this.reloadData();
