@@ -50,7 +50,7 @@ input, select{
   
   
 .btn:hover {
-    background-color: green;
+    background-color: #2ed1bb;
 }
 
 ::placeholder { 

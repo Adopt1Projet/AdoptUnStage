@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,7 +50,6 @@ import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-ca
 // Board entreprise
 // tslint:disable-next-line:max-line-length
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
-import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ItemEntrepriseComponent } from './Router/PagePartenaires/item-entreprise/item-entreprise.component';
 import { ListeEntreprisesComponent } from './Router/PagePartenaires/liste-entreprises/liste-entreprises.component';
@@ -78,6 +77,12 @@ import { FormulaireContactComponent } from './Router/PageContactezNous/formulair
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+// Page actualités
+import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
+import { ListeActusComponent } from './Router/PageActus/liste-actus/liste-actus.component';
+import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.component';
+import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 
 
 @NgModule({
@@ -132,7 +137,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     VideoPresentationComponent,
     FormulaireContactComponent,
     PageContactezNousComponent,
-    PageAideComponent
+    PageAideComponent,
+    PageActusComponent,
+    ListeActusComponent,
+    ItemActusComponent,
+    ActuDetailComponent
 
   ],
   imports: [

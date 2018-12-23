@@ -1,0 +1,19 @@
+p::first-letter { 
+    font-size: 200%;
+    color: #00B499;
+}
+
+p {
+    line-height: 1.7em;
+}
+
+img {
+    max-width: 90%;
+    display: block;
+    margin: auto;
+}
+
+figcaption {
+    text-align: center;
+    font-style : italic;
+}
