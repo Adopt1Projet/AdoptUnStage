@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 import { ActuService } from 'src/app/services/actu.service';
 import { Actu } from 'src/app/modeles/actu';
@@ -14,12 +13,10 @@ export class ListeActusComponent implements OnInit {
 
   actus: Observable<Actu[]>;
 
-  constructor(private actuService: ActuService, private route: ActivatedRoute) { 
-    this.route.params.subscribe( params => console.log(params));
+  constructor(private actuService: ActuService) { 
   }
 
   ngOnInit() {
     this.actus = this.actuService.getActusList();
   }
-
 }

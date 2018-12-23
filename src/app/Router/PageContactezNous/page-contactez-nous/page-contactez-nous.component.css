@@ -1,6 +1,5 @@
 .bodycontactezNous {
     background-color: white;
-    padding: 0;
 }
 
 .titre {
@@ -11,7 +10,12 @@
     padding-bottom: 3vh;
 }
 
-.line {
-    width: 80%;
-    border: 1px solid black;
+.info {
+    background-color: #E8E8E8;
+    padding: 2vh;
+}
+
+p {
+    text-align: center;
+    margin: 0 auto;
 }

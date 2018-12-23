@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-actu-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actu-detail.component.css']
 })
 export class ActuDetailComponent implements OnInit {
+  
+  @Input() actu: any;
 
   constructor() { }
 

@@ -1,7 +1,7 @@
 <div class="container list-group">
-  <a *ngFor="let actu of actus | async; let i = index" class="list-group-item list-group-item-action flex-column align-items-start" routerLink="/article/:id">
+  <a *ngFor="let actu of actus | async" class="list-group-item list-group-item-action flex-column align-items-start" [routerLink]="['/article', actu.id]">
     <app-item-actus [actu]="actu"></app-item-actus>
+    <app-actu-detail [actu]="actu" class="hide"></app-actu-detail>
   </a>
-
   <br>
 </div>
