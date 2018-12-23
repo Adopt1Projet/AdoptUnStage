@@ -5,7 +5,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -42,7 +41,6 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 
 // Page connexion
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
-import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 // Board stagiaire
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -78,6 +76,7 @@ import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-pre
 import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Page actualités
 import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';

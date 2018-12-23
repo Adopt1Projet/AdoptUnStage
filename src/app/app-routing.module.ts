@@ -36,11 +36,11 @@ const routes: Routes = [
   { path: 'creerOffre', component: FormulaireCreerOffreComponent },
   { path: 'gestionOffres', component: GestionDesOffresComponent },
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
-  { path: 'partenaires', component: PagePartenairesComponent},
-  { path: 'faq', component: PageFaqComponent},
+  { path: 'partenaires', component: PagePartenairesComponent },
+  { path: 'faq', component: PageFaqComponent },
   { path: 'aide', component: PageAideComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
-  { path: 'quisommesnous', component: PageQuiSommesNousComponent},
+  { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
@@ -52,6 +52,13 @@ const routes: Routes = [
   { path: 'actus', component: PageActusComponent},
   { path: 'article/:id', component: ActuDetailComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
+      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', component: GestionDesOffresComponent },
+      { path: 'infosentreprise', component: InfosEntrepriseComponent },
+      { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
+    ]
+  },
 ];
 
 @NgModule({

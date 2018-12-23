@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { StagiaireService } from 'src/app/stagiaire.service';
 // import { Stagiaire } from 'src/app/stagiaire';
 
+
 @Component({
   selector: 'app-infos-stagiaire',
   templateUrl: './infos-stagiaire.component.html',
