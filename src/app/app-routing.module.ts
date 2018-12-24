@@ -23,6 +23,7 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
+import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -37,8 +38,6 @@ const routes: Routes = [
   { path: 'gestionOffres', component: GestionDesOffresComponent },
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'faq', component: PageFaqComponent },
-  { path: 'aide', component: PageAideComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
@@ -58,6 +57,11 @@ const routes: Routes = [
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]
   },
+  { path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
+    { path: 'faq', component: PageFaqComponent },
+    { path: 'aide', component: PageAideComponent },
+    { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
+  ]},
 ];
 
 @NgModule({

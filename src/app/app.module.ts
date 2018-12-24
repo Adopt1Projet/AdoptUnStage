@@ -84,6 +84,7 @@ import { ListeActusComponent } from './Router/PageActus/liste-actus/liste-actus.
 import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.component';
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
+import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 
 
 @NgModule({
@@ -143,7 +144,8 @@ import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui
     ListeActusComponent,
     ItemActusComponent,
     ActuDetailComponent,
-    QuiSommesNousComponent
+    QuiSommesNousComponent,
+    PageBoiteAOutilsComponent
 
   ],
   imports: [
