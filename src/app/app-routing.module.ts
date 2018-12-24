@@ -51,7 +51,6 @@ const routes: Routes = [
   { path: 'contact', component: PageContactezNousComponent},
   { path: 'actus', component: PageActusComponent},
   { path: 'article/:id', component: ActuDetailComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'}
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
       { path: 'creeroffre', component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', component: GestionDesOffresComponent },

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +40,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 
 // Page connexion
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 // Board stagiaire
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -83,6 +83,7 @@ import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.com
 import { ListeActusComponent } from './Router/PageActus/liste-actus/liste-actus.component';
 import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.component';
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
+import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
 
 
 @NgModule({
@@ -141,7 +142,8 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
     PageActusComponent,
     ListeActusComponent,
     ItemActusComponent,
-    ActuDetailComponent
+    ActuDetailComponent,
+    QuiSommesNousComponent
 
   ],
   imports: [
