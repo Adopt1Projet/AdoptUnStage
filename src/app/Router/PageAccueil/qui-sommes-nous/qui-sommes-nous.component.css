@@ -1,0 +1,13 @@
+.center {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.card p {
+    margin: 4%;
+}
+
+.card-header {
+    font-size: 1.2em;
+}
