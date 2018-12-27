@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaire-connexion',
@@ -8,16 +8,36 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class FormulaireConnexionComponent implements OnInit {
 
-  formulaireConnexion = new FormGroup({
-    eMail: new FormControl(null, [Validators.required]),
-    motDePasse: new FormControl(null, [Validators.required])
-  });
-​
+  public formConnect: FormGroup;
 
-  constructor() { }
+  // formulaireConnexion = new FormGroup({
+  //   mail: new FormControl(null, [Validators.required]),
+  //   motDePasse: new FormControl(null, [Validators.required])
+  // });
+
+
+  constructor(private fb: FormBuilder) {
+    this.formConnect = this.connectForm();
+  }
+
+  connectForm(): FormGroup {
+    return this.fb.group(
+      {
+        mail: [
+          null,
+          Validators.compose([Validators.required]),
+          Validators.compose([Validators.required])
+        ],
+        motDePasse: [
+          null,
+          Validators.compose([Validators.required])
+        ]
+      }
+    )
+  }
 
   submitFormulaireConnexion() {
-    console.log(this.formulaireConnexion.value);
+    console.log(this.formConnect.value);
   }
 
   ngOnInit() {
