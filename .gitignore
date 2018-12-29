@@ -48,5 +48,6 @@ package-lock\.json
 /bin/
 /.project
 /.settings/
+/AdoptSPRING/target
 /target/
 /bin/
