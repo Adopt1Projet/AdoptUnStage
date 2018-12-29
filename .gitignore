@@ -39,3 +39,14 @@ testem.log
 Thumbs.db
 
 package-lock\.json
+
+#  Eclipse JavaEE 
+/.classpath
+/.project
+/.settings/
+/target/
+/bin/
+/.project
+/.settings/
+/target/
+/bin/
