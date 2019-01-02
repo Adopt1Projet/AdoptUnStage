@@ -14,6 +14,7 @@
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/RoleName.java
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/User.java
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/QuestionController.java
+/home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Role.java
 /home/Hugo/Documents/Projet 3/connexion/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java

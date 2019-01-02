@@ -20,7 +20,7 @@ public class PartenaireController {
 	PartenaireService service;
 
 	@GetMapping("/partenaires")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('STAGIAIRE')")
 	public List<Partenaire> getAllPartenaires() {
 		return service.getAllPartenaires();
 	}

@@ -37,7 +37,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="nom">Nom*</label>
-                <input formControlName="nom" type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                <input formControlName="name" type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
             </div>
         </div>
 
@@ -74,23 +74,14 @@
 
         <div class="form-group">
             <label for="mail">E-mail*</label>
-            <input formControlName="mail" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
-        </div>
-
-        <div class="form-group">
-            <label for="mail">Confirmation d'E-mail*</label>
-            <input formControlName="mail2" type="email2" class="form-control" id="mail2" name="mail2" placeholder="Entre de nouveau ton e-mail">
+            <input formControlName="email" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
         </div>
 
         <div class="form-group">
             <label for="mdp">Mot de passe*</label>
-            <input formControlName="mdp" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
+            <input formControlName="password" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
         </div>
 
-        <div class="form-group">
-            <label for="mdp2">Confirmation de mot de passe*</label>
-            <input formControlName="mdp2" type="password" class="form-control" id="mdp2" name="mdp2" placeholder="Entre de nouveau ton mot de passe">
-        </div>
 
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -103,7 +94,7 @@
 
         <div class="d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-            <button type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
+            <button type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
         </div>
     </form>
 </div>
