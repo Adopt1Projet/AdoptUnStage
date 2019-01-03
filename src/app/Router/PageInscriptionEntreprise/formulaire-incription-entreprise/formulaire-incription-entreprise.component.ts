@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { Entreprise } from 'src/app/modeles/entreprise';
+import { CustomValidators } from '../../../services/custom-validators';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -11,32 +12,31 @@ import { Entreprise } from 'src/app/modeles/entreprise';
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
-  formCreate = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    email: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required]),
 
-    raisonSociale: new FormControl(null, [Validators.required]),
-    secteur: new FormControl(null, [Validators.required]),
+  public formCreate: FormGroup;
 
-    statutEntreprise: new FormControl(null, [Validators.required]),
-    adresse: new FormControl(null, [Validators.required]),
-   
-    ville: new FormControl(null),
-    codePostal: new FormControl(0, [Validators.required]),
-    
-    
-    logo: new FormControl(null),
-    prenom: new FormControl(null, [Validators.required]),
-    
-    fonction: new FormControl(null),
-    tel: new FormControl(0), 
+  // formCreate = new FormGroup({
+  //   raisonSociale: new FormControl(null, [Validators.required]),
+  //   secteur: new FormControl(null, [Validators.required]),
+  //   statutEntreprise: new FormControl(null, [Validators.required]),
+  //   siteWeb: new FormControl(null),
+  //   adresse: new FormControl(null, [Validators.required]),
+  //   ville: new FormControl(null),
+  //   codePostal: new FormControl(null, [Validators.required]),
+  //   logo: new FormControl(null),
+  //   prenom: new FormControl(null, [Validators.required]),
+  //   nom: new FormControl(null, [Validators.required]),
+  //   fonction: new FormControl(null),
+  //   tel: new FormControl(null),
+  //   mail: new FormControl(null, [Validators.required]),
+  //   mail2: new FormControl(null, [Validators.required]),
+  //   mdp: new FormControl(null, [Validators.required]),
+  //   mdp2: new FormControl(null, [Validators.required])
+  //   });
 
-    siteWeb: new FormControl(null), 
-    
-    });
-
-  constructor(private entrepriseService: EntrepriseService, private _location: Location) { }
+  constructor(private entrepriseService: EntrepriseService, private _location: Location, private fb: FormBuilder) {
+    this.formCreate = this.createSignupForm();
+   }
 
   retourPage() {
     this._location.back();
@@ -44,6 +44,99 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  createSignupForm(): FormGroup {
+    return this.fb.group(
+      {
+        siteWeb: [null],
+        logo: [null],
+        fonction: [null],
+        raisonSociale: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        secteur: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        statutEntreprise: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        adresse: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        ville: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        prenomReferent: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        nomReferent: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        tel: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        mail: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ],
+        checkCgu: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        password: [
+          null,
+          Validators.compose([
+            Validators.required,
+            // check whether the entered password has a number
+            CustomValidators.patternValidator(/\d/, {
+              hasNumber: true
+            }),
+            // check whether the entered password has upper case letter
+            CustomValidators.patternValidator(/[A-Z]/, {
+              hasCapitalCase: true
+            }),
+            // check whether the entered password has a lower case letter
+            CustomValidators.patternValidator(/[a-z]/, {
+              hasSmallCase: true
+            }),
+            // check whether the entered password has a special character
+            /* 
+             * CustomValidators.patternValidator(
+             *  /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+             *  {
+             *    hasSpecialCharacters: true
+             *  }
+             *  ), 
+            */
+            Validators.minLength(6)
+          ])
+        ],
+        confirmPassword: [null, Validators.compose([Validators.required])],
+        confirmMail: [
+          null, 
+          Validators.compose([Validators.email, Validators.required])
+        ]
+      },
+      {
+        // Vérifie si le mdp et l'email sont bien les mêmes
+        validator: [CustomValidators.passwordMatchValidator,
+        CustomValidators.mailMatchValidator]
+      }
+    );
+  }
+
  
   onSubmit(){
     const entreprise: Entreprise = this.formCreate.value;

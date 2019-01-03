@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +40,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 
 // Page connexion
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 // Board stagiaire
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -50,7 +50,6 @@ import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-ca
 // Board entreprise
 // tslint:disable-next-line:max-line-length
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
-import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 import { FormulairePostulerComponent } from './Router/PagePostuler/formulaire-postuler/formulaire-postuler.component';
 import { ItemEntrepriseComponent } from './Router/PagePartenaires/item-entreprise/item-entreprise.component';
 import { ListeEntreprisesComponent } from './Router/PagePartenaires/liste-entreprises/liste-entreprises.component';
@@ -79,6 +78,14 @@ import { PageContactezNousComponent } from './Router/PageContactezNous/page-cont
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+// Page actualités
+import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
+import { ListeActusComponent } from './Router/PageActus/liste-actus/liste-actus.component';
+import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.component';
+import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
+import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
+import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 
 
 @NgModule({
@@ -133,7 +140,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     VideoPresentationComponent,
     FormulaireContactComponent,
     PageContactezNousComponent,
-    PageAideComponent
+    PageAideComponent,
+    PageActusComponent,
+    ListeActusComponent,
+    ItemActusComponent,
+    ActuDetailComponent,
+    QuiSommesNousComponent,
+    PageBoiteAOutilsComponent
 
   ],
   imports: [

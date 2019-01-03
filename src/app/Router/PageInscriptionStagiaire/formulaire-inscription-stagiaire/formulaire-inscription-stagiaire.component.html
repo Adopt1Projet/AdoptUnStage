@@ -1,5 +1,6 @@
 <div class="container bodyFormulaire">
-    <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
+
+    <form class="col-md-8" (ngSubmit)="onSubmit()" (submit)="submit()" [formGroup]="formCreate">
         <div class="col-sm-12 titres">
             <h1>Création d'un compte stagiaire</h1>
         </div>
@@ -11,41 +12,47 @@
                 <li>Gère tes candidature en ligne directement sur le site internet</li>
                 <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage</li>
             </ol>
-            <p>Des questions ? Consultes notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta question <a id="lienFaq" routerLink="/contact">ici</a>.</p>
+            <p>Des questions ? Consultes notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta
+                question
+                <a id="lienFaq" routerLink="/contact">ici</a>.</p>
         </div>
         <hr>
         <div class="col-sm-12 titres">
             <h2>Informations personnelles</h2>
         </div>
-        <div class="form-check form-check-inline col-sm-3 mmeMr">
-            <input class="form-check-input check" type="radio" name="madame" id="madame" value="option1" checked>
-            <label class="form-check-label genre" for="madame">
-                Madame
-            </label>
-        </div>
-        <div class="form-check form-check-inline col-sm-3 mmeMr">
-            <input class="form-check-input check" type="radio" name="monsieur" id="monsieur" value="option2">
-            <label class="form-check-label genre" for="monsieur">
-                Monsieur
-            </label>
-        </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="prenom">Prénom*</label>
-                <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                <label for="firstname">Prénom</label>
+                <input id="firstname" formControlName="firstname" type="text" class="form-control" [ngClass]="formCreate.controls['firstname'].invalid ? 'is-invalid' : ''"
+                    placeholder="Prénom">
+                <label class="text-danger" *ngIf="formCreate.controls['firstname'].hasError('required')">
+                    Le prénom est requis!
+                </label>
+                <label class="text-danger" *ngIf="formCreate.controls['firstname'].hasError('firstname')">
+                    Merci d'entrer votre prénom!
+                </label>
             </div>
+
             <div class="form-group col-md-6">
-                <label for="nom">Nom*</label>
-                <input formControlName="name" type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+
+                <label for="name">Nom</label>
+                <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formCreate.controls['name'].invalid ? 'is-invalid' : ''"
+                    placeholder="Nom">
+                <label class="text-danger" *ngIf="formCreate.controls['name'].hasError('required')">
+                    Le nom est requis!
+                </label>
+                <label class="text-danger" *ngIf="formCreate.controls['name'].hasError('name')">
+                    Merci d'entrer votre nom!
+                </label>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="etablissement">Établissement*</label>
+            <label for="etablissement">Établissement</label>
             <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
-            <select formControlName="etablissement" type="text" class="form-control" id="etablissement" name="etablissement" placeholder="Établissement">
-                <option value=""></option>
+            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="formCreate.controls['etablissement'].invalid ? 'is-invalid' : ''"
+                name="etablissement" placeholder="Établissement">
                 <option>Collège Jean de Verrazane</option>
                 <option>Collège Jean Perrin</option>
                 <option>Collège Victor Schoechler</option>
@@ -55,17 +62,39 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="ville">Ville du domicile</label>
-                <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" placeholder="Lyon">
+                <input id="ville" formControlName="ville" type="text" class="form-control" [ngClass]="formCreate.controls['ville'].invalid ? 'is-invalid' : ''"
+                    placeholder="Ville">
+                <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('required')">
+                    La ville est requise!
+                </label>
+                <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('ville')">
+                    Merci d'entrer votre ville!
+                </label>
             </div>
+
             <div class="form-group col-md-6">
-                <label for="codePostal">Code Postal*</label>
-                <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal" placeholder="69009">
+                <label for="codePostal">Code Postal</label>
+                <input id="codePostal" formControlName="codePostal" type="text" class="form-control" [ngClass]="formCreate.controls['codePostal'].invalid ? 'is-invalid' : ''"
+                    placeholder="Code Postal">
+                <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('required')">
+                    Le code postal est requis!
+                </label>
+                <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('codePostal')">
+                    Merci d'entrer votre code postal!
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label for="tel">Téléphone</label>
-            <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" placeholder="n°">
+            <input id="tel" formControlName="tel" type="text" class="form-control" [ngClass]="formCreate.controls['tel'].invalid ? 'is-invalid' : ''"
+                placeholder="n°">
+            <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('required')">
+                Le téléphone est requis!
+            </label>
+            <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('tel')">
+                Merci d'entrer votre numéro de téléphone!
+            </label>
         </div>
 
         <div class="col-sm-12 titres">
@@ -73,28 +102,95 @@
         </div>
 
         <div class="form-group">
-            <label for="mail">E-mail*</label>
-            <input formControlName="email" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
+            <label for="mail">E-mail</label>
+            <input id="mail" formControlName="email" type="email" class="form-control" placeholder="Exemple@mail.com" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
+            <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('required')">
+                Le mail est requis!
+            </label>
+            <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('mail')">
+                Entrez une adresse mail valide!
+            </label>
         </div>
 
         <div class="form-group">
-            <label for="mdp">Mot de passe*</label>
-            <input formControlName="password" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
+            <label for="confirmMail">Confirmation de l'E-mail</label>
+            <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formCreate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
+            <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('required')">
+                Le mail est requis!
+            </label>
+            <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('NoMailMatch')">
+                Entrez une adresse mail valide!
+            </label>
         </div>
 
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="formCreate.controls['password'].invalid ? 'is-invalid' : ''">
+            <label class="text-danger col" *ngIf="formCreate.controls['password'].hasError('required')">
+                Mot de passe requis!
+            </label>
+            <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
+                    formCreate.controls['password'].hasError('minlength') ? 'cancel' :
+                    'check_circle' }}</i>
+                Dois contenir au minimum 6 caractères!
+            </label>
+            <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
+                    formCreate.controls['password'].hasError('hasNumber') ? 'cancel' :
+                    'check_circle' }}</i>
+                Dois contenir au minimum un chiffre!
+            </label>
+            <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
+                    formCreate.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+                    'check_circle' }}</i>
+                Dois contenir au minimum une lettre majuscule!
+            </label>
+            <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+                <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
+                    formCreate.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+                    'check_circle' }}</i>
+                Dois contenir au minimum une lettre minuscule!
+            </label>
+            <!-- <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
+              <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
+                formCreate.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
+                'check_circle' }}</i>
+              Must contain at least 1 Special Character!
+            </label> -->
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirmation du mot de passe</label>
+            <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
+                [ngClass]="formCreate.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
+            <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('required')">
+                Mot de passe requis!
+            </label>
+            <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('NoPasswordMatch')">
+                Mot de passe incorrect!
+            </label>
+        </div>
 
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input">
             <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
-                du site et m'y
-                conformer*</label>
+                du site et m'y conformer
+            </label>
+            <label class="text-danger" *ngIf="formCreate.controls['checkCgu'].hasError('required')">
+                Veuillez lire et accepter les conditions d'utilisation!
+            </label>
+
         </div>
 
-        <p><i>Les informations suivies d'un astérisque (*) sont obligatoires. </i></p>
-
-        <div class="d-flex justify-content-around">
+        <div class="form-group d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-            <button type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+
+        <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
+
         </div>
+
     </form>
+
 </div>

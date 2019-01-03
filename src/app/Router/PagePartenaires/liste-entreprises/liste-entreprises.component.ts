@@ -14,7 +14,7 @@ export class ListeEntreprisesComponent implements OnInit {
 
   partenaires: Observable<Partenaire[]>;
 
-  constructor(private partenaireService : PartenaireService) { }
+  constructor(private partenaireService: PartenaireService) { }
 
   ngOnInit() {
     this.partenaires = this.partenaireService.getPartenairesList();

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { TokenStorageService} from '../../../auth/token-storage.service';
 import { Router } from '@angular/router';
 import { AuthLoginInfo } from '../../../auth/login-info';
+
 
 @Component({
   selector: 'app-formulaire-connexion',
@@ -12,18 +14,41 @@ import { AuthLoginInfo } from '../../../auth/login-info';
 })
 export class FormulaireConnexionComponent implements OnInit {
 
-  formulaireConnexion = new FormGroup({
-    username: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required])
-  });
 
-  isLoginFailed = false;
+  public formConnect: FormGroup;
+
+  // formulaireConnexion = new FormGroup({
+  //   username: new FormControl(null, [Validators.required]),
+  //   password: new FormControl(null, [Validators.required])
+  // });
+
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private fb: FormBuilder) {
+    this.formConnect = this.connectForm();
+  }
+
+  connectForm(): FormGroup {
+    return this.fb.group(
+      {
+        username: [
+          null,
+          Validators.compose([Validators.required]),
+          Validators.compose([Validators.required])
+        ],
+        password: [
+          null,
+          Validators.compose([Validators.required])
+        ]
+      }
+    )
+  }
+    
+    isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
-​
-
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,) { }
+    
+    
 
   submitFormulaireConnexion() {
     this.loginInfo = this.formulaireConnexion.value;

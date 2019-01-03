@@ -1,5 +1,5 @@
 <div class="container no-padding navbanner">
-    <nav class="container navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="container navbar navbar-expand-lg fixed-top">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,23 +12,16 @@
             <a class="nav-link mx-3" routerLink="/quisommesnous">Qui sommes-nous ?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3" href="#">Actualités</a>
+            <a class="nav-link mx-3" routerLink="/actus">Actualités</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3" routerLink="/partenaires">Partenaires</a>
           </li>
-          <li class="nav-item dropdown">
-              <div ngbDropdown class="d-inline-block">
-                  <button class="btn drpdwn" id="dropdownBasic1" ngbDropdownToggle>Boite à outils</button>
-                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-
-                    <button class="dropdown-item" routerLink="/faq">F.a.q</button>
-                    <button class="dropdown-item" routerLink="/aide">Aide</button>
-                    <button class="dropdown-item" routerLink="/contact">Contactez nous</button>
-                    
-
-                  </div>
-                </div>
+          <li class="nav-item">
+              <a class="nav-link mx-3" routerLink="/boiteaoutils">Boite à outils</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" routerLink="/contact">Contact</a>
           </li>
           <li class="nav-item">
             <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
