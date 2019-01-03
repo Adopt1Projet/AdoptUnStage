@@ -1,12 +1,13 @@
 fr/adoptunstage/spring/repos/QuestionRepository.class
+fr/adoptunstage/spring/controllers/StagiaireController.class
 fr/adoptunstage/spring/Application.class
 fr/adoptunstage/spring/services/OffreService.class
 fr/adoptunstage/spring/controllers/OffreController.class
 fr/adoptunstage/spring/security/services/UserDetailsServiceImpl.class
 fr/adoptunstage/spring/models/Stagiaire.class
 fr/adoptunstage/spring/models/Offre.class
-fr/adoptunstage/spring/message/request/SignUpFormStagiaire.class
 fr/adoptunstage/spring/repos/EntrepriseRepository.class
+fr/adoptunstage/spring/message/request/SignUpFormStagiaire.class
 fr/adoptunstage/spring/controllers/EntrepriseController.class
 fr/adoptunstage/spring/message/response/ResponseMessage.class
 fr/adoptunstage/spring/controllers/AuthRestAPIs.class
@@ -22,10 +23,11 @@ fr/adoptunstage/spring/models/Actu.class
 fr/adoptunstage/spring/services/QuestionService.class
 fr/adoptunstage/spring/services/ActuService.class
 fr/adoptunstage/spring/models/RoleName.class
-fr/adoptunstage/spring/services/StagiaireService.class
+fr/adoptunstage/spring/repos/StagiaireRepository.class
 fr/adoptunstage/spring/repos/PartenaireRepository.class
-fr/adoptunstage/spring/message/request/SignUpForm.class
+fr/adoptunstage/spring/services/StagiaireService.class
 fr/adoptunstage/spring/models/Question.class
+fr/adoptunstage/spring/message/request/SignUpForm.class
 fr/adoptunstage/spring/controllers/PartenaireController.class
 fr/adoptunstage/spring/services/EntrepriseService.class
 fr/adoptunstage/spring/models/User.class
@@ -33,6 +35,7 @@ fr/adoptunstage/spring/security/services/UserPrinciple.class
 fr/adoptunstage/spring/repos/ActuRepository.class
 fr/adoptunstage/spring/controllers/QuestionController.class
 fr/adoptunstage/spring/security/jwt/JwtAuthEntryPoint.class
+fr/adoptunstage/spring/models/Entreprise.class
 fr/adoptunstage/spring/repos/OffreRepository.class
 fr/adoptunstage/spring/controllers/ActuController.class
 fr/adoptunstage/spring/message/response/JwtResponse.class
