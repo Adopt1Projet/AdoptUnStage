@@ -4,11 +4,13 @@
       [formGroup]="formConnect"
       (ngSubmit)="submitFormulaireConnexion()">
   <div class="form-group col-12">
-    <input formControlName="mail" type="email" class="form-control" id="mail" placeholder="E-Mail" [ngClass]="formConnect.controls['mail'].invalid ? 'is-invalid' : ''">
+    <input formControlName="username" type="email" class="form-control" id="eMail" placeholder="E-Mail" email [ngClass]="formConnect.controls['mail'].invalid ? 'is-invalid' : ''">
   </div>
   <div class="form-group col-12">
-    <input formControlName="motDePasse" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe" [ngClass]="formConnect.controls['motDePasse'].invalid ? 'is-invalid' : ''">
+    <input formControlName="password" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe" [ngClass]="formConnect.controls['motDePasse'].invalid ? 'is-invalid' : ''">
   </div>
-  <button type="submit" [disabled]="formConnect.invalid" class="btn connectSubmit">Se connecter</button>
+  <div *ngIf="isLoginFailed"><p id="loginFailed">Email ou mot de passe non valide.</p></div>
+  <button type="submit" [disabled]="formConnect.valid" class="btn connectSubmit">Se connecter</button>
+
 </form>
 </div>

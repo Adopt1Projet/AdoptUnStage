@@ -40,7 +40,7 @@ input {
 .connectSubmit:hover {
     background-color: green;
 }
-#form{
-    margin-bottom: 30px;
-    margin-top: 20px;
+
+#loginFailed{
+    color: red;
 }

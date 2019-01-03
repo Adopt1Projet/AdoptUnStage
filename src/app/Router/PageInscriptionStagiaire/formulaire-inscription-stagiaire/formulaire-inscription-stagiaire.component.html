@@ -35,6 +35,7 @@
             </div>
 
             <div class="form-group col-md-6">
+
                 <label for="name">Nom</label>
                 <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formCreate.controls['name'].invalid ? 'is-invalid' : ''"
                     placeholder="Nom">
@@ -102,7 +103,7 @@
 
         <div class="form-group">
             <label for="mail">E-mail</label>
-            <input id="mail" formControlName="mail" type="email" class="form-control" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
+            <input id="mail" formControlName="email" type="email" class="form-control" placeholder="Exemple@mail.com" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
             <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('required')">
                 Le mail est requis!
             </label>
@@ -185,7 +186,9 @@
 
         <div class="form-group d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
+
+        <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
+
         </div>
 
     </form>

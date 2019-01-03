@@ -29,27 +29,7 @@ public class EntrepriseService {
 		return entreprises;
 	}
 	
-	public Entreprise postEntreprise(@RequestBody Entreprise entreprise) {
 
-		Entreprise _entreprise = repository.save(new Entreprise(
-											entreprise.getRaisonSociale(),
-											entreprise.getSecteur(),
-											entreprise.getStatut(),
-											entreprise.getSiteWeb(),
-											entreprise.getAdresse(),
-											entreprise.getVille(),
-											entreprise.getCodePostal(),
-											entreprise.getLogo(),
-											entreprise.getPrenom(),
-											entreprise.getNom(),
-											entreprise.getFonction(),
-											entreprise.getTel(),
-											entreprise.getMail(),
-											entreprise.getMdp()
-											));
-		System.out.println("Nouvelle entreprise = " + _entreprise.toString());
-		return _entreprise;
-	}
 	
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		System.out.println("Suppression de l'entreprise avec l'ID = " + id + "...");
@@ -75,11 +55,11 @@ public class EntrepriseService {
 									_entreprise.setCodePostal(entreprise.getCodePostal());
 									_entreprise.setLogo(entreprise.getLogo());
 									_entreprise.setPrenom(entreprise.getPrenom());
-									_entreprise.setNom(entreprise.getNom());
+									_entreprise.setName(entreprise.getName());
 									_entreprise.setFonction(entreprise.getFonction());
 									_entreprise.setTel(entreprise.getTel());
-									_entreprise.setMail(entreprise.getMail());
-									_entreprise.setMdp(entreprise.getMdp());
+									_entreprise.setEmail(entreprise.getEmail());
+									_entreprise.setPassword(entreprise.getPassword());
 			System.out.println("Nouvelles propriétés de l'entreprise = " + _entreprise.toString());
 			return new ResponseEntity<>(repository.save(_entreprise), HttpStatus.OK);
 		} else {

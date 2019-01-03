@@ -121,7 +121,7 @@
 
       <div class="form-group col-md-6">
         <label for="nomReferent">Nom</label>
-        <input id="nomReferent" formControlName="nomReferent" type="text" class="form-control" [ngClass]="formCreate.controls['nomReferent'].invalid ? 'is-invalid' : ''"
+        <input id="nomReferent" formControlName="name" type="text" class="form-control" [ngClass]="formCreate.controls['nomReferent'].invalid ? 'is-invalid' : ''"
           placeholder="Nom">
         <label class="text-danger" *ngIf="formCreate.controls['nomReferent'].hasError('required')">
           Le nom du référent est requis!
@@ -155,7 +155,7 @@
 
     <div class="form-group">
       <label for="mail">E-mail</label>
-      <input id="mail" formControlName="mail" type="email" class="form-control" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
+      <input id="mail" formControlName="email" type="email" class="form-control" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
       <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('required')">
         Le mail est requis!
       </label>

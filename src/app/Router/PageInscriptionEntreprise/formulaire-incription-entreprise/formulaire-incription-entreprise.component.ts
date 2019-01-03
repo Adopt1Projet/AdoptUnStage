@@ -12,6 +12,7 @@ import { CustomValidators } from '../../../services/custom-validators';
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
+
   public formCreate: FormGroup;
 
   // formCreate = new FormGroup({
@@ -138,9 +139,11 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
  
   onSubmit(){
-    const user: Entreprise = Object.assign({}, this.formCreate.value);
-    this.entrepriseService.createEntreprise(user)
+    const entreprise: Entreprise = this.formCreate.value;
+    entreprise.username = entreprise.email;
+    this.entrepriseService.createEntreprise(entreprise)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
+
 }

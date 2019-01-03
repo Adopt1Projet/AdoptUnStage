@@ -12,18 +12,19 @@ import { CustomValidators } from '../../../services/custom-validators';
 })
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
-  // formCreate = new FormGroup({
-  //   prenom: new FormControl(null, [Validators.required]),
-  //   nom: new FormControl(null, [Validators.required]),
-  //   etablissement: new FormControl(null, [Validators.required]),
-  //   ville: new FormControl(null),
-  //   codePostal: new FormControl(null, [Validators.required]),
-  //   tel: new FormControl(null), // Créer une fonction qui supprime les espaces entre les nombres.
-  //   mail: new FormControl(null, [Validators.required]),
-  //   mail2: new FormControl(null, [Validators.required]),
-  //   mdp: new FormControl(null, [Validators.required]),
-  //   mdp2: new FormControl(null, [Validators.required])
-  //   });
+//   formCreate = new FormGroup({
+//     name: new FormControl(null, [Validators.required]),
+//     email: new FormControl(null, [Validators.required]),
+//     password: new FormControl(null, [Validators.required]),
+
+//     prenom: new FormControl(null, [Validators.required]),
+//     etablissement: new FormControl(null, [Validators.required]),
+//     ville: new FormControl(null),
+//     codePostal: new FormControl(0, [Validators.required]),
+//     tel: new FormControl(0) // Créer une fonction qui supprime les espaces entre les nombres.
+
+//     });
+
 
   public formCreate: FormGroup;
 
@@ -115,8 +116,9 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     this._location.back();
   }
    onSubmit() {
-    const user: Stagiaire = Object.assign({}, this.formCreate.value);
-    this.stagiaireService.createStagiaire(user)
+    const stagiaire: Stagiaire = this.formCreate.value;
+    stagiaire.username = stagiaire.email;
+    this.stagiaireService.createStagiaire(stagiaire)
     .subscribe(data => console.log(data), error => console.log(error));
     this.formCreate.reset();
   }
