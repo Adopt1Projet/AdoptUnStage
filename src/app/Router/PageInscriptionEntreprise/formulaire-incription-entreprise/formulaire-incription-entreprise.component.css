@@ -1,5 +1,15 @@
+.is-invalid {
+  border-left: solid 6px red;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
 .bodyFormulaire {
-  background-color: white;
+  background-color: #ffffff;
+  margin-top: 30px;
 }
 
 form{
