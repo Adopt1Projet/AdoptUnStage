@@ -32,7 +32,6 @@ export class FormulaireConnexionComponent implements OnInit {
       {
         username: [
           null,
-          Validators.compose([Validators.required]),
           Validators.compose([Validators.required])
         ],
         password: [
@@ -51,7 +50,7 @@ export class FormulaireConnexionComponent implements OnInit {
     
 
   submitFormulaireConnexion() {
-    this.loginInfo = this.formulaireConnexion.value;
+    this.loginInfo = this.formConnect.value;
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
@@ -71,7 +70,7 @@ export class FormulaireConnexionComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-    console.log(this.formulaireConnexion.value);
+    console.log(this.formConnect.value);
   }
 
 

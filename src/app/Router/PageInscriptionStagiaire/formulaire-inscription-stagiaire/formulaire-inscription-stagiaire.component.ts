@@ -38,7 +38,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
-        firstname: [
+        prenom: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -62,7 +62,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
-        mail: [
+        email: [
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
