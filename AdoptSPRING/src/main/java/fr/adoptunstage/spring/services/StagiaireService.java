@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.repos.StagiaireRepository;
 
+
+
+
 @Service
 public class StagiaireService {
 	
@@ -29,22 +32,6 @@ public class StagiaireService {
 		return stagiaires;
 	}
 	
-	public Stagiaire postStagiaire(@RequestBody Stagiaire stagiaire) {
-
-		Stagiaire _stagiaire = repository.save(new Stagiaire(
-											stagiaire.getPrenom(),
-											stagiaire.getNom(),
-											stagiaire.getEtablissement(),
-											stagiaire.getVille(),
-											stagiaire.getCodePostal(),
-											stagiaire.getTel(),
-											stagiaire.getMail(),
-											stagiaire.getMdp()
-											));
-		System.out.println("Nouveau stagiaire = " + _stagiaire.toString());
-		return _stagiaire;
-	}
-	
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		System.out.println("Suppression du stagiaire avec l'ID = " + id + "...");
 
@@ -52,6 +39,8 @@ public class StagiaireService {
 
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);
 	}
+	
+
 	
 	public ResponseEntity<Stagiaire> updateStagiaire(@PathVariable("id") long id, @RequestBody Stagiaire stagiaire) {
 		System.out.println("Mise à jour du stagiaire avec l'ID = " + id + "...");
@@ -61,13 +50,13 @@ public class StagiaireService {
 		if (stagiaireData.isPresent()) {
 			Stagiaire _stagiaire = stagiaireData.get();
 			_stagiaire.setPrenom(stagiaire.getPrenom());
-			_stagiaire.setNom(stagiaire.getNom());
+			_stagiaire.setName(stagiaire.getName());
 			_stagiaire.setEtablissement(stagiaire.getEtablissement());
 			_stagiaire.setVille(stagiaire.getVille());
 			_stagiaire.setCodePostal(stagiaire.getCodePostal());
 			_stagiaire.setTel(stagiaire.getTel());
-			_stagiaire.setMail(stagiaire.getMail());
-			_stagiaire.setMdp(stagiaire.getMdp());
+			_stagiaire.setEmail(stagiaire.getEmail());
+			_stagiaire.setPassword(stagiaire.getPassword());
 			System.out.println("Nouvelles propriétés du stagiaire = " + _stagiaire.toString());
 			return new ResponseEntity<>(repository.save(_stagiaire), HttpStatus.OK);
 		} else {

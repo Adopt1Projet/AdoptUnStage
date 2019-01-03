@@ -1,6 +1,7 @@
 <div class="container">
     <h1 class="text-center">Tableau de bord entreprise</h1>
     <hr>
+
     <!-- <nav>
         <a class="btn btn-light active" (click)="toggleEditor('creerOffre')">Créer une annonce</a>
         <a class="btn btn-light" (click)="toggleEditor('gestionOffres')">Gestion des annonces</a>
@@ -18,17 +19,14 @@
             mon entreprise</a>
     </nav> -->
 
-
-
-
-    `
     <div class="row justify-content-center">
-        <div class="col-8">
-
-            <app-formulaire-creer-offre></app-formulaire-creer-offre>
-            <app-gestion-des-offres></app-gestion-des-offres>
-            <app-infos-entreprise></app-infos-entreprise>
-
+        <nav>
+            <a routerLink="/boardentreprise/gestionoffres" class="btn btn-primary active" role="button">Gestion des annonces</a>
+            <a routerLink="/boardentreprise/creeroffre" class="btn btn-primary active" role="button">Créer une annonce</a>
+            <a routerLink="/boardentreprise/infosentreprise" class="btn btn-primary active" role="button">Infos de  mon entreprise</a>
+        </nav>
+        <div class="col-8 justify-content-center">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

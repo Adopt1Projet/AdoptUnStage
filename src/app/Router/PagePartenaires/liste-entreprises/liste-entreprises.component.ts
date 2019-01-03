@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Partenaire } from 'src/app/modeles/partenaire';
-import { PartenaireService } from 'src/app/services/partenaire.service';
+import { Partenaire } from '../../../modeles/partenaire';
+import { PartenaireService } from '../../../services/partenaire.service';
+import { TokenStorageService } from '../../../auth/token-storage.service';
 
 @Component({
   selector: 'app-liste-entreprises',
@@ -13,7 +14,7 @@ export class ListeEntreprisesComponent implements OnInit {
 
   partenaires: Observable<Partenaire[]>;
 
-  constructor(private partenaireService : PartenaireService) { }
+  constructor(private partenaireService: PartenaireService) { }
 
   ngOnInit() {
     this.partenaires = this.partenaireService.getPartenairesList();

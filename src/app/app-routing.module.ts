@@ -21,6 +21,9 @@ import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { PageQuiSommesNousComponent } from './Router/PageQuiSommesNous/page-qui-sommes-nous/page-qui-sommes-nous.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
+import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
+import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
+import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -34,11 +37,9 @@ const routes: Routes = [
   { path: 'creerOffre', component: FormulaireCreerOffreComponent },
   { path: 'gestionOffres', component: GestionDesOffresComponent },
   { path: 'infosEntreprise', component: InfosEntrepriseComponent },
-  { path: 'partenaires', component: PagePartenairesComponent},
-  { path: 'faq', component: PageFaqComponent},
-  { path: 'aide', component: PageAideComponent },
+  { path: 'partenaires', component: PagePartenairesComponent },
   { path: 'detailoffre', component: PageDetailOffreComponent },
-  { path: 'quisommesnous', component: PageQuiSommesNousComponent},
+  { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
   { path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
@@ -47,7 +48,20 @@ const routes: Routes = [
     { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full'},
   ]},
   { path: 'contact', component: PageContactezNousComponent},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'}
+  { path: 'actus', component: PageActusComponent},
+  { path: 'article/:id', component: ActuDetailComponent},
+  { path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
+      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', component: GestionDesOffresComponent },
+      { path: 'infosentreprise', component: InfosEntrepriseComponent },
+      { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
+    ]
+  },
+  { path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
+    { path: 'faq', component: PageFaqComponent },
+    { path: 'aide', component: PageAideComponent },
+    { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
+  ]},
 ];
 
 @NgModule({

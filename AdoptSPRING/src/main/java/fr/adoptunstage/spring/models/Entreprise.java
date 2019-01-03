@@ -2,18 +2,10 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "entreprises")
-public class Entreprise {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+public class Entreprise extends User {
+
 
 	@Column(name = "raison_sociale")
 	private String raisonSociale;
@@ -23,9 +15,6 @@ public class Entreprise {
 	
 	@Column(name = "statut")
 	private String statut;
-	
-	@Column(name = "siteWeb")
-	private String siteWeb;
 	
 	@Column(name = "adresse")
 	private String adresse;
@@ -41,29 +30,19 @@ public class Entreprise {
 	
 	@Column(name = "prenom")
 	private String prenom;
-	
-	@Column(name = "nom")
-	private String nom;
+
 	
 	@Column(name = "fonction")
 	private String fonction;
 	
 	@Column(name = "tel")
 	private int tel;
-	
-	@Column(name = "mail")
-	private String mail;
-	
-	@Column(name = "mdp")
-	private String mdp;
 
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	
+	@Column(name = "siteWeb")
+	private String siteWeb;
+
 
 	public String getRaisonSociale() {
 		return raisonSociale;
@@ -137,13 +116,6 @@ public class Entreprise {
 		this.prenom = prenom;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 
 	public String getFonction() {
 		return fonction;
@@ -161,48 +133,24 @@ public class Entreprise {
 		this.tel = tel;
 	}
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getMdp() {
-		return mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
 	
 	public Entreprise () {}
 	
-	public Entreprise(String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
-			int codePostal, String logo, String prenom, String nom, String fonction, int tel, String mail, String mdp) {
-		super();
+	public Entreprise(String name, String username, String email, String password, String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
+			int codePostal, String logo, String prenom, String fonction, int tel) {
+		super(name, username, email, password);
 		this.raisonSociale = raisonSociale;
 		this.secteur = secteur;
-		this.statut = statut;
-		this.siteWeb = siteWeb;
+		this.statut = statut;	
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.logo = logo;
 		this.prenom = prenom;
-		this.nom = nom;
 		this.fonction = fonction;
 		this.tel = tel;
-		this.mail = mail;
-		this.mdp = mdp;
+		this.siteWeb = siteWeb;
+
 	}
 
-	@Override
-	public String toString() {
-		return "Entreprise [id=" + id + ", raisonSociale=" + raisonSociale + ", secteur=" + secteur + ", statut="
-				+ statut + ", siteWeb=" + siteWeb + ", adresse=" + adresse + ", ville=" + ville + ", codePostal="
-				+ codePostal + ", logo=" + logo + ", prenom=" + prenom + ", nom=" + nom + ", fonction=" + fonction
-				+ ", tel=" + tel + ", mail=" + mail + ", mdp=" + mdp + "]";
-	}
 }

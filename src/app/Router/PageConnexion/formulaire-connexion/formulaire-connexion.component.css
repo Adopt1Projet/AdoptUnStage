@@ -1,3 +1,12 @@
+.is-invalid {
+    border-left: solid 6px red;
+  }
+  
+  .material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
 h5 {
     font-weight: bolder;
     color: #2fa89a;
@@ -31,7 +40,7 @@ input {
 .connectSubmit:hover {
     background-color: green;
 }
-#form{
-    margin-bottom: 30px;
-    margin-top: 20px;
+
+#loginFailed{
+    color: red;
 }

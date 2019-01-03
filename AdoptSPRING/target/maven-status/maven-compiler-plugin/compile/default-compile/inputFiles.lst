@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/QuestionService.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
@@ -19,3 +20,5 @@
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
 /home/wilder/Documents/Lab/Projet3Client/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
+=======
+>>>>>>> d5d2ed7c4eeb9f4673f75a7aba118adf1ed176da

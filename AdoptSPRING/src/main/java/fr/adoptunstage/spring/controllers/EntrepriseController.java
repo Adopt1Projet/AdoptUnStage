@@ -32,7 +32,7 @@ public class EntrepriseController {
 
 	@PostMapping(value = "/entreprises/creer")
 	public Entreprise postEntreprise(@RequestBody Entreprise entreprise) {
-		return service.postEntreprise(entreprise);
+		return entreprise;
 	}
 
 	@DeleteMapping("/entreprises/{id}")
