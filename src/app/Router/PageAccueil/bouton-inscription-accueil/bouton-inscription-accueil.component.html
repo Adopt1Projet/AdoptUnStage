@@ -24,7 +24,9 @@
       <li>Regarde les annonces</li>
       <li>Postule !</li>
     </ol>
-    <button type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire"><h3>C'est parti !</h3></button>
+    <button *ngIf="isInfo==false" type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire"><h3>C'est parti !</h3></button>
+    <button *ngIf="isInfo==true" type="button" class="btn btnStagiaire" routerLink="/offres"><h3>Voir les offres !</h3></button>
+
   </div>
   <div class="col-md-6 pt-5 pb-5 inscriptionEntreprise text-center">
     <h5 class="mr-5 ml-5">Vous êtes une entreprise et vous cherchez à recruter un stagiaire ?</h5>
