@@ -90,12 +90,6 @@ public class AuthRestAPIs {
 
 		strRoles.forEach(role -> {
 			switch (role) {
-			case "admin":
-				Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(adminRole);
-
-				break;
 			case "entreprise":
 				Role entrepriseRole = roleRepository.findByName(RoleName.ROLE_ENTREPRISE)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
@@ -103,9 +97,7 @@ public class AuthRestAPIs {
 
 				break;
 			default:
-				Role userRole = roleRepository.findByName(RoleName.ROLE_STAGIAIRE)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(userRole);
+				break;
 			}
 		});
 
@@ -137,22 +129,14 @@ public class AuthRestAPIs {
 
 		strRoles.forEach(role -> {
 			switch (role) {
-			case "admin":
-				Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(adminRole);
-
-				break;
-			case "entreprise":
-				Role entrepriseRole = roleRepository.findByName(RoleName.ROLE_ENTREPRISE)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(entrepriseRole);
-
-				break;
-			default:
+			case "stagiaire":
 				Role stagiaireRole = roleRepository.findByName(RoleName.ROLE_STAGIAIRE)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 				roles.add(stagiaireRole);
+
+				break;
+			default:
+				break;
 			}
 		});
 
