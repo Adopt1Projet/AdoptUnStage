@@ -14,6 +14,10 @@ import { AuthLoginInfo } from '../../../auth/login-info';
 })
 export class FormulaireConnexionComponent implements OnInit {
 
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
 
   public formConnect: FormGroup;
 
@@ -42,10 +46,7 @@ export class FormulaireConnexionComponent implements OnInit {
     )
   }
     
-    isLoginFailed = false;
-  errorMessage = '';
-  roles: string[] = [];
-  private loginInfo: AuthLoginInfo;
+    
     
     
 
@@ -62,7 +63,7 @@ export class FormulaireConnexionComponent implements OnInit {
 
         this.roles = this.tokenStorage.getAuthorities();
         window.location.reload();
-        this.router.navigate(['../partenaires']);       
+        this.router.navigate(['../accueil']);       
       },
       error => {
         console.log(error);
