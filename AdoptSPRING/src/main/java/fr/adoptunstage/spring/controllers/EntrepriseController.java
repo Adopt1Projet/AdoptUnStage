@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.security.services.UserDetailsServiceImpl;
 import fr.adoptunstage.spring.services.EntrepriseService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,10 +29,18 @@ public class EntrepriseController {
 
 	@Autowired
 	EntrepriseService service;
+	
+	@Autowired
+	UserDetailsServiceImpl userService;
 
 	@GetMapping("/")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
+	}
+	
+	@GetMapping("/getone/{username}")
+	public Entreprise getOneEntreprises(@PathVariable("username") String username) {
+		return service.getOneEntreprise(username);
 	}
 
 	@PostMapping(value = "/creer")

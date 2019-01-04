@@ -30,8 +30,8 @@ public class Offre {
 	@Column(name = "codePostal")
 	private int codePostal;
 	
-	@Column(name ="pourvu")
-	private boolean pourvu;
+	@Column(name ="active")
+	private boolean active;
 	
 	public long getId() {
 		return id;
@@ -81,12 +81,12 @@ public class Offre {
 		this.codePostal = codePostal;
 	}
 	
-	public boolean isPourvu() {
-		return pourvu;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setPourvu(boolean pourvu) {
-		this.pourvu = pourvu;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	
@@ -98,21 +98,21 @@ public class Offre {
 				String rue, 
 				String ville, 
 				int codePostal,
-				boolean pourvu) {
+				boolean active) {
 									super();
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
-									this.pourvu = pourvu;
+									this.active = false;
 								}
 
 	
 	@Override
 	public String toString() {
 		return "Offre [id=" + id + ", titre=" + titre + ", description=" + description + ", rue=" + rue + ", ville="
-				+ ville + ", codePostal=" + codePostal + ", pourvu=" + pourvu + "]";
+				+ ville + ", codePostal=" + codePostal + ", active=" + active + "]";
 	}
 
 	
