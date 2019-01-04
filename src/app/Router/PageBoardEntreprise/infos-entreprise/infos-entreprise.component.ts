@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { EntrepriseService } from 'src/app/services/entreprise.service'
+import { Entreprise } from 'src/app/modeles/entreprise';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-infos-entreprise',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfosEntrepriseComponent implements OnInit {
 
-  constructor() { }
+  // @Input() entreprise: Entreprise;
+  entreprise: Observable<Entreprise[]>;
 
+  constructor(private entrepriseService: EntrepriseService) { }
+
+  reloadData() {
+    // this.entreprise = this.entrepriseService.getEntreprise();
+  }
   ngOnInit() {
+    this.reloadData();
   }
 
 }

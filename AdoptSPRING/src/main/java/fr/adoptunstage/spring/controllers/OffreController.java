@@ -35,9 +35,17 @@ public class OffreController{
 		return service.postEntreprise(offre);
 	}
 
-	@DeleteMapping("/offres/{id}")
+	@DeleteMapping("/offre/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		return service.deleteOffre(id);
+	}
+	
+	@DeleteMapping("/offre/supprimer")
+	public ResponseEntity<String> deleteAll() {
+		System.out.println("Delete All Customers...");
+ 
+		return service.deleteAll();
+ 
 	}
 
 	@PutMapping("/offre/{id}")

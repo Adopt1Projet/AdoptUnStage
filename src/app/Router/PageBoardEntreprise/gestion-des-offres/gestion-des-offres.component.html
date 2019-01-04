@@ -1,38 +1,7 @@
-<p>
-  gestion-des-offres works!
-</p>
-
-<h1>Mes offres</h1>
-<div class="container bodyOffres">
-  <br>
-  <h2>Liste des offres</h2>
-  <hr>
-  <br>
-  <!-- <app-liste-offres></app-liste-offres> -->
-
-</div>
-
+<h1>Gestion des offres</h1>
 <div *ngFor="let offre of offres | async" style="width: 300px;">
-  <!-- <customer-details [customer]='customer'></customer-details> -->
-  <!-- <div *ngIf="customer"> -->
-  <div>
-    <label>Titre: </label> {{offre.titre}}
-  </div>
-  <div>
-    <label>Description: </label> {{offre.description}}
-  </div>
-
-  <!-- 
-  <span class="button is-small btn-primary" *ngIf='offre.pourvu' (click)='updateActive(false)'>Inactive</span>
-
-  <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span> -->
-
-  <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span>
-
-  <hr />
-  <!-- </div> -->
+  <offre-details [offre]='offre'></offre-details>
 </div>
-
 <div>
   <button type="button" class="button btn-danger" (click)='deleteOffres()'>Delete All</button>
 </div>

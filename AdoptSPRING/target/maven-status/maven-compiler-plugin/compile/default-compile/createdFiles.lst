@@ -6,13 +6,13 @@ fr/adoptunstage/spring/services/PartenaireService.class
 fr/adoptunstage/spring/models/Actu.class
 fr/adoptunstage/spring/services/QuestionService.class
 fr/adoptunstage/spring/services/ActuService.class
-fr/adoptunstage/spring/services/StagiaireService.class
 fr/adoptunstage/spring/repos/PartenaireRepository.class
-fr/adoptunstage/spring/models/Question.class
+fr/adoptunstage/spring/services/StagiaireService.class
 fr/adoptunstage/spring/controllers/PartenaireController.class
+fr/adoptunstage/spring/models/Question.class
 fr/adoptunstage/spring/services/EntrepriseService.class
-fr/adoptunstage/spring/repos/ActuRepository.class
 fr/adoptunstage/spring/controllers/QuestionController.class
-fr/adoptunstage/spring/repos/OffreRepository.class
+fr/adoptunstage/spring/repos/ActuRepository.class
 fr/adoptunstage/spring/controllers/ActuController.class
+fr/adoptunstage/spring/repos/OffreRepository.class
 fr/adoptunstage/spring/models/Partenaire.class
