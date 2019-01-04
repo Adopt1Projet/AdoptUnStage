@@ -1,11 +1,12 @@
-export class Stagiaire {
-    id: number;
+export class Stagiaire {name: string;
+    username: string;
+    email: string;
+    role: string[];
+    password: string;
+
     prenom: string;
-    nom: string;
     etablissement: string;
     ville: string;
     codePostal: number;
     tel: number;
-    mail: string;
-    mdp: string;
 }

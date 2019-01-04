@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from "src/app/services/offre.service";
 import { Observable } from 'rxjs';
@@ -12,14 +12,8 @@ import { Observable } from 'rxjs';
 export class GestionDesOffresComponent implements OnInit {
 
   offres: Observable<Offre[]>;
-  pourvu: boolean;
-  constructor(private offreService: OffreService) {
-    this.pourvu = false;
-  }
 
-  ngOnInit() {
-    this.reloadData();
-  }
+  constructor(private offreService: OffreService) { }
 
   deleteOffres() {
     this.offreService.deleteAll()
@@ -33,5 +27,8 @@ export class GestionDesOffresComponent implements OnInit {
 
   reloadData() {
     this.offres = this.offreService.getOffresList();
+  }
+  ngOnInit() {
+    this.reloadData();
   }
 }
