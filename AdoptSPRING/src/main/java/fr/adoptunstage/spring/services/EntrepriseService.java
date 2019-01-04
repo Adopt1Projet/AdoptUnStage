@@ -9,6 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +21,11 @@ import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
+import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
+import fr.adoptunstage.spring.security.services.UserPrinciple;
 
 @Service
 public class EntrepriseService {
@@ -46,6 +50,12 @@ public class EntrepriseService {
 		repository.findAll().forEach(entreprises::add);
 
 		return entreprises;
+	}
+	
+	public Entreprise getOneEntreprise(String username) {
+		Entreprise user = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		return user;
 	}
 	
 

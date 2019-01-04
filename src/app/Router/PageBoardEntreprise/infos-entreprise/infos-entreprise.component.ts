@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EntrepriseService } from 'src/app/services/entreprise.service'
-import { Entreprise } from 'src/app/modeles/entreprise';
+import { Component, OnInit } from '@angular/core';
+import { EntrepriseService } from '../../../services/entreprise.service';
+import { TokenStorageService } from '../../../auth/token-storage.service';
 import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-infos-entreprise',
@@ -10,16 +12,19 @@ import { Observable } from 'rxjs';
 })
 export class InfosEntrepriseComponent implements OnInit {
 
-  // @Input() entreprise: Entreprise;
-  entreprise: Observable<Entreprise[]>;
+
+  username;
+  entreprise : any;
+
+
+  constructor(private entrepriseService : EntrepriseService, private token : TokenStorageService) { }
+
 
   constructor(private entrepriseService: EntrepriseService) { }
 
-  reloadData() {
-    // this.entreprise = this.entrepriseService.getEntreprise();
-  }
   ngOnInit() {
-    this.reloadData();
+    this.username = this.token.getUsername();
+    this.entrepriseService.getEntreprise(this.username).subscribe(data =>{ this.entreprise = data;console.log(this.entreprise);}, error => console.log(error));;
   }
 
 }
