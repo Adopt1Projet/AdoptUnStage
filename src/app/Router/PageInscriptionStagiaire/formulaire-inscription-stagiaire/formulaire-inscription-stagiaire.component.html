@@ -23,13 +23,13 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="firstname">Prénom</label>
-                <input id="firstname" formControlName="firstname" type="text" class="form-control" [ngClass]="formCreate.controls['firstname'].invalid ? 'is-invalid' : ''"
+                <label for="prenom">Prénom</label>
+                <input id="prenom" formControlName="prenom" type="text" class="form-control" [ngClass]="formCreate.controls['prenom'].invalid ? 'is-invalid' : ''"
                     placeholder="Prénom">
-                <label class="text-danger" *ngIf="formCreate.controls['firstname'].hasError('required')">
+                <label class="text-danger" *ngIf="formCreate.controls['prenom'].hasError('required')">
                     Le prénom est requis!
                 </label>
-                <label class="text-danger" *ngIf="formCreate.controls['firstname'].hasError('firstname')">
+                <label class="text-danger" *ngIf="formCreate.controls['prenom'].hasError('prenom')">
                     Merci d'entrer votre prénom!
                 </label>
             </div>
@@ -102,12 +102,12 @@
         </div>
 
         <div class="form-group">
-            <label for="mail">E-mail</label>
-            <input id="mail" formControlName="email" type="email" class="form-control" placeholder="Exemple@mail.com" [ngClass]="formCreate.controls['mail'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('required')">
+            <label for="email">E-mail</label>
+            <input id="email" formControlName="email" type="email" class="form-control" placeholder="Exemple@mail.com" [ngClass]="formCreate.controls['email'].invalid ? 'is-invalid' : ''">
+            <label class="text-danger" *ngIf="formCreate.controls['email'].hasError('required')">
                 Le mail est requis!
             </label>
-            <label class="text-danger" *ngIf="formCreate.controls['mail'].hasError('mail')">
+            <label class="text-danger" *ngIf="formCreate.controls['email'].hasError('email')">
                 Entrez une adresse mail valide!
             </label>
         </div>
@@ -187,7 +187,7 @@
         <div class="form-group d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
 
-        <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire">Valider</button>
+        <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
 
         </div>
 

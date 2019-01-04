@@ -27,10 +27,10 @@ export class CustomValidators {
       }
 
         static mailMatchValidator(control: AbstractControl) {
-            const mail: string = control.get('mail').value;
+            const email: string = control.get('email').value;
             const confirmMail: string = control.get('confirmMail').value;
 
-            if (mail !== confirmMail){
+            if (email !== confirmMail){
                 control.get('confirmMail').setErrors({ NoMailMatch: true});
             }
         }

@@ -67,7 +67,7 @@ public class AuthRestAPIs {
 
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
 	}
-	
+
 	@PostMapping("/signup/entreprise")
 	public ResponseEntity<?> registerEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -90,14 +90,14 @@ public class AuthRestAPIs {
 
 		strRoles.forEach(role -> {
 			switch (role) {
-			case "entreprise":
-				Role entrepriseRole = roleRepository.findByName(RoleName.ROLE_ENTREPRISE)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(entrepriseRole);
+				case "entreprise":
+					Role entrepriseRole = roleRepository.findByName(RoleName.ROLE_ENTREPRISE)
+							.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+					roles.add(entrepriseRole);
 
-				break;
-			default:
-				break;
+					break;
+				default:
+					break;
 			}
 		});
 
@@ -106,7 +106,7 @@ public class AuthRestAPIs {
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/signup/stagiaire")
 	public ResponseEntity<?> registerStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -129,14 +129,14 @@ public class AuthRestAPIs {
 
 		strRoles.forEach(role -> {
 			switch (role) {
-			case "stagiaire":
-				Role stagiaireRole = roleRepository.findByName(RoleName.ROLE_STAGIAIRE)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(stagiaireRole);
+				case "stagiaire":
+					Role stagiaireRole = roleRepository.findByName(RoleName.ROLE_STAGIAIRE)
+							.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+					roles.add(stagiaireRole);
 
-				break;
-			default:
-				break;
+					break;
+				default:
+					break;
 			}
 		});
 
@@ -145,8 +145,8 @@ public class AuthRestAPIs {
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
-	
-	
 
-	
+
+
+
 }

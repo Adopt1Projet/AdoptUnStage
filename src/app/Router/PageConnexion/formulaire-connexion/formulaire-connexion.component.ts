@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 import {
   FormGroup,
   FormControl,
   FormBuilder,
   Validators
-} from "@angular/forms";
-import { AuthService } from "../../../auth/auth.service";
-import { TokenStorageService } from "../../../auth/token-storage.service";
-import { Router } from "@angular/router";
-import { AuthLoginInfo } from "../../../auth/login-info";
+} from '@angular/forms';
+import { AuthService } from '../../../auth/auth.service';
+import { TokenStorageService } from '../../../auth/token-storage.service';
+import { Router } from '@angular/router';
+import { AuthLoginInfo } from '../../../auth/login-info';
 
 @Component({
-  selector: "app-formulaire-connexion",
-  templateUrl: "./formulaire-connexion.component.html",
-  styleUrls: ["./formulaire-connexion.component.css"]
+  selector: 'app-formulaire-connexion',
+  templateUrl: './formulaire-connexion.component.html',
+  styleUrls: ['./formulaire-connexion.component.css']
 })
 export class FormulaireConnexionComponent implements OnInit {
   public formConnect: FormGroup;
@@ -23,6 +23,12 @@ export class FormulaireConnexionComponent implements OnInit {
   //   username: new FormControl(null, [Validators.required]),
   //   password: new FormControl(null, [Validators.required])
   // });
+
+
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
 
   constructor(
     private authService: AuthService,
@@ -34,16 +40,19 @@ export class FormulaireConnexionComponent implements OnInit {
   }
 
   connectForm(): FormGroup {
-    return this.fb.group({
-      username: [null, Validators.compose([Validators.required])],
-      password: [null, Validators.compose([Validators.required])]
-    });
+    return this.fb.group(
+      {
+        username: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        password: [
+          null,
+          Validators.compose([Validators.required])
+        ]
+      }
+    )
   }
-
-  isLoginFailed = false;
-  errorMessage = "";
-  roles: string[] = [];
-  private loginInfo: AuthLoginInfo;
 
   submitFormulaireConnexion() {
     this.loginInfo = this.formConnect.value;

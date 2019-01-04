@@ -59,7 +59,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
-        statutEntreprise: [
+        statut: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -75,11 +75,11 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
-        prenomReferent: [
+        prenom: [
           null,
           Validators.compose([Validators.required])
         ],
-        nomReferent: [
+        name: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -87,7 +87,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
-        mail: [
+        email: [
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
