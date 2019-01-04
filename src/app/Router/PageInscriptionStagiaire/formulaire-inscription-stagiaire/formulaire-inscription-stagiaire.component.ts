@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { Stagiaire } from 'src/app/modeles/stagiaire';
 import { CustomValidators } from '../../../services/custom-validators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -28,7 +29,12 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
   public formCreate: FormGroup;
 
-  constructor(private stagiaireService: StagiaireService, private _location: Location, private fb: FormBuilder) {
+  constructor(
+    private stagiaireService: StagiaireService, 
+    private _location: Location, 
+    private fb: FormBuilder,
+    private router: Router
+    ) {
     this.formCreate = this.createSignupForm();
    }
 
@@ -120,6 +126,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     stagiaire.username = stagiaire.email;
     this.stagiaireService.createStagiaire(stagiaire)
     .subscribe(data => console.log(data), error => console.log(error));
-    this.formCreate.reset();
+    this.router.navigate(['../connexion']);
   }
 }

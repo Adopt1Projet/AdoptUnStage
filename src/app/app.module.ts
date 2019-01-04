@@ -18,6 +18,7 @@ import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/form
 import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
+import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -40,7 +41,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 
 // Page connexion
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
-import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 // Board stagiaire
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -146,7 +147,8 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     ItemActusComponent,
     ActuDetailComponent,
     QuiSommesNousComponent,
-    PageBoiteAOutilsComponent
+    PageBoiteAOutilsComponent,
+    OffreDetailsComponent
 
   ],
   imports: [

@@ -19,7 +19,7 @@ public class OffreService {
 
 	@Autowired
 	OffreRepository repository;
-	
+
 	public List<Offre> getAllOffres() {
 		System.out.println("Affiche toutes les offres");
 
@@ -28,21 +28,15 @@ public class OffreService {
 
 		return offres;
 	}
-	
+
 	public Offre postEntreprise(@RequestBody Offre offre) {
 
-		Offre _offre = repository.save(new Offre(
-											offre.getTitre(),
-											offre.getDescription(),
-											offre.getRue(),
-											offre.getVille(),
-											offre.getCodePostal(),
-											offre.isPourvu()
-											));
+		Offre _offre = repository.save(new Offre(offre.getTitre(), offre.getDescription(), offre.getRue(),
+				offre.getVille(), offre.getCodePostal(), offre.isActive()));
 		System.out.println("Nouvelle offre = " + _offre.toString());
 		return _offre;
 	}
-	
+
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		System.out.println("Suppression de l'offre avec l'ID = " + id + "...");
 
@@ -50,7 +44,15 @@ public class OffreService {
 
 		return new ResponseEntity<>("offre a été supprimée !", HttpStatus.OK);
 	}
-	
+
+	public ResponseEntity<String> deleteAll() {
+		System.out.println("Delete All Customers...");
+
+		repository.deleteAll();
+
+		return new ResponseEntity<>("All customers have been deleted!", HttpStatus.OK);
+	}
+
 	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
 		System.out.println("Mise à jour de l'entreprise avec l'ID = " + id + "...");
 
@@ -63,7 +65,7 @@ public class OffreService {
 			_offre.setRue(offre.getRue());
 			_offre.setVille(offre.getVille());
 			_offre.setCodePostal(offre.getCodePostal());
-			_offre.setPourvu(offre.isPourvu());		
+			_offre.setActive(offre.isActive());
 			System.out.println("Nouvelles propriétés de l'offre = " + _offre.toString());
 			return new ResponseEntity<>(repository.save(_offre), HttpStatus.OK);
 		} else {

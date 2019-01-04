@@ -4,6 +4,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 import { Observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-infos-entreprise',
   templateUrl: './infos-entreprise.component.html',
@@ -11,12 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class InfosEntrepriseComponent implements OnInit {
 
+
   username;
   entreprise : any;
 
 
-
   constructor(private entrepriseService : EntrepriseService, private token : TokenStorageService) { }
+
+
+  constructor(private entrepriseService: EntrepriseService) { }
 
   ngOnInit() {
     this.username = this.token.getUsername();

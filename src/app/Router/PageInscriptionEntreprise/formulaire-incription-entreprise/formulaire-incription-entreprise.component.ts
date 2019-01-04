@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { Entreprise } from 'src/app/modeles/entreprise';
 import { CustomValidators } from '../../../services/custom-validators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -15,26 +16,12 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
   public formCreate: FormGroup;
 
-  // formCreate = new FormGroup({
-  //   raisonSociale: new FormControl(null, [Validators.required]),
-  //   secteur: new FormControl(null, [Validators.required]),
-  //   statutEntreprise: new FormControl(null, [Validators.required]),
-  //   siteWeb: new FormControl(null),
-  //   adresse: new FormControl(null, [Validators.required]),
-  //   ville: new FormControl(null),
-  //   codePostal: new FormControl(null, [Validators.required]),
-  //   logo: new FormControl(null),
-  //   prenom: new FormControl(null, [Validators.required]),
-  //   nom: new FormControl(null, [Validators.required]),
-  //   fonction: new FormControl(null),
-  //   tel: new FormControl(null),
-  //   mail: new FormControl(null, [Validators.required]),
-  //   mail2: new FormControl(null, [Validators.required]),
-  //   mdp: new FormControl(null, [Validators.required]),
-  //   mdp2: new FormControl(null, [Validators.required])
-  //   });
-
-  constructor(private entrepriseService: EntrepriseService, private _location: Location, private fb: FormBuilder) {
+  constructor(
+    private entrepriseService: EntrepriseService, 
+    private _location: Location, 
+    private fb: FormBuilder,
+    private router: Router
+    ) {
     this.formCreate = this.createSignupForm();
    }
 
@@ -143,7 +130,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     entreprise.username = entreprise.email;
     this.entrepriseService.createEntreprise(entreprise)
     .subscribe(data => console.log(data), error => console.log(error));
-    this.formCreate.reset();
+    this.router.navigate(['../connexion']);
   }
 
 }
