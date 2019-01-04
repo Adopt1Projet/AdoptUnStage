@@ -188,7 +188,7 @@
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
 
         <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
-
+        <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
         </div>
 
     </form>
