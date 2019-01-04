@@ -1,3 +1,4 @@
+
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/UserRepository.java
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
@@ -40,3 +41,4 @@
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtAuthEntryPoint.java
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
 /home/Hugo/Documents/Projet 3/janvier/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/ActuController.java
+
