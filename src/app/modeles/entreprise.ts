@@ -1,5 +1,9 @@
-export class Entreprise {
-    id: number;
+export interface Entreprise {
+    name: string;
+    username: string;
+    email: string;
+    role: string[];
+    password: string;
     raisonSociale: string;
     secteur: string;
     statut: string;
@@ -8,9 +12,9 @@ export class Entreprise {
     codePostal: number;
     logo: string;
     prenom: string;
-    nom: string;
     fonction: string;
     tel: number;
-    mail: string;
-    mdp: string;
+    siteWeb : String;
+
+    
 }

@@ -9,6 +9,8 @@
 /node_modules
 
 # IDEs and editors
+/AdoptSPRING/target/
+/target/
 /.idea
 .project
 .classpath

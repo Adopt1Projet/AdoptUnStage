@@ -1,3 +1,7 @@
+.bodyArticle {
+    background-color: white;
+}
+
 p::first-letter { 
     font-size: 200%;
     color: #00B499;

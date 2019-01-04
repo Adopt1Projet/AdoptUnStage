@@ -16,23 +16,27 @@
 
 
 
-<div class="row mt-5 mb-5 ">
-  <div class="col-md-6 pt-5 pb-5 inscriptionStagiaire text-center">
+<div class="row mt-5 mb-5 justify-content-center">
+  <div *ngIf="isInfo==false || isStagiaire==true" class="col-md-6 pt-5 pb-5 inscriptionStagiaire text-center">
     <h5 class="ml-5 mr-5">Tu es un collégien et tu cherches un stage de 3ème ?</h5>
     <ol class="ordonnedList">
       <li>Inscris toi</li>
       <li>Regarde les annonces</li>
       <li>Postule !</li>
     </ol>
-    <button type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire"><h3>C'est parti !</h3></button>
+    <button *ngIf="isInfo==false" type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire"><h3>C'est parti !</h3></button>
+    <button *ngIf="isStagiaire==true" type="button" class="btn btnStagiaire" routerLink="/offres"><h3>Voir les offres !</h3></button>
+
   </div>
-  <div class="col-md-6 pt-5 pb-5 inscriptionEntreprise text-center">
+  <div *ngIf="isInfo==false || isEntreprise==true" class="col-md-6 pt-5 pb-5 inscriptionEntreprise text-center">
     <h5 class="mr-5 ml-5">Vous êtes une entreprise et vous cherchez à recruter un stagiaire ?</h5>
     <ol class="ordonnedList">
       <li>Inscrivez-vous</li>
       <li>Déposez vos annonces</li>
       <li>Recrutez</li>
     </ol>
-    <button type="button" class="btn btnEntreprise" routerLink="/inscriptionentreprise"><h3>Allons y !</h3></button>
+    <button *ngIf="isInfo==false"type="button" class="btn btnEntreprise" routerLink="/inscriptionentreprise"><h3>Allons y !</h3></button>
+    <button *ngIf="isEntreprise==true" type="button" class="btn btnEntreprise" routerLink="/boardentreprise/creeroffre"><h3>Déposer des offres</h3></button>
+
   </div>
 </div>

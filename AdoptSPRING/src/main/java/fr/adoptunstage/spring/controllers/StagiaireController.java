@@ -1,6 +1,9 @@
 package fr.adoptunstage.spring.controllers;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,33 +16,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.services.StagiaireService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/stagiaire")
 public class StagiaireController {
 
 	@Autowired
 	StagiaireService service;
 
-	@GetMapping("/stagiaires")
+	@GetMapping("/")
 	public List<Stagiaire> getAllStagiaire() {
 		return service.getAllStagiaire();
 	}
-
-	@PostMapping(value = "/stagiaires/creer")
-	public Stagiaire postStagiaire(@RequestBody Stagiaire stagiaire) {
-		return service.postStagiaire(stagiaire);
+	
+	@PostMapping(value = "/creer")
+	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
+		return service.createStagiaire(signUpRequest);
 	}
 
-	@DeleteMapping("/stagiaires/{id}")
+
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		return service.deleteStagiaire(id);
 	}
 	
-	@PutMapping("/stagiaires/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Stagiaire> updateStagiaire(@PathVariable("id") long id, @RequestBody Stagiaire stagiaire) {
 		return service.updateStagiaire(id, stagiaire);
 	}

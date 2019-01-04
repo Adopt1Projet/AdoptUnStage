@@ -2,24 +2,12 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "stagiaires")
-public class Stagiaire {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+public class Stagiaire extends User {
 
 	@Column(name = "prenom")
 	private String prenom;
-	
-	@Column(name = "nom")
-	private String nom;
 
 	@Column(name = "etablissement")
 	private String etablissement;
@@ -32,21 +20,9 @@ public class Stagiaire {
 	
 	@Column(name = "tel")
 	private int tel;
-	
-	@Column(name = "mail")
-	private String mail;
-	
-	@Column(name = "mdp")
-	private String mdp;
-	
-	
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	
+	
 
 	public String getPrenom() {
 		return prenom;
@@ -56,13 +32,6 @@ public class Stagiaire {
 		this.prenom = prenom;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 
 	public String getEtablissement() {
 		return etablissement;
@@ -96,42 +65,17 @@ public class Stagiaire {
 		this.tel = tel;
 	}
 
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getMdp() {
-		return mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String prenom, String nom, String etablissement, String ville, int codePostal, int tel, String mail,
-			String mdp) {
-		
+	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, int codePostal, int tel) {
+		super(name, username, email, password);
 		this.prenom = prenom;
-		this.nom = nom;
 		this.etablissement = etablissement;
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.tel = tel;
-		this.mail = mail;
-		this.mdp = mdp;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", etablissement=" + etablissement
-				+ ", ville=" + ville + ", codePostal=" + codePostal + ", tel=" + tel + ", mail=" + mail + ", mdp=" + mdp
-				+ "]";
-	}
 	
 }

@@ -1,24 +1,43 @@
 package fr.adoptunstage.spring.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import fr.adoptunstage.spring.message.request.SignUpForm;
+import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.models.Role;
+import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
+import fr.adoptunstage.spring.repos.RoleRepository;
+import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class EntrepriseService {
 	
 	@Autowired
 	EntrepriseRepository repository;
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	RoleRepository roleRepository;
+	
+	@Autowired
+	PasswordEncoder encoder;
+
 	
 	public List<Entreprise> getAllEntreprises() {
 		System.out.println("Affiche toutes les entreprises...");
@@ -29,27 +48,7 @@ public class EntrepriseService {
 		return entreprises;
 	}
 	
-	public Entreprise postEntreprise(@RequestBody Entreprise entreprise) {
 
-		Entreprise _entreprise = repository.save(new Entreprise(
-											entreprise.getRaisonSociale(),
-											entreprise.getSecteur(),
-											entreprise.getStatut(),
-											entreprise.getSiteWeb(),
-											entreprise.getAdresse(),
-											entreprise.getVille(),
-											entreprise.getCodePostal(),
-											entreprise.getLogo(),
-											entreprise.getPrenom(),
-											entreprise.getNom(),
-											entreprise.getFonction(),
-											entreprise.getTel(),
-											entreprise.getMail(),
-											entreprise.getMdp()
-											));
-		System.out.println("Nouvelle entreprise = " + _entreprise.toString());
-		return _entreprise;
-	}
 	
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		System.out.println("Suppression de l'entreprise avec l'ID = " + id + "...");
@@ -58,6 +57,46 @@ public class EntrepriseService {
 
 		return new ResponseEntity<>("L'entreprise a été supprimée !", HttpStatus.OK);
 	}
+	
+	public ResponseEntity<?> createEntreprise(SignUpForm signUpRequest) {
+		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
+					HttpStatus.BAD_REQUEST);
+		}
+
+		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+			return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
+					HttpStatus.BAD_REQUEST);
+		}
+
+		// Creating user's account
+		Entreprise user = new Entreprise(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getLogo(), signUpRequest.getPrenom(), signUpRequest.getFonction(), signUpRequest.getTel());
+
+		Set<String> strRoles = new HashSet<String>();
+		strRoles.add("entreprise");
+		Set<Role> roles = new HashSet<>();
+
+		strRoles.forEach(role -> {
+			switch (role) {
+			case "entreprise":
+				Role entrepriseRole = roleRepository.findByName(RoleName.ROLE_ENTREPRISE)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(entrepriseRole);
+
+				break;
+			default:
+				break;
+			}
+		});
+
+		user.setRoles(roles);
+		userRepository.save(user);
+
+		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+	}
+	
+	
 	
 	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
 		System.out.println("Mise à jour de l'entreprise avec l'ID = " + id + "...");
@@ -75,11 +114,11 @@ public class EntrepriseService {
 									_entreprise.setCodePostal(entreprise.getCodePostal());
 									_entreprise.setLogo(entreprise.getLogo());
 									_entreprise.setPrenom(entreprise.getPrenom());
-									_entreprise.setNom(entreprise.getNom());
+									_entreprise.setName(entreprise.getName());
 									_entreprise.setFonction(entreprise.getFonction());
 									_entreprise.setTel(entreprise.getTel());
-									_entreprise.setMail(entreprise.getMail());
-									_entreprise.setMdp(entreprise.getMdp());
+									_entreprise.setEmail(entreprise.getEmail());
+									_entreprise.setPassword(entreprise.getPassword());
 			System.out.println("Nouvelles propriétés de l'entreprise = " + _entreprise.toString());
 			return new ResponseEntity<>(repository.save(_entreprise), HttpStatus.OK);
 		} else {
