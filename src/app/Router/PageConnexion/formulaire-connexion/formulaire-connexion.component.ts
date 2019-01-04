@@ -62,8 +62,9 @@ export class FormulaireConnexionComponent implements OnInit {
         this.isLoginFailed = false;
 
         this.roles = this.tokenStorage.getAuthorities();
-        window.location.reload();
-        this.router.navigate(['../accueil']);       
+
+        if (this.roles[0] == "ROLE_STAGIAIRE") {this.router.navigate(['../boardstagiaire']); }
+        if (this.roles[0] == "ROLE_ENTREPRISE") {this.router.navigate(['../boardentreprise']); }
       },
       error => {
         console.log(error);
@@ -71,7 +72,7 @@ export class FormulaireConnexionComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-    console.log(this.formConnect.value);
+
   }
 
 

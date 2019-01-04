@@ -2,6 +2,9 @@ package fr.adoptunstage.spring.controllers;
 
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,25 +17,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.services.EntrepriseService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/entreprise")
 public class EntrepriseController {
 
 	@Autowired
 	EntrepriseService service;
 
-	@GetMapping("/entreprises")
+	@GetMapping("/")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
 	}
 
-	@PostMapping(value = "/entreprises/creer")
-	public Entreprise postEntreprise(@RequestBody Entreprise entreprise) {
-		return entreprise;
+	@PostMapping(value = "/creer")
+	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
+		return service.createEntreprise(signUpRequest);
 	}
 
 	@DeleteMapping("/entreprises/{id}")

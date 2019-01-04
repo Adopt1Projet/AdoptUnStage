@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EntrepriseService {
 
-  private baseUrl = 'http://localhost:8080/api/entreprises';
+  private baseUrl = 'http://localhost:8080/api/entreprise';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class EntrepriseService {
   }
 
   createEntreprise(customer: Object): Observable<Object> {
-    return this.http.post(`http://localhost:8080/api/auth/signup/entreprise`, customer);
+    return this.http.post(`${this.baseUrl}` + `/creer`, customer);
   }
 
   updateEntreprise(id: number, value: any): Observable<Object> {
