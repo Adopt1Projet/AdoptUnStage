@@ -5,6 +5,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { TokenStorageService } from '../../../auth/token-storage.service';
 import { Router } from '@angular/router';
 import { AuthLoginInfo } from '../../../auth/login-info';
+import { AlertService } from '../../../services/alert.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class FormulaireConnexionComponent implements OnInit {
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private router: Router,
+    private alertService: AlertService,
     private fb: FormBuilder
   ) {
     this.formConnect = this.connectForm();
@@ -62,10 +64,12 @@ export class FormulaireConnexionComponent implements OnInit {
 
         this.roles = this.tokenStorage.getAuthorities();
 
-        if (this.roles[0] == "ROLE_STAGIAIRE") { this.router.navigate(['../boardstagiaire']); }
+        if (this.roles[0] == "ROLE_STAGIAIRE") {  this.router.navigate(['../boardstagiaire/gestionstagiaire']); }
         if (this.roles[0] == "ROLE_ENTREPRISE") { this.router.navigate(['../boardentreprise']); }
-
-        window.location.reload();
+        setTimeout(function() {
+          window.location.reload();
+        }, 1);
+        
       },
       error => {
         console.log(error);
