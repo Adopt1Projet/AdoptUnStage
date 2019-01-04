@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
-import { TokenStorageService} from '../../../auth/token-storage.service';
+import { TokenStorageService } from '../../../auth/token-storage.service';
 import { Router } from '@angular/router';
 import { AuthLoginInfo } from '../../../auth/login-info';
 
@@ -17,17 +17,16 @@ export class FormulaireConnexionComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  loading = false;
   private loginInfo: AuthLoginInfo;
-
   public formConnect: FormGroup;
 
-  // formulaireConnexion = new FormGroup({
-  //   username: new FormControl(null, [Validators.required]),
-  //   password: new FormControl(null, [Validators.required])
-  // });
-
-
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private fb: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
     this.formConnect = this.connectForm();
   }
 
@@ -45,14 +44,14 @@ export class FormulaireConnexionComponent implements OnInit {
       }
     )
   }
-    
-    
-    
-    
+
+
+
+
 
   submitFormulaireConnexion() {
     this.loginInfo = this.formConnect.value;
-
+    this.loading = true;
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
@@ -63,13 +62,16 @@ export class FormulaireConnexionComponent implements OnInit {
 
         this.roles = this.tokenStorage.getAuthorities();
 
-        if (this.roles[0] == "ROLE_STAGIAIRE") {this.router.navigate(['../boardstagiaire']); }
-        if (this.roles[0] == "ROLE_ENTREPRISE") {this.router.navigate(['../boardentreprise']); }
+        if (this.roles[0] == "ROLE_STAGIAIRE") { this.router.navigate(['../boardstagiaire']); }
+        if (this.roles[0] == "ROLE_ENTREPRISE") { this.router.navigate(['../boardentreprise']); }
+
+        window.location.reload();
       },
       error => {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
+        this.loading = false;
       }
     );
 

@@ -1,6 +1,6 @@
 <div class="container bodyFormulaire">
 
-  <form class="col-md-8" (ngSubmit)="onSubmit()" (submit)="submit()" [formGroup]="formCreate">
+  <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
     <div class="col-sm-12 titres">
       <h1>Création d'un compte entreprise</h1>
     </div>
@@ -237,7 +237,7 @@
 
     <div class="form-group d-flex justify-content-around">
       <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
-      <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow" routerLink="/boarfentreprise">Valider</button>
+      <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
     </div>
 
   </form>
