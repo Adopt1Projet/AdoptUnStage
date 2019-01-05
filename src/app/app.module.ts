@@ -149,8 +149,8 @@ import { AlertComponent } from './alert/alert.component';
     ActuDetailComponent,
     QuiSommesNousComponent,
     PageBoiteAOutilsComponent,
-    AlertComponent
-    OffreDetailsComponent
+    AlertComponent,
+    OffreDetailsComponent,
 
   ],
   imports: [

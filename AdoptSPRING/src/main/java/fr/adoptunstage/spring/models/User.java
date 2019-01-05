@@ -31,6 +31,7 @@ import org.hibernate.annotations.NaturalId;
             "email"
         })
 })
+
 public abstract class User{
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)

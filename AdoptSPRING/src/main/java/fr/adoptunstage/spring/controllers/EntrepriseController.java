@@ -48,13 +48,13 @@ public class EntrepriseController {
 		return service.createEntreprise(signUpRequest);
 	}
 
-	@DeleteMapping("/entreprises/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		return service.deleteEntreprise(id);
 	}
 	
 
-	@PutMapping("/entreprises/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
 		return service.updateEntreprise(id, entreprise);
 	}
