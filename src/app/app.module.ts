@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
+import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -88,6 +91,8 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
 import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { AlertComponent } from './alert/alert.component';
+import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
+import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 
 
 @NgModule({
@@ -149,8 +154,10 @@ import { AlertComponent } from './alert/alert.component';
     ActuDetailComponent,
     QuiSommesNousComponent,
     PageBoiteAOutilsComponent,
-    AlertComponent
-    OffreDetailsComponent
+    AlertComponent,
+    OffreDetailsComponent,
+    PageErrorComponent,
+    PageNonConnecteComponent
 
   ],
   imports: [
@@ -160,7 +167,7 @@ import { AlertComponent } from './alert/alert.component';
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
