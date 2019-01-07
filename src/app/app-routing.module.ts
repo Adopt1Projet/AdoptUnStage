@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard'; 
+import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
+import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
@@ -24,44 +28,51 @@ import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.compone
 import { PageActusComponent } from './Router/PageActus/page-actus/page-actus.component';
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
+import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
+import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
   { path: 'accueil', component: PageAccueilComponent },
-  { path: 'postuler', component: PagePostulerComponent },
+  { path: 'postuler', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
   { path: 'offres', component: PageOffresComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
-  { path: 'creerOffre', component: FormulaireCreerOffreComponent },
-  { path: 'gestionOffres', component: GestionDesOffresComponent },
-  { path: 'infosEntreprise', component: InfosEntrepriseComponent },
+
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'detailoffre', component: PageDetailOffreComponent },
+  { path: 'detailoffre', canActivate: [AuthGuard], component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
-  { path: 'boardentreprise', component: PageBoardEntrepriseComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent},
-  { path: 'boardstagiaire', component: PageBoardStagiaireComponent, children: [
-    { path: 'gestionstagiaire' , component: GestionCandidaturesComponent },
-    { path: 'infosstagiaire' , component: InfosStagiaireComponent },
-    { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full'},
-  ]},
-  { path: 'contact', component: PageContactezNousComponent},
-  { path: 'actus', component: PageActusComponent},
-  { path: 'article/:id', component: ActuDetailComponent},
-  { path: 'boardentreprise', component: PageBoardEntrepriseComponent, children: [
-      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
-      { path: 'gestionoffres', component: GestionDesOffresComponent },
-      { path: 'infosentreprise', component: InfosEntrepriseComponent },
+  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
+  {
+    path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
+      { path: 'gestionstagiaire', canActivate: [AuthGuardStagiaire], component: GestionCandidaturesComponent },
+      { path: 'infosstagiaire', canActivate: [AuthGuardStagiaire], component: InfosStagiaireComponent },
+      { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
+    ]
+  },
+  { path: 'contact', component: PageContactezNousComponent },
+  { path: 'actus', component: PageActusComponent },
+  { path: 'article/:id', component: ActuDetailComponent },
+  {
+    path: 'boardentreprise', canActivate: [AuthGuardEntreprise], component: PageBoardEntrepriseComponent, children: [
+      { path: 'creeroffre', canActivate: [AuthGuardEntreprise], component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', canActivate: [AuthGuardEntreprise], component: GestionDesOffresComponent },
+      { path: 'infosentreprise', canActivate: [AuthGuardEntreprise], component: InfosEntrepriseComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]
   },
-  { path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
-    { path: 'faq', component: PageFaqComponent },
-    { path: 'aide', component: PageAideComponent },
-    { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
-  ]},
+  {
+    path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
+      { path: 'faq', component: PageFaqComponent },
+      { path: 'aide', component: PageAideComponent },
+      { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
+    ]
+  },
+
+  { path: 'non-connecte', component: PageNonConnecteComponent},
+  { path: 'erreur404', component: PageErrorComponent},
+  { path: '**', redirectTo: 'erreur404'},
 ];
 
 @NgModule({

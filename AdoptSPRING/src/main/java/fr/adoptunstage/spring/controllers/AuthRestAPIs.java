@@ -1,12 +1,8 @@
 package fr.adoptunstage.spring.controllers;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,15 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.adoptunstage.spring.message.request.SignUpForm;
-import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.message.request.LoginForm;
 import fr.adoptunstage.spring.message.response.JwtResponse;
-import fr.adoptunstage.spring.message.response.ResponseMessage;
-import fr.adoptunstage.spring.models.Entreprise;
-import fr.adoptunstage.spring.models.Role;
-import fr.adoptunstage.spring.models.RoleName;
-import fr.adoptunstage.spring.models.Stagiaire;
+
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
 import fr.adoptunstage.spring.security.jwt.JwtProvider;
@@ -67,6 +57,7 @@ public class AuthRestAPIs {
 
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
 	}
+<<<<<<< HEAD
 
 	@PostMapping("/signup/entreprise")
 	public ResponseEntity<?> registerEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
@@ -149,4 +140,7 @@ public class AuthRestAPIs {
 
 
 
+=======
+	
+>>>>>>> 7a357d1b24b87b1a503e3066fbe2151f50aee014
 }
