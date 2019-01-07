@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/AuthRestAPIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/AuthRestAPIs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Entreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Entreprise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/controllers/StagiaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/controllers/StagiaireController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageConnexion/formulaire-connexion/formulaire-connexion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageConnexion/formulaire-connexion/formulaire-connexion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageConnexion/formulaire-connexion/formulaire-connexion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageConnexion/formulaire-connexion/formulaire-connexion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionEntreprise/formulaire-incription-entreprise/formulaire-incription-entreprise.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/services/custom-validators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/custom-validators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -230,12 +211,12 @@
       <option name="presentableId" value="Default" />
       <updated>1544541404307</updated>
       <workItem from="1546525649525" duration="1268000" />
-      <workItem from="1546595451173" duration="4364000" />
+      <workItem from="1546595451173" duration="4840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5632000" />
+    <option name="totallyTimeSpent" value="6108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="679" y="31" width="921" height="869" extended-state="0" />
