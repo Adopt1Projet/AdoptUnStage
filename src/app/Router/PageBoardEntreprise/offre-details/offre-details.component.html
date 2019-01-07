@@ -1,0 +1,28 @@
+<div *ngIf="offre">
+  <div>
+    <label>Titre: </label> {{offre.titre}}
+  </div>
+  <div>
+    <label>Description: </label> {{offre.description}}
+  </div>
+  <div>
+    <label>Rue: </label> {{offre.rue}}
+  </div>
+  <div>
+    <label>Ville: </label> {{offre.ville}}
+  </div>
+  <div>
+    <label>Code postal: </label> {{offre.codePostal}}
+  </div>
+  <div>
+    <label>Active: </label> {{offre.active}}
+  </div>
+
+  <span class="button is-small btn-primary" *ngIf='offre.active' (click)='updateActive(false)'>Inactive</span>
+
+  <span class="button is-small btn-primary" *ngIf='!offre.active' (click)='updateActive(true)'>Active</span>
+
+  <span class="button is-small btn-danger" (click)='deleteOffre()'>Delete</span>
+
+  <hr />
+</div>

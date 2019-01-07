@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class StagiaireService {
 
-  private baseUrl = 'http://localhost:8080/api/stagiaires';
+  private baseUrl = 'http://localhost:8080/api/stagiaire';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class StagiaireService {
   }
 
   createStagiaire(customer: Object): Observable<Object> {
-    return this.http.post(`http://localhost:8080/api/auth/signup/stagiaire`, customer);
+    return this.http.post(`${this.baseUrl}`  + `/creer`, customer);
   }
 
   updateStagiaire(id: number, value: any): Observable<Object> {

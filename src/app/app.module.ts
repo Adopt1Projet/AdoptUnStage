@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
+import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -18,6 +21,7 @@ import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/form
 import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
+import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -40,7 +44,7 @@ import { PagePostulerComponent } from './Router/PagePostuler/page-postuler/page-
 
 // Page connexion
 import { PageConnexionComponent } from './Router/PageConnexion/page-connexion/page-connexion.component';
-import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
+import { FormulaireConnexionComponent } from './Router/PageConnexion/formulaire-connexion/formulaire-connexion.component';
 
 // Board stagiaire
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -86,6 +90,9 @@ import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.com
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
+import { AlertComponent } from './alert/alert.component';
+import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
+import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 
 
 @NgModule({
@@ -146,7 +153,11 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     ItemActusComponent,
     ActuDetailComponent,
     QuiSommesNousComponent,
-    PageBoiteAOutilsComponent
+    PageBoiteAOutilsComponent,
+    AlertComponent,
+    OffreDetailsComponent,
+    PageErrorComponent,
+    PageNonConnecteComponent
 
   ],
   imports: [
@@ -156,7 +167,7 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

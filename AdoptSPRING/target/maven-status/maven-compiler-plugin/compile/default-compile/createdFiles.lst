@@ -1,4 +1,5 @@
 fr/adoptunstage/spring/repos/QuestionRepository.class
+fr/adoptunstage/spring/controllers/StagiaireController.class
 fr/adoptunstage/spring/Application.class
 fr/adoptunstage/spring/services/OffreService.class
 fr/adoptunstage/spring/controllers/OffreController.class
@@ -23,6 +24,10 @@ fr/adoptunstage/spring/services/QuestionService.class
 fr/adoptunstage/spring/services/ActuService.class
 fr/adoptunstage/spring/models/RoleName.class
 fr/adoptunstage/spring/repos/StagiaireRepository.class
+<<<<<<< HEAD
+=======
+fr/adoptunstage/spring/services/StagiaireService.class
+>>>>>>> 7a357d1b24b87b1a503e3066fbe2151f50aee014
 fr/adoptunstage/spring/repos/PartenaireRepository.class
 fr/adoptunstage/spring/services/StagiaireService.class
 fr/adoptunstage/spring/models/Question.class
