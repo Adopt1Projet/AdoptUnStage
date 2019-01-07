@@ -3,7 +3,8 @@ import { EntrepriseService } from '../../../services/entreprise.service';
 import { TokenStorageService } from '../../../auth/token-storage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
-import { Entreprise } from 'src/app/modeles/entreprise';
+import { AlertService } from '../../../services/alert.service';
+
 
 
 
@@ -14,33 +15,50 @@ import { Entreprise } from 'src/app/modeles/entreprise';
 })
 export class InfosEntrepriseComponent implements OnInit {
 
-  public formCreate: FormGroup;
-  loading = false;
+  public formUpdate: FormGroup;
+  public formUpdatePassword: FormGroup;
   username;
-  entreprise : any;
+  entreprise: any;
 
 
-  constructor(private entrepriseService : EntrepriseService, 
-              private token : TokenStorageService,
-              private fb : FormBuilder) {
-                this.formCreate = this.createSignupForm();
-               }
+  constructor(private entrepriseService: EntrepriseService,
+    private token: TokenStorageService,
+    private alertService : AlertService,
+    private fb: FormBuilder) {
+    this.formUpdate = this.updateSignupForm();
+    this.formUpdatePassword = this.updateSignupFormPassword();
+  }
 
 
   ngOnInit() {
     this.username = this.token.getUsername();
     this.entrepriseService
       .getEntreprise(this.username)
-        .subscribe(data =>
-          {this.entreprise = data;
-           this.formCreate.value.name = this.entreprise.name;
-          }, 
-    error => console.log(error));;
+      .subscribe(data => {
+        this.entreprise = data;
+        this.formUpdate.setValue({
+          name: this.entreprise.name,
+          prenom: this.entreprise.prenom,
+          raisonSociale: this.entreprise.raisonSociale,
+          secteur: this.entreprise.secteur,
+          statut: this.entreprise.statut,
+          siteWeb: this.entreprise.siteWeb,
+          adresse: this.entreprise.adresse,
+          ville: this.entreprise.ville,
+          codePostal: this.entreprise.codePostal,
+          logo: this.entreprise.logo,
+          fonction: this.entreprise.fonction,
+          tel: this.entreprise.tel,
+          email: this.entreprise.email,
+          confirmMail: this.entreprise.email
+        });
+      },
+        error => console.log("erreur"));;
 
-    
+
   }
 
-  createSignupForm(): FormGroup {
+  updateSignupForm(): FormGroup {
     return this.fb.group(
       {
         siteWeb: [null],
@@ -86,10 +104,22 @@ export class InfosEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
-        checkCgu: [
+        confirmMail: [
           null,
-          Validators.compose([Validators.required])
-        ],
+          Validators.compose([Validators.email, Validators.required])
+        ]
+      },
+      {
+        // Vérifie si le mdp et l'email sont bien les mêmes
+        validator: [
+        CustomValidators.mailMatchValidator]
+      }
+    );
+  }
+
+  updateSignupFormPassword(): FormGroup {
+    return this.fb.group(
+      {
         password: [
           null,
           Validators.compose([
@@ -119,45 +149,39 @@ export class InfosEntrepriseComponent implements OnInit {
           ])
         ],
         confirmPassword: [null, Validators.compose([Validators.required])],
-        confirmMail: [
-          null,
-          Validators.compose([Validators.email, Validators.required])
-        ]
       },
       {
         // Vérifie si le mdp et l'email sont bien les mêmes
-        validator: [CustomValidators.passwordMatchValidator,
-          CustomValidators.mailMatchValidator]
+        validator: [CustomValidators.passwordMatchValidator]
       }
     );
   }
 
+
   onSubmit() {
-    let entreprise: Entreprise = this.formCreate.value;
-    if (this.formCreate.value.name == null) {this.formCreate.value.name = this.entreprise.name;}
-    if (this.formCreate.value.prenom == null) {this.formCreate.value.prenom = this.entreprise.prenom;}
-    if (this.formCreate.value.raisonSociale == null) {this.formCreate.value.raisonSociale = this.entreprise.raisonSociale;}
-    if (this.formCreate.value.secteur == null) {this.formCreate.value.secteur = this.entreprise.secteur;}
-    if (this.formCreate.value.statut == null) {this.formCreate.value.statut = this.entreprise.statut;}
-    if (this.formCreate.value.siteWeb == null) {this.formCreate.value.siteWeb = this.entreprise.siteWeb;}
-    if (this.formCreate.value.adresse == null) {this.formCreate.value.adresse = this.entreprise.adresse;}
-    if (this.formCreate.value.ville == null) {this.formCreate.value.ville = this.entreprise.ville;}
-    if (this.formCreate.value.codePostal == null) {this.formCreate.value.codePostal = this.entreprise.codePostal;}
-    if (this.formCreate.value.logo == null) {this.formCreate.value.logo = this.entreprise.logo;}
-    if (this.formCreate.value.fonction == null) {this.formCreate.value.fonction = this.entreprise.fonction;}
-    if (this.formCreate.value.tel == null) {this.formCreate.value.tel = this.entreprise.tel;}
-    if (this.formCreate.value.email == null) {this.formCreate.value.email = this.entreprise.email;}
-    if (this.formCreate.value.password == null) {this.formCreate.value.password = this.entreprise.password;}
-    entreprise.username = entreprise.email;
-    console.log(this.formCreate.value);
-    this.entrepriseService.updateEntreprise(this.entreprise.id, entreprise)
+    if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.entreprise.email };
+    this.formUpdate.value.username = this.formUpdate.value.email;
+    this.entrepriseService.updateEntreprise(this.entreprise.id, this.formUpdate.value)
       .subscribe(
         data => {
-          console.log("Mise à jour : " + data);
+          this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
-          console.log(error);
+          this.alertService.error("Une erreur est servenue. L'email renseigné est peut-être déjà utilisé.", true);
         });
+        
+  }
+
+  onSubmitPassword(){
+    this.entrepriseService.updateEntreprisePassword(this.entreprise.id, this.formUpdatePassword.value)
+      .subscribe(
+        data => {
+          this.alertService.success('Votre mot de passe a bien été modifié !', true);
+        },
+        error => {
+          this.alertService.error("Une erreur est servenue.", true);
+        });
+    this.formUpdatePassword.reset();
   }
 
 }

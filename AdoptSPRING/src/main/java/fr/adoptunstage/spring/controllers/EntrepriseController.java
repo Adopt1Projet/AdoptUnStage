@@ -58,4 +58,9 @@ public class EntrepriseController {
 	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprise(id, updateRequest);
 	}
+	
+	@PutMapping("/password/{id}")
+	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+		return service.updateEntreprisePassword(id, updateRequest);
+	}
 }

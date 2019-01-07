@@ -127,10 +127,31 @@ public class EntrepriseService {
 									_entreprise.setName(updateRequest.getName());
 									_entreprise.setFonction(updateRequest.getFonction());
 									_entreprise.setTel(updateRequest.getTel());
+									_entreprise.setEmail(updateRequest.getEmail());
+									_entreprise.setUsername(updateRequest.getUsername());
 							
 									
 			userRepository.save(_entreprise);
 			System.out.println("Nouvelles propriétés de l'entreprise = " + _entreprise.toString());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			System.out.println("Aucune entreprise avec l'ID " + id + " n'est présente dans la base de donnée !");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+		System.out.println("Mise à jour de l'entreprise avec l'ID = " + id + "...");
+
+		Optional<User> entrepriseData = userRepository.findById(id);
+
+		if (entrepriseData.isPresent()) {
+			Entreprise _entreprise = (Entreprise) entrepriseData.get();
+									_entreprise.setPassword(encoder.encode(updateRequest.getPassword()));
+							
+									
+			userRepository.save(_entreprise);
+			System.out.println("Password modifié " + _entreprise.toString());
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
 			System.out.println("Aucune entreprise avec l'ID " + id + " n'est présente dans la base de donnée !");

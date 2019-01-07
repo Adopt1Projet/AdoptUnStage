@@ -23,6 +23,10 @@ export class EntrepriseService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
+  updateEntreprisePassword(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/password/${id}`, value);
+  }
+
   deleteEntreprise(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
