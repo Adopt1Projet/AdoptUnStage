@@ -19,6 +19,7 @@ import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-cre
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
+import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -89,7 +90,6 @@ import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { AlertComponent } from './alert/alert.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -149,8 +149,9 @@ import { AlertComponent } from './alert/alert.component';
     ActuDetailComponent,
     QuiSommesNousComponent,
     PageBoiteAOutilsComponent,
-    AlertComponent
-    OffreDetailsComponent
+    AlertComponent,
+    OffreDetailsComponent,
+    ModifierOffreComponent,
 
   ],
   imports: [
