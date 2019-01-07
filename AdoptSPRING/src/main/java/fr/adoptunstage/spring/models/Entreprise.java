@@ -2,6 +2,8 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Entreprise extends User {
@@ -37,8 +39,6 @@ public class Entreprise extends User {
 	
 	@Column(name = "tel")
 	private int tel;
-
-
 	
 	@Column(name = "siteWeb")
 	private String siteWeb;

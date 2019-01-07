@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { StagiaireService } from 'src/app/stagiaire.service';
-// import { Stagiaire } from 'src/app/stagiaire';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { StagiaireService } from 'src/app/services/stagiaire.service';
+import { Stagiaire } from 'src/app/modeles/stagiaire';
+import { CustomValidators } from '../../../services/custom-validators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-infos-stagiaire',
@@ -11,22 +12,96 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfosStagiaireComponent implements OnInit {
 
-  /* formUpdate = new FormGroup({
-    prenom: new FormControl(null, [Validators.required]),
-    nom: new FormControl(null, [Validators.required]),
-    etablissement: new FormControl(null, [Validators.required]),
-    ville: new FormControl(null),
-    codePostal: new FormControl(null, [Validators.required]),
-    tel: new FormControl(null), // Créer une fonction qui supprime les espaces entre les nombres.
-    mail: new FormControl(null, [Validators.required]),
-    mail2: new FormControl(null, [Validators.required]),
-    mdp: new FormControl(null, [Validators.required]),
-    mdp2: new FormControl(null, [Validators.required])
-    }); */
+  public formUpdate: FormGroup;
 
-  constructor() { }
+  constructor(private stagiaireService: StagiaireService, private _location: Location, private fb: FormBuilder) {
+    this.formUpdate = this.updateSignupForm();
+   }
 
   ngOnInit() {
   }
 
+  updateSignupForm(): FormGroup {
+    return this.fb.group(
+      {
+        prenom: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        name: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        etablissement: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        ville: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        tel: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        email: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ],
+        password: [
+          null,
+          Validators.compose([
+            Validators.required,
+            // check whether the entered password has a number
+            CustomValidators.patternValidator(/\d/, {
+              hasNumber: true
+            }),
+            // check whether the entered password has upper case letter
+            CustomValidators.patternValidator(/[A-Z]/, {
+              hasCapitalCase: true
+            }),
+            // check whether the entered password has a lower case letter
+            CustomValidators.patternValidator(/[a-z]/, {
+              hasSmallCase: true
+            }),
+            // check whether the entered password has a special character
+            /* 
+             * CustomValidators.patternValidator(
+             *  /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
+             *  {
+             *    hasSpecialCharacters: true
+             *  }
+             *  ), 
+            */
+            Validators.minLength(6)
+          ])
+        ],
+        confirmPassword: [null, Validators.compose([Validators.required])],
+        confirmMail: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ]
+      },
+       {
+      //   // Vérifie si le mdp et l'email sont bien les mêmes
+         validator: [CustomValidators.passwordMatchValidator,
+         CustomValidators.mailMatchValidator]
+       }
+    );
+  }
+
+  retourPage() {
+    this._location.back();
+  }
+   onSubmit() {
+    const stagiaire: Stagiaire = this.formUpdate.value;
+    stagiaire.username = stagiaire.email;
+    this.stagiaireService.createStagiaire(stagiaire)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.formUpdate.reset();
+  }
 }

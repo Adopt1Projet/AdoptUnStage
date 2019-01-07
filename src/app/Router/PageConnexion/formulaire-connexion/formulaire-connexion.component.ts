@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { AuthLoginInfo } from '../../../auth/login-info';
 import { AlertService } from '../../../services/alert.service';
 
-
 @Component({
   selector: 'app-formulaire-connexion',
   templateUrl: './formulaire-connexion.component.html',
@@ -81,8 +80,5 @@ export class FormulaireConnexionComponent implements OnInit {
 
   }
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

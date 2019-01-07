@@ -1,3 +1,12 @@
+.is-invalid {
+    border-left: solid 6px red;
+  }
+  
+  .material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  
 .blocUpdateProfil {
     padding-top: 3rem;
     padding-left: 2rem;
@@ -44,4 +53,8 @@ input, select{
 ::placeholder { 
     color: #C2BFCA;
     opacity: 1; 
+}
+
+h2 {
+    color: #26a69a;
 }
