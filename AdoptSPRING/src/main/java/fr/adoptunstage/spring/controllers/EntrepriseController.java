@@ -55,7 +55,7 @@ public class EntrepriseController {
 	
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
-		return service.updateEntreprise(id, entreprise);
+	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+		return service.updateEntreprise(id, updateRequest);
 	}
 }

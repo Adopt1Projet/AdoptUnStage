@@ -29,9 +29,15 @@ export class InfosEntrepriseComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.token.getUsername();
-    this.entrepriseService.getEntreprise(this.username).subscribe(data =>{ this.entreprise = data;
-                                                                           console.log(this.entreprise);}, 
-                                                                           error => console.log(error));;
+    this.entrepriseService
+      .getEntreprise(this.username)
+        .subscribe(data =>
+          {this.entreprise = data;
+           this.formCreate.value.name = this.entreprise.name;
+          }, 
+    error => console.log(error));;
+
+    
   }
 
   createSignupForm(): FormGroup {
@@ -76,6 +82,10 @@ export class InfosEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
+        email: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ],
         checkCgu: [
           null,
           Validators.compose([Validators.required])
@@ -109,25 +119,44 @@ export class InfosEntrepriseComponent implements OnInit {
           ])
         ],
         confirmPassword: [null, Validators.compose([Validators.required])],
+        confirmMail: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ]
       },
       {
         // Vérifie si le mdp et l'email sont bien les mêmes
-        validator: [CustomValidators.passwordMatchValidator]
+        validator: [CustomValidators.passwordMatchValidator,
+          CustomValidators.mailMatchValidator]
       }
     );
   }
 
   onSubmit() {
     let entreprise: Entreprise = this.formCreate.value;
-    this.loading = true;
-    this.entrepriseService.updateEntreprise(21, entreprise)
+    if (this.formCreate.value.name == null) {this.formCreate.value.name = this.entreprise.name;}
+    if (this.formCreate.value.prenom == null) {this.formCreate.value.prenom = this.entreprise.prenom;}
+    if (this.formCreate.value.raisonSociale == null) {this.formCreate.value.raisonSociale = this.entreprise.raisonSociale;}
+    if (this.formCreate.value.secteur == null) {this.formCreate.value.secteur = this.entreprise.secteur;}
+    if (this.formCreate.value.statut == null) {this.formCreate.value.statut = this.entreprise.statut;}
+    if (this.formCreate.value.siteWeb == null) {this.formCreate.value.siteWeb = this.entreprise.siteWeb;}
+    if (this.formCreate.value.adresse == null) {this.formCreate.value.adresse = this.entreprise.adresse;}
+    if (this.formCreate.value.ville == null) {this.formCreate.value.ville = this.entreprise.ville;}
+    if (this.formCreate.value.codePostal == null) {this.formCreate.value.codePostal = this.entreprise.codePostal;}
+    if (this.formCreate.value.logo == null) {this.formCreate.value.logo = this.entreprise.logo;}
+    if (this.formCreate.value.fonction == null) {this.formCreate.value.fonction = this.entreprise.fonction;}
+    if (this.formCreate.value.tel == null) {this.formCreate.value.tel = this.entreprise.tel;}
+    if (this.formCreate.value.email == null) {this.formCreate.value.email = this.entreprise.email;}
+    if (this.formCreate.value.password == null) {this.formCreate.value.password = this.entreprise.password;}
+    entreprise.username = entreprise.email;
+    console.log(this.formCreate.value);
+    this.entrepriseService.updateEntreprise(this.entreprise.id, entreprise)
       .subscribe(
         data => {
           console.log("Mise à jour : " + data);
         },
         error => {
           console.log(error);
-          this.loading = false;
         });
   }
 

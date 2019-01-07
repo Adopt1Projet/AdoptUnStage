@@ -108,29 +108,30 @@ public class EntrepriseService {
 	
 	
 	
-	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
+	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		System.out.println("Mise à jour de l'entreprise avec l'ID = " + id + "...");
 
-		Optional<Entreprise> entrepriseData = repository.findById(id);
+		Optional<User> entrepriseData = userRepository.findById(id);
 
 		if (entrepriseData.isPresent()) {
-			Entreprise _entreprise = entrepriseData.get();
-									_entreprise.setRaisonSociale(entreprise.getRaisonSociale());
-									_entreprise.setSecteur(entreprise.getSecteur());
-									_entreprise.setStatut(entreprise.getStatut());
-									_entreprise.setSiteWeb(entreprise.getSiteWeb());
-									_entreprise.setVille(entreprise.getAdresse());
-									_entreprise.setVille(entreprise.getVille());
-									_entreprise.setCodePostal(entreprise.getCodePostal());
-									_entreprise.setLogo(entreprise.getLogo());
-									_entreprise.setPrenom(entreprise.getPrenom());
-									_entreprise.setName(entreprise.getName());
-									_entreprise.setFonction(entreprise.getFonction());
-									_entreprise.setTel(entreprise.getTel());
-									_entreprise.setEmail(entreprise.getEmail());
-									_entreprise.setPassword(entreprise.getPassword());
+			Entreprise _entreprise = (Entreprise) entrepriseData.get();
+									_entreprise.setRaisonSociale(updateRequest.getRaisonSociale());
+									_entreprise.setSecteur(updateRequest.getSecteur());
+									_entreprise.setStatut(updateRequest.getStatut());
+									_entreprise.setSiteWeb(updateRequest.getSiteWeb());
+									_entreprise.setAdresse(updateRequest.getAdresse());
+									_entreprise.setVille(updateRequest.getVille());
+									_entreprise.setCodePostal(updateRequest.getCodePostal());
+									_entreprise.setLogo(updateRequest.getLogo());
+									_entreprise.setPrenom(updateRequest.getPrenom());
+									_entreprise.setName(updateRequest.getName());
+									_entreprise.setFonction(updateRequest.getFonction());
+									_entreprise.setTel(updateRequest.getTel());
+							
+									
+			userRepository.save(_entreprise);
 			System.out.println("Nouvelles propriétés de l'entreprise = " + _entreprise.toString());
-			return new ResponseEntity<>(repository.save(_entreprise), HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
 			System.out.println("Aucune entreprise avec l'ID " + id + " n'est présente dans la base de donnée !");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

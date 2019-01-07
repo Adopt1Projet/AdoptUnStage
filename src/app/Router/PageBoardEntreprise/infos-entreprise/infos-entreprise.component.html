@@ -120,6 +120,28 @@
       </label>
     </div>
 
+
+    <div class="col-sm-12 titres">
+      <h2>Modifier votre adresse mail</h2>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Nouvel E-mail</label>
+      <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="formCreate.controls['email'].invalid ? 'is-invalid' : ''">
+
+      <label class="text-danger" *ngIf="formCreate.controls['email'].hasError('email')">
+        Entrez une adresse mail valide !
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmMail">Confirmation du nouvel l'E-mail</label>
+      <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formCreate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
+      <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('NoMailMatch')">
+        Entrez une adresse mail valide !
+      </label>
+    </div>
+
     <div class="col-sm-12 titres">
       <h2>Modifier votre mot de passe</h2>
     </div>

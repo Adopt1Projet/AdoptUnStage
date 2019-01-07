@@ -37,7 +37,6 @@ public abstract class User{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
     @Size(min=3, max = 50)
     private String name;
 
