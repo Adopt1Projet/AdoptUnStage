@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemFaqComponent implements OnInit {
 
-  @Input() question : any;
+  @Input() question: any;
 
   constructor() { }
 

@@ -60,7 +60,7 @@ export class ListeOffresComponent implements OnInit {
       dateFin: "Au 07 déc. 2018",
       logoEntreprise: '/assets/img/wcs.png'
 
-      
+
     }
   ];
 

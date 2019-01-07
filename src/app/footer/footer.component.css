@@ -1,9 +1,9 @@
 .footer {
-    background-color : #00ac9a;
+    background-color: #00ac9a;
     padding: 15px;
 }
 
-.footerImg img{
+.footerImg img {
     max-width: 10%;
     max-height: 50px;
 }

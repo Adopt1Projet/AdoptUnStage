@@ -14,7 +14,7 @@ export interface Entreprise {
     prenom: string;
     fonction: string;
     tel: number;
-    siteWeb : String;
+    siteWeb: String;
 
-    
+
 }

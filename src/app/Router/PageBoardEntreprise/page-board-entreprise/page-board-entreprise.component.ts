@@ -7,7 +7,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
   styleUrls: ['./page-board-entreprise.component.css']
 })
 export class PageBoardEntrepriseComponent implements OnInit {
-  info : any;
+  info: any;
   constructor() { }
 
   ngOnInit() {

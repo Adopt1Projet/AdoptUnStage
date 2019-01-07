@@ -8,12 +8,12 @@ import { TokenStorageService } from '../auth/token-storage.service';
 })
 export class NavbarComponent implements OnInit {
 
-  info : any;
-  isInfo = false; 
+  info: any;
+  isInfo = false;
   isStagiaire = false;
   isEntreprise = false;
-  
-  constructor(private token : TokenStorageService) { }
+
+  constructor(private token: TokenStorageService) { }
 
   logout() {
     this.token.signOut();
@@ -25,14 +25,14 @@ export class NavbarComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
-    if(this.info.username != "" && this.info.username != null) {this.isInfo=true;}
-    else {this.isInfo=false;}
+    if (this.info.username != "" && this.info.username != null) { this.isInfo = true; }
+    else { this.isInfo = false; }
 
-    if(this.info.authorities == "ROLE_STAGIAIRE") {this.isStagiaire=true;}
-    else {this.isStagiaire=false;}
-    
-    if(this.info.authorities == "ROLE_ENTREPRISE") {this.isEntreprise=true;}
-    else {this.isEntreprise=false;}
+    if (this.info.authorities == "ROLE_STAGIAIRE") { this.isStagiaire = true; }
+    else { this.isStagiaire = false; }
+
+    if (this.info.authorities == "ROLE_ENTREPRISE") { this.isEntreprise = true; }
+    else { this.isEntreprise = false; }
   }
 
 }

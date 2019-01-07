@@ -1,14 +1,14 @@
 .descEntrepriseBody {
     color: #000000;
     background-color: #ffffff;
-    border : 2px solid;
+    border: 2px solid;
     border-color: rgb(235, 235, 235);
     height: 350px;
     margin-top: 1%;
 }
 
-.material-icons.md-36 { 
-    font-size: 36px; 
+.material-icons.md-36 {
+    font-size: 36px;
     margin: 15px;
 }
 

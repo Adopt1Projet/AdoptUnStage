@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { AuthGuard } from './auth/auth.guard';
-import { AuthGuard } from './auth/auth.guard'; 
+import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
@@ -70,9 +70,9 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'non-connecte', component: PageNonConnecteComponent},
-  { path: 'erreur404', component: PageErrorComponent},
-  { path: '**', redirectTo: 'erreur404'},
+  { path: 'non-connecte', component: PageNonConnecteComponent },
+  { path: 'erreur404', component: PageErrorComponent },
+  { path: '**', redirectTo: 'erreur404' },
 ];
 
 @NgModule({

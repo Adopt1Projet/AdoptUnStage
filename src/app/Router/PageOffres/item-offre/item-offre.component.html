@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-1 logo"><img src="{{logoEntreprise}}"></div>
     <div class="col-4 titre">{{offreTitre}} <br> {{offreNomEntreprise}}</div>
-    <div class="col-1 badge" [ngStyle]="{'background-color': getCouleur()}"><p class="textPourvu">{{offrePourvu}}</p></div>
+    <div class="col-1 badge" [ngStyle]="{'background-color': getCouleur()}">
+      <p class="textPourvu">{{offrePourvu}}</p>
+    </div>
     <div class="col-4 textSecteur">{{offreSecteur}}</div>
     <div class="col-2 date">{{offreDateDebut}} <br> {{offreDateFin}}</div>
   </div>

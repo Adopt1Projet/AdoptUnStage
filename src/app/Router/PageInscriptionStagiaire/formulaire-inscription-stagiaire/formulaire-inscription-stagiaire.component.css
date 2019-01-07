@@ -1,55 +1,58 @@
 .is-invalid {
     border-left: solid 6px red;
-  }
-  
-  .material-icons {
+}
+
+.material-icons {
     display: inline-flex;
     vertical-align: middle;
-  }
+}
 
 .bodyFormulaire {
     background-color: white;
     margin-top: 30px;
 }
-  
-form{
+
+form {
     color: #26a69a;
     margin: 0 auto;
     padding-top: 1vw;
     padding-bottom: 2vh;
 }
-  
-.titres{
+
+.titres {
     margin-top: 3vw;
     margin-bottom: 3vw;
 }
-  
-h1, h2{
+
+h1,
+h2 {
     text-align: center;
     font-weight: bolder;
 }
-  
-hr{
+
+hr {
     width: 75%;
     border: 2px solid #000;
 }
-  
-input, select{
+
+input,
+select {
     background-color: #ebebeb;
     border: none;
 }
-  
-.mmeMr{
+
+.mmeMr {
     padding-left: 1rem;
     padding-bottom: 1vh;
 }
-  
-.genre, .check{
+
+.genre,
+.check {
     padding-left: 0.5rem;
     vertical-align: middle;
 }
-  
-.btn{
+
+.btn {
     background-color: #26a69a;
     height: 8vh;
     color: white;
@@ -57,17 +60,17 @@ input, select{
     font-size: 1.25rem;
     margin-top: 3vh;
 }
-  
-  
+
+
 .btn:hover {
     background-color: #2ed1bb;
 }
 
-::placeholder { 
+::placeholder {
     color: #C2BFCA;
-    opacity: 1; 
+    opacity: 1;
 }
 
-.modeEmploi{
+.modeEmploi {
     padding-bottom: 1vh;
 }
