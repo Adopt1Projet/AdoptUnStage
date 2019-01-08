@@ -1,21 +1,8 @@
-.bodyFormulaire {
+.bodyBoard {
     background-color: white;
 }
 
-form {
-    color: #26a69a;
-    margin: 0 auto;
-    padding-top: 5vw;
-    padding-bottom: 5vh;
-}
-
-.titres {
-    margin-top: 3vw;
-    margin-bottom: 3vw;
-}
-
-h1,
-h2 {
+h1, h2 {
     text-align: center;
     font-weight: bolder;
 }
@@ -23,23 +10,6 @@ h2 {
 hr {
     width: 75%;
     border: 2px solid #000;
-}
-
-input,
-select {
-    background-color: #ebebeb;
-    border: none;
-}
-
-.mmeMr {
-    padding-left: 1rem;
-    padding-bottom: 1vh;
-}
-
-.genre,
-.check {
-    padding-left: 0.5rem;
-    vertical-align: middle;
 }
 
 .btn {
@@ -53,10 +23,5 @@ select {
 
 
 .btn:hover {
-    background-color: green;
-}
-
-::placeholder {
-    color: #C2BFCA;
-    opacity: 1;
+    background-color: #2ed1bb;
 }

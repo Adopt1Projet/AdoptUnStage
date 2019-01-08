@@ -1,61 +1,56 @@
 .is-invalid {
     border-left: solid 6px red;
-  }
+}
   
-  .material-icons {
+.material-icons {
     display: inline-flex;
     vertical-align: middle;
-  }
-  
-.blocUpdateProfil {
-    padding-top: 3rem;
-    padding-left: 2rem;
 }
 
 .bodyFormulaire {
     background-color: white;
+}
+  
+.titres{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+
+.titre{
+    margin-bottom: 3vw;  
 }
 
 form {
     color: #26a69a;
     margin: 0 auto;
     padding-top: 3vw;
-    padding-bottom: 3vh;
 }
 
-input,
-select {
+h1, h2{
+    text-align: center;
+    font-weight: bolder;
+}
+
+input, select {
     background-color: #ebebeb;
     border: none;
 }
 
-.mmeMr {
-    padding-left: 1rem;
-    padding-bottom: 1vh;
-}
-
-.btn {
+.btn{
     background-color: #26a69a;
-    height: 9vh;
-    width: 40vh;
+    height: 8vh;
+    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 3vh;
-    margin-bottom: 3vh;
-    margin: auto;
-    display: block;
 }
 
 .btn:hover {
-    background-color: green;
+    background-color: #2ed1bb;
 }
 
 ::placeholder {
     color: #C2BFCA;
     opacity: 1;
-}
-
-h2 {
-    color: #26a69a;
 }
