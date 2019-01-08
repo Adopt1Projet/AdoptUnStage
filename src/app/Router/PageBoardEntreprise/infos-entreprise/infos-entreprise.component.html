@@ -1,7 +1,208 @@
-<p>
-  infos-entreprise works!
-</p>
+<div *ngIf="entreprise" class="container bodyFormulaire">
 
-<!-- <div>
-  <label>raison sociale: </label> {{entreprise.raisonSociale}}
-</div> -->
+  <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
+    <div class="col-sm-12 titre">
+      <h2>Modifier les informations de l'entreprise</h2>
+    </div>
+
+    <div class="form-group">
+      <label for="raisonSociale">Raison Sociale</label>
+      <input id="raisonSociale" formControlName="raisonSociale" type="text" class="form-control" value="{{entreprise.raisonSociale}}">
+      <label class="text-danger" *ngIf="formUpdate.controls['raisonSociale'].hasError('required')">
+        La raison sociale est requise !
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="secteur">Secteur d'activité</label>
+      <small class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
+      <select id="secteur" formControlName="secteur" type="text" class="form-control" value="{{entreprise.secteur}}"
+        name="secteur" placeholder="Secteur d'activité">
+        <option>BTP</option>
+        <option>Restauration</option>
+        <option>Artisanat</option>
+      </select>
+      <label class="text-danger" *ngIf="formUpdate.controls['secteur'].hasError('required')">
+        Le secteur d'activité est requis !
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="statut">Statut (S.A.R.L, Association ...)</label>
+      <small id="statut" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
+      <select id="statut" formControlName="statut" type="text" class="form-control" value="{{entreprise.statut}}" name="statut"
+        placeholder="Statut de l'entreprise">
+        <option>EIRL</option>
+        <option>SARL</option>
+        <option>EURL</option>
+        <option>SAS</option>
+        <option>SASU</option>
+        <option>SA</option>
+        <option>SNC</option>
+        <option>Association</option>
+        <option>Autre</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="siteWeb">Site Web</label>
+      <input id="siteWeb" formControlName="siteWeb" type="text" class="form-control" placeholder="https://..." value="{{entreprise.siteWeb}}">
+    </div>
+
+    <div class="form-group">
+      <label for="adresse">Adresse</label>
+      <input id="adresse" formControlName="adresse" type="text" class="form-control" value="{{entreprise.adresse}}"
+        placeholder="Adresse">
+        <label class="text-danger" *ngIf="formUpdate.controls['adresse'].hasError('required')">
+          L'adresse de votre entreprise est requise !
+        </label>
+    </div>
+
+    <div class="form-group">
+      <label for="ville">Ville</label>
+      <input id="ville" formControlName="ville" type="text" class="form-control" value="{{entreprise.ville}}"
+        placeholder="Lyon">
+        <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('required')">
+          La ville est requise !
+        </label>
+    </div>
+
+    <div class="form-group">
+      <label for="codePostal">Code Postal</label>
+      <input id="codePostal" formControlName="codePostal" type="text" class="form-control" value="{{entreprise.codePostal}}"
+        placeholder="Code Postal">
+        <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
+          Le code postal est requis !
+        </label>
+    </div>
+
+    <div class="form-group logo">
+      <label for="logo" class="label-file">Logo</label>
+      <input formControlName="logo" type="file" class="form-control-file input-file" id="logo" name="logo">
+    </div>
+
+    <div class="col-sm-12 titres">
+      <h2>Modifier les informations du référent d'entreprise</h2>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="prenom">Prénom</label>
+        <input id="prenom" formControlName="prenom" type="text" class="form-control" value="{{entreprise.prenom}}"
+          placeholder="Prénom">
+          <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('required')">
+            Le prénom du référent est requis !
+          </label>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="name">Nom</label>
+        <input id="name" formControlName="name" type="text" class="form-control" value="{{entreprise.name}}"
+          placeholder="Nom">
+          <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('required')">
+            Le nom du référent est requis !
+          </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fonction">Fonction</label>
+      <input formControlName="fonction" type="text" class="form-control" id="fonction" name="fonction" value="{{entreprise.fonction}}"
+        placeholder="Fonction">
+    </div>
+
+    <div class="form-group">
+      <label for="tel">Téléphone</label>
+      <input id="tel" formControlName="tel" type="text" class="form-control" value="{{entreprise.tel}}" placeholder="n°">
+      <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('required')">
+        Le téléphone est requis !
+      </label>
+    </div>
+
+
+    <div class="col-sm-12 titres">
+      <h2>Modifier votre adresse mail</h2>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="formUpdate.controls['email'].invalid ? 'is-invalid' : ''">
+
+      <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('required')">
+        Le mail est requis !
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmMail">Confirmation de l'E-mail</label>
+      <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formUpdate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
+      <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('NoMailMatch')">
+        Entrez une adresse mail valide !
+      </label>
+    </div>
+
+    <div class="form-group d-flex justify-content-around">
+      <button [disabled]="formUpdate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider les modifications</button>    
+    </div>
+  </form>
+
+  <app-alert></app-alert>
+
+  <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="formUpdatePassword.controls['password'].invalid ? 'is-invalid' : ''">
+    <label class="text-danger col" *ngIf="formUpdatePassword.controls['password'].hasError('required')">
+      Mot de passe requis!
+    </label>
+    <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+      <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
+        formUpdatePassword.controls['password'].hasError('minlength') ? 'cancel' :
+        'check_circle' }}</i>
+      Dois contenir au minimum 6 caractères!
+    </label>
+    <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+      <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
+        formUpdatePassword.controls['password'].hasError('hasNumber') ? 'cancel' :
+        'check_circle' }}</i>
+      Dois contenir au minimum un chiffre!
+    </label>
+    <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+      <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
+        formUpdatePassword.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+        'check_circle' }}</i>
+      Dois contenir au minimum une lettre majuscule!
+    </label>
+    <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+      <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
+        formUpdatePassword.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+        'check_circle' }}</i>
+      Dois contenir au minimum une lettre minuscule!
+    </label>
+    <!-- <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
+              <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
+                formUpdatePassword.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
+                'check_circle' }}</i>
+              Must contain at least 1 Special Character!
+            </label> -->
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirmation du mot de passe</label>
+    <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" [ngClass]="formUpdatePassword.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
+    <label class="text-danger" *ngIf="formUpdatePassword.controls['confirmPassword'].hasError('required')">
+      Mot de passe requis!
+    </label>
+    <label class="text-danger" *ngIf="formUpdatePassword.controls['confirmPassword'].hasError('NoPasswordMatch')">
+      Mot de passe incorrect!
+    </label>
+  </div>
+  <div class="form-group d-flex justify-content-around">
+    <button [disabled]="formUpdatePassword.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Modifier le mot de passe</button>
+  </div>
+  </form>
+
+
+
+</div>

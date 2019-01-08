@@ -3,97 +3,105 @@
 
         <div class="blocUpdateProfil">
             <h2>Modifier mes coordonnées</h2>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="prenom">Prénom</label>
-                        <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" [ngClass]="formUpdate.controls['prenom'].invalid ? 'is-invalid' : ''" placeholder="Prénom">
-                        <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('required')">
-                            Le prénom est requis!
-                        </label>
-                        <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('prenom')">
-                            Merci d'entrer votre prénom!
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="name">Nom</label>
-                        <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formUpdate.controls['name'].invalid ? 'is-invalid' : ''"
-                            placeholder="Nom">
-                        <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('required')">
-                            Le nom est requis!
-                        </label>
-                        <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('name')">
-                            Merci d'entrer votre nom!
-                        </label>
-                    </div>
-                </div>
-        
-                <div class="form-group">
-                    <label for="etablissement">Établissement</label>
-                    <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
-                    <select formControlName="etablissement" type="text" class="form-control" [ngClass]="formUpdate.controls['etablissement'].invalid ? 'is-invalid' : ''" id="etablissement" name="etablissement" [ngClass]="formUpdate.controls['nom'].invalid ? 'is-invalid' : ''" placeholder="Établissement">
-                        <option value=""></option>
-                        <option>Collège Jean de Verrazane</option>
-                        <option>Collège Jean Perrin</option>
-                        <option>Collège Victor Schoechler</option>
-                    </select>
-                </div>
-        
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="ville">Ville du domicile</label>
-                        <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" [ngClass]="formUpdate.controls['ville'].invalid ? 'is-invalid' : ''" placeholder="Ville">
-                        <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('required')">
-                            La ville est requise!
-                        </label>
-                        <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('ville')">
-                            Merci d'entrer votre ville!
-                        </label>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="codePostal">Code Postal</label>
-                        <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal" [ngClass]="formUpdate.controls['codePostal'].invalid ? 'is-invalid' : ''" placeholder="69009">
-                        <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
-                            Le code postal est requis!
-                        </label>
-                        <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('codePostal')">
-                            Merci d'entrer votre code postal!
-                        </label>
-                    </div>
-                </div>
-        
-                <div class="form-group">
-                    <label for="tel">Téléphone</label>
-                    <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" [ngClass]="formUpdate.controls['tel'].invalid ? 'is-invalid' : ''" placeholder="n°">
-                    <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('required')">
-                        Le téléphone est requis!
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="prenom">Prénom</label>
+                    <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom"
+                        [ngClass]="formUpdate.controls['prenom'].invalid ? 'is-invalid' : ''" placeholder="Prénom">
+                    <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('required')">
+                        Le prénom est requis!
                     </label>
-                    <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('tel')">
-                        Merci d'entrer votre numéro de téléphone!
+                    <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('prenom')">
+                        Merci d'entrer votre prénom!
                     </label>
                 </div>
-
-                <div class="form-group">
-                    <label for="mail">Modifier l'email</label>
-                    <input formControlName="email" type="email" class="form-control" id="email" name="email" [ngClass]="formUpdate.controls['email'].invalid ? 'is-invalid' : ''" placeholder="Exemple@mail.com">
-                   <!--Modification possible de l'email-->
-                    <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('required')">
-                        Le mail est requis!
+                <div class="form-group col-md-6">
+                    <label for="name">Nom</label>
+                    <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formUpdate.controls['name'].invalid ? 'is-invalid' : ''"
+                        placeholder="Nom">
+                    <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('required')">
+                        Le nom est requis!
                     </label>
-                    <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('email')">
-                        Entrez une adresse mail valide!
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="confirmMail">Confirmer le nouvel email</label>
-                    <input formControlName="confirmMail" type="email2" class="form-control" id="confirmMail" name="confirmMail" [ngClass]="formUpdate.controls['confirmMail'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouvel e-mail">
-                    <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('required')">
-                        Le mail est requis!
-                    </label>
-                    <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('NoMailMatch')">
-                        Entrez une adresse mail valide!
+                    <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('name')">
+                        Merci d'entrer votre nom!
                     </label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="etablissement">Établissement</label>
+                <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
+                <select formControlName="etablissement" type="text" class="form-control" [ngClass]="formUpdate.controls['etablissement'].invalid ? 'is-invalid' : ''"
+                    id="etablissement" name="etablissement" [ngClass]="formUpdate.controls['nom'].invalid ? 'is-invalid' : ''"
+                    placeholder="Établissement">
+                    <option value=""></option>
+                    <option>Collège Jean de Verrazane</option>
+                    <option>Collège Jean Perrin</option>
+                    <option>Collège Victor Schoechler</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ville">Ville du domicile</label>
+                    <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" [ngClass]="formUpdate.controls['ville'].invalid ? 'is-invalid' : ''"
+                        placeholder="Ville">
+                    <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('required')">
+                        La ville est requise!
+                    </label>
+                    <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('ville')">
+                        Merci d'entrer votre ville!
+                    </label>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="codePostal">Code Postal</label>
+                    <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal"
+                        [ngClass]="formUpdate.controls['codePostal'].invalid ? 'is-invalid' : ''" placeholder="69009">
+                    <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
+                        Le code postal est requis!
+                    </label>
+                    <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('codePostal')">
+                        Merci d'entrer votre code postal!
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Téléphone</label>
+                <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" [ngClass]="formUpdate.controls['tel'].invalid ? 'is-invalid' : ''"
+                    placeholder="n°">
+                <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('required')">
+                    Le téléphone est requis!
+                </label>
+                <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('tel')">
+                    Merci d'entrer votre numéro de téléphone!
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="mail">Modifier l'email</label>
+                <input formControlName="email" type="email" class="form-control" id="email" name="email" [ngClass]="formUpdate.controls['email'].invalid ? 'is-invalid' : ''"
+                    placeholder="Exemple@mail.com">
+                <!--Modification possible de l'email-->
+                <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('required')">
+                    Le mail est requis!
+                </label>
+                <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('email')">
+                    Entrez une adresse mail valide!
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="confirmMail">Confirmer le nouvel email</label>
+                <input formControlName="confirmMail" type="email2" class="form-control" id="confirmMail" name="confirmMail"
+                    [ngClass]="formUpdate.controls['confirmMail'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouvel e-mail">
+                <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('required')">
+                    Le mail est requis!
+                </label>
+                <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('NoMailMatch')">
+                    Entrez une adresse mail valide!
+                </label>
+            </div>
+
 
             <div class="form-group">
                 <label for="etablissement">Établissement*</label>
@@ -107,51 +115,53 @@
                 </select>
             </div>
 
-                <h2>Modifier mon mot de passe</h2>
-                <div class="form-group">
-                    <label for="password">Modifier le mot de passe</label>
-                    <input formControlName="password" type="password" class="form-control" id="password" name="password" [ngClass]="formUpdate.controls['password'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouveau mot de passe">
-                    <!--Modification possible de le mot de passe-->
-                    <label class="text-danger col" *ngIf="formUpdate.controls['password'].hasError('required')">
-                        Mot de passe requis!
-                    </label>
-                    <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
-                            formUpdate.controls['password'].hasError('minlength') ? 'cancel' :
-                            'check_circle' }}</i>
-                        Dois contenir au minimum 6 caractères!
-                    </label>
-                    <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
-                            formUpdate.controls['password'].hasError('hasNumber') ? 'cancel' :
-                            'check_circle' }}</i>
-                        Dois contenir au minimum un chiffre!
-                    </label>
-                    <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
-                            formUpdate.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
-                            'check_circle' }}</i>
-                        Dois contenir au minimum une lettre majuscule!
-                    </label>
-                    <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
-                        <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
-                            formUpdate.controls['password'].hasError('hasSmallCase') ? 'cancel' :
-                            'check_circle' }}</i>
-                        Dois contenir au minimum une lettre minuscule!
-                    </label>
-                </div>
-            
-                <div class="form-group">
-                    <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
-                    <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword" [ngClass]="formUpdate.controls['confirmPassword'].invalid ? 'is-invalid' : ''" placeholder="Entre de nouveau ton mot de passe">
-                    <label class="text-danger" *ngIf="formUpdate.controls['confirmPassword'].hasError('required')">
-                        Mot de passe requis!
-                    </label>
-                    <label class="text-danger" *ngIf="formUpdate.controls['confirmPassword'].hasError('NoPasswordMatch')">
-                        Mot de passe incorrect!
-                    </label>
-                </div>
+            <h2>Modifier mon mot de passe</h2>
+            <div class="form-group">
+                <label for="password">Modifier le mot de passe</label>
+                <input formControlName="password" type="password" class="form-control" id="password" name="password"
+                    [ngClass]="formUpdate.controls['password'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouveau mot de passe">
+                <!--Modification possible de le mot de passe-->
+                <label class="text-danger col" *ngIf="formUpdate.controls['password'].hasError('required')">
+                    Mot de passe requis!
+                </label>
+                <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+                    <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
+                        formUpdate.controls['password'].hasError('minlength') ? 'cancel' :
+                        'check_circle' }}</i>
+                    Dois contenir au minimum 6 caractères!
+                </label>
+                <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+                    <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
+                        formUpdate.controls['password'].hasError('hasNumber') ? 'cancel' :
+                        'check_circle' }}</i>
+                    Dois contenir au minimum un chiffre!
+                </label>
+                <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+                    <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
+                        formUpdate.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
+                        'check_circle' }}</i>
+                    Dois contenir au minimum une lettre majuscule!
+                </label>
+                <label class="col" [ngClass]="formUpdate.controls['password'].hasError('required') || formUpdate.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+                    <i class="material-icons">{{ formUpdate.controls['password'].hasError('required') ||
+                        formUpdate.controls['password'].hasError('hasSmallCase') ? 'cancel' :
+                        'check_circle' }}</i>
+                    Dois contenir au minimum une lettre minuscule!
+                </label>
             </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
+                <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                    [ngClass]="formUpdate.controls['confirmPassword'].invalid ? 'is-invalid' : ''" placeholder="Entre de nouveau ton mot de passe">
+                <label class="text-danger" *ngIf="formUpdate.controls['confirmPassword'].hasError('required')">
+                    Mot de passe requis!
+                </label>
+                <label class="text-danger" *ngIf="formUpdate.controls['confirmPassword'].hasError('NoPasswordMatch')">
+                    Mot de passe incorrect!
+                </label>
+            </div>
+
 
             <div class="form-group">
                 <label for="tel">Téléphone</label>
