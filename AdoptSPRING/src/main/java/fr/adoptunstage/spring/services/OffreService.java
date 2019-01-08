@@ -1,8 +1,10 @@
 package fr.adoptunstage.spring.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.repos.OffreRepository;
@@ -74,19 +77,23 @@ public class OffreService {
 		}
 	}
 
-	public ResponseEntity<String> postOffre(String username, SignUpFormOffre requestOffre) {
+	public ResponseEntity<?> postOffre(String username, SignUpFormOffre requestOffre) {
 						
 		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-		Long id_entreprise = entreprise.getId();
 		Boolean active = true;
 		
-		Offre _offre = new Offre(id_entreprise, requestOffre.getTitre(), requestOffre.getDescription(), requestOffre.getRue(),
+		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(), requestOffre.getRue(),
 				requestOffre.getVille(), requestOffre.getCodePostal() , active);
 		
 		repository.save(_offre);
+
+		entreprise.setOffre(_offre);
+		
+		userRepository.save(entreprise);
+		
 		System.out.println("Nouvelle offre = " + _offre.toString());
 			
-		return new ResponseEntity<>("Annonce crée", HttpStatus.OK);
+		return new ResponseEntity<>(new ResponseMessage("Offre crée!"), HttpStatus.OK);
 	}
 }

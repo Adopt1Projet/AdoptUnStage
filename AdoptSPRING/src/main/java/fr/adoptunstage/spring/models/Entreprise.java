@@ -1,9 +1,15 @@
 package fr.adoptunstage.spring.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Entreprise extends User {
@@ -42,7 +48,25 @@ public class Entreprise extends User {
 	
 	@Column(name = "siteWeb")
 	private String siteWeb;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="entreprise")
+    private Set<Offre> offres; 
+	
+	
 
+
+	public Set<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(Set<Offre> offres) {
+		this.offres = offres;
+	}
+	
+	public void setOffre(Offre offre) {
+		this.offres.add(offre);
+	}
 
 	public String getRaisonSociale() {
 		return raisonSociale;
@@ -150,6 +174,7 @@ public class Entreprise extends User {
 		this.fonction = fonction;
 		this.tel = tel;
 		this.siteWeb = siteWeb;
+		this.offres = new HashSet<Offre>(); 
 
 	}
 

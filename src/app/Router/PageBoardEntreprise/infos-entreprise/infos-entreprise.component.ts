@@ -23,7 +23,7 @@ export class InfosEntrepriseComponent implements OnInit {
 
   constructor(private entrepriseService: EntrepriseService,
     private token: TokenStorageService,
-    private alertService : AlertService,
+    private alertService: AlertService,
     private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
@@ -36,6 +36,7 @@ export class InfosEntrepriseComponent implements OnInit {
       .getEntreprise(this.username)
       .subscribe(data => {
         this.entreprise = data;
+        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,
@@ -112,7 +113,7 @@ export class InfosEntrepriseComponent implements OnInit {
       {
         // Vérifie si le mdp et l'email sont bien les mêmes
         validator: [
-        CustomValidators.mailMatchValidator]
+          CustomValidators.mailMatchValidator]
       }
     );
   }
@@ -169,10 +170,10 @@ export class InfosEntrepriseComponent implements OnInit {
         error => {
           this.alertService.error("Une erreur est servenue. L'email renseigné est peut-être déjà utilisé.", true);
         });
-        
+
   }
 
-  onSubmitPassword(){
+  onSubmitPassword() {
     this.entrepriseService.updateEntreprisePassword(this.entreprise.id, this.formUpdatePassword.value)
       .subscribe(
         data => {

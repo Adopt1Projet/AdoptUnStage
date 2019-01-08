@@ -2,6 +2,8 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "offres")
 public class Offre {
@@ -12,8 +14,11 @@ public class Offre {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column (name="id_entreprise")
-	private long id_entreprise;
+	@ManyToOne
+    @JoinColumn(name="id_entreprise")
+	@JsonIgnore
+    private Entreprise entreprise; 
+
 
 	@Column(name = "titre")
 	private String titre;
@@ -41,14 +46,16 @@ public class Offre {
 		this.id = id;
 	}
 	
-	public long getId_entreprise() {
-		return id_entreprise;
+	
+
+
+	public Entreprise getEntreprise() {
+		return entreprise;
 	}
 
-	public void setId_entreprise(long id_entreprise) {
-		this.id_entreprise = id_entreprise;
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
 	}
-
 
 	public String getTitre() {
 		return titre;
@@ -102,14 +109,14 @@ public class Offre {
 	public Offre() {};
 	
 	public Offre(
-				long id_entreprise,
+				Entreprise entreprise,
 				String titre, 
 				String description, 
 				String rue, 
 				String ville, 
 				int codePostal,
 				boolean active) {
-									this.id_entreprise = id_entreprise;
+									this.entreprise = entreprise;
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;
@@ -121,7 +128,7 @@ public class Offre {
 	
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", id_entreprise=" + id_entreprise + ", titre=" + titre + ", description="
+		return "Offre [id=" + id + ", id_entreprise=" +  ", titre=" + titre + ", description="
 				+ description + ", rue=" + rue + ", ville=" + ville + ", codePostal=" + codePostal + ", active="
 				+ active + "]";
 	}

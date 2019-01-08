@@ -32,7 +32,7 @@ public class OffreController{
 	}
 
 	@PostMapping(value = "/offre/creer/{username}")
-	public ResponseEntity<String> postEntreprise(@PathVariable("username") String username, 
+	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
 			@RequestBody SignUpFormOffre requestOffre) {
 		return service.postOffre(username, requestOffre);
 	}
