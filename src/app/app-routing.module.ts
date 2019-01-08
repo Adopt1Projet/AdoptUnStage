@@ -15,7 +15,7 @@ import { PageInscriptionEntrepriseComponent } from './Router/PageInscriptionEntr
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
-import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
+
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
 import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
@@ -30,6 +30,9 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
+import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
+import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
+import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -59,6 +62,8 @@ const routes: Routes = [
       { path: 'creeroffre', canActivate: [AuthGuardEntreprise], component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', canActivate: [AuthGuardEntreprise], component: GestionDesOffresComponent },
       { path: 'infosentreprise', canActivate: [AuthGuardEntreprise], component: InfosEntrepriseComponent },
+      { path: 'modifieroffre', component: ModifierOffreComponent },
+      { path: 'offre-item', component: OffreItemComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]
   },

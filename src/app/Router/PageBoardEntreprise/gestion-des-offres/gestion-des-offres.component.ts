@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from "src/app/services/offre.service";
 import { Observable } from 'rxjs';
-
+import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component'
 
 @Component({
   selector: 'app-gestion-des-offres',
@@ -11,7 +11,11 @@ import { Observable } from 'rxjs';
 })
 export class GestionDesOffresComponent implements OnInit {
 
-  offres: Observable<Offre[]>;
+  offre: Offre;
+  offres: Offre[];
+
+  @ViewChild(ModifierOffreComponent)
+  editComp: ModifierOffreComponent;
 
   constructor(private offreService: OffreService) { }
 
@@ -24,11 +28,35 @@ export class GestionDesOffresComponent implements OnInit {
         },
         error => console.log('ERROR: ' + error));
   }
+  deleteOffre(i) {
+    this.offreService.deleteOffre(i)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+  public editOffre(offre) {
+    this.editComp.formOffre.setValue({
+      id: offre.id,
+      titre: offre.titre,
+      description: offre.description,
+      rue: offre.rue,
+      ville: offre.ville,
+      codePostal: offre.codePostal
+    });
 
+  }
   reloadData() {
-    this.offres = this.offreService.getOffresList();
+    console.log('REFRESHING DATA !')
+    this.offreService.getOffresList().subscribe((data) => {
+      this.offres = data
+      console.log('DATA REFRESHED !')
+    });
   }
   ngOnInit() {
     this.reloadData();
   }
+
 }

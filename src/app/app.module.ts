@@ -22,6 +22,7 @@ import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-cre
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
+import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -93,7 +94,7 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
 import { AlertComponent } from './alert/alert.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
-
+import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 
 @NgModule({
   declarations: [
@@ -157,6 +158,8 @@ import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-conn
     AlertComponent,
     OffreDetailsComponent,
     PageErrorComponent,
+    ModifierOffreComponent,
+    OffreItemComponent,
     PageNonConnecteComponent
 
   ],

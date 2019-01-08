@@ -1,5 +1,11 @@
 <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
 
+  <!-- <div class="form-group" hidden>
+    <label for="id">ID</label>
+    <input type="text" class="form-control" formControlName="id" name="id" id="id">
+    
+  </div> -->
+
   <div class="form-group">
     <label for="titre">Intitulé du poste</label>
     <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
@@ -8,7 +14,7 @@
   <div class="form-group">
     <label for="description">Descriptif du poste</label>
     <textarea class="form-control" formControlName="description" id="description" rows="3">
-    </textarea>
+      </textarea>
   </div>
 
   <!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
@@ -18,11 +24,7 @@
 
   <h2 class="text-center">Localisation du stage</h2>
 
-  <div class="form-group" hidden>
-    <label for="uname1">ID</label>
-    <input type="text" class="form-control" formControlName="id" name="id" id="uname1">
-    <!-- <div class="invalid-feedback">Please enter your id</div> -->
-  </div>
+
 
   <div class="form-group">
     <label for="rue">Rue</label>
@@ -39,7 +41,10 @@
     <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
   </div>
   <div class="text-center">
-    <button class="btn btn-primary" type="submit">Poster mon offre</button>
+    <button class="btn btn-primary" type="submit">Modifier mon offre</button>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="deleteOffre(offre.id)">Supprimer</button>
   </div>
 
 
