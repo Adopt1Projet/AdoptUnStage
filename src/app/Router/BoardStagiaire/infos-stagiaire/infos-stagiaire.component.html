@@ -102,19 +102,6 @@
                 </label>
             </div>
 
-
-            <div class="form-group">
-                <label for="etablissement">Établissement*</label>
-                <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
-                <select formControlName="etablissement" type="text" class="form-control" id="etablissement" name="etablissement"
-                    placeholder="Établissement">
-                    <option value=""></option>
-                    <option>Collège 1</option>
-                    <option>Collège 2</option>
-                    <option>Collège 3</option>
-                </select>
-            </div>
-
             <h2>Modifier mon mot de passe</h2>
             <div class="form-group">
                 <label for="password">Modifier le mot de passe</label>
@@ -160,32 +147,6 @@
                 <label class="text-danger" *ngIf="formUpdate.controls['confirmPassword'].hasError('NoPasswordMatch')">
                     Mot de passe incorrect!
                 </label>
-            </div>
-
-
-            <div class="form-group">
-                <label for="tel">Téléphone</label>
-                <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" placeholder="n°">
-            </div>
-
-            <div class="form-group">
-                <label for="mail">Modifier l'email</label>
-                <input formControlName="mail" type="email" class="form-control" id="mail" name="mail" placeholder="Exemple@mail.com">
-            </div>
-
-            <div class="form-group">
-                <label for="mail">Confirmer le nouvel email</label>
-                <input formControlName="mail2" type="email2" class="form-control" id="mail2" name="mail2" placeholder="Entre de nouveau ton e-mail">
-            </div>
-
-            <div class="form-group">
-                <label for="mdp">Modifier le mot de passe</label>
-                <input formControlName="mdp" type="password" class="form-control" id="mdp" name="mdp" placeholder="Entre ton mot de passe">
-            </div>
-
-            <div class="form-group">
-                <label for="mdp2">Confirmer le nouveau mot de passe</label>
-                <input formControlName="mdp2" type="password" class="form-control" id="mdp2" name="mdp2" placeholder="Entre de nouveau ton mot de passe">
             </div>
 
             <div>
