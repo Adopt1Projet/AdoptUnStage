@@ -24,7 +24,7 @@ export class OffreService {
   }
 
   deleteOffre(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   getOffresList(): Observable<any> {

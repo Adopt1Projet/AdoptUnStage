@@ -13,10 +13,10 @@ export class OffreDetailsComponent implements OnInit {
 
   @Input() offre: Offre;
 
-  constructor(private OffreService: OffreService, private listComponent: GestionDesOffresComponent) { }
+  constructor(private offreService: OffreService, private listComponent: GestionDesOffresComponent) { }
 
   updateActive(isActive: boolean) {
-    this.OffreService.updateOffre(this.offre.id,
+    this.offreService.updateOffre(this.offre.id,
       { titre: this.offre.titre, description: this.offre.description, active: isActive })
       .subscribe(
         data => {
@@ -27,7 +27,7 @@ export class OffreDetailsComponent implements OnInit {
   }
 
   deleteOffre() {
-    this.OffreService.deleteOffre(this.offre.id)
+    this.offreService.deleteOffre(this.offre.id)
       .subscribe(
         data => {
           console.log(data);

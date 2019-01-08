@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from 'src/app/services/offre.service';
@@ -11,10 +11,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class FormulaireCreerOffreComponent implements OnInit {
 
+  // @Input() formData: any = [];
+
   formOffre = new FormGroup({
+    id: new FormControl(),
     titre: new FormControl(),
     description: new FormControl(),
-    période: new FormControl(),
+    // période: new FormControl(),
     rue: new FormControl(),
     ville: new FormControl(),
     codePostal: new FormControl(),
