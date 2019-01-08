@@ -1,6 +1,7 @@
 package fr.adoptunstage.spring.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,15 @@ public class OffreController{
 			@RequestBody SignUpFormOffre requestOffre) {
 		return service.postOffre(username, requestOffre);
 	}
-
+	
+	@GetMapping(value = "/offre/mesoffres/{username}")
+	public Set<Offre> getMesOffres(@PathVariable("username") String username ) {
+		return service.getMesOffres(username);
+	}
+	
+	
+	
+	
 	@DeleteMapping("/offre/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		return service.deleteOffre(id);

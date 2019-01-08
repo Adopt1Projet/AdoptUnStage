@@ -29,8 +29,8 @@ export class OffreService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
-  getOffresList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getOffresList(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/mesoffres/${username}`);
   }
 
   getOffreByCodePostal(codePostal: number): Observable<any> {

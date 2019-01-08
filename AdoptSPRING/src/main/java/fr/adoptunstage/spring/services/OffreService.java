@@ -38,6 +38,19 @@ public class OffreService {
 
 		return offres;
 	}
+	
+	public Set<Offre> getMesOffres(String username) {
+		
+		Entreprise entreprise = (Entreprise) userRepository
+				.findByUsername(username).
+				orElseThrow(
+				() -> new UsernameNotFoundException
+				("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = entreprise.getOffres();
+		
+
+		return offres;
+	}
 
 
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
@@ -88,9 +101,7 @@ public class OffreService {
 		
 		repository.save(_offre);
 
-		entreprise.setOffre(_offre);
 		
-		userRepository.save(entreprise);
 		
 		System.out.println("Nouvelle offre = " + _offre.toString());
 			
