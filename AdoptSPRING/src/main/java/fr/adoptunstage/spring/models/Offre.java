@@ -1,11 +1,6 @@
 package fr.adoptunstage.spring.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "offres")
@@ -30,8 +25,14 @@ public class Offre {
 	@Column(name = "codePostal")
 	private int codePostal;
 	
+<<<<<<< HEAD
+	@Column(name ="pourvu")
+	private boolean pourvu;
+
+=======
 	@Column(name ="active")
 	private boolean active;
+>>>>>>> 7a357d1b24b87b1a503e3066fbe2151f50aee014
 	
 	public long getId() {
 		return id;

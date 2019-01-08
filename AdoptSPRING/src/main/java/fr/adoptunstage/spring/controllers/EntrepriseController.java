@@ -24,7 +24,11 @@ import fr.adoptunstage.spring.services.EntrepriseService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+<<<<<<< HEAD
+@RequestMapping("/api/entreprises")
+=======
 @RequestMapping("/api/entreprise")
+>>>>>>> 7a357d1b24b87b1a503e3066fbe2151f50aee014
 public class EntrepriseController {
 
 	@Autowired
@@ -44,17 +48,22 @@ public class EntrepriseController {
 	}
 
 	@PostMapping(value = "/creer")
+<<<<<<< HEAD
+	public Entreprise postEntreprise(@RequestBody Entreprise entreprise) {
+		return entreprise;
+=======
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
 		return service.createEntreprise(signUpRequest);
+>>>>>>> 7a357d1b24b87b1a503e3066fbe2151f50aee014
 	}
 
-	@DeleteMapping("/entreprises/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		return service.deleteEntreprise(id);
 	}
 	
 
-	@PutMapping("/entreprises/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
 		return service.updateEntreprise(id, entreprise);
 	}
