@@ -11,7 +11,7 @@ export class EntrepriseService {
 
   constructor(private http: HttpClient) { }
 
-  getEntreprise(username : String): Observable<Object> {
+  getEntreprise(username: String): Observable<Object> {
     return this.http.get(`${this.baseUrl}/getone/${username}`);
   }
 

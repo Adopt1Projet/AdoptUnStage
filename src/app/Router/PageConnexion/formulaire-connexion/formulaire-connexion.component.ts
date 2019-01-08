@@ -63,12 +63,12 @@ export class FormulaireConnexionComponent implements OnInit {
 
         this.roles = this.tokenStorage.getAuthorities();
 
-        if (this.roles[0] == "ROLE_STAGIAIRE") {  this.router.navigate(['../boardstagiaire/gestionstagiaire']); }
+        if (this.roles[0] == "ROLE_STAGIAIRE") { this.router.navigate(['../boardstagiaire/gestionstagiaire']); }
         if (this.roles[0] == "ROLE_ENTREPRISE") { this.router.navigate(['../boardentreprise']); }
-        setTimeout(function() {
+        setTimeout(function () {
           window.location.reload();
         }, 1);
-        
+
       },
       error => {
         console.log(error);

@@ -2,7 +2,7 @@
     background-color: white;
 }
 
-.btn{
+.btn {
     background-color: #26a69a;
     height: 40px;
     color: white;
@@ -11,8 +11,8 @@
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
 }
-  
-  
+
+
 .btn:hover {
     background-color: green;
 }

@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs'; 
+import { Observable } from 'rxjs';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TokenStorageService } from '../auth/token-storage.service';
 
 @Injectable()
 export class AuthGuardEntreprise implements CanActivate {
 
-    info : any;
+    info: any;
     isStagiaire = false;
     isEntreprise = false;
 
     constructor(private router: Router, private token: TokenStorageService) { }
 
     isLoggedEntreprise() {
-    this.info = {
-        username: this.token.getUsername(),
-        authorities: this.token.getAuthorities()
-      };
-  
-      if(this.info.authorities == "ROLE_ENTREPRISE") {return true;}
-      else {return false;}
+        this.info = {
+            username: this.token.getUsername(),
+            authorities: this.token.getAuthorities()
+        };
 
-      
+        if (this.info.authorities == "ROLE_ENTREPRISE") { return true; }
+        else { return false; }
+
+
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -31,9 +31,10 @@ export class AuthGuardEntreprise implements CanActivate {
         }
 
         // not logged in so redirect to login page with the return url
-        else { this.router.navigate(['/non-connecte'],);
+        else {
+            this.router.navigate(['/non-connecte']);
         }
-        
+
     }
 
 }

@@ -16,7 +16,7 @@ export class StagiaireService {
   }
 
   createStagiaire(customer: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`  + `/creer`, customer);
+    return this.http.post(`${this.baseUrl}` + `/creer`, customer);
   }
 
   updateStagiaire(id: number, value: any): Observable<Object> {

@@ -1,43 +1,44 @@
 <div class="container no-padding navbanner">
-    <nav class="container navbar navbar-expand-lg fixed-top navbar-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/accueil">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/quisommesnous">Qui sommes-nous ?</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/actus">Actualités</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/partenaires">Partenaires</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link mx-3" routerLink="/boiteaoutils">Boite à outils</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" routerLink="/contact">Contact</a>
-          </li>
+  <nav class="container navbar navbar-expand-lg fixed-top navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/accueil">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/quisommesnous">Qui sommes-nous ?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/actus">Actualités</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/partenaires">Partenaires</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/boiteaoutils">Boite à outils</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" routerLink="/contact">Contact</a>
+        </li>
 
-          <li class="nav-item" *ngIf="isInfo==true">
-            <a *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire">Mon profil</a>
-            <a *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise">Profil</a>
-          </li>
-          <li class="nav-item">
-            <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-            <a *ngIf="isStagiaire==true || isEntreprise==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  
-    
-    <div class="bannerImg">
-      <img src="/assets/img/banner.png" class="img-fluid w-100" alt="">
+        <li class="nav-item" *ngIf="isInfo==true">
+          <a *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire">Mon profil</a>
+          <a *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+          <a *ngIf="isStagiaire==true || isEntreprise==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+
+  <div class="bannerImg">
+    <img src="/assets/img/banner.png" class="img-fluid w-100" alt="">
   </div>
+</div>

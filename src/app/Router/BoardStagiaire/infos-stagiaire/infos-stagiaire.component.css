@@ -16,24 +16,25 @@
     background-color: white;
 }
 
-form{
+form {
     color: #26a69a;
     margin: 0 auto;
     padding-top: 3vw;
     padding-bottom: 3vh;
 }
 
-input, select{
+input,
+select {
     background-color: #ebebeb;
     border: none;
 }
-  
-.mmeMr{
+
+.mmeMr {
     padding-left: 1rem;
     padding-bottom: 1vh;
 }
-  
-.btn{
+
+.btn {
     background-color: #26a69a;
     height: 9vh;
     width: 40vh;
@@ -45,14 +46,14 @@ input, select{
     margin: auto;
     display: block;
 }
-  
+
 .btn:hover {
     background-color: green;
 }
 
-::placeholder { 
+::placeholder {
     color: #C2BFCA;
-    opacity: 1; 
+    opacity: 1;
 }
 
 h2 {

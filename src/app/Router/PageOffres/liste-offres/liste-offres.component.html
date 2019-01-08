@@ -1,20 +1,20 @@
 <div class="container">
-  <div class="list-group">
-      <a class="list-group-item bgHead">
-      <div class="row">
-          <div class="col-5 textHead">Offre de stage</div>
-          <div class="col-1 textHead">Etat</div>
-          <div class="col-4 textHead">Domaine d'activité</div>
-          <div class="col-2 textHead">Période</div>
+    <div class="list-group">
+        <a class="list-group-item bgHead">
+            <div class="row">
+                <div class="col-5 textHead">Offre de stage</div>
+                <div class="col-1 textHead">Etat</div>
+                <div class="col-4 textHead">Domaine d'activité</div>
+                <div class="col-2 textHead">Période</div>
 
-      </div>
+            </div>
         </a>
-    <app-item-offre *ngFor="let offre of offres" [offreTitre]="offre.titre" [offreContenu]="offre.contenu"
-      [logoEntreprise]="offre.logoEntreprise" [offreNomEntreprise]="offre.nomEntreprise" [offreSecteur]="offre.secteur"
-      [offrePourvu]="offre.pourvu" [offreDateDebut]="offre.dateDebut" [offreDateFin]="offre.dateFin"></app-item-offre>
-  </div>
+        <app-item-offre *ngFor="let offre of offres" [offreTitre]="offre.titre" [offreContenu]="offre.contenu"
+            [logoEntreprise]="offre.logoEntreprise" [offreNomEntreprise]="offre.nomEntreprise" [offreSecteur]="offre.secteur"
+            [offrePourvu]="offre.pourvu" [offreDateDebut]="offre.dateDebut" [offreDateFin]="offre.dateFin"></app-item-offre>
+    </div>
 
-  <ngb-pagination class="d-flex justify-content-center pagination" [collectionSize]="120" [(page)]="page" [maxSize]="5"
-    [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-  
+    <ngb-pagination class="d-flex justify-content-center pagination" [collectionSize]="120" [(page)]="page" [maxSize]="5"
+        [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+
 </div>
