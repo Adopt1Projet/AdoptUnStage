@@ -2,7 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from 'src/app/services/offre.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { EntrepriseService } from 'src/app/services/entreprise.service';
+import { TokenStorageService } from '../../../auth/token-storage.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from 'src/app/services/custom-validators';
+
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaire-creer-offre',
@@ -12,9 +17,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class FormulaireCreerOffreComponent implements OnInit {
 
   // @Input() formData: any = [];
+  username: string;
 
   formOffre = new FormGroup({
-    id: new FormControl(),
     titre: new FormControl(),
     description: new FormControl(),
     // période: new FormControl(),
@@ -22,16 +27,20 @@ export class FormulaireCreerOffreComponent implements OnInit {
     ville: new FormControl(),
     codePostal: new FormControl(),
   });
-  constructor(private offreService: OffreService) { }
+  constructor(private offreService: OffreService,
+    private token: TokenStorageService) { }
 
   onSubmit() {
-    const offre: Offre = Object.assign({}, this.formOffre.value);
-    this.offreService.createOffre(offre)
+    const offre: Offre = this.formOffre.value;
+    console.log(offre);
+    this.offreService.createOffre(this.username, offre)
       .subscribe(data => console.log(data), error => console.log(error));
     this.formOffre.reset();
   }
 
   ngOnInit() {
+    this.username = this.token.getUsername();
+
   }
 
 }

@@ -15,14 +15,16 @@ export class OffreService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createOffre(offre: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}` + `/creer`, offre);
-  }
+  // createOffre(offre: Object): Observable<Object> {
+  //   return this.http.post(`${this.baseUrl}` + `/creer`, offre);
+  // username: String, }
 
+  createOffre(username: string, offre: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}` + `/creer/${username}`, offre);
+  }
   updateOffre(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
-
   deleteOffre(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }

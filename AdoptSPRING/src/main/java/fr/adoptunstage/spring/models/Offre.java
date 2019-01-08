@@ -6,9 +6,14 @@ import javax.persistence.*;
 @Table(name = "offres")
 public class Offre {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@Column (name="id_entreprise")
+	private long id_entreprise;
 
 	@Column(name = "titre")
 	private String titre;
@@ -35,6 +40,15 @@ public class Offre {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public long getId_entreprise() {
+		return id_entreprise;
+	}
+
+	public void setId_entreprise(long id_entreprise) {
+		this.id_entreprise = id_entreprise;
+	}
+
 
 	public String getTitre() {
 		return titre;
@@ -88,26 +102,28 @@ public class Offre {
 	public Offre() {};
 	
 	public Offre(
+				long id_entreprise,
 				String titre, 
 				String description, 
 				String rue, 
 				String ville, 
 				int codePostal,
 				boolean active) {
-									super();
+									this.id_entreprise = id_entreprise;
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
-									this.active = false;
+									this.active = active;
 								}
 
 	
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", titre=" + titre + ", description=" + description + ", rue=" + rue + ", ville="
-				+ ville + ", codePostal=" + codePostal + ", active=" + active + "]";
+		return "Offre [id=" + id + ", id_entreprise=" + id_entreprise + ", titre=" + titre + ", description="
+				+ description + ", rue=" + rue + ", ville=" + ville + ", codePostal=" + codePostal + ", active="
+				+ active + "]";
 	}
 
 	

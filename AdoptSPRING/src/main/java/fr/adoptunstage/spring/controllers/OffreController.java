@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adoptunstage.spring.message.request.SignUpFormOffre;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.services.OffreService;
 
@@ -30,9 +31,10 @@ public class OffreController{
 		return service.getAllOffres();
 	}
 
-	@PostMapping(value = "/offre/creer")
-	public Offre postEntreprise(@RequestBody Offre offre) {
-		return service.postEntreprise(offre);
+	@PostMapping(value = "/offre/creer/{username}")
+	public ResponseEntity<String> postEntreprise(@PathVariable("username") String username, 
+			@RequestBody SignUpFormOffre requestOffre) {
+		return service.postOffre(username, requestOffre);
 	}
 
 	@DeleteMapping("/offre/{id}")
@@ -49,26 +51,11 @@ public class OffreController{
 	}
 
 	@PutMapping("/offre/{id}")
-	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
+	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, 
+			@RequestBody Offre offre) {
 		System.out.println("Update Customer with ID = " + id + "...");
 
 		return service.updateOffre(id, offre);
 	}
 	
-//	@PutMapping("/customers/{id}")
-//	public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
-//		System.out.println("Update Customer with ID = " + id + "...");
-//
-//		Optional<Customer> customerData = repository.findById(id);
-//
-//		if (customerData.isPresent()) {
-//			Customer _customer = customerData.get();
-//			_customer.setName(customer.getName());
-//			_customer.setAge(customer.getAge());
-//			_customer.setActive(customer.isActive());
-//			return new ResponseEntity<>(repository.save(_customer), HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-//	}
 }

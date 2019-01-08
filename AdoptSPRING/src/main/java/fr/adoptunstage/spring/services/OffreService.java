@@ -7,18 +7,25 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.repos.OffreRepository;
+import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class OffreService {
 
 	@Autowired
 	OffreRepository repository;
+	
+	@Autowired
+	UserRepository userRepository;
 
 	public List<Offre> getAllOffres() {
 		System.out.println("Affiche toutes les offres");
@@ -29,13 +36,6 @@ public class OffreService {
 		return offres;
 	}
 
-	public Offre postEntreprise(@RequestBody Offre offre) {
-
-		Offre _offre = repository.save(new Offre(offre.getTitre(), offre.getDescription(), offre.getRue(),
-				offre.getVille(), offre.getCodePostal(), offre.isActive()));
-		System.out.println("Nouvelle offre = " + _offre.toString());
-		return _offre;
-	}
 
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		System.out.println("Suppression de l'offre avec l'ID = " + id + "...");
@@ -72,5 +72,21 @@ public class OffreService {
 			System.out.println("Aucune offre avec l'ID " + id + " n'est présente dans la base de donnée !");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+
+	public ResponseEntity<String> postOffre(String username, SignUpFormOffre requestOffre) {
+						
+		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		Long id_entreprise = entreprise.getId();
+		Boolean active = true;
+		
+		Offre _offre = new Offre(id_entreprise, requestOffre.getTitre(), requestOffre.getDescription(), requestOffre.getRue(),
+				requestOffre.getVille(), requestOffre.getCodePostal() , active);
+		
+		repository.save(_offre);
+		System.out.println("Nouvelle offre = " + _offre.toString());
+			
+		return new ResponseEntity<>("Annonce crée", HttpStatus.OK);
 	}
 }
