@@ -34,7 +34,7 @@ public class SignUpForm {
     
     private String ville;
     
-    private int codePostal;
+    private String codePostal;
     
     private String logo;
     
@@ -42,7 +42,7 @@ public class SignUpForm {
     
     private String fonction;
     
-    private int tel;
+    private String tel;
     
     private String siteWeb;
     
@@ -88,11 +88,11 @@ public class SignUpForm {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
@@ -120,11 +120,11 @@ public class SignUpForm {
 		this.fonction = fonction;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

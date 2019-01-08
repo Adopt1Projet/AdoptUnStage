@@ -16,10 +16,10 @@ public class Stagiaire extends User {
 	private String ville;
 
 	@Column(name = "codePostal")
-	private int codePostal;
+	private String codePostal;
 	
 	@Column(name = "tel")
-	private int tel;
+	private String tel;
 
 	
 	
@@ -49,26 +49,26 @@ public class Stagiaire extends User {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, int codePostal, int tel) {
+	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal, String tel) {
 		super(name, username, email, password);
 		this.prenom = prenom;
 		this.etablissement = etablissement;
