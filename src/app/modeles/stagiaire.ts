@@ -8,6 +8,6 @@ export class Stagiaire {
     prenom: string;
     etablissement: string;
     ville: string;
-    codePostal: number;
-    tel: number;
+    codePostal: string;
+    tel: string;
 }

@@ -30,9 +30,9 @@ public class SignUpFormStagiaire {@NotBlank
     
     private String ville;
     
-    private int codePostal;
+    private String codePostal;
     
-    private int tel;
+    private String tel;
 	
 
 	public String getName() {
@@ -115,22 +115,22 @@ public class SignUpFormStagiaire {@NotBlank
 	}
 
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

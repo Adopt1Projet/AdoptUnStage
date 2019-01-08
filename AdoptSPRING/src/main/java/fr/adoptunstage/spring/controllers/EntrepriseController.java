@@ -39,7 +39,7 @@ public class EntrepriseController {
 	}
 	
 	@GetMapping("/getone/{username}")
-	public Entreprise getOneEntreprises(@PathVariable("username") String username) {
+	public Entreprise getOneEntreprise(@PathVariable("username") String username) {
 		return service.getOneEntreprise(username);
 	}
 

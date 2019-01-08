@@ -27,15 +27,8 @@ export class EntrepriseService {
     return this.http.put(`${this.baseUrl}/password/${id}`, value);
   }
 
-  deleteEntreprise(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  }
-
   getEntrepriseList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  deleteAll(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
-  }
 }

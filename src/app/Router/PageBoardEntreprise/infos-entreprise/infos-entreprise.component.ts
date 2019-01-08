@@ -53,7 +53,7 @@ export class InfosEntrepriseComponent implements OnInit {
           confirmMail: this.entreprise.email
         });
       },
-        error => console.log("erreur"));;
+        error => console.log("erreur"));
 
 
   }
