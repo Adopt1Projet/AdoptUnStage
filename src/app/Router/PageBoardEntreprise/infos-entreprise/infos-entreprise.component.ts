@@ -5,9 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
 import { AlertService } from '../../../services/alert.service';
 
-
-
-
 @Component({
   selector: 'app-infos-entreprise',
   templateUrl: './infos-entreprise.component.html',
@@ -17,18 +14,18 @@ export class InfosEntrepriseComponent implements OnInit {
 
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
-  username;
-  entreprise: any;
-
+  private username;
+  private entreprise: any;
+  private submitForm: boolean = false;
+  private submitFormPassword: boolean = false;
 
   constructor(private entrepriseService: EntrepriseService,
-    private token: TokenStorageService,
-    private alertService : AlertService,
-    private fb: FormBuilder) {
+              private token: TokenStorageService,
+              private alertService: AlertService,
+              private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
-
 
   ngOnInit() {
     this.username = this.token.getUsername();
@@ -53,7 +50,7 @@ export class InfosEntrepriseComponent implements OnInit {
           confirmMail: this.entreprise.email
         });
       },
-        error => console.log("erreur"));
+        error => console.log("Une erreur est survenue."));
 
 
   }
@@ -110,9 +107,7 @@ export class InfosEntrepriseComponent implements OnInit {
         ]
       },
       {
-        // Vérifie si le mdp et l'email sont bien les mêmes
-        validator: [
-        CustomValidators.mailMatchValidator]
+        validator: [CustomValidators.mailMatchValidator]
       }
     );
   }
@@ -151,7 +146,6 @@ export class InfosEntrepriseComponent implements OnInit {
         confirmPassword: [null, Validators.compose([Validators.required])],
       },
       {
-        // Vérifie si le mdp et l'email sont bien les mêmes
         validator: [CustomValidators.passwordMatchValidator]
       }
     );
@@ -159,6 +153,8 @@ export class InfosEntrepriseComponent implements OnInit {
 
 
   onSubmit() {
+    this.submitFormPassword = false;
+    this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.entreprise.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
     this.entrepriseService.updateEntreprise(this.entreprise.id, this.formUpdate.value)
@@ -167,21 +163,21 @@ export class InfosEntrepriseComponent implements OnInit {
           this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
-          this.alertService.error("Une erreur est servenue. L'email renseigné est peut-être déjà utilisé.", true);
+          this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
-        
   }
 
-  onSubmitPassword(){
+  onSubmitPassword() {
+    this.submitForm = false;
+    this.submitFormPassword = true;
     this.entrepriseService.updateEntreprisePassword(this.entreprise.id, this.formUpdatePassword.value)
       .subscribe(
         data => {
           this.alertService.success('Votre mot de passe a bien été modifié !', true);
         },
         error => {
-          this.alertService.error("Une erreur est servenue.", true);
+          this.alertService.error('Une erreur est servenue.', true);
         });
     this.formUpdatePassword.reset();
   }
-
 }

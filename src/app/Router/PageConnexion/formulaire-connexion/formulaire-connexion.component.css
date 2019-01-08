@@ -1,3 +1,7 @@
+.bodyFormConnect {
+    background-color: white;
+}
+
 .is-invalid {
     border-left: solid 6px red;
 }
@@ -37,8 +41,8 @@ input {
 
 }
 
-.connectSubmit:hover {
-    background-color: green;
+.btn:hover {
+    background-color: #2ed1bb;
 }
 
 #loginFailed {

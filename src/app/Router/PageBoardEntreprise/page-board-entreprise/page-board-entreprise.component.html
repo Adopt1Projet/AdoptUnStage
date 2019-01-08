@@ -1,21 +1,16 @@
 <div class="container bodyBoard">
-    <h1 class="text-center titre">Tableau de bord entreprise</h1>
+    <br>
+    <div class="col-sm-12 titres">
+        <h1>Mon tableau de bord</h1>
+    </div>
     <hr>
-    <div class="row justify-content-center">
-        <nav>
-            <a routerLink="/boardentreprise/gestionoffres" class="btn btn-primary btn-xs " role="button">Gestion
-                des annonces</a>
-            <a routerLink="/boardentreprise/creeroffre" class="btn btn-primary btn-xs " role="button">Créer
-                une
-                annonce</a>
-            <a routerLink="/boardentreprise/infosentreprise" class="btn btn-primary btn-xs " role="button">Infos
-                de
-                mon entreprise</a>
-        </nav>
+    <div class="d-flex justify-content-around">
+        <button type="button" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/gestionoffres">Gestion
+            des annonces</button>
+        <button type="submit" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/creeroffre">Je créé
+            une
+            annonce</button>
+        <button type="submit" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/infosentreprise">Mes infos de profil</button>
     </div>
-    <div class="row justify-content-center">
-        <div>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
 </div>
