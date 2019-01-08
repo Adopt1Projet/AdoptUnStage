@@ -30,10 +30,10 @@ public class OffreService {
 	@Autowired
 	UserRepository userRepository;
 
-	public List<Offre> getAllOffres() {
+	public Set<Offre> getAllOffres() {
 		System.out.println("Affiche toutes les offres");
 
-		List<Offre> offres = new ArrayList<>();
+		Set<Offre> offres = new HashSet<Offre>();
 		repository.findAll().forEach(offres::add);
 
 		return offres;

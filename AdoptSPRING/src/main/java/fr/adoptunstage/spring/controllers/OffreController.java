@@ -28,7 +28,7 @@ public class OffreController{
 	OffreService service;
 
 	@GetMapping("/offre")
-	public List<Offre> getAllOffres() {
+	public Set<Offre> getAllOffres() {
 		return service.getAllOffres();
 	}
 

@@ -51,6 +51,7 @@ public class Entreprise extends User {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="entreprise")
+	@JsonIgnore
     private Set<Offre> offres; 
 	
 	

@@ -16,7 +16,6 @@ public class Offre {
 	
 	@ManyToOne
     @JoinColumn(name="id_entreprise")
-	@JsonIgnore
     private Entreprise entreprise; 
 
 

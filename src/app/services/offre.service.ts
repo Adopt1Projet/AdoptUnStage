@@ -33,6 +33,10 @@ export class OffreService {
     return this.http.get(`${this.baseUrl}/mesoffres/${username}`);
   }
 
+  getAllOffres(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+
   getOffreByCodePostal(codePostal: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/codePostal/${codePostal}`);
   }
