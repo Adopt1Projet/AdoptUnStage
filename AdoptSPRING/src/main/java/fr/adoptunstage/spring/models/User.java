@@ -31,12 +31,13 @@ import org.hibernate.annotations.NaturalId;
             "email"
         })
 })
+
 public abstract class User{
+	@NaturalId
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
     @Size(min=3, max = 50)
     private String name;
 
@@ -44,7 +45,7 @@ public abstract class User{
     @Size(min=3, max = 50)
     private String username;
 
-    @NaturalId
+    
     @NotBlank
     @Size(max = 50)
     @Email
