@@ -11,9 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ModifierOffreComponent implements OnInit {
 
   @Input() formData: any = [];
-  @Input() offre: Offre;
-
-
+  offre: Offre;
 
   formOffre = new FormGroup({
     id: new FormControl(),
@@ -27,15 +25,24 @@ export class ModifierOffreComponent implements OnInit {
   constructor(private offreService: OffreService) { }
 
   onSubmit() {
-    let offre: Offre = this.formOffre.value;
-    this.offreService.updateOffre(offre.id, offre)
+    this.offre = this.formOffre.value;
+    this.offreService.updateOffre(this.offre.id, this.offre)
       //   // this.formData.id, { titre: this.formData.titre, description: this.formData.description, rue: this.formData.rue, ville: this.formData.ville, codePostal: this.formData.codePostal }
       //  )
       .subscribe(data => console.log(this.formOffre.value), error => console.log(error));
 
   }
+  deleteOffre(id) {
+    this.offreService.deleteOffre(id)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+  }
 
   ngOnInit() {
+    this.offre = this.formOffre.value;
   }
 
 }

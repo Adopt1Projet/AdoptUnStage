@@ -1,6 +1,3 @@
-<p>
-  modifier-offre works!
-</p>
 <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
 
   <!-- <div class="form-group" hidden>
@@ -45,6 +42,9 @@
   </div>
   <div class="text-center">
     <button class="btn btn-primary" type="submit">Modifier mon offre</button>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="deleteOffre(offre.id)">Supprimer</button>
   </div>
 
 

@@ -89,6 +89,7 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
 import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { AlertComponent } from './alert/alert.component';
+import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 
 @NgModule({
   declarations: [
@@ -152,6 +153,7 @@ import { AlertComponent } from './alert/alert.component';
     AlertComponent,
     OffreDetailsComponent,
     ModifierOffreComponent,
+    OffreItemComponent,
 
   ],
   imports: [

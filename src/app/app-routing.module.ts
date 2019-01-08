@@ -26,6 +26,7 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
+import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -56,6 +57,7 @@ const routes: Routes = [
       { path: 'gestionoffres', component: GestionDesOffresComponent },
       { path: 'infosentreprise', component: InfosEntrepriseComponent },
       { path: 'modifieroffre', component: ModifierOffreComponent },
+      { path: 'offre-item', component: OffreItemComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]
   },

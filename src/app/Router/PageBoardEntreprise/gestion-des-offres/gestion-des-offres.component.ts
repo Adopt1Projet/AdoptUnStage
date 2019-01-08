@@ -11,8 +11,8 @@ import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modif
 })
 export class GestionDesOffresComponent implements OnInit {
 
-  @Input() offre: Offre;
-  offres: Observable<Offre[]>;
+  offre: Offre;
+  offres: Offre[];
 
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
@@ -28,8 +28,8 @@ export class GestionDesOffresComponent implements OnInit {
         },
         error => console.log('ERROR: ' + error));
   }
-  deleteOffre() {
-    this.offreService.deleteOffre(this.offre.id)
+  deleteOffre(i) {
+    this.offreService.deleteOffre(i)
       .subscribe(
         data => {
           console.log(data);
@@ -49,9 +49,14 @@ export class GestionDesOffresComponent implements OnInit {
 
   }
   reloadData() {
-    this.offres = this.offreService.getOffresList();
+    console.log('REFRESHING DATA !')
+    this.offreService.getOffresList().subscribe((data) => {
+      this.offres = data
+      console.log('DATA REFRESHED !')
+    });
   }
   ngOnInit() {
     this.reloadData();
   }
+
 }

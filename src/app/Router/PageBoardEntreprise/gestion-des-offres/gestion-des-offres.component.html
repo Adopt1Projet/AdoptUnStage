@@ -1,12 +1,4 @@
 <h1>Gestion des offres</h1>
-
-<!-- <div *ngFor="let offre of offres | async" style="width: 300px;">
-  <offre-details [offre]='offre'></offre-details>
-</div>
-<div>
-  <button type="button" class="button btn-danger" (click)='deleteOffres()'>Delete All</button>
-</div> -->
-
 <div class="container">
   <table class="table table-striped thead-light table-hover">
     <caption>User Details</caption>
@@ -24,9 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <tr *ngFor = "let offre of offres; index as i"> -->
-      <tr *ngFor="let offre of offres | async;">
-
+      <tr *ngFor="let offre of offres " style=" width: 300px;">
         <td> {{offre.id}} </td>
         <td> {{offre.titre}} </td>
         <td> {{offre.description}} </td>
@@ -35,9 +25,11 @@
         <td> {{offre.codePostal}} </td>
         <td> {{offre.active}} </td>
         <td><i class="material-icons" style="color:blue" (click)="editOffre(offre,i)">edit</i></td>
-        <td><i class="material-icons" style="color:red" (click)="deleteOffre(i)">delete</i></td>
+        <td><i class="material-icons" style="color:red" (click)="deleteOffre(offre.id)">delete</i></td>
       </tr>
     </tbody>
   </table>
+  <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
   <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre>
+
 </div>
