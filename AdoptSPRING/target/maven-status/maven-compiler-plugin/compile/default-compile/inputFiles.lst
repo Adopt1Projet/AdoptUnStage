@@ -20,6 +20,7 @@
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/User.java
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/SimpleMail.java
+/home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/impl/MailServiceImpl.java
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/QuestionRepository.java
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/services/UserDetailsServiceImpl.java
 /home/kevin/Bureau/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java

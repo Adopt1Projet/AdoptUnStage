@@ -2,7 +2,6 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.Entity;
 
-@Entity
 public class HTMLMail{
 	
 	private String to;
@@ -84,6 +83,19 @@ public HTMLMail() {};
 				+ email + "]";
 	}
 	
+	public String buildMyMessage() {
+		String str = "<html>" +
+                "<body>" +
+					"<p>Mail</p>" + this.email +
+					"<p>Nom</p>" + this.name +
+                    "<p>Prénom</p>" + this.prenom +
+                    "<p>Message :</p>" + this.message +
+                "</body>" +
+                "</html>";
+//					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
+		return str;
+	}
+	
 //	public HTMLMail(String to) {
 //		 this.to = to;
 //	    }
@@ -95,11 +107,6 @@ public HTMLMail() {};
 //
 //	    @Override
 //	    public String getContent() {
-//	        return "<html>" +
-//	                    "<body>" +
-//	                        "<p>Hello client,</p>" +
-//	                        "<p>This an <strong>HTML</strong> email content !</p>" +
-//	                    "</body>" +
-//	                "</html>";
+	               
 //	    }
 }
