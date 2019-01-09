@@ -51,6 +51,13 @@ public class OffreService {
 
 		return offres;
 	}
+	
+	public Optional<Offre> getOffre(long id) { 
+		
+		Optional<Offre> offre = repository.findById(id);
+		return offre ;
+		
+	}
 
 
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {

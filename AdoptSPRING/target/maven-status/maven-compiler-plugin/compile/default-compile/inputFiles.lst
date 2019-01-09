@@ -1,43 +1,49 @@
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/ActuRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Partenaire.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/ActuService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/QuestionController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtProvider.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/response/ResponseMessage.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/User.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtAuthEntryPoint.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/response/JwtResponse.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/UserRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/QuestionService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Role.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/ActuController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/OffreService.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/RoleName.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/OffreRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/RoleRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/WebSecurityConfig.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormOffre.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/services/UserDetailsServiceImpl.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Question.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Actu.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/AuthRestAPIs.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpForm.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/LoginForm.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/QuestionRepository.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/services/UserPrinciple.java
-/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtAuthTokenFilter.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/PartenaireRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/HTMLMail.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/QuestionService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Offre.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Question.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormOffre.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/EntrepriseRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpForm.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Partenaire.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/OffreRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/QuestionController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/services/UserPrinciple.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/ActuService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/AbstractMail.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/MailService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/QuestionRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtAuthEntryPoint.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Entreprise.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/SimpleMail.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Actu.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/LoginForm.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/response/JwtResponse.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/ActuController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Role.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/User.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/WebSecurityConfig.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/UserRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/impl/MailServiceImpl.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/response/ResponseMessage.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/services/UserDetailsServiceImpl.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/RoleRepository.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtAuthTokenFilter.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/EmailController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/security/jwt/JwtProvider.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/AuthRestAPIs.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/RoleName.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/PartenaireService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/OffreService.java
+/home/juliendcode/Documents/PROJET3/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/repos/ActuRepository.java

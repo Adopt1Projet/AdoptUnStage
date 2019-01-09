@@ -1,6 +1,7 @@
 package fr.adoptunstage.spring.controllers;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +33,24 @@ public class OffreController{
 		return service.getAllOffres();
 	}
 
-	@PostMapping(value = "/offre/creer/{username}")
-	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
-			@RequestBody SignUpFormOffre requestOffre) {
-		return service.postOffre(username, requestOffre);
-	}
-	
+
 	@GetMapping(value = "/offre/mesoffres/{username}")
 	public Set<Offre> getMesOffres(@PathVariable("username") String username ) {
 		return service.getMesOffres(username);
 	}
 	
+	@GetMapping(value = "/offre/uneoffre/{id}")
+	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
+		
+		return service.getOffre(id);
+	}
 	
+	
+	@PostMapping(value = "/offre/creer/{username}")
+	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
+			@RequestBody SignUpFormOffre requestOffre) {
+		return service.postOffre(username, requestOffre);
+	}
 	
 	
 	@DeleteMapping("/offre/{id}")
