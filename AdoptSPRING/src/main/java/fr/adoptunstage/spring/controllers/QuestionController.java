@@ -15,13 +15,13 @@ import fr.adoptunstage.spring.services.QuestionService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/questions")
 public class QuestionController {
 
 	@Autowired
 	QuestionService service;
 
-	@GetMapping("/questions")
+	@GetMapping("")
 	public List<Question> getAllQuestions() {
 		return service.getAllQuestions();
 	}

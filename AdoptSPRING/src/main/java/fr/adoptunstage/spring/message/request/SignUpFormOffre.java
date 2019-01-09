@@ -10,7 +10,7 @@ public class SignUpFormOffre {
 	
 	private String ville;
 	
-	private int codePostal;
+	private String codePostal;
 	
 	
 	public String getTitre() {
@@ -45,11 +45,11 @@ public class SignUpFormOffre {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 

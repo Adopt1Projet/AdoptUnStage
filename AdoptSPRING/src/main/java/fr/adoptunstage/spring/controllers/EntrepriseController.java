@@ -33,6 +33,7 @@ public class EntrepriseController {
 	@Autowired
 	UserDetailsServiceImpl userService;
 
+
 	@GetMapping("/")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
@@ -45,7 +46,7 @@ public class EntrepriseController {
 
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
-		return service.createEntreprise(signUpRequest);
+		return service.postEntreprise(signUpRequest);
 	}
 
 	@DeleteMapping("/{id}")

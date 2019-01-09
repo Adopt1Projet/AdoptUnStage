@@ -1,6 +1,6 @@
 package fr.adoptunstage.spring.controllers;
 
-import java.util.List;
+
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,49 +21,40 @@ import fr.adoptunstage.spring.services.OffreService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/offre")
 public class OffreController{
 
 	@Autowired
 	OffreService service;
 
-	@GetMapping("/offre")
+	@GetMapping("")
 	public Set<Offre> getAllOffres() {
 		return service.getAllOffres();
 	}
 
-	@PostMapping(value = "/offre/creer/{username}")
+	@PostMapping(value = "/creer/{username}")
 	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
 			@RequestBody SignUpFormOffre requestOffre) {
 		return service.postOffre(username, requestOffre);
 	}
 	
-	@GetMapping(value = "/offre/mesoffres/{username}")
+	@GetMapping(value = "/mesoffres/{username}")
 	public Set<Offre> getMesOffres(@PathVariable("username") String username ) {
 		return service.getMesOffres(username);
 	}
 	
-	
-	
-	
-	@DeleteMapping("/offre/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		return service.deleteOffre(id);
 	}
 	
-	@DeleteMapping("/offre/supprimer")
+	@DeleteMapping("/supprimer")
 	public ResponseEntity<String> deleteAll() {
-		System.out.println("Delete All Customers...");
- 
 		return service.deleteAll();
- 
 	}
 
-	@PutMapping("/offre/{id}")
-	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, 
-			@RequestBody Offre offre) {
-		System.out.println("Update Customer with ID = " + id + "...");
-
+	@PutMapping("/{id}")
+	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
 		return service.updateOffre(id, offre);
 	}
 	
