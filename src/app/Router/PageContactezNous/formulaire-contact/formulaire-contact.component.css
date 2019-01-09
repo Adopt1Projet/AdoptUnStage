@@ -2,6 +2,10 @@
     padding-bottom: 2%;
 }
 
+.is-invalid {
+    border-left: solid 6px red;
+}
+
 .personnalInfo {
     margin: 1%;
 }
@@ -9,6 +13,7 @@
 .title {
     padding: 0;
     color: #26a69a;
+    font-weight: bolder;
 }
 
 .form-control {
