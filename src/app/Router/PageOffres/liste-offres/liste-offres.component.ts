@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OffreService } from 'src/app/services/offre.service';
 
 @Component({
   selector: 'app-liste-offres',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-offres.component.css']
 })
 export class ListeOffresComponent implements OnInit {
-
+  offres2;
   offres = [
     {
       titre: "Stage d'observation",
@@ -66,10 +67,16 @@ export class ListeOffresComponent implements OnInit {
 
   page = 1;
 
-  constructor() { }
+  constructor(private offreService: OffreService) { }
 
 
   ngOnInit() {
+    this.offreService.getAllOffres().subscribe((data) => {
+      this.offres2 = data
+      console.log(this.offres2)
+    });
+
+
     for (let i = 0; i < this.offres.length; i++) {
       if (this.offres[i].isPourvu) {
         this.offres[i].pourvu = "Disponible";

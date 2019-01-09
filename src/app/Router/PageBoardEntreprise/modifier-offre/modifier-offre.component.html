@@ -1,11 +1,4 @@
 <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
-
-  <!-- <div class="form-group" hidden>
-    <label for="id">ID</label>
-    <input type="text" class="form-control" formControlName="id" name="id" id="id">
-    
-  </div> -->
-
   <div class="form-group">
     <label for="titre">Intitulé du poste</label>
     <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
@@ -17,25 +10,17 @@
       </textarea>
   </div>
 
-  <!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
-
   <!-- <ngbd-datepicker-range></ngbd-datepicker-range> -->
 
-
   <h2 class="text-center">Localisation du stage</h2>
-
-
-
   <div class="form-group">
     <label for="rue">Rue</label>
     <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
   </div>
-
   <div class="form-group">
     <label for="ville">Ville</label>
     <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
   </div>
-
   <div class="form-group">
     <label for="codePostal">Code postal</label>
     <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
@@ -43,9 +28,4 @@
   <div class="text-center">
     <button class="btn btn-primary" type="submit">Modifier mon offre</button>
   </div>
-  <div class="text-center">
-    <button class="btn btn-primary" (click)="deleteOffre(offre.id)">Supprimer</button>
-  </div>
-
-
 </form>
