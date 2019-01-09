@@ -3,6 +3,7 @@ import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from "src/app/services/offre.service";
 import { Observable } from 'rxjs';
 import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component'
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-gestion-des-offres',
@@ -12,12 +13,13 @@ import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modif
 export class GestionDesOffresComponent implements OnInit {
 
   offre: Offre;
-  offres: Offre[];
+  offres: any;
+  username: string;
 
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
 
-  constructor(private offreService: OffreService) { }
+  constructor(private offreService: OffreService, private token: TokenStorageService) { }
 
   deleteOffres() {
     this.offreService.deleteAll()
@@ -50,13 +52,16 @@ export class GestionDesOffresComponent implements OnInit {
   }
   reloadData() {
     console.log('REFRESHING DATA !')
-    this.offreService.getOffresList().subscribe((data) => {
+    this.offreService.getOffresList(this.username).subscribe((data) => {
       this.offres = data
-      console.log('DATA REFRESHED !')
+      console.log(this.offres)
     });
   }
   ngOnInit() {
+    this.username = this.token.getUsername();
+
     this.reloadData();
+
   }
 
 }

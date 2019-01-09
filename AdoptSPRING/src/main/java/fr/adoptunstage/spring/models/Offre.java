@@ -2,13 +2,22 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "offres")
 public class Offre {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
+    @JoinColumn(name="id_entreprise")
+    private Entreprise entreprise; 
+
 
 	@Column(name = "titre")
 	private String titre;
@@ -34,6 +43,17 @@ public class Offre {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	
+
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
 	}
 
 	public String getTitre() {
@@ -88,26 +108,28 @@ public class Offre {
 	public Offre() {};
 	
 	public Offre(
+				Entreprise entreprise,
 				String titre, 
 				String description, 
 				String rue, 
 				String ville, 
 				int codePostal,
 				boolean active) {
-									super();
+									this.entreprise = entreprise;
 									this.titre = titre;
 									this.description = description;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
-									this.active = false;
+									this.active = active;
 								}
 
 	
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", titre=" + titre + ", description=" + description + ", rue=" + rue + ", ville="
-				+ ville + ", codePostal=" + codePostal + ", active=" + active + "]";
+		return "Offre [id=" + id + ", id_entreprise=" +  ", titre=" + titre + ", description="
+				+ description + ", rue=" + rue + ", ville=" + ville + ", codePostal=" + codePostal + ", active="
+				+ active + "]";
 	}
 
 	
