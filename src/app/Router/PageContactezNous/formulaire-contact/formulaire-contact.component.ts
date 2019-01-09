@@ -58,7 +58,7 @@ export class FormulaireContactComponent implements OnInit {
   onSubmit() {
     const email: Email = this.formContact.value;
     this.loading = true;
-    this.alertService.success('Votre message à bien été envoyé. Nous vous enverrons une réponse au plus vite.', true);
+    this.alertService.success('Votre message a bien été envoyé. Nous vous enverrons une réponse au plus vite.', true);
     this.mailService.sendMail(email)
       .pipe(first())
       .subscribe(

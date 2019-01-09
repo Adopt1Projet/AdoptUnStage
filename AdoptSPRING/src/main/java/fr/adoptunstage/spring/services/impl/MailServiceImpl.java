@@ -17,7 +17,7 @@ public class MailServiceImpl implements MailService {
 	@Autowired
 	private JavaMailSender mailSender;
 		
-	private final static String EMAIL_ADMIN = "kevin.radlowski@gmail.com";
+	private final static String EMAIL_ADMIN = "adoptunstage@gmail.com";
 	
 	@Override
 	public String sendEmail(HTMLMail mail) {
