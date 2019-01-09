@@ -4,8 +4,8 @@ import java.util.Set;
 
 import javax.validation.constraints.*;
 
-public class SignUpFormStagiaire {@NotBlank
-    @Size(min = 3, max = 50)
+public class SignUpFormStagiaire {
+	@NotBlank
     private String name;
 
     @NotBlank

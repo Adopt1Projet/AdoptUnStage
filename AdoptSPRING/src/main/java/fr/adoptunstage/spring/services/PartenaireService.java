@@ -16,7 +16,6 @@ public class PartenaireService {
 	PartenaireRepository repository;
 	
 	public List<Partenaire> getAllPartenaires() {
-		System.out.println("Affiche tous les partenaires...");
 
 		List<Partenaire> partenaires = new ArrayList<>();
 		repository.findAll().forEach(partenaires::add);

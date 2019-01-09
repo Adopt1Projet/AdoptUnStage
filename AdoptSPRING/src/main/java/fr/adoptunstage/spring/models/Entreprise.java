@@ -8,7 +8,6 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

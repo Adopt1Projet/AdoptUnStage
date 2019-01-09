@@ -1,6 +1,6 @@
 package fr.adoptunstage.spring.models;
 
-import javax.persistence.Entity;
+
 
 public class HTMLMail{
 	

@@ -2,7 +2,6 @@ package fr.adoptunstage.spring.models;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "offres")
@@ -32,7 +31,7 @@ public class Offre {
 	private String ville;
 	
 	@Column(name = "codePostal")
-	private int codePostal;
+	private String codePostal;
 	
 	@Column(name ="active")
 	private boolean active;
@@ -88,11 +87,11 @@ public class Offre {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	
@@ -113,7 +112,7 @@ public class Offre {
 				String description, 
 				String rue, 
 				String ville, 
-				int codePostal,
+				String codePostal,
 				boolean active) {
 									this.entreprise = entreprise;
 									this.titre = titre;

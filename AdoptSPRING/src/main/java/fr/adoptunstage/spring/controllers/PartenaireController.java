@@ -13,13 +13,13 @@ import fr.adoptunstage.spring.services.PartenaireService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/partenaires")
 public class PartenaireController {
 
 	@Autowired
 	PartenaireService service;
 
-	@GetMapping("/partenaires")
+	@GetMapping("")
 	@PreAuthorize("hasRole('STAGIAIRE')")
 	public List<Partenaire> getAllPartenaires() {
 		return service.getAllPartenaires();

@@ -40,7 +40,7 @@ public class StagiaireController {
 	
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
-		return service.createStagiaire(signUpRequest);
+		return service.postStagiaire(signUpRequest);
 	}
 
 
