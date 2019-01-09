@@ -25,11 +25,11 @@ public class MailServiceImpl implements MailService {
 		try {
 	        MimeMessage message = mailSender.createMimeMessage();
 	        
-	        MimeMessageHelper helper = new MimeMessageHelper(message);
+	        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
 	        
 	        helper.setTo(EMAIL_ADMIN);
 	        helper.setSubject(mail.getTitle());
-	        helper.setText(mail.buildMyMessage());
+	        message.setContent(mail.buildMyMessage(), "text/html");
 			
 	        mailSender.send(message);
 		} 

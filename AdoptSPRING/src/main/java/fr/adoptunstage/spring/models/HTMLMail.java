@@ -85,28 +85,16 @@ public HTMLMail() {};
 	
 	public String buildMyMessage() {
 		String str = "<html>" +
-                "<body>" +
-					"<p>Mail</p>" + this.email +
-					"<p>Nom</p>" + this.name +
-                    "<p>Prénom</p>" + this.prenom +
-                    "<p>Message :</p>" + this.message +
-                "</body>" +
-                "</html>";
+		                "<body>" +
+							
+							"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Mail:</span> " + this.email + "</p>" +
+							"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Nom:</span> " + this.name + "</p>" +
+		                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Prénom:</span> " + this.prenom + "</p>" +
+		                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
+		                    "<img src=\"../../../../../../../../src/assets/img/banner.png\" class=\"img-fluid w-100\" alt=\"\">" +
+		                "</body>" +
+		              "</html>";
 //					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
 		return str;
 	}
-	
-//	public HTMLMail(String to) {
-//		 this.to = to;
-//	    }
-//
-//	    @Override
-//	    public String getSubject() {
-//	        return "HTML Email Subject";
-//	    }
-//
-//	    @Override
-//	    public String getContent() {
-	               
-//	    }
 }
