@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OffreService } from 'src/app/services/offre.service';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-page-detail-offre',
@@ -19,7 +19,8 @@ export class PageDetailOffreComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.offreService.getOffre(id).subscribe(data => { this.offre = data; console.log(this.offre) });
+    this.offreService.getOffre(id).subscribe
+      (data => { this.offre = data; console.log(this.offre) });
 
   }
 

@@ -13,7 +13,7 @@
             <i class="material-icons md-36">mail_outline</i>
         </div>
         <div class="col-10">
-            <h5>Mail : stage@entreprise.com</h5>
+            <h5>Mail : {{ offre.entreprise.email }}</h5>
         </div>
     </div>
     <div class="row phone mt-4">
@@ -21,7 +21,7 @@
             <i class="material-icons md-36">phone</i>
         </div>
         <div class="col-10">
-            <h5>Tel : 09 42 24 35 53</h5>
+            <h5>Tel : {{ offre.entreprise.tel }}</h5>
         </div>
     </div>
     <div class="row location mt-4">
@@ -29,7 +29,7 @@
             <i class="material-icons md-36">home</i>
         </div>
         <div class="col-10">
-            <h5>Adresse : 246 bis avenue Charlemagne</h5>
+            <h5>Adresse : {{ offre.rue }} {{ offre.codePostal }} {{ offre.ville }}</h5>
             <h5>69009 Lyon</h5>
         </div>
     </div>
