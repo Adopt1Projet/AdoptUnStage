@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Offre;
+import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.repos.OffreRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
 
@@ -40,6 +42,15 @@ public class OffreService {
 				() -> new UsernameNotFoundException
 				("User Not Found with -> username or email : " + username));
 		Set<Offre> offres = entreprise.getOffres();		
+		return offres;
+	}
+	
+	public Set<Offre> getMesOffresStagiaire(String username) {	
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username)
+				.orElseThrow(
+				() -> new UsernameNotFoundException
+				("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = stagiaire.getOffres();		
 		return offres;
 	}
 	
@@ -92,5 +103,20 @@ public class OffreService {
 		repository.save(_offre);
 			
 		return new ResponseEntity<>(new ResponseMessage("Offre crée!"), HttpStatus.OK);
+	}
+	
+	public ResponseEntity<?> postuler(long id_offre, String username, SignUpPostuler requestPostuler) {
+		
+		Offre offre = repository.findById(id_offre).orElseThrow(
+				() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id_offre));
+		
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+
+		offre.setStagiaire(stagiaire);
+
+		repository.save(offre);
+			
+		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
 	}
 }

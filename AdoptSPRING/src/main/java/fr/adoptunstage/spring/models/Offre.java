@@ -1,6 +1,11 @@
 package fr.adoptunstage.spring.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -15,8 +20,18 @@ public class Offre {
 	
 	@ManyToOne
     @JoinColumn(name="id_entreprise")
-    private Entreprise entreprise; 
-
+    private Entreprise entreprise;
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            })
+    @JoinTable(name = "candidatures",
+            joinColumns = { @JoinColumn(name = "id_offre") },
+            inverseJoinColumns = { @JoinColumn(name = "id_stagiaire") })
+	@JsonIgnore
+    private Set<Stagiaire> stagiaires; 
 
 	@Column(name = "titre")
 	private String titre;
@@ -44,7 +59,17 @@ public class Offre {
 		this.id = id;
 	}
 	
+	public Set<Stagiaire> getStagiaires() {
+		return stagiaires;
+	}
+
+	public void setStagiaires(Set<Stagiaire> stagiaires) {
+		this.stagiaires = stagiaires;
+	}
 	
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaires.add(stagiaire);
+	}
 
 
 	public Entreprise getEntreprise() {
@@ -121,6 +146,7 @@ public class Offre {
 									this.ville = ville;
 									this.codePostal = codePostal;
 									this.active = active;
+									this.stagiaires = new HashSet<Stagiaire>(); 
 								}
 
 	

@@ -32,6 +32,7 @@
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/Application.java
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java
+/home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/message/request/SignUpPostuler.java
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/HTMLMail.java
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/services/impl/MailServiceImpl.java
 /home/Hugo/Documents/Projet 3/janvier2/AdoptUnStage/AdoptSPRING/src/main/java/fr/adoptunstage/spring/models/Role.java
