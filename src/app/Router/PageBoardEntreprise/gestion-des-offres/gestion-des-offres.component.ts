@@ -4,14 +4,18 @@ import { OffreService } from "src/app/services/offre.service";
 import { Observable } from 'rxjs';
 import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component'
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { ConfirmComponent } from '../confirm/confirm.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-des-offres',
   templateUrl: './gestion-des-offres.component.html',
   styleUrls: ['./gestion-des-offres.component.css']
 })
-export class GestionDesOffresComponent implements OnInit {
-
+export class GestionDesOffresComponent{
+  
+  confirmResult = null;
   offre: Offre;
   offres: any;
   username: string;
@@ -19,7 +23,12 @@ export class GestionDesOffresComponent implements OnInit {
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
 
-  constructor(private offreService: OffreService, private token: TokenStorageService) { }
+  constructor(
+    private SimpleModalService: SimpleModalService,
+    private offreService: OffreService, 
+    private token: TokenStorageService,
+    private router: Router) {
+    }
 
   deleteOffres() {
     this.offreService.deleteAll()
@@ -39,6 +48,21 @@ export class GestionDesOffresComponent implements OnInit {
         },
         error => console.log(error));
   }
+
+  showConfirm(i) {
+    console.log(i);
+    this.SimpleModalService.addModal(ConfirmComponent)
+      .subscribe((isConfirmed) => {
+        
+        // Get modal result
+        this.confirmResult = isConfirmed;
+        if (isConfirmed) {this.deleteOffre(i);
+          this.ngOnInit();
+          location.reload();}
+        
+    });
+  }
+
   public editOffre(offre) {
     this.editComp.formOffre.setValue({
       id: offre.id,
