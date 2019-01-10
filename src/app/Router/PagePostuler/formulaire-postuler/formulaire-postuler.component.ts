@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { OffreService } from 'src/app/services/offre.service';
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-formulaire-postuler',
@@ -18,11 +19,18 @@ export class FormulairePostulerComponent implements OnInit {
     motivation: new FormControl(),
   });
 
-  constructor(private token: TokenStorageService, private offreService: OffreService, private route: ActivatedRoute) { }
+  constructor(private token: TokenStorageService, 
+              private offreService: OffreService, 
+              private route: ActivatedRoute,
+              private _location: Location) { }
 
   onSubmit() {
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
       .subscribe(data => console.log(data), error => console.log(error));
+  }
+
+  retourPage() {
+    this._location.back();
   }
 
   ngOnInit() {
