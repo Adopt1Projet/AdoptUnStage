@@ -1,0 +1,35 @@
+<div class="container infoStageBody">
+    <div class="row period mt-4">
+        <div class="col-2 d-flex justify-content-center">
+            <i class="material-icons md-36">date_range</i>
+        </div>
+        <div class="col-10">
+            <h2>Période de stage</h2>
+            <p>Du 07 janvier 2019 au 29 mars 2019</p>
+        </div>
+    </div>
+    <div class="row mail mt-4">
+        <div class="col-2 d-flex justify-content-center">
+            <i class="material-icons md-36">mail_outline</i>
+        </div>
+        <div class="col-10">
+            <h5><b>Mail :</b> {{ offre.entreprise.email }}</h5>
+        </div>
+    </div>
+    <div class="row phone mt-4">
+        <div class="col-2 d-flex justify-content-center">
+            <i class="material-icons md-36">phone</i>
+        </div>
+        <div class="col-10">
+            <h5><b>Tel :</b> {{ offre.entreprise.tel }}</h5>
+        </div>
+    </div>
+    <div class="row location mt-4">
+        <div class="col-2 d-flex justify-content-center">
+            <i class="material-icons md-36">home</i>
+        </div>
+        <div class="col-10">
+            <h5><b>Adresse :</b></h5> <h5> {{ offre.rue }} <br> {{ offre.ville }} <br> {{ offre.codePostal }} </h5>
+        </div>
+    </div>
+</div>

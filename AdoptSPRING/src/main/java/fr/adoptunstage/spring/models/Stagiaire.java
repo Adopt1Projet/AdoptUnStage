@@ -1,7 +1,15 @@
 package fr.adoptunstage.spring.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Stagiaire extends User {
@@ -20,9 +28,30 @@ public class Stagiaire extends User {
 	
 	@Column(name = "tel")
 	private String tel;
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            },
+            mappedBy = "stagiaires")
+	@JsonIgnore
+    private Set<Offre> offres; 
+	
+	
+	
 
+	public Set<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(Set<Offre> offres) {
+		this.offres = offres;
+	}
 	
-	
+	public void setOffre(Offre offre) {
+		this.offres.add(offre);
+	}
 
 	public String getPrenom() {
 		return prenom;
@@ -75,6 +104,7 @@ public class Stagiaire extends User {
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.tel = tel;
+		this.offres = new HashSet<Offre>();
 	}
 
 	

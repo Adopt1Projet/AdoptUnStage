@@ -17,7 +17,7 @@ import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/form
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 
 import { PagePartenairesComponent } from './Router/PagePartenaires/page-partenaires/page-partenaires.component';
-import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { PageDetailOffreComponent } from './Router/PageOffres/PageDetailOffre/page-detail-offre/page-detail-offre.component';
 import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component';
 import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
 import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
@@ -37,14 +37,15 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
   { path: 'accueil', component: PageAccueilComponent },
-  { path: 'postuler', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
+  { path: 'postuler/:id', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
   { path: 'offres', component: PageOffresComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'detailoffre', canActivate: [AuthGuard], component: PageDetailOffreComponent },
+  { path: 'detailoffre/:id', component: PageDetailOffreComponent },
+  { path: 'postuler/:id', component: PagePostulerComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   {

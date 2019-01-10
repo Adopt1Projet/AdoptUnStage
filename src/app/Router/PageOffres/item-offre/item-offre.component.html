@@ -1,11 +1,6 @@
-<a href="INSERER URL DE L'OFFRE AVEC ID" class="list-group-item list-group-item-action">
-  <div class="row">
-    <div class="col-1 logo"><img src="{{logoEntreprise}}"></div>
-    <div class="col-4 titre">{{offreTitre}} <br> {{offreNomEntreprise}}</div>
-    <div class="col-1 badge" [ngStyle]="{'background-color': getCouleur()}">
-      <p class="textPourvu">{{offrePourvu}}</p>
-    </div>
-    <div class="col-4 textSecteur">{{offreSecteur}}</div>
-    <div class="col-2 date">{{offreDateDebut}} <br> {{offreDateFin}}</div>
-  </div>
-</a>
+<td>{{offre.entreprise.secteur}}</td>
+<td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
+<td> {{offre.ville}} </td>
+<td> période </td>
+<td> {{offre.active}} </td>
+<td><i class="material-icons" style="color:blue">detail</i></td>
