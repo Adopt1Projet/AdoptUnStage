@@ -1,40 +1,45 @@
-<form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+<div class="container bodyCreerOffre">
+  <app-alert></app-alert>
 
-  <div class="form-group">
-    <label for="titre">Intitulé du poste</label>
-    <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
-  </div>
+  <h1 class="titre">Créer une offre</h1>
+  <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
 
-  <div class="form-group">
-    <label for="description">Descriptif du poste</label>
-    <textarea class="form-control" formControlName="description" id="description" rows="3">
+    <div class="form-group">
+      <label for="titre">Intitulé du poste</label>
+      <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descriptif du poste</label>
+      <textarea class="form-control" formControlName="description" id="description" rows="3">
     </textarea>
-  </div>
+    </div>
 
-  <!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
+    <!-- <p>Form value: {{ formulaireOffre.value}}</p> -->
 
-  <!-- <ngbd-datepicker-range></ngbd-datepicker-range> -->
-
-
-  <h2 class="text-center">Localisation du stage</h2>
-
-  <div class="form-group">
-    <label for="rue">Rue</label>
-    <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
-  </div>
-
-  <div class="form-group">
-    <label for="ville">Ville</label>
-    <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
-  </div>
-
-  <div class="form-group">
-    <label for="codePostal">Code postal</label>
-    <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
-  </div>
-  <div class="text-center">
-    <button class="btn btn-primary" type="submit">Poster mon offre</button>
-  </div>
+    <!-- <ngbd-datepicker-range></ngbd-datepicker-range> -->
 
 
-</form>
+    <h2 class="text-center">Localisation du stage</h2>
+
+    <div class="form-group">
+      <label for="rue">Rue</label>
+      <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
+    </div>
+
+    <div class="form-group">
+      <label for="ville">Ville</label>
+      <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
+    </div>
+
+    <div class="form-group">
+      <label for="codePostal">Code postal</label>
+      <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
+    </div>
+    <div class="text-center">
+      <button class="btn shadow btnPosterOffre" type="submit">Poster mon offre</button>
+    </div>
+
+
+  </form>
+</div>

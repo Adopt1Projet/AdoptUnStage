@@ -3,15 +3,15 @@ fr/adoptunstage/spring/services/OffreService.class
 fr/adoptunstage/spring/services/impl/MailServiceImpl.class
 fr/adoptunstage/spring/models/Stagiaire.class
 fr/adoptunstage/spring/models/Offre.class
-fr/adoptunstage/spring/repos/EntrepriseRepository.class
 fr/adoptunstage/spring/models/SimpleMail.class
+fr/adoptunstage/spring/repos/EntrepriseRepository.class
 fr/adoptunstage/spring/security/jwt/JwtProvider.class
 fr/adoptunstage/spring/models/Role.class
 fr/adoptunstage/spring/security/jwt/JwtAuthTokenFilter.class
 fr/adoptunstage/spring/security/WebSecurityConfig.class
 fr/adoptunstage/spring/services/QuestionService.class
-fr/adoptunstage/spring/repos/StagiaireRepository.class
 fr/adoptunstage/spring/models/RoleName.class
+fr/adoptunstage/spring/repos/StagiaireRepository.class
 fr/adoptunstage/spring/repos/PartenaireRepository.class
 fr/adoptunstage/spring/models/User.class
 fr/adoptunstage/spring/repos/OffreRepository.class

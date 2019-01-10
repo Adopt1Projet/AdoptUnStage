@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
 
 import { FormControl } from '@angular/forms';
+import { AlertService } from '../../../services/alert.service';
 
 @Component({
   selector: 'app-formulaire-creer-offre',
@@ -27,12 +28,15 @@ export class FormulaireCreerOffreComponent implements OnInit {
     ville: new FormControl(),
     codePostal: new FormControl(),
   });
-  constructor(private offreService: OffreService,
-    private token: TokenStorageService) { }
+  constructor(
+    private offreService: OffreService,
+    private token: TokenStorageService,
+    private alertService: AlertService) { }
 
   onSubmit() {
     const offre: Offre = this.formOffre.value;
     console.log(offre);
+    this.alertService.success('Votre annonce à bien été créée. Vous pouvez la modifier dans l\'onglet "Gestion des annonces".', true);
     this.offreService.createOffre(this.username, offre)
       .subscribe(data => console.log(data), error => console.log(error));
     this.formOffre.reset();

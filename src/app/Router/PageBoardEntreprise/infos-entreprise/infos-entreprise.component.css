@@ -14,7 +14,6 @@
 form { 
     color: #26a69a;
     margin: 0 auto;
-    padding-top: 3vw;
     padding-bottom: 3vh;
 }
   
@@ -23,8 +22,12 @@ form {
     margin-bottom: 3vw;
 }
 
-.titre{
-    margin-bottom: 3vw;  
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 h1, h2{
