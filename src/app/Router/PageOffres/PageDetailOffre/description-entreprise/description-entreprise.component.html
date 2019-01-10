@@ -1,16 +1,21 @@
-<div class="descEntrepriseBody">
-  <h2><i class="material-icons md-36">location_city</i>L'employeur</h2>
+<div class="container descEntrepriseBody">
+  <h2><i class="material-icons md-36">location_city</i>Employeur</h2>
   <div class="row">
     <div class="col-6">
-      <img class="imgDescEntreprise" src="../../../../assets/img/proBTP.png" alt="">
+      <img *ngIf="offre.entreprise.logo == null" class="imgDescEntreprise" src="https://lovelandfireandice.com/wp-content/uploads/logo-placeholder-generic.200x200.png" alt="">
     </div>
     <div class="col-6">
-      <p>{{ offre.entreprise.raisonSociale }}</p>
-      <p>Secteur d'activité :{{ offre.entreprise.secteur }}</p>
-      <p>Site web : {{ offre.entreprise.siteWeb }}</p>
-      <p>Statut : {{ offre.entreprise.statut }}</p>
+      <h4><b>{{ offre.entreprise.raisonSociale }}</b></h4>
+      <p><b>Secteur d'activité :</b></p>
+      <p>{{ offre.entreprise.secteur }}</p>
+      <p><b>Statut :</b></p>
+      <p>{{ offre.entreprise.statut }}</p>
     </div>
   </div>
-  <p class="descriptionEntreprise">Reveal DéveloppementReveal recherche des terrains pour permettre la construction
-    d'immeubles de logements et de bureaux.</p>
+  <div class="row">
+    <div class="col-12">
+      <p><b>Site web :</b></p>
+      <a href="{{ offre.entreprise.siteWeb }}" target="_blank"><b>{{ offre.entreprise.siteWeb }}</b></a>
+    </div>
+  </div>
 </div>

@@ -45,6 +45,7 @@ const routes: Routes = [
 
   { path: 'partenaires', component: PagePartenairesComponent },
   { path: 'detailoffre/:id', component: PageDetailOffreComponent },
+  { path: 'postuler/:id', component: PagePostulerComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   {

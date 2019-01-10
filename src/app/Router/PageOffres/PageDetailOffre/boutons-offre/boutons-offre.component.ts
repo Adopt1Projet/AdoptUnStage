@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Offre } from 'src/app/modeles/offre';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-boutons-offre',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoutonsOffreComponent implements OnInit {
 
-  constructor() { }
+  @Input() offre: Offre;
+
+  constructor(private _location: Location) { }
+
+  retourPage() {
+    this._location.back();
+  }
 
   ngOnInit() {
   }

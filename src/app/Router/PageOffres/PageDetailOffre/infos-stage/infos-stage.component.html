@@ -1,4 +1,4 @@
-<div class="infoStageBody">
+<div class="container infoStageBody">
     <div class="row period mt-4">
         <div class="col-2 d-flex justify-content-center">
             <i class="material-icons md-36">date_range</i>
@@ -13,7 +13,7 @@
             <i class="material-icons md-36">mail_outline</i>
         </div>
         <div class="col-10">
-            <h5>Mail : {{ offre.entreprise.email }}</h5>
+            <h5><b>Mail :</b> {{ offre.entreprise.email }}</h5>
         </div>
     </div>
     <div class="row phone mt-4">
@@ -21,7 +21,7 @@
             <i class="material-icons md-36">phone</i>
         </div>
         <div class="col-10">
-            <h5>Tel : {{ offre.entreprise.tel }}</h5>
+            <h5><b>Tel :</b> {{ offre.entreprise.tel }}</h5>
         </div>
     </div>
     <div class="row location mt-4">
@@ -29,8 +29,7 @@
             <i class="material-icons md-36">home</i>
         </div>
         <div class="col-10">
-            <h5>Adresse : {{ offre.rue }} {{ offre.codePostal }} {{ offre.ville }}</h5>
-            <h5>69009 Lyon</h5>
+            <h5><b>Adresse :</b></h5> <h5> {{ offre.rue }} <br> {{ offre.ville }} <br> {{ offre.codePostal }} </h5>
         </div>
     </div>
 </div>

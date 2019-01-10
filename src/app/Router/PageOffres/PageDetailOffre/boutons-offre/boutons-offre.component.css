@@ -23,10 +23,6 @@
     margin-left: 6%;
 }
 
-.btnValid:hover {
-    background-color: green;
-}
-
-.btnRetour:hover {
-    background-color: green;
+.btn:hover {
+    background-color: #2ed1bb;
 }

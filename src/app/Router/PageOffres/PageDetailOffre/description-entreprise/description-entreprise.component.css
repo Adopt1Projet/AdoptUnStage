@@ -3,8 +3,7 @@
     background-color: #ffffff;
     border: 2px solid;
     border-color: rgb(235, 235, 235);
-    height: 350px;
-    margin-top: 1%;
+    padding: 3vh;
 }
 
 .material-icons.md-36 {
@@ -15,9 +14,14 @@
 .imgDescEntreprise {
     max-width: 150px;
     max-height: 150px;
-    margin-left: 35px;
+    display: block;
+    margin: auto;
 }
 
 .descriptionEntreprise {
     margin: 30px;
+}
+
+h4 {
+    color: #00B499;
 }
