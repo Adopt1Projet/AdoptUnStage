@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 import { BoutonInscriptionAccueilComponent } from './Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component';
+import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aide.component';
 // tslint:disable-next-line:max-line-length
 
 // Page Inscription Stagiaire
@@ -166,9 +167,7 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     ModifierOffreComponent,
     OffreItemComponent,
     PageNonConnecteComponent,
-
-
-
+    BesoinAideComponent
 
   ],
   imports: [

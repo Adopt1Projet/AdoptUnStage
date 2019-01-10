@@ -8,6 +8,9 @@
     margin: 4%;
 }
 
-.card-header {
-    font-size: 1.2em;
+
+
+h2 {
+    color: #26a69a;
+    font-weight: bolder;
 }

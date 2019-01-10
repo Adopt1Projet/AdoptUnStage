@@ -125,25 +125,25 @@
                     <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
                         formUpdatePassword.controls['password'].hasError('minlength') ? 'cancel' :
                         'check_circle' }}</i>
-                    Dois contenir au minimum 6 caractères!
+                    Doit contenir au minimum 6 caractères!
                 </label>
                 <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
                     <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
                         formUpdatePassword.controls['password'].hasError('hasNumber') ? 'cancel' :
                         'check_circle' }}</i>
-                    Dois contenir au minimum un chiffre!
+                    Doit contenir au minimum un chiffre!
                 </label>
                 <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
                     <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
                         formUpdatePassword.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
                         'check_circle' }}</i>
-                    Dois contenir au minimum une lettre majuscule!
+                    Doit contenir au minimum une lettre majuscule!
                 </label>
                 <label class="col" [ngClass]="formUpdatePassword.controls['password'].hasError('required') || formUpdatePassword.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
                     <i class="material-icons">{{ formUpdatePassword.controls['password'].hasError('required') ||
                         formUpdatePassword.controls['password'].hasError('hasSmallCase') ? 'cancel' :
                         'check_circle' }}</i>
-                    Dois contenir au minimum une lettre minuscule!
+                    Doit contenir au minimum une lettre minuscule!
                 </label>
             </div>
 

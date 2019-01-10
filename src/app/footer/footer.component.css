@@ -3,7 +3,12 @@
     padding: 15px;
 }
 
-.footerImg img {
+/* .footerImg img {
     max-width: 10%;
     max-height: 50px;
+} */
+
+img {
+    margin-left: 10px;
+    max-width: 35px;
 }
