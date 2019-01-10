@@ -8,14 +8,6 @@ import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatNativeDateModule } from '@angular/material';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { CdkTableModule } from '@angular/cdk/table';
-import { CdkTreeModule } from '@angular/cdk/tree';
-
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -181,15 +173,11 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatNativeDateModule,
-    DragDropModule, ScrollingModule, CdkTableModule, CdkTreeModule
-
+    ReactiveFormsModule
   ],
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+

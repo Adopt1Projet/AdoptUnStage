@@ -43,7 +43,7 @@ public class OffreController{
 		return service.getMesOffres(username);
 	}
 	
-	@GetMapping(value = "/offre/uneoffre/{id}")
+	@GetMapping(value = "/uneoffre/{id}")
 	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
 		
 		return service.getOffre(id);
