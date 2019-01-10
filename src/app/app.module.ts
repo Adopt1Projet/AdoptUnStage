@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
+import { SimpleModalModule } from 'ngx-simple-modal';
 
 //Mother fucking date
 
@@ -24,6 +25,7 @@ import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aid
 // Page Inscription Stagiaire
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
+import { ConfirmComponent } from './Router/PageBoardEntreprise/confirm/confirm.component';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
@@ -104,6 +106,7 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -167,6 +170,7 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     ModifierOffreComponent,
     OffreItemComponent,
     PageNonConnecteComponent,
+    ConfirmComponent,
     BesoinAideComponent
 
   ],
@@ -176,7 +180,11 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    SimpleModalModule.forRoot({container: "modal-container"})
+  ],
 
+  entryComponents: [
+    ConfirmComponent
   ],
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]

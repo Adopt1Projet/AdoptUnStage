@@ -1,38 +1,41 @@
-<h1>Gestion des offres</h1>
-<div class="container">
-  <div class="table-responsive">
-    <table class="table table-striped thead-light table-hover">
-      <caption>User Details</caption>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>titre</th>
-          <th>description</th>
-          <th>période</th>
-          <th>rue</th>
-          <th>ville</th>
-          <th>code</th>
-          <th>pourvu</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let offre of offres " style=" width: 300px;">
-          <td> {{offre.id}} </td>
-          <td> {{offre.titre}} </td>
-          <td> {{offre.description}} </td>
-          <td>{{offre.dateDebut}} à {{dateFin}}</td>
-          <td> {{offre.rue}} </td>
-          <td> {{offre.ville}} </td>
-          <td> {{offre.codePostal}} </td>
-          <td> {{offre.active}} </td>
-          <td><i class="material-icons" style="color:blue" (click)="editOffre(offre,i)">edit</i></td>
-          <td><i class="material-icons" style="color:red" (click)="deleteOffre(offre.id)">delete</i></td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
-    <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre>
+<div class="container bodyGestionOffres">
+  <h1 class="titre">Gestion des offres</h1>
+  <table class="table table-striped thead-light table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>titre</th>
+        <th>description</th>
+        <th>Période</th>
+        <th>rue</th>
+        <th>ville</th>
+        <th>code</th>
+        <th>pourvu</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offre of offres" style=" width: 300px;">
+        <td> {{offre.id}} </td>
+        <td> {{offre.titre}} </td>
+        <td> {{offre.description}} </td>
+        <td>{{offre.dateDebut}} à {{offre.dateFin}}</td>
+        <td> {{offre.rue}} </td>
+        <td> {{offre.ville}} </td>
+        <td> {{offre.codePostal}} </td>
+        <td> {{offre.active}} </td>
+        <td><i class="material-icons" style="color:blue; cursor: pointer;" (click)="editOffre(offre,i)">edit</i></td>
+        <td><i class="material-icons" style="color:red; cursor: pointer;" (click)=showConfirm(offre.id)>delete</i></td>
+      </tr>
+    </tbody>
+
+  </table>
+  <div class="col-sm-4" *ngIf="confirmResult != null">
+    <span>Result: </span>
+    <b [ngClass]="{'text-danger': !confirmResult, 'text-success': confirmResult}">{{confirmResult ? 'Trololo':
+      'Declined'}}</b>
   </div>
+  <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
+  <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre>
 </div>

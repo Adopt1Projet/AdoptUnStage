@@ -1,0 +1,18 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Supprimer l'offre</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="cancel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Êtes-vous sûr de vouloir supprimer l'annonce ?</strong></p>
+    <p>Toute les informations liées à cette annonce seront définitivement supprimées.
+      <span class="text-danger">Cette opération ne peut pas être annulée.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Annuler</button>
+    <button type="button" class="btn btn-danger" (click)="confirm()">Confirmer</button>
+  </div>
+</div>

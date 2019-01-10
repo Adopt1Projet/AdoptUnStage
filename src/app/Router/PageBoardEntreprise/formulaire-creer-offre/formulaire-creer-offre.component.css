@@ -1,0 +1,25 @@
+.bodyCreerOffre {
+    padding-bottom: 5%;
+}
+
+.btnPosterOffre {
+    background-color: #26a69a;
+    height: 5vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+}
+
+
+.btnPosterOffre:hover {
+    background-color: #2ed1bb;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
