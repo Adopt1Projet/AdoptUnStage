@@ -26,7 +26,6 @@ import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aid
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
 import { ConfirmComponent } from './Router/PageBoardEntreprise/confirm/confirm.component';
-import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
@@ -103,7 +102,7 @@ import { AlertComponent } from './alert/alert.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
-import { FormulaireEditerOffreComponent } from './Router/PageBoardEntreprise/formulaire-editer-offre/formulaire-editer-offre.component';
+
 
 
 
@@ -172,7 +171,6 @@ import { FormulaireEditerOffreComponent } from './Router/PageBoardEntreprise/for
     OffreItemComponent,
     PageNonConnecteComponent,
     ConfirmComponent,
-    FormulaireEditerOffreComponent
     BesoinAideComponent
 
   ],
