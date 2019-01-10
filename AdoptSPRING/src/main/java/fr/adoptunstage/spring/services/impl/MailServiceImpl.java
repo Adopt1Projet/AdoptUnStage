@@ -41,4 +41,50 @@ public class MailServiceImpl implements MailService {
 
 		return "ok";
     }
+	
+	public String sendEmailToEntreprise(HTMLMail mail) {
+
+		try {
+	        MimeMessage message = mailSender.createMimeMessage();
+	        
+	        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+	        
+	        helper.setTo(mail.getTo());
+	        helper.setSubject(mail.getTitle());
+	        message.setContent(mail.buildMyMessage(), "text/html");
+			
+	        mailSender.send(message);
+		} 
+		catch(MessagingException e) {
+			System.err.println("Impossible d'envoyer le mail");
+			e.printStackTrace();
+			return "ko";
+		}
+
+		return "ok";
+    }
+	
+	public String sendEmailToStagiaire(HTMLMail mail) {
+		
+		String titre = "Reponse automatique de adoptunstage@gmail.com";
+
+		try {
+	        MimeMessage message = mailSender.createMimeMessage();
+	        
+	        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+	        
+	        helper.setTo(mail.getTo());
+	        helper.setSubject(titre);
+	        message.setContent(mail.buildMyMessage(), "text/html");
+			
+	        mailSender.send(message);
+		} 
+		catch(MessagingException e) {
+			System.err.println("Impossible d'envoyer le mail");
+			e.printStackTrace();
+			return "ko";
+		}
+
+		return "ok";
+    }
 }
