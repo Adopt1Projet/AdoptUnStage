@@ -1,0 +1,12 @@
+.infoStageBody {
+    color: white;
+    background-color: #00B499;
+    border: 2px solid;
+    border-color: rgb(235, 235, 235);
+    padding: 3vh;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+    margin-right: 0;
+}

@@ -13,14 +13,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.models.Offre;
+import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.repos.OffreRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class OffreService {
+	
+	@Autowired
+	MailService mailRepository;
 
 	@Autowired
 	OffreRepository repository;
@@ -41,6 +47,22 @@ public class OffreService {
 				("User Not Found with -> username or email : " + username));
 		Set<Offre> offres = entreprise.getOffres();		
 		return offres;
+	}
+	
+	public Set<Offre> getMesOffresStagiaire(String username) {	
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username)
+				.orElseThrow(
+				() -> new UsernameNotFoundException
+				("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = stagiaire.getOffres();		
+		return offres;
+	}
+	
+	public Optional<Offre> getOffre(long id) { 
+		
+		Optional<Offre> offre = repository.findById(id);
+		return offre ;
+		
 	}
 
 
@@ -85,5 +107,27 @@ public class OffreService {
 		repository.save(_offre);
 			
 		return new ResponseEntity<>(new ResponseMessage("Offre crée!"), HttpStatus.OK);
+	}
+	
+	public ResponseEntity<?> postuler(long id_offre, String username, SignUpPostuler requestPostuler) {
+		
+		Offre offre = repository.findById(id_offre).orElseThrow(
+				() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id_offre));
+		
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+
+		offre.setStagiaire(stagiaire);
+
+		repository.save(offre);
+		
+		HTMLMail mailToEntreprise = new HTMLMail (offre.getEntreprise().getEmail(), offre.getTitre(), requestPostuler.getMotivation(), stagiaire.getPrenom(),stagiaire.getName(),stagiaire.getEmail());
+		mailRepository.sendEmailToEntreprise(mailToEntreprise);
+		
+		String messageStagiaire = "Vous avez envoyez votre candidature à " + offre.getEntreprise().getEmail() + ": "+ requestPostuler.getMotivation();
+		HTMLMail mailToStagiaire = new HTMLMail (stagiaire.getEmail(), offre.getTitre(), messageStagiaire, stagiaire.getPrenom(),stagiaire.getName(),stagiaire.getEmail());
+		mailRepository.sendEmailToEntreprise(mailToStagiaire);
+			
+		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
 	}
 }

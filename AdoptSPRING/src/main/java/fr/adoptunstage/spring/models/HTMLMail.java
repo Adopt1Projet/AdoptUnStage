@@ -68,13 +68,28 @@ public HTMLMail() {};
 				String prenom, 
 				String name, 
 				String email) {
-									
+								
 									this.title = title;
 									this.message = message;
 									this.prenom = prenom;
 									this.name = name;
 									this.email = email;
 								}
+	
+	public HTMLMail(
+			String to,
+			String title, 
+			String message, 
+			String prenom, 
+			String name, 
+			String email) {
+								this.to = to;
+								this.title = title;
+								this.message = message;
+								this.prenom = prenom;
+								this.name = name;
+								this.email = email;
+							}
 
 	
 	@Override

@@ -12,7 +12,7 @@ export class OffreService {
   constructor(private http: HttpClient) { }
 
   getOffre(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/uneoffre/${id}`);
   }
 
   // createOffre(offre: Object): Observable<Object> {
@@ -43,5 +43,13 @@ export class OffreService {
 
   deleteAll(): Observable<any> {
     return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
+  }
+
+  postuler(id_offre: number, username : String, value : any): Observable<any>{
+    return this.http.post(`${this.baseUrl}/postuler/${id_offre}/${username}`, value);
+  }
+
+  getOffresListStagiaire(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/mesoffresstagiaire/${username}`);
   }
 }

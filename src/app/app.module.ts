@@ -7,6 +7,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 
+
+
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -67,11 +69,11 @@ import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/r
 import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
 
 // Page détail offres
-import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
-import { BoutonsOffreComponent } from './Router/PageDetailOffre/boutons-offre/boutons-offre.component';
-import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/description-entreprise/description-entreprise.component';
-import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
-import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
+import { PageDetailOffreComponent } from './Router/PageOffres/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { BoutonsOffreComponent } from './Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component';
+import { DescriptionEntrepriseComponent } from './Router/PageOffres/PageDetailOffre/description-entreprise/description-entreprise.component';
+import { DescriptionOffreComponent } from './Router/PageOffres/PageDetailOffre/description-offre/description-offre.component';
+import { InfosStageComponent } from './Router/PageOffres/PageDetailOffre/infos-stage/infos-stage.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { ListeFaqComponent } from './Router/PageFAQ/liste-faq/liste-faq.component';
 import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
@@ -96,6 +98,8 @@ import { AlertComponent } from './alert/alert.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
+
+
 
 
 @NgModule({
@@ -177,3 +181,5 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

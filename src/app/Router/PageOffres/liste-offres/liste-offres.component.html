@@ -1,4 +1,82 @@
+<h1>Liste des offres</h1>
 <div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped thead-light table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>secteur</th>
+                    <th>titre</th>
+                    <th>ville</th>
+                    <th>période</th>
+                    <th>pourvu</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offre of offres | async ">
+                    <td><img src="https://via.placeholder.com/140x100" alt=""></td>
+                    <td>{{offre.entreprise.secteur}}</td>
+                    <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
+                    <td> {{offre.ville}} </td>
+                    <td> période </td>
+                    <td> {{offre.active}} </td>
+                    <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue">remove_red_eye</i></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
+        <!-- <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre> -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
     <div class="list-group">
         <a class="list-group-item bgHead">
             <div class="row">
@@ -17,4 +95,4 @@
     <ngb-pagination class="d-flex justify-content-center pagination" [collectionSize]="120" [(page)]="page" [maxSize]="5"
         [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
 
-</div>
+</div> -->
