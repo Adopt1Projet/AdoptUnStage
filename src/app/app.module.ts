@@ -7,6 +7,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 
+//Mother fucking date
+
+
 
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
@@ -21,7 +24,6 @@ import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aid
 // Page Inscription Stagiaire
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
-import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
@@ -110,7 +112,6 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     PageAccueilComponent,
     PageBoardEntrepriseComponent,
     FormulaireCreerOffreComponent,
-    NgbdDatepickerRange,
     GestionDesOffresComponent,
     InfosEntrepriseComponent,
     PageInscriptionStagiaireComponent,
@@ -131,7 +132,6 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     GestionCandidaturesComponent,
     PageBoardEntrepriseComponent,
     FormulaireCreerOffreComponent,
-    NgbdDatepickerRange,
     GestionDesOffresComponent,
     InfosEntrepriseComponent,
     ActeursComponent,
@@ -175,7 +175,8 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]

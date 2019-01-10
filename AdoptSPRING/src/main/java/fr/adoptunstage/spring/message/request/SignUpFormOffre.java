@@ -6,6 +6,10 @@ public class SignUpFormOffre {
 	
 	private String description;
 	
+	private String dateDebut;
+	
+	private String dateFin;
+	
 	private String rue;
 	
 	private String ville;
@@ -27,6 +31,22 @@ public class SignUpFormOffre {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	
+	public String getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
 	}
 
 	public String getRue() {
