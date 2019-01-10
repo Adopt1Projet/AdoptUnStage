@@ -1,25 +1,50 @@
 package fr.adoptunstage.spring.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "offres")
 public class Offre {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
+    @JoinColumn(name="id_entreprise")
+    private Entreprise entreprise;
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            })
+    @JoinTable(name = "candidatures",
+            joinColumns = { @JoinColumn(name = "id_offre") },
+            inverseJoinColumns = { @JoinColumn(name = "id_stagiaire") })
+	@JsonIgnore
+    private Set<Stagiaire> stagiaires; 
 
 	@Column(name = "titre")
 	private String titre;
 	
 	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "dateDebut")
+	private String dateDebut;
+	
+
+	@Column(name = "dateFin")
+	private String dateFin;
 	
 	@Column(name = "rue")
 	private String rue;
@@ -28,7 +53,7 @@ public class Offre {
 	private String ville;
 	
 	@Column(name = "codePostal")
-	private int codePostal;
+	private String codePostal;
 	
 	@Column(name ="active")
 	private boolean active;
@@ -40,6 +65,27 @@ public class Offre {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public Set<Stagiaire> getStagiaires() {
+		return stagiaires;
+	}
+
+	public void setStagiaires(Set<Stagiaire> stagiaires) {
+		this.stagiaires = stagiaires;
+	}
+	
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaires.add(stagiaire);
+	}
+
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
 
 	public String getTitre() {
 		return titre;
@@ -49,6 +95,7 @@ public class Offre {
 		this.titre = titre;
 	}
 
+	
 	public String getDescription() {
 		return description;
 	}
@@ -56,6 +103,24 @@ public class Offre {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	
+	public String getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+	
+	
 
 	public String getRue() {
 		return rue;
@@ -73,11 +138,11 @@ public class Offre {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	
@@ -93,26 +158,33 @@ public class Offre {
 	public Offre() {};
 	
 	public Offre(
+				Entreprise entreprise,
 				String titre, 
 				String description, 
+				String dateDebut,
+				String dateFin,
 				String rue, 
 				String ville, 
-				int codePostal,
+				String codePostal,
 				boolean active) {
-									super();
+									this.entreprise = entreprise;
 									this.titre = titre;
 									this.description = description;
+									this.dateDebut = dateDebut;
+									this.dateFin = dateFin;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
-									this.active = false;
+									this.active = active;
+									this.stagiaires = new HashSet<Stagiaire>(); 
 								}
 
 	
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", titre=" + titre + ", description=" + description + ", rue=" + rue + ", ville="
-				+ ville + ", codePostal=" + codePostal + ", active=" + active + "]";
+		return "Offre [id=" + id + ", entreprise=" + entreprise + ", titre=" + titre + ", description=" + description
+				+ ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", rue=" + rue + ", ville=" + ville
+				+ ", codePostal=" + codePostal + ", active=" + active + "]";
 	}
 
 	

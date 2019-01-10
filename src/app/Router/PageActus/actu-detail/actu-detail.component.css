@@ -2,7 +2,7 @@
     background-color: white;
 }
 
-p::first-letter { 
+p::first-letter {
     font-size: 200%;
     color: #00B499;
 }
@@ -19,5 +19,5 @@ img {
 
 figcaption {
     text-align: center;
-    font-style : italic;
+    font-style: italic;
 }

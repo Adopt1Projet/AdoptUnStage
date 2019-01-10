@@ -10,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./actu-detail.component.css']
 })
 export class ActuDetailComponent implements OnInit {
-  
-   actus : Observable<any>;
-   article: Actu;
 
-  constructor(private serviceActu : ActuService, private route: ActivatedRoute) { }
+  actus: Observable<any>;
+  article: Actu;
+
+  constructor(private serviceActu: ActuService, private route: ActivatedRoute) { }
 
   ngOnInit() {
 

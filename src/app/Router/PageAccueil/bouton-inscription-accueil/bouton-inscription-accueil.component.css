@@ -1,32 +1,34 @@
 .inscriptionStagiaire {
-    background-color: #26a69a;
+    background-color: #00ac9a;
     color: white;
 }
 
 .ordonnedList {
     list-style-position: inside;
-    margin-left: -45px; 
+    margin-left: -45px;
 }
-.btnEntreprise{
-    background-color: #26a69a;
+
+.btnEntreprise {
+    background-color: #00ac9a;
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
     height: 8vh;
     color: white;
     font-weight: bold;
 }
 
-.btnStagiaire{
+.btnStagiaire {
     background-color: #ffffff;
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
     height: 8vh;
     color: black;
     font-weight: bold;
 }
-  
-  
+
+
 .btn:hover {
-    background-color: green;
+    background-color: #2ed1bb;
 }
+
 /* 
 .btnStagiaire {
     background-color: #2a9984;

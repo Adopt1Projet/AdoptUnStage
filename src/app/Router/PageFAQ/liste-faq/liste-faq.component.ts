@@ -10,9 +10,9 @@ import { Faq } from 'src/app/modeles/faq';
 })
 export class ListeFaqComponent implements OnInit {
 
-  questions : Observable<Faq[]>
+  questions: Observable<Faq[]>
 
-  constructor(private faqService : FaqService) { }
+  constructor(private faqService: FaqService) { }
 
   ngOnInit() {
     this.questions = this.faqService.getQuestionsList();

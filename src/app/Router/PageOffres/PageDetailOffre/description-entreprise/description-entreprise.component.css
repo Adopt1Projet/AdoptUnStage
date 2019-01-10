@@ -1,0 +1,27 @@
+.descEntrepriseBody {
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: rgb(235, 235, 235);
+    padding: 3vh;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+    margin: 15px;
+}
+
+.imgDescEntreprise {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin: auto;
+}
+
+.descriptionEntreprise {
+    margin: 30px;
+}
+
+h4 {
+    color: #00B499;
+}

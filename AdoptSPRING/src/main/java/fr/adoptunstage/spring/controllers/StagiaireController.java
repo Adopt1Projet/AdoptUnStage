@@ -32,10 +32,15 @@ public class StagiaireController {
 	public List<Stagiaire> getAllStagiaire() {
 		return service.getAllStagiaire();
 	}
+
+	@GetMapping("/getone/{username}")
+	public Stagiaire getOneStagiaire(@PathVariable("username") String username) {
+		return service.getOneStagiaire(username);
+	}
 	
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
-		return service.createStagiaire(signUpRequest);
+		return service.postStagiaire(signUpRequest);
 	}
 
 
@@ -45,7 +50,13 @@ public class StagiaireController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Stagiaire> updateStagiaire(@PathVariable("id") long id, @RequestBody Stagiaire stagiaire) {
-		return service.updateStagiaire(id, stagiaire);
+	public ResponseEntity<?> updateStagiaire(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest) {
+		return service.updateStagiaire(id, updateRequest);
 	}
+
+	@PutMapping("/password/{id}")
+	public ResponseEntity<?> updateStagiairePassword(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest) {
+		return service.updateStagiairePassword(id, updateRequest);
+	}
+
 }

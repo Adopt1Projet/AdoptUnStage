@@ -11,7 +11,7 @@ export class EntrepriseService {
 
   constructor(private http: HttpClient) { }
 
-  getEntreprise(username : String): Observable<Object> {
+  getEntreprise(username: String): Observable<Object> {
     return this.http.get(`${this.baseUrl}/getone/${username}`);
   }
 
@@ -23,15 +23,12 @@ export class EntrepriseService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteEntreprise(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  updateEntreprisePassword(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/password/${id}`, value);
   }
 
   getEntrepriseList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  deleteAll(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
-  }
 }

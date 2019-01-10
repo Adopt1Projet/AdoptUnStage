@@ -1,4 +1,5 @@
-export class Stagiaire {name: string;
+export class Stagiaire {
+    name: string;
     username: string;
     email: string;
     role: string[];
@@ -7,6 +8,6 @@ export class Stagiaire {name: string;
     prenom: string;
     etablissement: string;
     ville: string;
-    codePostal: number;
-    tel: number;
+    codePostal: string;
+    tel: string;
 }

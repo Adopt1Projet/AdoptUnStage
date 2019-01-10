@@ -1,11 +1,15 @@
+.bodyFormConnect {
+    background-color: white;
+}
+
 .is-invalid {
     border-left: solid 6px red;
-  }
-  
-  .material-icons {
+}
+
+.material-icons {
     display: inline-flex;
     vertical-align: middle;
-  }
+}
 
 h5 {
     font-weight: bolder;
@@ -21,9 +25,9 @@ input {
     border: none;
 }
 
-::placeholder { 
+::placeholder {
     color: #C2BFCA;
-    opacity: 1; 
+    opacity: 1;
 }
 
 .connectSubmit {
@@ -37,10 +41,10 @@ input {
 
 }
 
-.connectSubmit:hover {
-    background-color: green;
+.btn:hover {
+    background-color: #2ed1bb;
 }
 
-#loginFailed{
+#loginFailed {
     color: red;
 }

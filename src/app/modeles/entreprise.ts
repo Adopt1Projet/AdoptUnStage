@@ -9,12 +9,12 @@ export interface Entreprise {
     statut: string;
     adresse: string;
     ville: string;
-    codePostal: number;
+    codePostal: string;
     logo: string;
     prenom: string;
     fonction: string;
-    tel: number;
-    siteWeb : String;
+    tel: string;
+    siteWeb: string;
 
-    
+
 }

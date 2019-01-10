@@ -1,6 +1,7 @@
 package fr.adoptunstage.spring.controllers;
 
-import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,42 +15,65 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.services.OffreService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/offre")
 public class OffreController{
 
 	@Autowired
 	OffreService service;
 
-	@GetMapping("/offre")
-	public List<Offre> getAllOffres() {
+	@GetMapping("")
+	public Set<Offre> getAllOffres() {
 		return service.getAllOffres();
 	}
 
-	@PostMapping(value = "/offre/creer")
-	public Offre postEntreprise(@RequestBody Offre offre) {
-		return service.postEntreprise(offre);
+	@PostMapping(value = "/creer/{username}")
+	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
+			@RequestBody SignUpFormOffre requestOffre) {
+		return service.postOffre(username, requestOffre);
 	}
-
-	@DeleteMapping("/offre/{id}")
+	
+	@GetMapping(value = "/mesoffres/{username}")
+	public Set<Offre> getMesOffres(@PathVariable("username") String username ) {
+		return service.getMesOffres(username);
+	}
+	
+	@GetMapping(value = "/mesoffresstagiaire/{username}")
+	public Set<Offre> getMesOffresStagiaire(@PathVariable("username") String username ) {
+		return service.getMesOffresStagiaire(username);
+	}
+	
+	@GetMapping(value = "/uneoffre/{id}")
+	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
+		
+		return service.getOffre(id);
+	}
+	
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		return service.deleteOffre(id);
 	}
 	
-	@DeleteMapping("/offre/supprimer")
+	@DeleteMapping("/supprimer")
 	public ResponseEntity<String> deleteAll() {
-		System.out.println("Delete All Customers...");
- 
 		return service.deleteAll();
- 
 	}
 
-	@PutMapping("/offre/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
 		return service.updateOffre(id, offre);
 	}
+	
+	@PostMapping(value = "/postuler/{id_offre}/{username}")
+	public ResponseEntity<?> postuler(@PathVariable("id_offre") long id_offre, @PathVariable("username") String username, 
+			@RequestBody SignUpPostuler requestPostuler) {
+		return service.postuler(id_offre, username, requestPostuler);
+	}
+	
 }

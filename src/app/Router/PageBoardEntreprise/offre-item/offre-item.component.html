@@ -1,0 +1,29 @@
+<table class="table table-striped thead-light table-hover">
+  <caption>User Details</caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>titre</th>
+      <th>description</th>
+      <th>rue</th>
+      <th>ville</th>
+      <th>code</th>
+      <th>pourvu</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let offre of offres | async" style="width: 300px;">
+      <td> {{offre.id}} </td>
+      <td> {{offre.titre}} </td>
+      <td> {{offre.description}} </td>
+      <td> {{offre.rue}} </td>
+      <td> {{offre.ville}} </td>
+      <td> {{offre.codePostal}} </td>
+      <td> {{offre.active}} </td>
+      <td><i class="material-icons" style="color:blue" (click)="editOffre(offre,i)">edit</i></td>
+      <td><i class="material-icons" style="color:red" (click)="deleteOffre(offre.id)">delete</i></td>
+    </tr>
+  </tbody>
+</table>

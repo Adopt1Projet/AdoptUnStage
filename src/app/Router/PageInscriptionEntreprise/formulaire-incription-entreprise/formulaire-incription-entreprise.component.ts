@@ -5,6 +5,9 @@ import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { Entreprise } from 'src/app/modeles/entreprise';
 import { CustomValidators } from '../../../services/custom-validators';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
+import { AlertService } from '../../../services/alert.service';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -12,21 +15,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaire-incription-entreprise.component.css']
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
-
-
   public formCreate: FormGroup;
+  loading = false;
 
   constructor(
-    private entrepriseService: EntrepriseService, 
-    private _location: Location, 
+    private entrepriseService: EntrepriseService,
+    private _location: Location,
     private fb: FormBuilder,
-    private router: Router
-    ) {
+    private router: Router,
+    private alertService: AlertService
+  ) {
     this.formCreate = this.createSignupForm();
-   }
-
-  retourPage() {
-    this._location.back();
   }
 
   ngOnInit() {
@@ -112,7 +111,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
         ],
         confirmPassword: [null, Validators.compose([Validators.required])],
         confirmMail: [
-          null, 
+          null,
           Validators.compose([Validators.email, Validators.required])
         ]
       },
@@ -124,12 +123,26 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     );
   }
 
- 
-  onSubmit(){
+  retourPage() {
+    this._location.back();
+  }
+
+  onSubmit() {
     const entreprise: Entreprise = this.formCreate.value;
+    this.loading = true;
     entreprise.username = entreprise.email;
     this.entrepriseService.createEntreprise(entreprise)
-    .subscribe(data => console.log(data), error => console.log(error));
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          this.alertService.success('Merci de vous être enregistré, vous pouvez vous connecter.', true);
+        },
+        error => {
+          console.log(error);
+          this.loading = false;
+        });
+
     this.router.navigate(['../connexion']);
   }
 

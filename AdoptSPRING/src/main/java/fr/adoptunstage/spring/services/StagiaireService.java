@@ -9,6 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.Stagiaire;
+import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.StagiaireRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
@@ -43,23 +46,23 @@ public class StagiaireService {
 	PasswordEncoder encoder;
 	
 	public List<Stagiaire> getAllStagiaire() {
-		System.out.println("Affiche tous les stagiaires...");
-
 		List<Stagiaire> stagiaires = new ArrayList<>();
 		repository.findAll().forEach(stagiaires::add);
-
 		return stagiaires;
 	}
-	
+
+	public Stagiaire getOneStagiaire(String username) {
+		Stagiaire user = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		return user;
+	}
+
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
-		System.out.println("Suppression du stagiaire avec l'ID = " + id + "...");
-
 		repository.deleteById(id);
-
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);
 	}
 	
-	public ResponseEntity<?> createStagiaire(SignUpFormStagiaire signUpRequest) {
+	public ResponseEntity<?> postStagiaire(SignUpFormStagiaire signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
 					HttpStatus.BAD_REQUEST);
@@ -99,27 +102,43 @@ public class StagiaireService {
 	
 
 	
-	public ResponseEntity<Stagiaire> updateStagiaire(@PathVariable("id") long id, @RequestBody Stagiaire stagiaire) {
-		System.out.println("Mise à jour du stagiaire avec l'ID = " + id + "...");
+	public ResponseEntity<?> updateStagiaire(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest) {
 
-		Optional<Stagiaire> stagiaireData = repository.findById(id);
+		Optional<User> stagiaireData = userRepository.findById(id);
 
 		if (stagiaireData.isPresent()) {
-			Stagiaire _stagiaire = stagiaireData.get();
-			_stagiaire.setPrenom(stagiaire.getPrenom());
-			_stagiaire.setName(stagiaire.getName());
-			_stagiaire.setEtablissement(stagiaire.getEtablissement());
-			_stagiaire.setVille(stagiaire.getVille());
-			_stagiaire.setCodePostal(stagiaire.getCodePostal());
-			_stagiaire.setTel(stagiaire.getTel());
-			_stagiaire.setEmail(stagiaire.getEmail());
-			_stagiaire.setPassword(stagiaire.getPassword());
-			System.out.println("Nouvelles propriétés du stagiaire = " + _stagiaire.toString());
-			return new ResponseEntity<>(repository.save(_stagiaire), HttpStatus.OK);
+			Stagiaire _stagiaire = (Stagiaire) stagiaireData.get();
+					_stagiaire.setPrenom(updateRequest.getPrenom());
+					_stagiaire.setName(updateRequest.getName());
+					_stagiaire.setEtablissement(updateRequest.getEtablissement());
+					_stagiaire.setVille(updateRequest.getVille());
+					_stagiaire.setCodePostal(updateRequest.getCodePostal());
+					_stagiaire.setTel(updateRequest.getTel());
+					_stagiaire.setEmail(updateRequest.getEmail());
+
+			userRepository.save(_stagiaire);
+			
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
-			System.out.println("Aucun stagiaire avec l'ID " + id + " n'est présent dans la base de donnée !");
+			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
+	public ResponseEntity<?> updateStagiairePassword(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest)
+	{
+		Optional<User> stagiaireData = userRepository.findById(id);
+
+		if (stagiaireData.isPresent()) {
+			Stagiaire _stagiaire = (Stagiaire) stagiaireData.get();
+			_stagiaire.setPassword(encoder.encode(updateRequest.getPassword()));
+
+			userRepository.save(_stagiaire);
+			
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

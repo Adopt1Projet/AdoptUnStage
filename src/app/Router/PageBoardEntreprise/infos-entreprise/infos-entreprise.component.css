@@ -1,0 +1,66 @@
+.is-invalid {
+    border-left: solid 6px red;
+}
+  
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+}
+  
+.bodyFormulaire {
+    background-color: #ffffff;
+}
+  
+form { 
+    color: #26a69a;
+    margin: 0 auto;
+    padding-bottom: 3vh;
+}
+  
+.titres{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+h1, h2{
+    text-align: center;
+    font-weight: bolder;
+}
+  
+input, select{
+    background-color: #ebebeb;
+    border: none;
+}
+  
+.logo{
+    overflow: hidden;
+}
+  
+  
+.btn{
+    background-color: #00ac9a;
+    height: 8vh;
+    width: 20vw;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+}
+  
+  
+.btn:hover {
+    background-color: #2ed1bb;
+}
+  
+::placeholder { 
+    color: #C2BFCA;
+    opacity: 1; 
+}

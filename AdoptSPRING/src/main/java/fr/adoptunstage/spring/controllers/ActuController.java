@@ -15,13 +15,13 @@ import fr.adoptunstage.spring.services.ActuService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/actus")
 public class ActuController {
 
 	@Autowired
 	ActuService service;
 
-	@GetMapping("/actus")
+	@GetMapping("")
 	public List<Actu> getAllActus() {
 		return service.getAllActus();
 	}

@@ -1,8 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
+import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
+import { SimpleModalModule } from 'ngx-simple-modal';
+
+//Mother fucking date
+
+
+
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -10,15 +19,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 import { BoutonInscriptionAccueilComponent } from './Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component';
+import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aide.component';
 // tslint:disable-next-line:max-line-length
 
 // Page Inscription Stagiaire
 import { PageBoardEntrepriseComponent } from './Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component';
 import { FormulaireCreerOffreComponent } from './Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component';
-import { NgbdDatepickerRange } from './Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-range';
+import { ConfirmComponent } from './Router/PageBoardEntreprise/confirm/confirm.component';
 import { GestionDesOffresComponent } from './Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { OffreDetailsComponent } from './Router/PageBoardEntreprise/offre-details/offre-details.component';
+import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 // tslint:disable-next-line:max-line-length
 import { PageInscriptionStagiaireComponent } from './Router/PageInscriptionStagiaire/page-inscription-stagiaire/page-inscription-stagiaire.component';
 // tslint:disable-next-line:max-line-length
@@ -62,11 +73,11 @@ import { RemerciementsComponent } from './Router/PagePartenaires/remerciements/r
 import { ParticipantsComponent } from './Router/PagePartenaires/participants/participants.component';
 
 // Page détail offres
-import { PageDetailOffreComponent } from './Router/PageDetailOffre/page-detail-offre/page-detail-offre.component';
-import { BoutonsOffreComponent } from './Router/PageDetailOffre/boutons-offre/boutons-offre.component';
-import { DescriptionEntrepriseComponent } from './Router/PageDetailOffre/description-entreprise/description-entreprise.component';
-import { DescriptionOffreComponent } from './Router/PageDetailOffre/description-offre/description-offre.component';
-import { InfosStageComponent } from './Router/PageDetailOffre/infos-stage/infos-stage.component';
+import { PageDetailOffreComponent } from './Router/PageOffres/PageDetailOffre/page-detail-offre/page-detail-offre.component';
+import { BoutonsOffreComponent } from './Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component';
+import { DescriptionEntrepriseComponent } from './Router/PageOffres/PageDetailOffre/description-entreprise/description-entreprise.component';
+import { DescriptionOffreComponent } from './Router/PageOffres/PageDetailOffre/description-offre/description-offre.component';
+import { InfosStageComponent } from './Router/PageOffres/PageDetailOffre/infos-stage/infos-stage.component';
 import { PageFaqComponent } from './Router/PageFAQ/page-faq/page-faq.component';
 import { ListeFaqComponent } from './Router/PageFAQ/liste-faq/liste-faq.component';
 import { ItemFaqComponent } from './Router/PageFAQ/item-faq/item-faq.component';
@@ -87,6 +98,13 @@ import { ItemActusComponent } from './Router/PageActus/item-actus/item-actus.com
 import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.component';
 import { QuiSommesNousComponent } from './Router/PageAccueil/qui-sommes-nous/qui-sommes-nous.component';
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
+import { AlertComponent } from './alert/alert.component';
+import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
+import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
+import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
+
+
+
 
 
 @NgModule({
@@ -97,7 +115,6 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     PageAccueilComponent,
     PageBoardEntrepriseComponent,
     FormulaireCreerOffreComponent,
-    NgbdDatepickerRange,
     GestionDesOffresComponent,
     InfosEntrepriseComponent,
     PageInscriptionStagiaireComponent,
@@ -118,7 +135,6 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     GestionCandidaturesComponent,
     PageBoardEntrepriseComponent,
     FormulaireCreerOffreComponent,
-    NgbdDatepickerRange,
     GestionDesOffresComponent,
     InfosEntrepriseComponent,
     ActeursComponent,
@@ -148,7 +164,14 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     ActuDetailComponent,
     QuiSommesNousComponent,
     PageBoiteAOutilsComponent,
-    OffreDetailsComponent
+    AlertComponent,
+    OffreDetailsComponent,
+    PageErrorComponent,
+    ModifierOffreComponent,
+    OffreItemComponent,
+    PageNonConnecteComponent,
+    ConfirmComponent,
+    BesoinAideComponent
 
   ],
   imports: [
@@ -156,9 +179,16 @@ import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SimpleModalModule.forRoot({container: "modal-container"})
   ],
-  providers: [httpInterceptorProviders],
+
+  entryComponents: [
+    ConfirmComponent
+  ],
+  providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

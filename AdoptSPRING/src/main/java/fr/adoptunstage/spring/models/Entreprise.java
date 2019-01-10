@@ -1,7 +1,14 @@
 package fr.adoptunstage.spring.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Entreprise extends User {
@@ -23,7 +30,7 @@ public class Entreprise extends User {
 	private String ville;
 	
 	@Column(name = "codePostal")
-	private int codePostal;
+	private String codePostal;
 	
 	@Column(name = "logo") // TODO : Modifier en File dès que l'on aura appris comment faire.
 	private String logo;
@@ -36,13 +43,30 @@ public class Entreprise extends User {
 	private String fonction;
 	
 	@Column(name = "tel")
-	private int tel;
-
-
+	private String tel;
 	
 	@Column(name = "siteWeb")
 	private String siteWeb;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="entreprise")
+	@JsonIgnore
+    private Set<Offre> offres; 
+	
+	
 
+
+	public Set<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(Set<Offre> offres) {
+		this.offres = offres;
+	}
+	
+	public void setOffre(Offre offre) {
+		this.offres.add(offre);
+	}
 
 	public String getRaisonSociale() {
 		return raisonSociale;
@@ -92,11 +116,11 @@ public class Entreprise extends User {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
@@ -125,11 +149,11 @@ public class Entreprise extends User {
 		this.fonction = fonction;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
@@ -137,7 +161,7 @@ public class Entreprise extends User {
 	public Entreprise () {}
 	
 	public Entreprise(String name, String username, String email, String password, String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
-			int codePostal, String logo, String prenom, String fonction, int tel) {
+			String codePostal, String logo, String prenom, String fonction, String tel) {
 		super(name, username, email, password);
 		this.raisonSociale = raisonSociale;
 		this.secteur = secteur;
@@ -150,6 +174,7 @@ public class Entreprise extends User {
 		this.fonction = fonction;
 		this.tel = tel;
 		this.siteWeb = siteWeb;
+		this.offres = new HashSet<Offre>(); 
 
 	}
 

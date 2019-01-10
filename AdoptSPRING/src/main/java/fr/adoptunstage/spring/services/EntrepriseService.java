@@ -9,7 +9,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
-import fr.adoptunstage.spring.security.services.UserPrinciple;
+
 
 @Service
 public class EntrepriseService {
@@ -44,31 +43,25 @@ public class EntrepriseService {
 
 	
 	public List<Entreprise> getAllEntreprises() {
-		System.out.println("Affiche toutes les entreprises...");
-
 		List<Entreprise> entreprises = new ArrayList<>();
 		repository.findAll().forEach(entreprises::add);
-
 		return entreprises;
 	}
 	
 	public Entreprise getOneEntreprise(String username) {
-		Entreprise user = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-		return user;
+		return entreprise;
 	}
 	
 
 	
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		System.out.println("Suppression de l'entreprise avec l'ID = " + id + "...");
-
 		repository.deleteById(id);
-
 		return new ResponseEntity<>("L'entreprise a été supprimée !", HttpStatus.OK);
 	}
 	
-	public ResponseEntity<?> createEntreprise(SignUpForm signUpRequest) {
+	public ResponseEntity<?> postEntreprise(SignUpForm signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
 					HttpStatus.BAD_REQUEST);
@@ -108,31 +101,50 @@ public class EntrepriseService {
 	
 	
 	
-	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
-		System.out.println("Mise à jour de l'entreprise avec l'ID = " + id + "...");
+	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 
-		Optional<Entreprise> entrepriseData = repository.findById(id);
+		Optional<User> entrepriseData = userRepository.findById(id);
 
 		if (entrepriseData.isPresent()) {
-			Entreprise _entreprise = entrepriseData.get();
-									_entreprise.setRaisonSociale(entreprise.getRaisonSociale());
-									_entreprise.setSecteur(entreprise.getSecteur());
-									_entreprise.setStatut(entreprise.getStatut());
-									_entreprise.setSiteWeb(entreprise.getSiteWeb());
-									_entreprise.setVille(entreprise.getAdresse());
-									_entreprise.setVille(entreprise.getVille());
-									_entreprise.setCodePostal(entreprise.getCodePostal());
-									_entreprise.setLogo(entreprise.getLogo());
-									_entreprise.setPrenom(entreprise.getPrenom());
-									_entreprise.setName(entreprise.getName());
-									_entreprise.setFonction(entreprise.getFonction());
-									_entreprise.setTel(entreprise.getTel());
-									_entreprise.setEmail(entreprise.getEmail());
-									_entreprise.setPassword(entreprise.getPassword());
-			System.out.println("Nouvelles propriétés de l'entreprise = " + _entreprise.toString());
-			return new ResponseEntity<>(repository.save(_entreprise), HttpStatus.OK);
+			Entreprise _entreprise = (Entreprise) entrepriseData.get();
+									_entreprise.setRaisonSociale(updateRequest.getRaisonSociale());
+									_entreprise.setSecteur(updateRequest.getSecteur());
+									_entreprise.setStatut(updateRequest.getStatut());
+									_entreprise.setSiteWeb(updateRequest.getSiteWeb());
+									_entreprise.setAdresse(updateRequest.getAdresse());
+									_entreprise.setVille(updateRequest.getVille());
+									_entreprise.setCodePostal(updateRequest.getCodePostal());
+									_entreprise.setLogo(updateRequest.getLogo());
+									_entreprise.setPrenom(updateRequest.getPrenom());
+									_entreprise.setName(updateRequest.getName());
+									_entreprise.setFonction(updateRequest.getFonction());
+									_entreprise.setTel(updateRequest.getTel());
+									_entreprise.setEmail(updateRequest.getEmail());
+									_entreprise.setUsername(updateRequest.getUsername());
+							
+									
+			userRepository.save(_entreprise);
+			
+			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
-			System.out.println("Aucune entreprise avec l'ID " + id + " n'est présente dans la base de donnée !");
+	
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+
+		Optional<User> entrepriseData = userRepository.findById(id);
+
+		if (entrepriseData.isPresent()) {
+			Entreprise _entreprise = (Entreprise) entrepriseData.get();
+									_entreprise.setPassword(encoder.encode(updateRequest.getPassword()));						
+									
+			userRepository.save(_entreprise);
+
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}

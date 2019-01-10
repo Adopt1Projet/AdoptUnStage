@@ -33,29 +33,35 @@ public class EntrepriseController {
 	@Autowired
 	UserDetailsServiceImpl userService;
 
+
 	@GetMapping("/")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
 	}
 	
 	@GetMapping("/getone/{username}")
-	public Entreprise getOneEntreprises(@PathVariable("username") String username) {
+	public Entreprise getOneEntreprise(@PathVariable("username") String username) {
 		return service.getOneEntreprise(username);
 	}
 
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
-		return service.createEntreprise(signUpRequest);
+		return service.postEntreprise(signUpRequest);
 	}
 
-	@DeleteMapping("/entreprises/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		return service.deleteEntreprise(id);
 	}
 	
 
-	@PutMapping("/entreprises/{id}")
-	public ResponseEntity<Entreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody Entreprise entreprise) {
-		return service.updateEntreprise(id, entreprise);
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+		return service.updateEntreprise(id, updateRequest);
+	}
+	
+	@PutMapping("/password/{id}")
+	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
+		return service.updateEntreprisePassword(id, updateRequest);
 	}
 }

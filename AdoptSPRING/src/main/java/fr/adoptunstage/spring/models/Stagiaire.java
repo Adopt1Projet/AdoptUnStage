@@ -1,7 +1,15 @@
 package fr.adoptunstage.spring.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Stagiaire extends User {
@@ -16,13 +24,34 @@ public class Stagiaire extends User {
 	private String ville;
 
 	@Column(name = "codePostal")
-	private int codePostal;
+	private String codePostal;
 	
 	@Column(name = "tel")
-	private int tel;
+	private String tel;
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            },
+            mappedBy = "stagiaires")
+	@JsonIgnore
+    private Set<Offre> offres; 
+	
+	
+	
 
+	public Set<Offre> getOffres() {
+		return offres;
+	}
+
+	public void setOffres(Set<Offre> offres) {
+		this.offres = offres;
+	}
 	
-	
+	public void setOffre(Offre offre) {
+		this.offres.add(offre);
+	}
 
 	public String getPrenom() {
 		return prenom;
@@ -49,32 +78,33 @@ public class Stagiaire extends User {
 		this.ville = ville;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, int codePostal, int tel) {
+	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal, String tel) {
 		super(name, username, email, password);
 		this.prenom = prenom;
 		this.etablissement = etablissement;
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.tel = tel;
+		this.offres = new HashSet<Offre>();
 	}
 
 	

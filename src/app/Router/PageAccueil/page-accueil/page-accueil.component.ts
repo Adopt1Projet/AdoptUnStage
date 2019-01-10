@@ -8,9 +8,9 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 })
 export class PageAccueilComponent implements OnInit {
 
-  info : any;
+  info: any;
 
-  constructor(private token : TokenStorageService) { }
+  constructor(private token: TokenStorageService) { }
 
   ngOnInit() {
     this.info = {

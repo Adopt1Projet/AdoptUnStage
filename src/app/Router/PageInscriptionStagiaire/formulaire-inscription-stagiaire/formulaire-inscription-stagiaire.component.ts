@@ -5,6 +5,9 @@ import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { Stagiaire } from 'src/app/modeles/stagiaire';
 import { CustomValidators } from '../../../services/custom-validators';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
+import { AlertService } from '../../../services/alert.service';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -12,31 +15,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaire-inscription-stagiaire.component.css']
 })
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
-
-//   formCreate = new FormGroup({
-//     name: new FormControl(null, [Validators.required]),
-//     email: new FormControl(null, [Validators.required]),
-//     password: new FormControl(null, [Validators.required]),
-
-//     prenom: new FormControl(null, [Validators.required]),
-//     etablissement: new FormControl(null, [Validators.required]),
-//     ville: new FormControl(null),
-//     codePostal: new FormControl(0, [Validators.required]),
-//     tel: new FormControl(0) // Créer une fonction qui supprime les espaces entre les nombres.
-
-//     });
-
-
   public formCreate: FormGroup;
+  loading = false;
 
   constructor(
-    private stagiaireService: StagiaireService, 
-    private _location: Location, 
+    private stagiaireService: StagiaireService,
+    private _location: Location,
     private fb: FormBuilder,
-    private router: Router
-    ) {
+    private router: Router,
+    private alertService: AlertService
+  ) {
     this.formCreate = this.createSignupForm();
-   }
+  }
 
   ngOnInit() {
   }
@@ -106,7 +96,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
         ],
         confirmPassword: [null, Validators.compose([Validators.required])],
         confirmMail: [
-          null, 
+          null,
           Validators.compose([Validators.email, Validators.required])
         ]
       },
@@ -121,11 +111,22 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
-   onSubmit() {
+  onSubmit() {
     const stagiaire: Stagiaire = this.formCreate.value;
+    this.loading = true;
     stagiaire.username = stagiaire.email;
     this.stagiaireService.createStagiaire(stagiaire)
-    .subscribe(data => console.log(data), error => console.log(error));
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
+        },
+        error => {
+          console.log(error);
+          this.loading = false;
+        });
+
     this.router.navigate(['../connexion']);
   }
 }

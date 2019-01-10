@@ -11,16 +11,20 @@ export class StagiaireService {
 
   constructor(private http: HttpClient) { }
 
-  getStagiaire(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getStagiaire(username: String): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/getone/${username}`);
   }
 
   createStagiaire(customer: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`  + `/creer`, customer);
+    return this.http.post(`${this.baseUrl}` + `/creer`, customer);
   }
 
   updateStagiaire(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  updateStagiairePassword(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/password/${id}`, value);
   }
 
   getStagiaireList(): Observable<any> {

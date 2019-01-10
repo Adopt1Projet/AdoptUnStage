@@ -13,7 +13,7 @@ export class ListeActusComponent implements OnInit {
 
   actus: Observable<Actu[]>;
 
-  constructor(private actuService: ActuService) { 
+  constructor(private actuService: ActuService) {
   }
 
   ngOnInit() {

@@ -2,6 +2,10 @@
     padding-bottom: 2%;
 }
 
+.is-invalid {
+    border-left: solid 6px red;
+}
+
 .personnalInfo {
     margin: 1%;
 }
@@ -9,6 +13,7 @@
 .title {
     padding: 0;
     color: #26a69a;
+    font-weight: bolder;
 }
 
 .form-control {
@@ -26,13 +31,13 @@ input {
     border: none;
 }
 
-::placeholder { 
+::placeholder {
     color: #C2BFCA;
-    opacity: 1; 
+    opacity: 1;
 }
 
 .btn {
-    background-color: #2a9984;
+    background-color: #00ac9a;
     border: none;
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
     color: #ffffff;
