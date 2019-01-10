@@ -37,7 +37,7 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
   { path: 'accueil', component: PageAccueilComponent },
-  { path: 'postuler', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
+  { path: 'postuler/:id', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
   { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
   { path: 'offres', component: PageOffresComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adoptunstage.spring.message.request.SignUpFormOffre;
+import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.services.OffreService;
 
@@ -43,6 +44,11 @@ public class OffreController{
 		return service.getMesOffres(username);
 	}
 	
+	@GetMapping(value = "/mesoffresstagiaire/{username}")
+	public Set<Offre> getMesOffresStagiaire(@PathVariable("username") String username ) {
+		return service.getMesOffresStagiaire(username);
+	}
+	
 	@GetMapping(value = "/uneoffre/{id}")
 	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
 		
@@ -62,6 +68,12 @@ public class OffreController{
 	@PutMapping("/{id}")
 	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
 		return service.updateOffre(id, offre);
+	}
+	
+	@PostMapping(value = "/postuler/{id_offre}/{username}")
+	public ResponseEntity<?> postuler(@PathVariable("id_offre") long id_offre, @PathVariable("username") String username, 
+			@RequestBody SignUpPostuler requestPostuler) {
+		return service.postuler(id_offre, username, requestPostuler);
 	}
 	
 }
