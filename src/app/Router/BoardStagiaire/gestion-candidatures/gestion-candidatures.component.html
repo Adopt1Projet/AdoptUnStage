@@ -1,11 +1,55 @@
-<!-- <div class="d-flex justify-content-around">
-    <button type="button" class="btn col-4 col-sm-5 shadow" routerLink="/boardstagiaire/gestionstagiaire">Mes infos de profil</button>
-    <button [disabled]="!isValid" type="submit" class="btn col-4 col-sm-5 shadow">Mes candidatures en cours</button>
-</div> -->
+<div *ngIf="offres || offresPourvues" class="container bodyGestionCandidatures">
+  <h2 class="titre">Gestion des candidatures</h2>
+  <h1 *ngIf="!offres">Aucune candidature en cours !</h1>
 
-<p>
-  gestion-candidatures works!
-  Afficher liste des offres auxquelles le candidat a postulé!
-</p>
+  <h4>Mes candidatures en cours</h4>
+  <br>
 
-<button type="button" class="btn col-4 col-sm-5 shadow">Voir la liste des offres</button>
+  <table class="table table-striped thead-light table-hover">
+    <thead *ngIf="offres">
+      <tr>
+        <th>Offre</th>
+        <th>Période</th>
+        <th>Rue</th>
+        <th>Ville</th>
+        <th>CP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offre of offres" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+        <td> {{offre.titre}} </td>
+        <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
+        <td> {{offre.rue}} </td>
+        <td> {{offre.ville}} </td>
+        <td> {{offre.codePostal}} </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button [routerLink]="'/offres'" type="button" class="btn col-6 shadow center-block">Voir la liste des offres de
+    stage</button>
+
+  <h4>Candidatures déjà pourvues :(</h4>
+
+  <table class="table table-striped thead-light table-hover">
+    <thead *ngIf="offresPourvues">
+      <tr>
+        <th>Offre</th>
+        <th>Période</th>
+        <th>Rue</th>
+        <th>Ville</th>
+        <th>CP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offrePourvue of offresPourvues" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offrePourvue.id]">
+        <td> {{offrePourvue.titre}} </td>
+        <td> {{offrePourvue.dateDebut}} à {{offrePourvue.dateFin}} </td>
+        <td> {{offrePourvue.rue}} </td>
+        <td> {{offrePourvue.ville}} </td>
+        <td> {{offrePourvue.codePostal}} </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
