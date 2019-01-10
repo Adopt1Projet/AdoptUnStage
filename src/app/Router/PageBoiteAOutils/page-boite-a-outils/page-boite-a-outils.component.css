@@ -3,7 +3,7 @@
 }
 
 .btn {
-    background-color: #26a69a;
+    background-color: #00ac9a;
     height: 40px;
     color: white;
     font-weight: bold;
@@ -14,5 +14,5 @@
 
 
 .btn:hover {
-    background-color: green;
+    background-color: #2ed1bb;
 }
