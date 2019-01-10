@@ -11,6 +11,7 @@
         <th>ville</th>
         <th>code</th>
         <th>pourvu</th>
+        <th>détail</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -25,6 +26,7 @@
         <td> {{offre.ville}} </td>
         <td> {{offre.codePostal}} </td>
         <td> {{offre.active}} </td>
+        <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue">remove_red_eye</i></td>
         <td><i class="material-icons" style="color:blue; cursor: pointer;" (click)="editOffre(offre,i)">edit</i></td>
         <td><i class="material-icons" style="color:red; cursor: pointer;" (click)=showConfirm(offre.id)>delete</i></td>
       </tr>
