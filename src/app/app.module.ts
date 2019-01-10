@@ -8,7 +8,7 @@ import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
 
-//Mother fucking date
+// Post-it Julien : Mother fucking date
 
 
 
