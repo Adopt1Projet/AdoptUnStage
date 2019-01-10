@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageAccueilComponent } from './Router/PageAccueil/page-accueil/page-accueil.component';
 import { BoutonInscriptionAccueilComponent } from './Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component';
+import { BesoinAideComponent } from './Router/PageAccueil/besoin-aide/besoin-aide.component';
 // tslint:disable-next-line:max-line-length
 
 // Page Inscription Stagiaire
@@ -96,6 +97,7 @@ import { PageErrorComponent } from './Router/PageError/page-error/page-error.com
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,7 +162,8 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     PageErrorComponent,
     ModifierOffreComponent,
     OffreItemComponent,
-    PageNonConnecteComponent
+    PageNonConnecteComponent,
+    BesoinAideComponent
 
   ],
   imports: [

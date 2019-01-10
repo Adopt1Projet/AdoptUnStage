@@ -1,0 +1,19 @@
+.blocAide{
+    background-color: white;
+}
+
+h2 {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vw;
+    padding-bottom: 3vh;
+}
+
+img {
+    width: 80%;
+}
+
+p {
+    font-size: 1.2em;
+}
