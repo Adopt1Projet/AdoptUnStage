@@ -24,6 +24,13 @@ public class Offre {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "dateDebut")
+	private String dateDebut;
+	
+
+	@Column(name = "dateFin")
+	private String dateFin;
+	
 	@Column(name = "rue")
 	private String rue;
 	
@@ -43,8 +50,6 @@ public class Offre {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
 
 
 	public Entreprise getEntreprise() {
@@ -63,6 +68,7 @@ public class Offre {
 		this.titre = titre;
 	}
 
+	
 	public String getDescription() {
 		return description;
 	}
@@ -70,6 +76,24 @@ public class Offre {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	
+	public String getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+	
+	
 
 	public String getRue() {
 		return rue;
@@ -110,6 +134,8 @@ public class Offre {
 				Entreprise entreprise,
 				String titre, 
 				String description, 
+				String dateDebut,
+				String dateFin,
 				String rue, 
 				String ville, 
 				String codePostal,
@@ -117,6 +143,8 @@ public class Offre {
 									this.entreprise = entreprise;
 									this.titre = titre;
 									this.description = description;
+									this.dateDebut = dateDebut;
+									this.dateFin = dateFin;
 									this.rue = rue;
 									this.ville = ville;
 									this.codePostal = codePostal;
@@ -126,9 +154,9 @@ public class Offre {
 	
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", id_entreprise=" +  ", titre=" + titre + ", description="
-				+ description + ", rue=" + rue + ", ville=" + ville + ", codePostal=" + codePostal + ", active="
-				+ active + "]";
+		return "Offre [id=" + id + ", entreprise=" + entreprise + ", titre=" + titre + ", description=" + description
+				+ ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", rue=" + rue + ", ville=" + ville
+				+ ", codePostal=" + codePostal + ", active=" + active + "]";
 	}
 
 	

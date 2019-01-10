@@ -68,6 +68,7 @@ public class OffreService {
 			Offre _offre = offreData.get();
 			_offre.setTitre(offre.getTitre());
 			_offre.setDescription(offre.getDescription());
+			_offre.setDateDebut(offre.getDateDebut());
 			_offre.setRue(offre.getRue());
 			_offre.setVille(offre.getVille());
 			_offre.setCodePostal(offre.getCodePostal());
@@ -86,7 +87,7 @@ public class OffreService {
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
 		Boolean active = true;
 		
-		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(), requestOffre.getRue(),
+		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(),requestOffre.getDateDebut(),requestOffre.getDateFin(), requestOffre.getRue(),
 				requestOffre.getVille(), requestOffre.getCodePostal() , active);
 		
 		repository.save(_offre);

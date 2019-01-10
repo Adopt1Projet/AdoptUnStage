@@ -19,7 +19,7 @@
                     <td>{{offre.entreprise.secteur}}</td>
                     <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
                     <td> {{offre.ville}} </td>
-                    <td> période </td>
+                    <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
                     <td> {{offre.active}} </td>
                     <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue">remove_red_eye</i></td>
                 </tr>

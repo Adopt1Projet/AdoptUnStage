@@ -22,6 +22,8 @@ export class FormulaireCreerOffreComponent implements OnInit {
   formOffre = new FormGroup({
     titre: new FormControl(),
     description: new FormControl(),
+    dateDebut: new FormControl(),
+    dateFin: new FormControl(),
     // période: new FormControl(),
     rue: new FormControl(),
     ville: new FormControl(),
