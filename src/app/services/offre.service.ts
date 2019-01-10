@@ -12,7 +12,7 @@ export class OffreService {
   constructor(private http: HttpClient) { }
 
   getOffre(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/uneoffre/${id}`);
   }
 
   // createOffre(offre: Object): Observable<Object> {
