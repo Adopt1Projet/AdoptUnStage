@@ -1,42 +1,47 @@
-<div class="container bodyModifierOffre">
+<div *ngIf="offre" class="container bodyModifierOffre">
 
   <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="titre">Intitulé du poste</label>
-      <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
+      <input type="text" formControlName="titre" class="form-control" id="titre" value="{{offre.titre}}">
     </div>
 
     <div class="form-group">
       <label for="description">Descriptif du poste</label>
-      <textarea class="form-control" formControlName="description" id="description" rows="3">
+      <textarea class="form-control" formControlName="description" id="description" value="{{offre.description}}" rows="3">
       </textarea>
     </div>
 
     <div class="form-group">
       <label for="dateDebut">Date de début du stage</label>
-      <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" placeholder="">
+      <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" value="{{offre.dateDebut}}">
     </div>
 
     <div class="form-group">
-      <label for="dateDebut">Date de fin du stage</label>
-      <input type="date" formControlName="dateFin" class="form-control" id="dateFin" placeholder="">
+      <label for="dateFin">Date de fin du stage</label>
+      <input type="date" formControlName="dateFin" class="form-control" id="dateFin" value="{{offre.dateFin}}">
     </div>
 
+    <!--  -->
+    <ui-switch size="large" color="#26a69a" defaultBoColor="lightgrey" labelOn="Pourvue" labelOff="Libre"></ui-switch>
+    <!--  -->
+    
     <h2 class="text-center">Localisation du stage</h2>
     <div class="form-group">
       <label for="rue">Rue</label>
-      <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
+      <input type="text" class="form-control" formControlName="rue" id="rue" value="{{offre.rue}}">
     </div>
     <div class="form-group">
       <label for="ville">Ville</label>
-      <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
+      <input type="text" class="form-control" formControlName="ville" id="ville" value="{{offre.ville}}">
     </div>
     <div class="form-group">
       <label for="codePostal">Code postal</label>
-      <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
+      <input type="text" class="form-control" formControlName="codePostal" id="codePostal" value="{{offre.codePostal}}">
     </div>
     <div class="text-center">
       <button class="btn btnModifierOffre" type="submit">Modifier mon offre</button>
     </div>
   </form>
+  <app-alert></app-alert>
 </div>

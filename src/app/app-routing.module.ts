@@ -63,7 +63,7 @@ const routes: Routes = [
       { path: 'creeroffre', canActivate: [AuthGuardEntreprise], component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', canActivate: [AuthGuardEntreprise], component: GestionDesOffresComponent },
       { path: 'infosentreprise', canActivate: [AuthGuardEntreprise], component: InfosEntrepriseComponent },
-      { path: 'modifieroffre', component: ModifierOffreComponent },
+      { path: 'modifieroffre/:id', component: ModifierOffreComponent },
       { path: 'offre-item', component: OffreItemComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]
