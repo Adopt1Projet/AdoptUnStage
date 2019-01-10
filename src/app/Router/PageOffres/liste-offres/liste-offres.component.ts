@@ -14,6 +14,14 @@ export class ListeOffresComponent implements OnInit {
 
   constructor(private offreService: OffreService) { }
 
+  getColor(active) { (2)
+    if (active == true) {
+      return "green";
+    } else {
+      return "red";
+    }
+  }
+
 
   ngOnInit() {
     this.offres = this.offreService.getAllOffres()

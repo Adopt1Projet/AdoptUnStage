@@ -54,7 +54,16 @@ public class OffreService {
 				.orElseThrow(
 				() -> new UsernameNotFoundException
 				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = stagiaire.getOffres();		
+		Set<Offre> offres = stagiaire.getOffresNonPourvues();		
+		return offres;
+	}
+	
+	public Set<Offre> getMesOffresStagiairePourvues(String username) {	
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username)
+				.orElseThrow(
+				() -> new UsernameNotFoundException
+				("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = stagiaire.getOffresPourvues();		
 		return offres;
 	}
 	

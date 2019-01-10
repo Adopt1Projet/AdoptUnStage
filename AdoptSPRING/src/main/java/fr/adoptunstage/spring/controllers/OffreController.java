@@ -49,6 +49,11 @@ public class OffreController{
 		return service.getMesOffresStagiaire(username);
 	}
 	
+	@GetMapping(value = "/mesoffresstagiairepourvues/{username}")
+	public Set<Offre> getMesOffresStagiairePourvues(@PathVariable("username") String username ) {
+		return service.getMesOffresStagiairePourvues(username);
+	}
+	
 	@GetMapping(value = "/uneoffre/{id}")
 	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
 		
