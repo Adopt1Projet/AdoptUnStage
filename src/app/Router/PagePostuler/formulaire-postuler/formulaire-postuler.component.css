@@ -16,7 +16,6 @@
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
     width: 250px;
     height: 65px;
-    margin-right: 6%;
 }
 
 .btnPost {
@@ -30,13 +29,13 @@
     box-shadow: 3px 3px 8px rgb(43, 43, 43);
     width: 250px;
     height: 65px;
-    margin-left: 6%;
 }
 
-.btnValid:hover {
-    background-color: green;
+.btn:hover {
+    background-color: #2ed1bb;
 }
 
-.btnRetour:hover {
-    background-color: green;
+::placeholder {
+    color: #C2BFCA;
+    opacity: 1;
 }
