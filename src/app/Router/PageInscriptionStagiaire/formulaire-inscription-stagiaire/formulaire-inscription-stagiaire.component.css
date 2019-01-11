@@ -41,12 +41,6 @@ select {
     border: none;
 }
 
-.mmeMr {
-    padding-left: 1rem;
-    padding-bottom: 1vh;
-}
-
-.genre,
 .check {
     padding-left: 0.5rem;
     vertical-align: middle;
@@ -60,7 +54,6 @@ select {
     font-size: 1.25rem;
     margin-top: 3vh;
 }
-
 
 .btn:hover {
     background-color: #2ed1bb;
