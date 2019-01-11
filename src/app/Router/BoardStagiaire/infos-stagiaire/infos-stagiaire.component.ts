@@ -133,6 +133,7 @@ export class InfosStagiaireComponent implements OnInit {
     this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.stagiaire.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
+    console.log(this.formUpdate.value)
     this.stagiaireService.updateStagiaire(this.stagiaire.id, this.formUpdate.value)
     .subscribe(
       data => {

@@ -13,23 +13,21 @@ import { Router } from '@angular/router';
   templateUrl: './gestion-des-offres.component.html',
   styleUrls: ['./gestion-des-offres.component.css']
 })
-export class GestionDesOffresComponent{
-  
+export class GestionDesOffresComponent {
   confirmResult = null;
   offre: Offre;
   offres: any;
   username: string;
-
+  
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
 
   constructor(
     private SimpleModalService: SimpleModalService,
-    private offreService: OffreService, 
+    private offreService: OffreService,
     private token: TokenStorageService,
     private router: Router) {
-    }
-
+  }
   deleteOffres() {
     this.offreService.deleteAll()
       .subscribe(
@@ -53,14 +51,16 @@ export class GestionDesOffresComponent{
     console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
-        
+
         // Get modal result
         this.confirmResult = isConfirmed;
-        if (isConfirmed) {this.deleteOffre(i);
+        if (isConfirmed) {
+          this.deleteOffre(i);
           this.ngOnInit();
-          location.reload();}
-        
-    });
+          location.reload();
+        }
+
+      });
   }
 
   public editOffre(offre) {
@@ -68,6 +68,8 @@ export class GestionDesOffresComponent{
       id: offre.id,
       titre: offre.titre,
       description: offre.description,
+      dateDebut: offre.dateDebut,
+      dateFin: offre.dateFin,
       rue: offre.rue,
       ville: offre.ville,
       codePostal: offre.codePostal

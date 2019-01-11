@@ -1,13 +1,29 @@
-<div class="container">
-  <p>
-    <strong>Username:</strong> {{info.username}}<br />
-    <strong>Roles:</strong> {{info.authorities}}<br />
-    <strong>Token:</strong> {{info.token}}.
-  </p>
-</div>
+<!-- <div class="container">
+  <div class="row relou">
+    <div class="col-12">
+      <p><strong>Username:</strong> {{info.username}}</p>
+      <p><strong>Roles:</strong> {{info.authorities}}</p>
+      <p><strong>Token:</strong> {{info.token}}</p>
+    </div>
+  </div>
+</div> -->
 <div class="container accueilBoutons">
   <app-bouton-inscription-accueil></app-bouton-inscription-accueil>
 </div>
+
+<div class="container accueilActusInfos">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <app-offres-accueil></app-offres-accueil>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <app-actus-accueil></app-actus-accueil>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
 
 <div class="container accueilQuiSommesNous">
   <app-qui-sommes-nous></app-qui-sommes-nous>

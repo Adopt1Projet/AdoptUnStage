@@ -1,7 +1,7 @@
 <div class="container bodyBoard">
     <br>
     <div class="col-sm-12 titres">
-        <h1>Mon tableau de bord</h1>
+        <h2 *ngIf="stagiaire">Bonjour <span style="color: #26a69a">{{stagiaire.prenom}}</span>, bienvenue sur ton tableau de bord !</h2>
     </div>
     <hr>
     <div class="d-flex justify-content-around">
