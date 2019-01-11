@@ -35,6 +35,7 @@
         <label for="name" class="col title text-left">Nom</label>
         <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formContact.controls['name'].invalid ? 'is-invalid' : ''"
           placeholder="Nom">
+          
         <label class="text-danger" *ngIf="formContact.controls['name'].hasError('required')">
           Votre nom est requis!
         </label>

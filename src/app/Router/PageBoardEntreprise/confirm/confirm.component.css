@@ -45,9 +45,7 @@
   }
   
   
-  
-  /* Some button basic styles because i don't want BS in this demo */
-  .btn {
+  /* .btn {
     -webkit-border-radius: 7;
     -moz-border-radius: 7;
     border-radius: 7px;
@@ -64,4 +62,4 @@
   .btn:hover {
     background: #3cb0fd;
     text-decoration: none;
-  }
+  } */
