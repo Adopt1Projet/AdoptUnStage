@@ -67,6 +67,7 @@ export class ModifierOffreComponent implements OnInit {
           description: this.offre.description,
           dateDebut: this.offre.dateDebut,
           dateFin: this.offre.dateFin,
+          active : this.offre.active,
           rue: this.offre.rue,
           ville: this.offre.ville,
           codePostal: this.offre.codePostal
@@ -90,6 +91,9 @@ export class ModifierOffreComponent implements OnInit {
           null,
         ],
         dateFin: [
+          null,
+        ],
+        active: [
           null,
         ],
         rue: [
