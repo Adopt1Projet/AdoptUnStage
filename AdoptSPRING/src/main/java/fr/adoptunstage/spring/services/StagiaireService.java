@@ -119,6 +119,7 @@ public class StagiaireService {
 					_stagiaire.setCodePostal(updateRequest.getCodePostal());
 					_stagiaire.setTel(updateRequest.getTel());
 					_stagiaire.setEmail(updateRequest.getEmail());
+					_stagiaire.setUsername(updateRequest.getUsername());
 
 			userRepository.save(_stagiaire);
 			
