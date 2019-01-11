@@ -1,6 +1,6 @@
 package fr.adoptunstage.spring.controllers;
 
-import java.util.Optional;
+
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ public class OffreController{
 	}
 	
 	@GetMapping(value = "/uneoffre/{id}")
-	public Optional<Offre> getOffre(@PathVariable("id") long id  ) {
+	public Offre getOffre(@PathVariable("id") long id  ) {
 		
 		return service.getOffre(id);
 	}

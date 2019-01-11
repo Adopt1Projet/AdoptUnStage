@@ -48,13 +48,17 @@ public class StagiaireService {
 	public List<Stagiaire> getAllStagiaire() {
 		List<Stagiaire> stagiaires = new ArrayList<>();
 		repository.findAll().forEach(stagiaires::add);
+		for (Stagiaire stagiaire : stagiaires) {
+			stagiaire.setPassword("");
+		}
 		return stagiaires;
 	}
 
 	public Stagiaire getOneStagiaire(String username) {
-		Stagiaire user = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-		return user;
+		stagiaire.setPassword("");
+		return stagiaire;
 	}
 
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {

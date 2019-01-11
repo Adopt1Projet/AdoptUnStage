@@ -37,6 +37,9 @@ public class OffreService {
 	public Set<Offre> getAllOffres() {
 		Set<Offre> offres = new HashSet<Offre>();
 		repository.findAll().forEach(offres::add);
+		for(Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
 		return offres;
 	}
 	
@@ -45,7 +48,10 @@ public class OffreService {
 				.orElseThrow(
 				() -> new UsernameNotFoundException
 				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = entreprise.getOffres();		
+		Set<Offre> offres = entreprise.getOffres();
+		for(Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
 		return offres;
 	}
 	
@@ -54,13 +60,18 @@ public class OffreService {
 				.orElseThrow(
 				() -> new UsernameNotFoundException
 				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = stagiaire.getOffres();		
+		Set<Offre> offres = stagiaire.getOffres();
+		for(Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
 		return offres;
 	}
 	
-	public Optional<Offre> getOffre(long id) { 
+	public Offre getOffre(long id) { 
 		
-		Optional<Offre> offre = repository.findById(id);
+		Offre offre = repository.findById(id).orElseThrow(
+				() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));;
+		offre.getEntreprise().setPassword("");;
 		return offre ;
 		
 	}
@@ -100,6 +111,7 @@ public class OffreService {
 						
 		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+	
 		Boolean active = true;
 		
 		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(),requestOffre.getDateDebut(),requestOffre.getDateFin(), requestOffre.getRue(),

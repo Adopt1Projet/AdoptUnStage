@@ -45,12 +45,16 @@ public class EntrepriseService {
 	public List<Entreprise> getAllEntreprises() {
 		List<Entreprise> entreprises = new ArrayList<>();
 		repository.findAll().forEach(entreprises::add);
+		for (Entreprise entreprise : entreprises) {
+			entreprise.setPassword("");
+		}
 		return entreprises;
 	}
 	
 	public Entreprise getOneEntreprise(String username) {
 		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		entreprise.setPassword("");
 		return entreprise;
 	}
 	
