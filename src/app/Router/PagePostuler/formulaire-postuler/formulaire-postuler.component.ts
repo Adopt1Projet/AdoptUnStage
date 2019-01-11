@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { OffreService } from 'src/app/services/offre.service';
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { Location } from '@angular/common';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-formulaire-postuler',
@@ -14,19 +15,24 @@ export class FormulairePostulerComponent implements OnInit {
 
   id_offre : number;
   username : String;
+  postuler: boolean = false;
 
   formPostuler = new FormGroup({
     motivation: new FormControl(),
   });
 
   constructor(private token: TokenStorageService, 
-              private offreService: OffreService, 
+              private offreService: OffreService,
+              private alertService: AlertService, 
               private route: ActivatedRoute,
               private _location: Location) { }
 
   onSubmit() {
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => {console.log(data); 
+                 this.postuler = true;
+                 this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pensez à surveiller régulièrement ta boite mail pour la réponse !', true)
+                }, error => console.log(error));
   }
 
   retourPage() {
