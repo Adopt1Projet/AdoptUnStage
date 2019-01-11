@@ -153,7 +153,7 @@ public class Offre {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
+	
 	
 	public Offre() {};
 	

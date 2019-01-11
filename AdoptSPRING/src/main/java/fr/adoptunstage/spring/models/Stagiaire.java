@@ -39,7 +39,25 @@ public class Stagiaire extends User {
     private Set<Offre> offres; 
 	
 	
+	public Set<Offre> getOffresNonPourvues() {
+		Set<Offre> offresActives = new HashSet<Offre>();
+		for(Offre offre : offres) {
+			if (offre.isActive()) {
+			offresActives.add(offre);
+			}
+		}
+		return offresActives;
+	}
 	
+	public Set<Offre> getOffresPourvues() {
+		Set<Offre> offresNonActives = new HashSet<Offre>();
+		for(Offre offre : offres) {
+			if (offre.isActive() == false) {
+			offresNonActives.add(offre);
+			}
+		}
+		return offresNonActives;
+	}
 
 	public Set<Offre> getOffres() {
 		return offres;

@@ -7,6 +7,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 // Post-it Julien : Mother fucking date
 
@@ -102,6 +103,8 @@ import { AlertComponent } from './alert/alert.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
+import { ActusAccueilComponent } from './Router/PageAccueil//actus-accueil/actus-accueil.component';
+import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/offres-accueil.component';
 
 
 
@@ -171,7 +174,9 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     OffreItemComponent,
     PageNonConnecteComponent,
     ConfirmComponent,
-    BesoinAideComponent
+    BesoinAideComponent,
+    ActusAccueilComponent,
+    OffresAccueilComponent,
 
   ],
   imports: [
@@ -180,7 +185,8 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    SimpleModalModule.forRoot({container: "modal-container"})
+    SimpleModalModule.forRoot({container: "modal-container"}),
+    UiSwitchModule
   ],
 
   entryComponents: [

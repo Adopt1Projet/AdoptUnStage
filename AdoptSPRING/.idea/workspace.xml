@@ -2,8 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/exception/FileStorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/exception/MyFileNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/payload/UploadFileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/property/FileStorageProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/FileStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Capture d’écran de 2018-11-27 15-12-16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Capture d’écran de 2018-12-11 15-59-32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Capture d’écran de 2018-12-11 17-07-55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Capture d’écran de 2018-12-12 09-33-31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Capture d’écran de 2018-12-27 19-16-46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/_DSC7048.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/actus-accueil/actus-accueil.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/actus-accueil/actus-accueil.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/actus-accueil/actus-accueil.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/offres-accueil/offres-accueil.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/offres-accueil/offres-accueil.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/offres-accueil/offres-accueil.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/OffreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/OffreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Stagiaire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Stagiaire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/page-board-stagiaire/page-board-stagiaire.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/bouton-inscription-accueil/bouton-inscription-accueil.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageAccueil/page-accueil/page-accueil.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageActus/liste-actus/liste-actus.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageActus/liste-actus/liste-actus.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageActus/liste-actus/liste-actus.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageActus/liste-actus/liste-actus.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/confirm/confirm.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/confirm/confirm.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-popup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/formulaire-creer-offre/datepicker-popup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/formulaire-creer-offre/formulaire-creer-offre.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/gestion-des-offres/gestion-des-offres.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageBoardEntreprise/page-board-entreprise/page-board-entreprise.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageContactezNous/formulaire-contact/formulaire-contact.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageContactezNous/formulaire-contact/formulaire-contact.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/boutons-offre/boutons-offre.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/page-detail-offre/page-detail-offre.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/PageDetailOffre/page-detail-offre/page-detail-offre.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageOffres/liste-offres/liste-offres.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/auth/auth-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/auth/auth-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/services/offre.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/services/offre.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,24 +83,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/College.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="157" column="22" lean-forward="true" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="22" />
+            <state relative-caret-position="1695">
+              <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -42,6 +110,15 @@
                 <element signature="e#552#553#0" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/FileController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -62,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/OffreService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-629">
-              <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+            <state relative-caret-position="-539">
+              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -72,7 +149,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/repos/CollegeRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,8 +169,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="28" column="25" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="-407">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="e#1199#1200#0" expanded="true" />
+                <element signature="e#1552#1553#0" expanded="true" />
+                <element signature="e#1596#1597#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -139,7 +232,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="109" />
     <option name="y" value="27" />
     <option name="width" value="1371" />
@@ -267,7 +360,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547140371093" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547219395438" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -295,15 +388,16 @@
       <updated>1544541404307</updated>
       <workItem from="1546525649525" duration="1268000" />
       <workItem from="1546595451173" duration="4840000" />
-      <workItem from="1547111659279" duration="5225000" />
+      <workItem from="1547111659279" duration="6148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18786000" />
+    <option name="totallyTimeSpent" value="19709000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="109" y="27" width="1371" height="873" extended-state="1" />
+    <frame x="109" y="27" width="1371" height="873" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23356009" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -366,13 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
@@ -408,13 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="148" column="9" selection-start-line="146" selection-end-line="148" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -446,28 +526,21 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/College.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Offre.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
-          <caret line="157" column="22" lean-forward="true" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="25" />
+          <caret line="157" column="22" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/OffreService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+        <state relative-caret-position="-539">
+          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -481,7 +554,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/repos/CollegeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -508,6 +581,48 @@
             <element signature="e#552#553#0" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-407">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+            <element signature="e#1552#1553#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/PartenaireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1695">
+          <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="57" lean-forward="true" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
         </state>
       </provider>
     </entry>

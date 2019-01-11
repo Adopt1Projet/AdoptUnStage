@@ -11,12 +11,14 @@ import { Actu } from 'src/app/modeles/actu';
 })
 export class ListeActusComponent implements OnInit {
 
-  actus: Observable<Actu[]>;
+  actus: any;
 
   constructor(private actuService: ActuService) {
   }
 
   ngOnInit() {
-    this.actus = this.actuService.getActusList();
+    this.actuService.getActusList()
+      .subscribe(data => {this.actus = data ;
+                          this.actus = this.actus.reverse();});
   }
 }

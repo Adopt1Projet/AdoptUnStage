@@ -44,10 +44,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'detailoffre/:id', component: PageDetailOffreComponent },
-  { path: 'postuler/:id', component: PagePostulerComponent },
+  { path: 'detailoffre/:id', canActivate: [AuthGuard], component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   {
     path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
       { path: 'gestionstagiaire', canActivate: [AuthGuardStagiaire], component: GestionCandidaturesComponent },
@@ -63,7 +61,7 @@ const routes: Routes = [
       { path: 'creeroffre', canActivate: [AuthGuardEntreprise], component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', canActivate: [AuthGuardEntreprise], component: GestionDesOffresComponent },
       { path: 'infosentreprise', canActivate: [AuthGuardEntreprise], component: InfosEntrepriseComponent },
-      { path: 'modifieroffre', component: ModifierOffreComponent },
+      { path: 'modifieroffre/:id', component: ModifierOffreComponent },
       { path: 'offre-item', component: OffreItemComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]

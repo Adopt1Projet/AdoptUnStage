@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from 'src/app/services/offre.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modifier-offre',
@@ -10,42 +12,101 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ModifierOffreComponent implements OnInit {
 
-  @Input() formData: any = [];
-  offre: Offre;
+  id: number;
+  public formOffre: FormGroup;
+  private offre: any;
+  private submitForm: boolean = false;
 
-  formOffre = new FormGroup({
-    id: new FormControl(),
-    titre: new FormControl(),
-    description: new FormControl(),
-    // période: new FormControl(),
-    rue: new FormControl(),
-    ville: new FormControl(),
-    codePostal: new FormControl(),
-  });
-  constructor(private offreService: OffreService) { }
+
+  constructor(
+    private offreService: OffreService,
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.formOffre = this.updateOffreForm();
+  }
 
   onSubmit() {
-    this.offre = this.formOffre.value;
-    this.offreService.updateOffre(this.offre.id, this.offre)
-      //   // this.formData.id, { titre: this.formData.titre, description: this.formData.description, rue: this.formData.rue, ville: this.formData.ville, codePostal: this.formData.codePostal }
-      //  )
-      .subscribe(data => console.log(this.formOffre.value), error => console.log(error));
 
-  }
-  deleteOffre(id) {
-    this.offreService.deleteOffre(id)
+    console.log(this.formOffre.value);
+    this.submitForm = true;
+    /*  if (this.formOffre.value.titre == null) { this.formOffre.value.titre = this.offre.titre };
+     *  if (this.formOffre.value.description == null) { this.formOffre.value.description = this.offre.description };
+     *  if (this.formOffre.value.rue == null) { this.formOffre.value.rue = this.offre.rue };
+     *  if (this.formOffre.value.ville == null) { this.formOffre.value.ville = this.offre.ville };
+     *  if (this.formOffre.value.codePostal == null) { this.formOffre.value.codePostal = this.offre.codePostal };
+     *  if (this.formOffre.value.dateDebut == null) { this.formOffre.value.dateDebut = this.offre.dateDebut };
+     *  if (this.formOffre.value.dateFin == null) { this.formOffre.value.dateFin = this.offre.dateFin }; */
+    this.offreService.updateOffre(this.offre.id, this.formOffre.value)
       .subscribe(
         data => {
-          console.log(data);
+          this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
-        error => console.log(error));
+        error => {
+          this.alertService.error('Une erreur est servenue. Veuillez vérifier les informations entrées.', true);
+        });
+    this.router.navigate(['../boardentreprise/gestionoffres']);
   }
 
   ngOnInit() {
-    this.offre = this.formOffre.value;
+
+    this.route.params.subscribe(params => {
+
+      this.id = params.id;
+      console.log(params);
+      console.log(params['id'])
+    })
+    this.offreService
+      .getOffre(this.id)
+      .subscribe(data => {
+        this.offre = data;
+        console.log(this.offre);
+        this.formOffre.setValue({
+          titre: this.offre.titre,
+          description: this.offre.description,
+          dateDebut: this.offre.dateDebut,
+          dateFin: this.offre.dateFin,
+          rue: this.offre.rue,
+          ville: this.offre.ville,
+          codePostal: this.offre.codePostal
+        });
+      },
+        error => console.log("Une erreur est survenue."));
+  }
+
+  updateOffreForm(): FormGroup {
+    return this.fb.group(
+      {
+        titre: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        description: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        dateDebut: [
+          null,
+        ],
+        dateFin: [
+          null,
+        ],
+        rue: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        ville: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+
+      },
+    );
   }
 
 }
-// (this.offre.id,
-//   { titre: this.offre.titre, description: this.offre.description, rue: this.offre.rue, ville: this.offre.ville, codePostal: this.offre.codePostal })
-
