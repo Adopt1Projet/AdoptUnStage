@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let offre of offres | async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                <tr *ngFor="let offre of offres async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
                     <td><img src="https://via.placeholder.com/140x100" alt=""></td>
                     <td>{{offre.entreprise.secteur}}</td>
                     <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
