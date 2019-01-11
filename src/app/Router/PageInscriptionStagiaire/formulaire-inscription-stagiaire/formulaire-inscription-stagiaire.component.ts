@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { AlertService } from '../../../services/alert.service';
+import { Observable } from 'rxjs';
+import { CollegeService } from '../../../services/college.service';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -16,6 +18,7 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
   public formCreate: FormGroup;
+  colleges: Observable<any>;
   loading = false;
 
   constructor(
@@ -23,12 +26,15 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private _location: Location,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private collegeService: CollegeService
   ) {
     this.formCreate = this.createSignupForm();
   }
 
   ngOnInit() {
+    this.colleges = this.collegeService.getCollegesList();
+    console.log (this.colleges);
   }
 
   createSignupForm(): FormGroup {
@@ -111,6 +117,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
+
   onSubmit() {
     const stagiaire: Stagiaire = this.formCreate.value;
     this.loading = true;
