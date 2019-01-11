@@ -29,7 +29,7 @@ public class MailServiceImpl implements MailService {
 	        
 	        helper.setTo(EMAIL_ADMIN);
 	        helper.setSubject(mail.getTitle());
-	        message.setContent(mail.buildMyMessage(), "text/html");
+	        message.setContent(mail.buildMyMessage(), "text/html; charset=utf-8");
 			
 	        mailSender.send(message);
 		} 
@@ -51,7 +51,7 @@ public class MailServiceImpl implements MailService {
 	        
 	        helper.setTo(mail.getTo());
 	        helper.setSubject(mail.getTitle());
-	        message.setContent(mail.buildMyMessage(), "text/html");
+	        message.setContent(mail.buildMyMessage(), "text/html; charset=utf-8");
 			
 	        mailSender.send(message);
 		} 
@@ -75,7 +75,7 @@ public class MailServiceImpl implements MailService {
 	        
 	        helper.setTo(mail.getTo());
 	        helper.setSubject(titre);
-	        message.setContent(mail.buildMyMessage(), "text/html");
+	        message.setContent(mail.buildMyMessage(), "text/html; charset=utf-8");
 			
 	        mailSender.send(message);
 		} 
