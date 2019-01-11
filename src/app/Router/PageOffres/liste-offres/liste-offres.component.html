@@ -1,20 +1,18 @@
-<h1>Liste des offres</h1>
 <div class="container">
-    <div class="table-responsive">
+    <div *ngIf="offres" class="table-responsive">
         <table class="table table-striped thead-light table-hover">
             <thead>
                 <tr>
                     <th></th>
-                    <th>secteur</th>
-                    <th>titre</th>
-                    <th>ville</th>
-                    <th>période</th>
-                    <th>pourvu</th>
-                    <th>Detail</th>
+                    <th>Secteur</th>
+                    <th>Offre</th>
+                    <th>Ville</th>
+                    <th>Période</th>
+                    <th>Etat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let offre of offres | async ">
+                <tr *ngFor="let offre of offres | async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
                     <td><img src="https://via.placeholder.com/140x100" alt=""></td>
                     <td>{{offre.entreprise.secteur}}</td>
                     <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
@@ -22,11 +20,11 @@
                     <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
                     <td> {{offre.active}} </td>
                     <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
+                    <td style="background-color : green; color: white;" *ngIf="offre.active == true">Dispo</td>
+                    <td style="background-color : red; color: white;" *ngIf="offre.active == false">Pourvue</td>
                 </tr>
             </tbody>
         </table>
-        <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
-        <!-- <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre> -->
     </div>
 </div>
 

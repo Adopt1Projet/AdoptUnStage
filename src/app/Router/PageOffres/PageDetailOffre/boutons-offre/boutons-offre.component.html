@@ -1,6 +1,6 @@
+<br>
+<h4 *ngIf="role[0] == 'ROLE_STAGIAIRE' && offre.active == false">Désolé, cette offre de stage est déjà pourvue</h4>
 <div class="btnPost d-flex justify-content-center">
-
   <button type="button" class="btn btnRetour" (click)="retourPage()">Revenir à la liste <br>d'annonces</button>
-
-  <button *ngIf="isStagiaire==true" [routerLink]="['/postuler', offre.id]" type="submit" class="btn btnValid">Postuler à l'offre</button>
+  <button *ngIf="role[0] == 'ROLE_STAGIAIRE' && offre.active == true" [routerLink]="['/postuler', offre.id]" type="submit" class="btn btnValid">Postuler à l'offre</button>
 </div>

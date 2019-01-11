@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { Location } from '@angular/common';
-import { TokenStorageService } from '../../../../auth/token-storage.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-boutons-offre',
@@ -14,8 +14,11 @@ export class BoutonsOffreComponent implements OnInit {
   info: any;
 
   @Input() offre: Offre;
+  private role: any;
 
-  constructor(private _location: Location,private token: TokenStorageService) { }
+
+  constructor(private _location: Location,
+              private token: TokenStorageService) { }
 
   
   retourPage() {
@@ -23,15 +26,7 @@ export class BoutonsOffreComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.info = {
-      username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
-
-    };
-
-    if (this.info.authorities == "ROLE_STAGIAIRE") { this.isStagiaire = true; }
-    else { this.isStagiaire = false; }
+    this.role = this.token.getAuthorities();
   }
 
 }
