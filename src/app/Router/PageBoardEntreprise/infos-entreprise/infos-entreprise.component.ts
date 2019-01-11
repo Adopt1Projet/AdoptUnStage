@@ -19,10 +19,11 @@ export class InfosEntrepriseComponent implements OnInit {
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 
-  constructor(private entrepriseService: EntrepriseService,
-              private token: TokenStorageService,
-              private alertService: AlertService,
-              private fb: FormBuilder) {
+  constructor(
+    private entrepriseService: EntrepriseService,
+    private token: TokenStorageService,
+    private alertService: AlertService,
+    private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
@@ -44,7 +45,7 @@ export class InfosEntrepriseComponent implements OnInit {
           adresse: this.entreprise.adresse,
           ville: this.entreprise.ville,
           codePostal: this.entreprise.codePostal,
-          logo: this.entreprise.logo,
+          //logo: this.entreprise.logo,
           fonction: this.entreprise.fonction,
           tel: this.entreprise.tel,
           email: this.entreprise.email,
@@ -60,7 +61,7 @@ export class InfosEntrepriseComponent implements OnInit {
     return this.fb.group(
       {
         siteWeb: [null],
-        logo: [null],
+        // logo: [null],
         fonction: [null],
         raisonSociale: [
           null,

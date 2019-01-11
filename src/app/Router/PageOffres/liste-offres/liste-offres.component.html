@@ -18,6 +18,8 @@
                     <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
                     <td> {{offre.ville}} </td>
                     <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
+                    <td> {{offre.active}} </td>
+                    <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
                     <td style="background-color : green; color: white;" *ngIf="offre.active == true">Dispo</td>
                     <td style="background-color : red; color: white;" *ngIf="offre.active == false">Pourvue</td>
                 </tr>
@@ -25,51 +27,6 @@
         </table>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- <div class="container">

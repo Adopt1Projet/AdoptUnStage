@@ -14,12 +14,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./gestion-des-offres.component.css']
 })
 export class GestionDesOffresComponent {
-
   confirmResult = null;
   offre: Offre;
   offres: any;
   username: string;
-
+  
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
 
@@ -29,7 +28,6 @@ export class GestionDesOffresComponent {
     private token: TokenStorageService,
     private router: Router) {
   }
-
   deleteOffres() {
     this.offreService.deleteAll()
       .subscribe(

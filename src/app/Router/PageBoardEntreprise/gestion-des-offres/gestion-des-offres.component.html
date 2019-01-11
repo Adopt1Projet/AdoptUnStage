@@ -1,5 +1,6 @@
 <div class="container bodyGestionOffres">
   <h1 class="titre">Gestion des offres</h1>
+  <app-alert></app-alert>
   <table class="table table-striped thead-light table-hover">
     <thead>
       <tr>
@@ -26,8 +27,8 @@
         <td> {{offre.ville}} </td>
         <td> {{offre.codePostal}} </td>
         <td> {{offre.active}} </td>
-        <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue">remove_red_eye</i></td>
-        <td><i class="material-icons" style="color:blue; cursor: pointer;" (click)="editOffre(offre,i)">edit</i></td>
+        <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
+        <td><i [routerLink]="['/boardentreprise/modifieroffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">edit</i></td>
         <td><i class="material-icons" style="color:red; cursor: pointer;" (click)=showConfirm(offre.id)>delete</i></td>
       </tr>
     </tbody>
@@ -39,5 +40,5 @@
       'Declined'}}</b>
   </div>
   <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
-  <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre>
+  <!-- <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre> -->
 </div>
