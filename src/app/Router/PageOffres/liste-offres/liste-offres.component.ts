@@ -10,7 +10,7 @@ import { Offre } from 'src/app/modeles/offre';
 })
 export class ListeOffresComponent implements OnInit {
 
-  offres: Observable<Offre[]>;
+  offres: Offre[];
 
   constructor(private offreService: OffreService) { }
 
@@ -24,8 +24,8 @@ export class ListeOffresComponent implements OnInit {
 
 
   ngOnInit() {
-    this.offres = this.offreService.getAllOffres()
-    console.log(this.offres)
+    this.offreService.getAllOffres().subscribe
+      (data => { this.offres = data; console.log(this.offres) });
   };
 }
 

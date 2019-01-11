@@ -7,6 +7,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 //Mother fucking date
 
@@ -184,7 +185,8 @@ import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/off
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    SimpleModalModule.forRoot({container: "modal-container"})
+    SimpleModalModule.forRoot({container: "modal-container"}),
+    UiSwitchModule
   ],
 
   entryComponents: [

@@ -10,12 +10,17 @@ import { TokenStorageService } from 'src/app/auth/token-storage.service';
 })
 export class BoutonsOffreComponent implements OnInit {
 
+  isStagiaire = false;
+  info: any;
+
   @Input() offre: Offre;
   private role: any;
+
 
   constructor(private _location: Location,
               private token: TokenStorageService) { }
 
+  
   retourPage() {
     this._location.back();
   }
