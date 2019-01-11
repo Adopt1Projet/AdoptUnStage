@@ -100,14 +100,14 @@ public HTMLMail() {};
 	
 	public String buildMyMessage() {
 		String str = "<html>" +
-		                "<body>" +
-							
-							"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Mail:</span> " + this.email + "</p>" +
-							"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Nom:</span> " + this.name + "</p>" +
-		                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Prénom:</span> " + this.prenom + "</p>" +
-		                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
-		                    "<img src=\"../../../../../../../../src/assets/img/banner.png\" class=\"img-fluid w-100\" alt=\"\">" +
-		                "</body>" +
+			                "<body>" +
+								
+								"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Mail:</span> " + this.email + "</p>" +
+								"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Nom:</span> " + this.name + "</p>" +
+			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Prénom:</span> " + this.prenom + "</p>" +
+			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
+			                    "<img src=\"../../../../../../../../src/assets/img/banner.png\" class=\"img-fluid w-100\" alt=\"\">" +
+			                "</body>" +
 		              "</html>";
 //					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
 		return str;
