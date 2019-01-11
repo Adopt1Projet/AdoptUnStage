@@ -21,7 +21,7 @@
                     <td> {{offre.ville}} </td>
                     <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
                     <td> {{offre.active}} </td>
-                    <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue">remove_red_eye</i></td>
+                    <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
                 </tr>
             </tbody>
         </table>
@@ -29,51 +29,6 @@
         <!-- <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre> -->
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- <div class="container">

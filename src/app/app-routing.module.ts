@@ -44,10 +44,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'detailoffre/:id', component: PageDetailOffreComponent },
-  { path: 'postuler/:id', component: PagePostulerComponent },
+  { path: 'detailoffre/:id', canActivate: [AuthGuard], component: PageDetailOffreComponent },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   {
     path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
       { path: 'gestionstagiaire', canActivate: [AuthGuardStagiaire], component: GestionCandidaturesComponent },

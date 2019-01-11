@@ -2,5 +2,5 @@
 
   <button type="button" class="btn btnRetour" (click)="retourPage()">Revenir à la liste <br>d'annonces</button>
 
-  <button [routerLink]="['/postuler', offre.id]" type="submit" class="btn btnValid">Postuler à l'offre</button>
+  <button *ngIf="isStagiaire==true" [routerLink]="['/postuler', offre.id]" type="submit" class="btn btnValid">Postuler à l'offre</button>
 </div>

@@ -3,6 +3,7 @@ import { OffreService } from 'src/app/services/offre.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modifier-offre',
@@ -21,7 +22,8 @@ export class ModifierOffreComponent implements OnInit {
     private offreService: OffreService,
     private fb: FormBuilder,
     private alertService: AlertService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
     this.formOffre = this.updateOffreForm();
   }
 
@@ -44,6 +46,7 @@ export class ModifierOffreComponent implements OnInit {
         error => {
           this.alertService.error('Une erreur est servenue. Veuillez vérifier les informations entrées.', true);
         });
+    this.router.navigate(['../boardentreprise/gestionoffres']);
   }
 
   ngOnInit() {
