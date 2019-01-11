@@ -1,0 +1,20 @@
+<div class="bodyOffres">
+    <div *ngIf="offres" class="table-responsive">
+        <table class="table table-striped thead-light table-hover">
+            <thead class="tableHeader">
+                <tr>
+                    <th>Secteur</th>
+                    <th>Offre</th>
+                    <th>Ville</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offre of offres | async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                    <td>{{offre.entreprise.secteur}}</td>
+                    <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
+                    <td> {{offre.ville}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.bodyActus {
+    max-height: 35vh;
+    overflow: auto;
+}
+
+img {
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+.card {
+    overflow: hidden;
+}

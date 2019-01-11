@@ -1,0 +1,9 @@
+.bodyOffres {
+    background-color: white;
+    max-height: 35vh;
+    overflow: auto;
+}
+
+.tableHeader {
+    background-color: #2fa89a;
+}
