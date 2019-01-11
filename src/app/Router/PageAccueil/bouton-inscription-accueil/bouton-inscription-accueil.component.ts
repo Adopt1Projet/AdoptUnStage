@@ -35,15 +35,13 @@ export class BoutonInscriptionAccueilComponent implements OnInit {
     if (this.info.authorities == "ROLE_STAGIAIRE") { 
           this.isStagiaire = true;
           this.stagiaireService.getStagiaire(this.info.username)
-            .subscribe(data => { this.stagiaire = data;
-                                 console.log(this.stagiaire) }) }
+            .subscribe(data => { this.stagiaire = data }) }
     else { this.isStagiaire = false; }
 
     if (this.info.authorities == "ROLE_ENTREPRISE") { 
           this.isEntreprise = true;
           this.entrepriseService.getEntreprise(this.info.username)
-            .subscribe(data => { this.entreprise = data;
-                                 console.log(this.entreprise)})
+            .subscribe(data => { this.entreprise = data})
     } 
     else { this.isEntreprise = false; }
   }
