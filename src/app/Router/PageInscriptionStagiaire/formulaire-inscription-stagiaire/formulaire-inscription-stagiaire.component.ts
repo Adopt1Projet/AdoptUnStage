@@ -120,7 +120,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
+          this.alertService.success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
         },
         error => {
           console.log(error);
