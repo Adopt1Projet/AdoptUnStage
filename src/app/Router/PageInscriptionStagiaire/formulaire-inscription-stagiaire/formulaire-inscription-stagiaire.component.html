@@ -185,9 +185,9 @@
         </div>
 
         <div class="form-group d-flex justify-content-around">
-            <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
+            <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5">Retour</button>
 
-            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5">Valider</button>
             <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
         </div>
 

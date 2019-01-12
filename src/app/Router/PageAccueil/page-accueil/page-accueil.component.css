@@ -15,9 +15,10 @@
 }
 
 .accueilActusInfos {
+    background-color: white;
     margin-top: 5vh;
 }
-
 .accueilListeOffres {
     background-color: white;
+    margin-bottom: 5vh;
 }
