@@ -66,7 +66,7 @@ public class MailServiceImpl implements MailService {
 	
 	public String sendEmailToStagiaire(HTMLMail mail) {
 		
-		String titre = "Reponse automatique de adoptunstage@gmail.com";
+		String titre = "Reponse automatique de candidature sur Adoptunstage.fr";
 
 		try {
 	        MimeMessage message = mailSender.createMimeMessage();

@@ -1,6 +1,7 @@
-.bodyActus {
+.card-group {
     max-height: 35vh;
     overflow: auto;
+    padding: 3vh;
 }
 
 img {
@@ -11,4 +12,20 @@ img {
 
 .card {
     overflow: hidden;
+    cursor: pointer;
+    background-color: #efeded;
+    border: none;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    margin: 0 auto;
+    padding-top: 2vw;
+}
+
+h2 {
+    color: #26a69a;
+    font-weight: bolder;
 }

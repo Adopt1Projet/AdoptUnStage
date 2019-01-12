@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
-import { Location } from '@angular/common';
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
@@ -17,13 +16,8 @@ export class BoutonsOffreComponent implements OnInit {
   private role: any;
 
 
-  constructor(private _location: Location,
-              private token: TokenStorageService) { }
+  constructor(private token: TokenStorageService) { }
 
-  
-  retourPage() {
-    this._location.back();
-  }
 
   ngOnInit() {
     this.role = this.token.getAuthorities();
