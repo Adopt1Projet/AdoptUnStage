@@ -7,6 +7,7 @@
             <table class="table table-striped thead-light table-hover">
                 <thead class="tableHeader">
                     <tr>
+                        <th></th>
                         <th>Secteur</th>
                         <th>Offre</th>
                         <th>Ville</th>
@@ -15,6 +16,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let offre of offres | async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                        <td><img src="../../../../assets/img/computuer.jpeg" alt=""></td>
                         <td>{{offre.entreprise.secteur}}</td>
                         <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
                         <td> {{offre.ville}} </td>

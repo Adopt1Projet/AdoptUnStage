@@ -6,23 +6,39 @@
 
     <div class="form-group">
       <label for="titre">Intitulé du poste</label>
-      <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="exemple : aide à la vente">
+      <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
+        placeholder="exemple : aide à la vente">
+      <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
+        <div *ngIf="f.titre.errors.required">L'intitulé du poste est requis!</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="description">Descriptif du poste</label>
-      <textarea class="form-control" formControlName="description" id="description" rows="3">
+      <textarea class="form-control" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+        id="description" rows="3">
     </textarea>
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">Le descriptif est requis!</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="dateDebut">Date de début du stage</label>
-      <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" placeholder="">
+      <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
+        placeholder="">
+      <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
+        <div *ngIf="f.dateDebut.errors.required">La date de début du stage est requise!</div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="dateDebut">Date de fin du stage</label>
-      <input type="date" formControlName="dateFin" class="form-control" id="dateFin" placeholder="">
+      <label for="dateFin">Date de fin du stage</label>
+      <input type="date" formControlName="dateFin" class="form-control" id="dateFin" [ngClass]="{ 'is-invalid': submitted && f.dateFin.errors }"
+        placeholder="">
+      <div *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
+        <div *ngIf="f.dateFin.errors.required">La date de fin du stage est requise!</div>
+      </div>
     </div>
 
 
@@ -30,18 +46,30 @@
     <h2 class="text-center">Localisation du stage</h2>
 
     <div class="form-group">
-      <label for="rue">Rue</label>
-      <input type="text" class="form-control" formControlName="rue" id="rue" placeholder="ex : rue de vaise">
+      <label for="rue">Adresse</label>
+      <input type="text" class="form-control" formControlName="rue" id="rue" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"
+        placeholder="ex : 101 rue de vaise">
+      <div *ngIf="submitted && f.rue.errors" class="invalid-feedback">
+        <div *ngIf="f.rue.errors.required">L'adresse de déroulement du stage est requise!</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="ville">Ville</label>
-      <input type="text" class="form-control" formControlName="ville" id="ville" placeholder="ex : Lyon">
+      <input type="text" class="form-control" formControlName="ville" id="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
+        placeholder="ex : Lyon">
+      <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+        <div *ngIf="f.ville.errors.required">La ville est requise!</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="codePostal">Code postal</label>
-      <input type="text" class="form-control" formControlName="codePostal" id="codePostal" placeholder="ex : 69009">
+      <input type="text" class="form-control" formControlName="codePostal" id="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
+        placeholder="ex : 69009">
+      <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
+        <div *ngIf="f.codePostal.errors.required">Le code postal est requis!</div>
+      </div>
     </div>
     <div class="text-center">
       <button class="btn btnPosterOffre" type="submit">Poster mon offre</button>

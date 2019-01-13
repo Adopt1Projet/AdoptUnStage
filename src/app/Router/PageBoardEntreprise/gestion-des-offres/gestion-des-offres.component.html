@@ -37,11 +37,6 @@
     </tbody>
 
   </table>
-  <div class="col-sm-4" *ngIf="confirmResult != null">
-    <span>Result: </span>
-    <b [ngClass]="{'text-danger': !confirmResult, 'text-success': confirmResult}">{{confirmResult ? 'Trololo':
-      'Declined'}}</b>
-  </div>
   <!-- <app-offre-item [offres]="offres"></app-offre-item> -->
   <!-- <app-modifier-offre (onAdd)="addUser($event)" [formData]="offre"></app-modifier-offre> -->
 </div>

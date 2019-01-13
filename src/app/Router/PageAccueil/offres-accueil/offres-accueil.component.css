@@ -21,3 +21,7 @@ h2 {
     color: #26a69a;
     font-weight: bolder;
 }
+
+img {
+max-width : 70px;
+}
