@@ -105,7 +105,6 @@ import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-conn
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 import { ActusAccueilComponent } from './Router/PageAccueil//actus-accueil/actus-accueil.component';
 import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/offres-accueil.component';
-import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
 
 
 @NgModule({
@@ -175,7 +174,6 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
     BesoinAideComponent,
     ActusAccueilComponent,
     OffresAccueilComponent,
-    ConditionUtilisationComponent,
 
   ],
   imports: [
@@ -189,8 +187,7 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
   ],
 
   entryComponents: [
-    ConfirmComponent,
-    ConditionUtilisationComponent
+    ConfirmComponent
   ],
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent } from 'ngx-simple-modal';
 import { Offre } from 'src/app/modeles/offre';
-import { AlertService } from 'src/app/services/alert.service';
 
 export interface ConfirmModel {
   offre: Offre;
@@ -16,7 +15,7 @@ export interface ConfirmModel {
 export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean> implements ConfirmModel {
   offre: Offre;
   offres: any;
-  constructor( private alertService: AlertService,
+  constructor(
   ) {
     super();
   }
@@ -25,7 +24,6 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     // ten we can get dialog result from caller code
     this.result = true;
     this.close();
-    this.alertService.success('Votre annonce a bien été supprimée.', true);
   }
   cancel() {
     this.result = false;

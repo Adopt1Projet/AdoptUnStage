@@ -6,8 +6,6 @@ import { Stagiaire } from 'src/app/modeles/stagiaire';
 import { CustomValidators } from '../../../services/custom-validators';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { SimpleModalService } from 'ngx-simple-modal';
-import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
 
 import { AlertService } from '../../../services/alert.service';
 
@@ -18,36 +16,19 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
   public formCreate: FormGroup;
-  stagiaire: Stagiaire;
   loading = false;
-  confirmResult = null;
 
   constructor(
     private stagiaireService: StagiaireService,
     private _location: Location,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService,
-    private SimpleModalService: SimpleModalService,
+    private alertService: AlertService
   ) {
     this.formCreate = this.createSignupForm();
   }
 
   ngOnInit() {
-  }
-
-  showCgu() {
-    console.log();
-    this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true})
-      .subscribe((isConfirmed) => {
-
-        // Get modal result
-        this.confirmResult = isConfirmed;
-        if (isConfirmed) {
-          this.ngOnInit();
-        }
-
-      });
   }
 
   createSignupForm(): FormGroup {
@@ -139,7 +120,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.alertService.success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
+          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
         },
         error => {
           console.log(error);
