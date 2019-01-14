@@ -4,10 +4,8 @@ export class Stagiaire {
     email: string;
     role: string[];
     password: string;
-
     prenom: string;
     etablissement: string;
     ville: string;
     codePostal: string;
-    tel: string;
 }

@@ -5,14 +5,14 @@
             votre tableau de bord !</h2>
     </div>
     <hr>
-    <div class="d-flex justify-content-around" (click)="onButtonGroupClick($event)">
+    <div class="d-flex justify-content-around">
         <button type="button" class="btn col-3 col-sm-3" routerLink="/boardentreprise/gestionoffres" routerLinkActive="router-link-active">Gestion
-            des annonces</button>
+            des offres</button>
         <button type="submit" class="btn col-3 col-sm-3" routerLink="/boardentreprise/creeroffre" routerLinkActive="router-link-active">Créer
             une
-            annonce</button>
-        <button type="submit" class="btn col-3 col-sm-3" routerLink="/boardentreprise/infosentreprise" routerLinkActive="router-link-active">Mon
-            compte</button>
+            offre</button>
+        <button type="submit" class="btn col-3 col-sm-3" routerLink="/boardentreprise/infosentreprise" routerLinkActive="router-link-active">Mes infos
+            de profil</button>
     </div>
     <router-outlet></router-outlet>
 </div>

@@ -39,8 +39,8 @@ public class Entreprise extends User {
 	private String prenom;
 
 	
-	@Column(name = "fonction")
-	private String fonction;
+	@Column(name = "contactMail")
+	private String contactMail;
 	
 	@Column(name = "tel")
 	private String tel;
@@ -141,12 +141,12 @@ public class Entreprise extends User {
 	}
 
 
-	public String getFonction() {
-		return fonction;
+	public String getContactMail() {
+		return contactMail;
 	}
 
-	public void setFonction(String fonction) {
-		this.fonction = fonction;
+	public void setContactMail(String contactMail) {
+		this.contactMail = contactMail;
 	}
 
 	public String getTel() {
@@ -161,7 +161,7 @@ public class Entreprise extends User {
 	public Entreprise () {}
 	
 	public Entreprise(String name, String username, String email, String password, String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
-			String codePostal, String logo, String prenom, String fonction, String tel) {
+			String codePostal, String logo, String prenom, String contactMail, String tel) {
 		super(name, username, email, password);
 		this.raisonSociale = raisonSociale;
 		this.secteur = secteur;
@@ -171,7 +171,7 @@ public class Entreprise extends User {
 		this.codePostal = codePostal;
 		this.logo = logo;
 		this.prenom = prenom;
-		this.fonction = fonction;
+		this.contactMail = contactMail;
 		this.tel = tel;
 		this.siteWeb = siteWeb;
 		this.offres = new HashSet<Offre>(); 

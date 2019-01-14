@@ -20,18 +20,18 @@ export class InfosStagiaireComponent implements OnInit {
   private submitFormPassword: boolean = false;
 
   constructor(private token: TokenStorageService,
-              private stagiaireService: StagiaireService,
-              private alertService: AlertService,
-              private fb: FormBuilder) {
+    private stagiaireService: StagiaireService,
+    private alertService: AlertService,
+    private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
-   }
+  }
 
   ngOnInit() {
     this.username = this.token.getUsername();
     this.stagiaireService
       .getStagiaire(this.username)
-      .subscribe(data =>{
+      .subscribe(data => {
         this.stagiaire = data;
         this.formUpdate.setValue({
           prenom: this.stagiaire.prenom,
@@ -39,12 +39,11 @@ export class InfosStagiaireComponent implements OnInit {
           etablissement: this.stagiaire.etablissement,
           ville: this.stagiaire.ville,
           codePostal: this.stagiaire.codePostal,
-          tel: this.stagiaire.tel,
           email: this.stagiaire.email,
           confirmMail: this.stagiaire.email
         });
       },
-      error => console.log("Une erreur est survenue."));
+        error => console.log("Une erreur est survenue."));
   }
 
   updateSignupForm(): FormGroup {
@@ -70,10 +69,6 @@ export class InfosStagiaireComponent implements OnInit {
           null,
           Validators.compose([Validators.required])
         ],
-        tel: [
-          null,
-          Validators.compose([Validators.required])
-        ],
         email: [
           null,
           Validators.compose([Validators.email, Validators.required])
@@ -83,9 +78,9 @@ export class InfosStagiaireComponent implements OnInit {
           Validators.compose([Validators.email, Validators.required])
         ]
       },
-       {
-         validator: [CustomValidators.mailMatchValidator]
-       }
+      {
+        validator: [CustomValidators.mailMatchValidator]
+      }
     );
   }
 
@@ -121,23 +116,23 @@ export class InfosStagiaireComponent implements OnInit {
           ])
         ],
         confirmPassword: [null, Validators.compose([Validators.required])]
-       },
-       {
-         validator: [CustomValidators.passwordMatchValidator]
-       }
+      },
+      {
+        validator: [CustomValidators.passwordMatchValidator]
+      }
     );
   }
-  
-   onSubmit() {
+
+  onSubmit() {
     this.submitFormPassword = false;
     this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.stagiaire.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
     console.log(this.formUpdate.value)
     this.stagiaireService.updateStagiaire(this.stagiaire.id, this.formUpdate.value)
-    .subscribe(
-      data => {
-        this.alertService.success('Vos modifications ont bien été prises en compte !', true);
+      .subscribe(
+        data => {
+          this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
