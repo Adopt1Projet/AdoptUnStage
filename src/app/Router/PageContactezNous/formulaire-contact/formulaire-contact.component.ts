@@ -80,6 +80,9 @@ export class FormulaireContactComponent implements OnInit {
           this.loading = false;
         });
     this.formContact.reset();
+    Object.keys(this.formContact.controls).forEach(key => {
+      this.formContact.controls[key].setErrors(null)
+    });
   }
 
 

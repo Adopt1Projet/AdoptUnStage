@@ -45,6 +45,9 @@ export class FormulaireCreerOffreComponent implements OnInit {
     this.offreService.createOffre(this.username, offre)
       .subscribe(data => console.log(data), error => console.log(error));
     this.formOffre.reset();
+    Object.keys(this.formOffre.controls).forEach(key => {
+      this.formOffre.controls[key].setErrors(null)
+    });
   }
 
   ngOnInit() {
