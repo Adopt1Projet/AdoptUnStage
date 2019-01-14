@@ -35,6 +35,16 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   ngOnInit() {
     this.colleges = this.collegeService.getCollegesList();
     console.log (this.colleges);
+
+    /* this.stagiaireService.createStagiaire(stagiaire)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
+        },
+        error => {
+          console.log(error);
+          this.loading = false; */
   }
 
   createSignupForm(): FormGroup {
