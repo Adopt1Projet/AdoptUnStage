@@ -17,14 +17,11 @@ export class BoutonsOffreComponent implements OnInit {
   private role: any;
 
 
-  constructor(private _location: Location,
-              private token: TokenStorageService) { }
-
+  constructor(private token: TokenStorageService, private location: Location) { }
   
   retourPage() {
-    this._location.back();
+    this.location.back();
   }
-
   ngOnInit() {
     this.role = this.token.getAuthorities();
   }

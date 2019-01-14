@@ -107,9 +107,6 @@ import { ActusAccueilComponent } from './Router/PageAccueil//actus-accueil/actus
 import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/offres-accueil.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

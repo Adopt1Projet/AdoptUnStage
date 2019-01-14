@@ -1,19 +1,24 @@
+<div class="container">
 <form [formGroup]="formPostuler" (ngSubmit)="onSubmit()">
-  <div class="row postulCenter d-flex justify-content-center">
+  <div *ngIf="postuler == false" class="row postulCenter d-flex justify-content-center">
     
       <div class="form downloadfiles">
         <div class="row form-group file">
           <p class="col-12">Un petit mot pour l'entreprise</p>
-          <textarea formControlName="motivation" class="col-12 postArea" type="text" name="text" placeholder="Présentes-toi brièvement avec ton nom, prénom, établissement et date de stage par exemple."></textarea>
+          <textarea formControlName="motivation" class="col-12 postArea" type="text" name="text" placeholder="Présente-toi brièvement avec ton nom, prénom, établissement et date de stage par exemple."></textarea>
         </div>
       </div>
 
   </div>
+  <app-alert></app-alert>
+  <div *ngIf="postuler == true" class="row btnPost d-flex justify-content-center">
+    <button type="button" class="col-md-6 btn btnValid" routerLink="/offres">Revenir à la liste d'offres</button>
+  </div>
+  <div *ngIf="postuler == false" class="row btnPost d-flex justify-content-around">
 
-  <div class="btnPost d-flex justify-content-center">
+    <button type="button" class="col-md-4 col-sm-5 btn btnValid mb-2" (click)="retourPage()">Retour</button>
 
-    <button type="button" class="btn btnValid mb-2" (click)="retourPage()">Revenir à l'annonce</button>
-
-    <button type="submit" class="btn btnValid mb-2">Valider la <br>candidature</button>
+    <button type="submit" class="col-md-4 col-sm-5 btn btnValid mb-2">Valider la <br>candidature</button>
   </div>
 </form>
+</div>
