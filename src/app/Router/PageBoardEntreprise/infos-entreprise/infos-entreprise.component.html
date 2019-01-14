@@ -72,6 +72,12 @@
     </div>
 
     <div class="form-group">
+      <label for="description">Description de l'entreprise</label>
+      <textarea cols="30" rows="3" id="description" formControlName="description" type="text" class="form-control"
+        placeholder="Décrivez en quelques mot l'activité de votre entreprise."></textarea>
+    </div>
+
+    <div class="form-group">
       <label for="siteWeb">Site Web</label>
       <input id="siteWeb" formControlName="siteWeb" type="text" class="form-control" placeholder="https://..." value="{{entreprise.siteWeb}}">
     </div>

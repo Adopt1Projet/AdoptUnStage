@@ -37,11 +37,9 @@ export class ModifierOffreComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
     const offre: Offre = this.formOffre.value;
-    console.log(offre);
     if (this.formOffre.invalid) {
       return;
     }
-    console.log(this.formOffre.value);
     this.submitForm = true;
     /*  if (this.formOffre.value.titre == null) { this.formOffre.value.titre = this.offre.titre };
      *  if (this.formOffre.value.description == null) { this.formOffre.value.description = this.offre.description };
@@ -72,14 +70,12 @@ export class ModifierOffreComponent implements OnInit {
     this.route.params.subscribe(params => {
 
       this.id = params.id;
-      console.log(params);
-      console.log(params['id'])
+
     })
     this.offreService
       .getOffre(this.id)
       .subscribe(data => {
         this.offre = data;
-        console.log(this.offre);
         this.formOffre.setValue({
           titre: this.offre.titre,
           description: this.offre.description,
