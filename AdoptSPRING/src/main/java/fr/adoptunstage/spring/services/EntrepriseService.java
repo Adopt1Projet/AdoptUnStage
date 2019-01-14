@@ -20,7 +20,6 @@ import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
-import fr.adoptunstage.spring.models.SignupMail;
 import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
 import fr.adoptunstage.spring.repos.RoleRepository;
@@ -32,9 +31,6 @@ public class EntrepriseService {
 	
 	@Autowired
 	EntrepriseRepository repository;
-	
-	@Autowired
-	MailService mailRepository;
 	
 	@Autowired
 	UserRepository userRepository;
@@ -103,9 +99,6 @@ public class EntrepriseService {
 
 		user.setRoles(roles);
 		userRepository.save(user);
-		
-		SignupMail signupEntreprise = new SignupMail(signUpRequest.getEmail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
-		mailRepository.signupEntrepriseMail(signupEntreprise);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}

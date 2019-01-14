@@ -107,7 +107,6 @@ public class OffreService {
 			_offre.setTitre(offre.getTitre());
 			_offre.setDescription(offre.getDescription());
 			_offre.setDateDebut(offre.getDateDebut());
-			_offre.setDateFin(offre.getDateFin());
 			_offre.setRue(offre.getRue());
 			_offre.setVille(offre.getVille());
 			_offre.setCodePostal(offre.getCodePostal());

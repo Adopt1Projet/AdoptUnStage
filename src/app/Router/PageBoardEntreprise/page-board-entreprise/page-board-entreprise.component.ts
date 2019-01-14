@@ -15,23 +15,6 @@ export class PageBoardEntrepriseComponent implements OnInit {
   constructor(private token: TokenStorageService,
     private entrepriseService: EntrepriseService) { }
 
-  onButtonGroupClick($event) {
-    let clickedElement = $event.target || $event.srcElement;
-
-    if (clickedElement.nodeName === "BUTTON") {
-
-      let isCertainButtonAlreadyActive = clickedElement.parentElement.querySelector(".active");
-      // if a Button already has Class: .active
-      if (isCertainButtonAlreadyActive) {
-        isCertainButtonAlreadyActive.classList.remove("active");
-      }
-
-      clickedElement.className += " active";
-    }
-
-  }
-
-
   ngOnInit() {
     this.username = this.token.getUsername();
     this.entrepriseService.getEntreprise(this.username)

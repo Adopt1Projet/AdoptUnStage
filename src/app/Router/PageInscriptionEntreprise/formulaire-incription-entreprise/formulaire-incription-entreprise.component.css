@@ -63,7 +63,6 @@ select {
   font-weight: bold;
   font-size: 1.25rem;
   margin-top: 3vh;
-  box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
 
 .btn:hover {

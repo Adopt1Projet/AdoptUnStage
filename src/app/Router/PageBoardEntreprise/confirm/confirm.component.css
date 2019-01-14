@@ -6,28 +6,11 @@
     will-change: opacity;
     display: inline-block;
     text-align: left;
+    position: absolute;
     top: 50%;
     left: 50%;
-    position: absolute;
-    z-index: 1000;
     transform: translate(-50%, -50%) !important;
-    border: 1px solid red;
   }
-  .modal-background {
-    /* modal background fixed across whole screen */
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    /* semi-transparent black  */
-    background-color: #000;
-    opacity: 0.8;
-     
-    /* z-index must be below .jw-modal and above everything else  */
-    z-index: 900;
-}
   
   .modal-content-size-m {
     max-width: 992px;
