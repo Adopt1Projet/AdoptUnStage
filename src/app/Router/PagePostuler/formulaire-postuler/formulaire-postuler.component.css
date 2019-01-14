@@ -10,25 +10,30 @@
 }
 
 .btnRetour {
-    background-color: #2fa89a;
-    color: white;
+    background-color: #00ac9a;
     border: none;
-    box-shadow: 3px 3px 8px rgb(43, 43, 43);
-    width: 250px;
-    height: 65px;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 5px 25px 5px 25px;
+    font-weight: bolder;
+    margin: 2%;
 }
+
 
 .btnPost {
     padding-bottom: 5%;
 }
 
 .btnValid {
-    background-color: #2fa89a;
-    color: white;
+    background-color: #00ac9a;
     border: none;
-    box-shadow: 3px 3px 8px rgb(43, 43, 43);
-    width: 250px;
-    height: 65px;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 5px 25px 5px 25px;
+    font-weight: bolder;
+    margin: 2%;
 }
 
 .btn:hover {

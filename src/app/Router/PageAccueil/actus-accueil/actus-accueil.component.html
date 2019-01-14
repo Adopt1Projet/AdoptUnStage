@@ -10,8 +10,12 @@
   </a>
 </div> -->
 
-<div *ngIf="actus" class="card-group">
-  <div class="card" [routerLink]="['/article', actus[actus.length - 1].id]">
+<div class="titre">
+  <h2>DERNIERES ACTUALITES</h2>
+</div>
+
+<div *ngIf="actus" class="card-group d-flex justify-content-between">
+  <div class="card col-md-3" [routerLink]="['/article', actus[actus.length - 1].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 1].image" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
       alt="image article">
     <img class="card-img-top" *ngIf="actus[actus.length - 1].image" src="{{actus[actus.length - 1].image}}" alt="image article">
@@ -19,7 +23,7 @@
       <h5 class="card-title">{{actus[actus.length - 1].titre}}</h5>
     </div>
   </div>
-  <div class="card" [routerLink]="['/article', actus[actus.length - 2].id]">
+  <div class="card col-md-3 d-none d-md-block" [routerLink]="['/article', actus[actus.length - 2].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 2].image" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
       alt="image article">
     <img class="card-img-top" *ngIf="actus[actus.length - 2].image" src="{{actus[actus.length - 2].image}}" alt="image article">
@@ -27,7 +31,7 @@
       <h5 class="card-title">{{actus[actus.length - 2].titre}}</h5>
     </div>
   </div>
-  <div class="card" [routerLink]="['/article', actus[actus.length - 3].id]">
+  <div class="card col-md-3 d-none d-md-block" [routerLink]="['/article', actus[actus.length - 3].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 3].image" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
       alt="image article">
     <img class="card-img-top" *ngIf="actus[actus.length - 3].image" src="{{actus[actus.length - 3].image}}" alt="image article">

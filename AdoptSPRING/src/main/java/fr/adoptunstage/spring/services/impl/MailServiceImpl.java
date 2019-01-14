@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.services.MailService;
+import fr.adoptunstage.spring.models.SignupMail;
 
 @Service
 public class MailServiceImpl implements MailService {
@@ -66,7 +67,7 @@ public class MailServiceImpl implements MailService {
 	
 	public String sendEmailToStagiaire(HTMLMail mail) {
 		
-		String titre = "Reponse automatique de adoptunstage@gmail.com";
+		String titre = "Reponse automatique de candidature sur Adoptunstage.fr";
 
 		try {
 	        MimeMessage message = mailSender.createMimeMessage();
@@ -87,4 +88,50 @@ public class MailServiceImpl implements MailService {
 
 		return "ok";
     }
+	
+	public String signupEntrepriseMail(SignupMail mail) {
+		
+		String titre = "Bienvenue sur Adoptunstage.fr !";
+		
+		try {MimeMessage message = mailSender.createMimeMessage();
+        
+        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+        
+        helper.setTo(mail.getTo());
+        helper.setSubject(titre);
+        message.setContent(mail.signupEntreprise(), "text/html; charset=utf-8");
+		
+        mailSender.send(message);
+	} 
+	catch(MessagingException e) {
+		System.err.println("Impossible d'envoyer le mail");
+		e.printStackTrace();
+		return "ko";
+	}
+
+	return "ok";
+	}
+	
+public String signupStagiaireMail(SignupMail mail) {
+		
+		String titre = "Bienvenue sur Adoptunstage.fr !";
+		
+		try {MimeMessage message = mailSender.createMimeMessage();
+        
+        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+        
+        helper.setTo(mail.getTo());
+        helper.setSubject(titre);
+        message.setContent(mail.signupStagiaire(), "text/html; charset=utf-8");
+		
+        mailSender.send(message);
+	} 
+	catch(MessagingException e) {
+		System.err.println("Impossible d'envoyer le mail");
+		e.printStackTrace();
+		return "ko";
+	}
+
+	return "ok";
+	}
 }

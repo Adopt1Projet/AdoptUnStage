@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
+import fr.adoptunstage.spring.models.SignupMail;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.Stagiaire;
@@ -35,6 +36,9 @@ public class StagiaireService {
 	
 	@Autowired
 	StagiaireRepository repository;
+	
+	@Autowired
+	MailService mailRepository;
 	
 	@Autowired
 	UserRepository userRepository;
@@ -100,8 +104,14 @@ public class StagiaireService {
 
 		user.setRoles(roles);
 		userRepository.save(user);
-
+		
+		SignupMail signupStagiaire = new SignupMail(signUpRequest.getEmail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
+		mailRepository.signupStagiaireMail(signupStagiaire);
+		
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+		
+		
+		
 	}
 	
 
@@ -139,6 +149,7 @@ public class StagiaireService {
 			_stagiaire.setPassword(encoder.encode(updateRequest.getPassword()));
 
 			userRepository.save(_stagiaire);
+			
 			
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {

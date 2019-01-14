@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from "src/app/services/offre.service";
-import { Observable } from 'rxjs';
 import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component'
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { SimpleModalService } from 'ngx-simple-modal';
