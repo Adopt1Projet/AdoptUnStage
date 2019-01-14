@@ -19,7 +19,7 @@
         <hr>
         <br>
         <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-                remplis.</p>
+            remplis.</p>
         <div class="col-sm-12 titres">
             <h2>Informations personnelles</h2>
         </div>
@@ -153,7 +153,7 @@
         <div class="form-group form-check">
             <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.checkCgu.errors }">
             <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu
-                <button (click)=showCgu() type="button">les conditions d'utilisation</button>
+                <button (click)=showCgu() type="button" class="cguButton">les conditions d'utilisation</button>
                 du site et m'y conformer.*
             </label>
             <div *ngIf="submitted && f.checkCgu.errors" class="invalid-feedback">

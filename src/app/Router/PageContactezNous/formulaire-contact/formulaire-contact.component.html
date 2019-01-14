@@ -3,16 +3,14 @@
     <div class="postulCenter d-flex  justify-content-center">
 
       <div class="col-md-6 contacttext">
-          <p class="title" style="font-style: italic; font-weight: normal">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-              remplis.</p>
+        <p class="title" style="font-style: italic; font-weight: normal">Les champs marqués d'un astérisque (*) sont
+          obligatoires et doivent donc être
+          remplis.</p>
 
         <div class="row form-group text-left">
           <label for="title" class="title">Sujet de votre message*</label>
           <input id="title" formControlName="title" type="text" class="col-12 form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
             placeholder="Sujet de votre message">
-          <!-- <label class="text-danger" *ngIf="formContact.controls['title'].hasError('required')">
-            Le sujet de votre message est requis!
-          </label> -->
           <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
             <div *ngIf="f.title.errors.required">Le sujet de votre message est requis!</div>
           </div>
@@ -22,15 +20,9 @@
           <label for="message" class="title">Message*</label>
           <textarea id="message" formControlName="message" type="text" class="col-12 form-control postArea" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
             placeholder="Posez votre question, décrivez votre problème ou faites nous un retour."></textarea>
-          <!-- <label class="text-danger" *ngIf="formContact.controls['message'].hasError('required')">
-            Vous devez entrer un message!
-          </label>
-          <label class="text-danger" *ngIf="formContact.controls['message'].hasError('message')">
-            Merci de remplir le champ!
-          </label> -->
           <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
             <div *ngIf="f.message.errors.required" class="text-danger">Vous devez entrer un message!</div>
-        </div> 
+          </div>
         </div>
       </div>
 
@@ -41,46 +33,27 @@
         <label for="name" class="col title text-left">Nom*</label>
         <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
           placeholder="Nom">
-          
-        <!-- <label class="text-danger" *ngIf="formContact.controls['name'].hasError('required')">
-          Votre nom est requis!
-        </label>
-        <label class="text-danger" *ngIf="formContact.controls['name'].hasError('nomReferent')">
-          Merci d'entrer votre nom!
-        </label> -->
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
           <div *ngIf="f.name.errors.required">Votre nom est requis!</div>
-      </div>
+        </div>
       </div>
 
       <div class="row personnalInfo justify-content-center col-md-2 form-group">
         <label for="prenom" class="col title text-left">Prénom*</label>
         <input id="prenom" formControlName="prenom" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"
           placeholder="Prénom">
-        <!-- <label class="text-danger" *ngIf="formContact.controls['prenom'].hasError('required')">
-          Votre prénom est requis!
-        </label>
-        <label class="text-danger" *ngIf="formContact.controls['prenom'].hasError('prenom')">
-          Merci d'entrer votre prénom!
-        </label> -->
         <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
           <div *ngIf="f.prenom.errors.required">Votre prénom est requis!</div>
-      </div>
+        </div>
       </div>
 
       <div class="row personnalInfo justify-content-center col-md-2 form-group">
         <label for="email" class="col title text-left">E-mail*</label>
         <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
           placeholder="E-mail">
-        <!-- <label class="text-danger" *ngIf="formContact.controls['email'].hasError('required')">
-          Le mail est requis!
-        </label>
-        <label class="text-danger" *ngIf="formContact.controls['email'].hasError('email')">
-          Entrez une adresse mail valide!
-        </label> -->
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">le mail est requis!</div>
-      </div>
+        </div>
       </div>
     </div>
 
