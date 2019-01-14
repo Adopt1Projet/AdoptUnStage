@@ -12,7 +12,7 @@ export interface Entreprise {
     codePostal: string;
     logo: string;
     prenom: string;
-    fonction: string;
+    contactMail: string;
     tel: string;
     siteWeb: string;
 

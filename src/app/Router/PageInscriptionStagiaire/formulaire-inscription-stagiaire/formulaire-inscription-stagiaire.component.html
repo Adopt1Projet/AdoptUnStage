@@ -17,83 +17,65 @@
                 <a id="lienFaq" routerLink="/contact">ici</a>.</p>
         </div>
         <hr>
+        <br>
+        <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+                remplis.</p>
         <div class="col-sm-12 titres">
             <h2>Informations personnelles</h2>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="prenom">Prénom</label>
-                <input id="prenom" formControlName="prenom" type="text" class="form-control" [ngClass]="formCreate.controls['prenom'].invalid ? 'is-invalid' : ''"
+                <label for="prenom">Prénom*</label>
+                <input id="prenom" formControlName="prenom" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"
                     placeholder="Prénom">
-                <label class="text-danger" *ngIf="formCreate.controls['prenom'].hasError('required')">
-                    Le prénom est requis!
-                </label>
-                <label class="text-danger" *ngIf="formCreate.controls['prenom'].hasError('prenom')">
-                    Merci d'entrer votre prénom!
-                </label>
+                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                    <div *ngIf="f.prenom.errors.required">Le prénom est requis!</div>
+                </div>
             </div>
 
             <div class="form-group col-md-6">
-                <label for="name">Nom</label>
-                <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formCreate.controls['name'].invalid ? 'is-invalid' : ''"
+                <label for="name">Nom*</label>
+                <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
                     placeholder="Nom">
-                <label class="text-danger" *ngIf="formCreate.controls['name'].hasError('required')">
-                    Le nom est requis!
-                </label>
-                <label class="text-danger" *ngIf="formCreate.controls['name'].hasError('name')">
-                    Merci d'entrer votre nom!
-                </label>
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Le nom est requis!</div>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="etablissement">Établissement</label>
+            <label for="etablissement">Établissement*</label>
             <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
-            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="formCreate.controls['etablissement'].invalid ? 'is-invalid' : ''"
+            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etablissement.errors }"
                 name="etablissement" placeholder="Établissement">
                 <option>Collège Jean de Verrazane</option>
                 <option>Collège Jean Perrin</option>
                 <option>Collège Victor Schoechler</option>
             </select>
+            <div *ngIf="submitted && f.etablissement.errors" class="invalid-feedback">
+                <div *ngIf="f.etablissement.errors.required">L'établissement est requis!</div>
+            </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="ville">Ville du domicile</label>
-                <input id="ville" formControlName="ville" type="text" class="form-control" [ngClass]="formCreate.controls['ville'].invalid ? 'is-invalid' : ''"
+                <label for="ville">Ville du domicile*</label>
+                <input id="ville" formControlName="ville" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
                     placeholder="Ville">
-                <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('required')">
-                    La ville est requise!
-                </label>
-                <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('ville')">
-                    Merci d'entrer votre ville!
-                </label>
+                <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+                    <div *ngIf="f.ville.errors.required">La ville est requise!</div>
+                </div>
             </div>
 
             <div class="form-group col-md-6">
-                <label for="codePostal">Code Postal</label>
-                <input id="codePostal" formControlName="codePostal" type="text" class="form-control" [ngClass]="formCreate.controls['codePostal'].invalid ? 'is-invalid' : ''"
+                <label for="codePostal">Code Postal*</label>
+                <input id="codePostal" formControlName="codePostal" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
                     placeholder="Code Postal">
-                <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('required')">
-                    Le code postal est requis!
-                </label>
-                <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('codePostal')">
-                    Merci d'entrer votre code postal!
-                </label>
+                <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
+                    <div *ngIf="f.codePostal.errors.required">Le code postal est requis!</div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label for="tel">Téléphone</label>
-            <input id="tel" formControlName="tel" type="text" class="form-control" [ngClass]="formCreate.controls['tel'].invalid ? 'is-invalid' : ''"
-                placeholder="n°">
-            <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('required')">
-                Le téléphone est requis!
-            </label>
-            <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('tel')">
-                Merci d'entrer votre numéro de téléphone!
-            </label>
         </div>
 
         <div class="col-sm-12 titres">
@@ -101,34 +83,28 @@
         </div>
 
         <div class="form-group">
-            <label for="email">E-mail</label>
+            <label for="email">E-mail*</label>
             <input id="email" formControlName="email" type="email" class="form-control" placeholder="Exemple@mail.com"
-                [ngClass]="formCreate.controls['email'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formCreate.controls['email'].hasError('required')">
-                Le mail est requis!
-            </label>
-            <label class="text-danger" *ngIf="formCreate.controls['email'].hasError('email')">
-                Entrez une adresse mail valide!
-            </label>
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Le mail est requis!</div>
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="confirmMail">Confirmation de l'E-mail</label>
-            <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formCreate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('required')">
-                La confirmation du mail est requise!
-            </label>
-            <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('NoMailMatch')">
-                Entrez une adresse mail valide!
-            </label>
+            <label for="confirmMail">Confirmation de l'E-mail*</label>
+            <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmMail.errors }">
+            <div *ngIf="submitted && f.confirmMail.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmMail.errors.required">La confirmation du mail est requise!</div>
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="formCreate.controls['password'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger col" *ngIf="formCreate.controls['password'].hasError('required')">
-                Mot de passe requis!
-            </label>
+            <label for="password">Mot de passe*</label>
+            <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Mot de passe requis!</div>
+            </div>
             <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
                 <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
                     formCreate.controls['password'].hasError('minlength') ? 'cancel' :
@@ -162,33 +138,33 @@
         </div>
 
         <div class="form-group">
-            <label for="confirmPassword">Confirmation du mot de passe</label>
+            <label for="confirmPassword">Confirmation du mot de passe*</label>
             <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
-                [ngClass]="formCreate.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
-            <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('required')">
-                La confirmation du mot de passe est requise!
-            </label>
+                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">La confirmation du mot de passe est requise!</div>
+            </div>
             <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('NoPasswordMatch')">
                 Mot de passe incorrect!
             </label>
+
         </div>
 
         <div class="form-group form-check">
-            <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input">
-            <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu 
+            <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.checkCgu.errors }">
+            <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu
                 <button (click)=showCgu() type="button">les conditions d'utilisation</button>
-                du site et m'y conformer
+                du site et m'y conformer.*
             </label>
-            <label class="text-danger" *ngIf="formCreate.controls['checkCgu'].hasError('required')">
-                Veuillez lire et accepter les conditions d'utilisation!
-            </label>
-
+            <div *ngIf="submitted && f.checkCgu.errors" class="invalid-feedback">
+                <div *ngIf="f.checkCgu.errors.required">Veuillez lire et accepter les conditions d'utilisation!</div>
+            </div>
         </div>
 
         <div class="form-group d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5">Retour</button>
 
-            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5">Valider</button>
+            <button type="submit" class="btn col-4 col-sm-5">Valider</button>
             <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
         </div>
 

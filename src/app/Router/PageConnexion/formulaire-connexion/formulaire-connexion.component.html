@@ -12,7 +12,7 @@
     <div *ngIf="isLoginFailed">
       <p id="loginFailed">Email ou mot de passe non valide.</p>
     </div>
-    <button type="submit" [disabled]="!formConnect.valid" class="btn connectSubmit">Se connecter</button>
+    <button type="submit" class="btn connectSubmit">Se connecter</button>
     <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
   </form>
 </div>

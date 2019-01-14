@@ -39,7 +39,6 @@ export class InfosStagiaireComponent implements OnInit {
           etablissement: this.stagiaire.etablissement,
           ville: this.stagiaire.ville,
           codePostal: this.stagiaire.codePostal,
-          tel: this.stagiaire.tel,
           email: this.stagiaire.email,
           confirmMail: this.stagiaire.email
         });
@@ -67,10 +66,6 @@ export class InfosStagiaireComponent implements OnInit {
           Validators.compose([Validators.required])
         ],
         codePostal: [
-          null,
-          Validators.compose([Validators.required])
-        ],
-        tel: [
           null,
           Validators.compose([Validators.required])
         ],

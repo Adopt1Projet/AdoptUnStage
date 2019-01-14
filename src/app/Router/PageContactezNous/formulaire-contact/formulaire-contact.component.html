@@ -3,8 +3,11 @@
     <div class="postulCenter d-flex  justify-content-center">
 
       <div class="col-md-6 contacttext">
+          <p class="title" style="font-style: italic; font-weight: normal">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+              remplis.</p>
+
         <div class="row form-group text-left">
-          <label for="title" class="title">Sujet de votre message</label>
+          <label for="title" class="title">Sujet de votre message*</label>
           <input id="title" formControlName="title" type="text" class="col-12 form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
             placeholder="Sujet de votre message">
           <!-- <label class="text-danger" *ngIf="formContact.controls['title'].hasError('required')">
@@ -16,7 +19,7 @@
         </div>
 
         <div class="row form-group text-left">
-          <label for="message" class="title">Message</label>
+          <label for="message" class="title">Message*</label>
           <textarea id="message" formControlName="message" type="text" class="col-12 form-control postArea" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
             placeholder="Posez votre question, décrivez votre problème ou faites nous un retour."></textarea>
           <!-- <label class="text-danger" *ngIf="formContact.controls['message'].hasError('required')">
@@ -35,7 +38,7 @@
 
     <div class="row justify-content-center">
       <div class="row personnalInfo justify-content-center col-md-2 form-group">
-        <label for="name" class="col title text-left">Nom</label>
+        <label for="name" class="col title text-left">Nom*</label>
         <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
           placeholder="Nom">
           
@@ -51,7 +54,7 @@
       </div>
 
       <div class="row personnalInfo justify-content-center col-md-2 form-group">
-        <label for="prenom" class="col title text-left">Prénom</label>
+        <label for="prenom" class="col title text-left">Prénom*</label>
         <input id="prenom" formControlName="prenom" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"
           placeholder="Prénom">
         <!-- <label class="text-danger" *ngIf="formContact.controls['prenom'].hasError('required')">
@@ -66,7 +69,7 @@
       </div>
 
       <div class="row personnalInfo justify-content-center col-md-2 form-group">
-        <label for="email" class="col title text-left">E-mail</label>
+        <label for="email" class="col title text-left">E-mail*</label>
         <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
           placeholder="E-mail">
         <!-- <label class="text-danger" *ngIf="formContact.controls['email'].hasError('required')">

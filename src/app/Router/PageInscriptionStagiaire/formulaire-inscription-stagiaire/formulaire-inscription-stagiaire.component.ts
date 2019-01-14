@@ -21,6 +21,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   stagiaire: Stagiaire;
   loading = false;
   confirmResult = null;
+  submitted = false;
 
   constructor(
     private stagiaireService: StagiaireService,
@@ -32,6 +33,9 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   ) {
     this.formCreate = this.createSignupForm();
   }
+
+  get f() { return this.formCreate.controls; }
+
 
   ngOnInit() {
   }
@@ -131,6 +135,12 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     this._location.back();
   }
   onSubmit() {
+    this.submitted = true;
+    if (this.formCreate.invalid) {
+      return;
+    }
+    this.loading = true;
+
     const stagiaire: Stagiaire = this.formCreate.value;
     this.loading = true;
     stagiaire.username = stagiaire.email;
