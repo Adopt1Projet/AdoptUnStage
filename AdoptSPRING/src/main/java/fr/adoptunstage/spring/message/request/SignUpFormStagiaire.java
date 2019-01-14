@@ -31,8 +31,6 @@ public class SignUpFormStagiaire {
     private String ville;
     
     private String codePostal;
-    
-    private String tel;
 	
 
 	public String getName() {
@@ -122,16 +120,6 @@ public class SignUpFormStagiaire {
 
 	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
-	}
-
-
-	public String getTel() {
-		return tel;
-	}
-
-
-	public void setTel(String tel) {
-		this.tel = tel;
 	}
 
 

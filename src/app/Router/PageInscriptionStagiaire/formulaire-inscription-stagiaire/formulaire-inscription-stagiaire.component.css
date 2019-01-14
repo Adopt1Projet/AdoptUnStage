@@ -68,3 +68,18 @@ select {
 .modeEmploi {
     padding-bottom: 1vh;
 }
+
+.cguButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(0, 119, 255);
+}
+
+.cguButton:hover {
+    text-decoration: underline;
+}
+#lienFaq {
+    text-transform: uppercase;
+
+}

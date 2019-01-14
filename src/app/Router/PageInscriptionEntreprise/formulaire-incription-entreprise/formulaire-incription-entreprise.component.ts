@@ -6,6 +6,9 @@ import { Entreprise } from 'src/app/modeles/entreprise';
 import { CustomValidators } from '../../../services/custom-validators';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
+
 
 import { AlertService } from '../../../services/alert.service';
 
@@ -17,13 +20,16 @@ import { AlertService } from '../../../services/alert.service';
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   public formCreate: FormGroup;
   loading = false;
+  submitted = false;
+  confirmResult = null;
 
   constructor(
     private entrepriseService: EntrepriseService,
     private _location: Location,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private SimpleModalService: SimpleModalService,
   ) {
     this.formCreate = this.createSignupForm();
   }
@@ -36,7 +42,10 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       {
         siteWeb: [null],
         logo: [null],
-        fonction: [null],
+        contactMail: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])
@@ -123,11 +132,32 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     );
   }
 
+  get f() { return this.formCreate.controls; }
+
+  showCgu() {
+    console.log();
+    this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
+      .subscribe((isConfirmed) => {
+
+        // Get modal result
+        this.confirmResult = isConfirmed;
+        if (isConfirmed) {
+          this.ngOnInit();
+        }
+
+      });
+  }
+
   retourPage() {
     this._location.back();
   }
 
   onSubmit() {
+    this.submitted = true;
+    if (this.formCreate.invalid) {
+      return;
+    }
+    this.loading = true;
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
