@@ -16,8 +16,8 @@ public class SignUpForm {
 	@Size(max = 60)
 	@Email
 	private String email;
-    
-    private String contactMail;
+
+	private String contactMail;
 
 	private Set<String> role;
 
@@ -113,12 +113,16 @@ public class SignUpForm {
 
 	public String getContactMail() {
 		return contactMail;
+	}
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setContactMail(String contactMail) {
 		this.contactMail = contactMail;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}

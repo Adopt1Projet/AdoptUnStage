@@ -144,12 +144,16 @@ public class Entreprise extends User {
 
 	public String getContactMail() {
 		return contactMail;
+	}
+	
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
 	public void setContactMail(String contactMail) {
 		this.contactMail = contactMail;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -158,14 +162,12 @@ public class Entreprise extends User {
 		this.description = description;
 	}
 
-	public Entreprise() {
-	}
 
 	
 	public Entreprise () {}
 	
 	public Entreprise(String name, String username, String email, String password, String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
-			String codePostal, String logo, String prenom, String contactMail, String tel) {
+			String codePostal, String logo, String prenom, String contactMail, String description, String tel) {
 		super(name, username, email, password);
 		this.raisonSociale = raisonSociale;
 		this.secteur = secteur;
