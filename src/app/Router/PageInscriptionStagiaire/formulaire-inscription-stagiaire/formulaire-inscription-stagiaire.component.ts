@@ -33,8 +33,13 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.colleges = this.collegeService.getCollegesList();
-    console.log (this.colleges);
+    this.collegeService.getCollegesList()
+    .subscribe(
+      data => {
+        this.colleges = data;
+        console.log (this.colleges);
+      }
+    );
 
     /* this.stagiaireService.createStagiaire(stagiaire)
       .subscribe(
