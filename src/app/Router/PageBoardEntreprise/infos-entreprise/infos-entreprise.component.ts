@@ -45,7 +45,7 @@ export class InfosEntrepriseComponent implements OnInit {
           ville: this.entreprise.ville,
           codePostal: this.entreprise.codePostal,
           //logo: this.entreprise.logo,
-          fonction: this.entreprise.fonction,
+          description: this.entreprise.description,
           tel: this.entreprise.tel,
           email: this.entreprise.email,
           confirmMail: this.entreprise.email
@@ -61,7 +61,7 @@ export class InfosEntrepriseComponent implements OnInit {
       {
         siteWeb: [null],
         // logo: [null],
-        fonction: [null],
+        description: [null],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])

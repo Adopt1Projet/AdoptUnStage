@@ -1,7 +1,7 @@
 <div class="container bodyFormulaire">
 
   <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
-    
+
     <div class="col-sm-12 titres">
       <h1>Création d'un compte entreprise</h1>
     </div>
@@ -23,57 +23,63 @@
 
     <div class="form-row">
 
-    <div class="form-group col-md-6">
-      <label for="secteur">Secteur d'activité</label>
-      <small class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
-      <select id="secteur" formControlName="secteur" type="text" class="form-control" [ngClass]="formCreate.controls['secteur'].invalid ? 'is-invalid' : ''"
-        name="secteur" placeholder="Secteur d'activité">
-        <option>Aéronautique</option>
-        <option>Agricole / Agroalimentaire</option>
-        <option>Armée / Sécurité</option>
-        <option>Art / Design</option>
-        <option>Audiovisuel / Spectacle / Cinéma</option>
-        <option>Audit / Conseil / Expertise</option>
-        <option>Automobile</option>
-        <option>Banques et Assurances</option>
-        <option>Chimie / Pharmacie</option>
-        <option>Commerce / Distribution</option>
-        <option>Culturel</option>
-        <option>Enseignement</option>
-        <option>Fonction publique</option>
-        <option>Hôtellerie / Restauration / Tourisme</option>
-        <option>Informatique</option>
-        <option>Journalisme</option>
-        <option>Logistique / Transport</option>
-        <option>Maintenance / Entretien</option>
-        <option>Marketing et Communication</option>
-        <option>Mécanique</option>
-        <option>Medico-social</option>
-        <option>Sports et Loisirs</option>
-      </select>
-      <label class="text-danger" *ngIf="formCreate.controls['secteur'].hasError('required')">
-        Le secteur d'activité est requis !
-      </label>
+      <div class="form-group col-md-6">
+        <label for="secteur">Secteur d'activité</label>
+        <small class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
+        <select id="secteur" formControlName="secteur" type="text" class="form-control" [ngClass]="formCreate.controls['secteur'].invalid ? 'is-invalid' : ''"
+          name="secteur" placeholder="Secteur d'activité">
+          <option>Aéronautique</option>
+          <option>Agricole / Agroalimentaire</option>
+          <option>Armée / Sécurité</option>
+          <option>Art / Design</option>
+          <option>Audiovisuel / Spectacle / Cinéma</option>
+          <option>Audit / Conseil / Expertise</option>
+          <option>Automobile</option>
+          <option>Banques et Assurances</option>
+          <option>Chimie / Pharmacie</option>
+          <option>Commerce / Distribution</option>
+          <option>Culturel</option>
+          <option>Enseignement</option>
+          <option>Fonction publique</option>
+          <option>Hôtellerie / Restauration / Tourisme</option>
+          <option>Informatique</option>
+          <option>Journalisme</option>
+          <option>Logistique / Transport</option>
+          <option>Maintenance / Entretien</option>
+          <option>Marketing et Communication</option>
+          <option>Mécanique</option>
+          <option>Medico-social</option>
+          <option>Sports et Loisirs</option>
+        </select>
+        <label class="text-danger" *ngIf="formCreate.controls['secteur'].hasError('required')">
+          Le secteur d'activité est requis !
+        </label>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="statut">Statut (S.A.R.L, Association ...)</label>
+        <small id="statut" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
+        <select id="statut" formControlName="statut" type="text" class="form-control" [ngClass]="formCreate.controls['statut'].invalid ? 'is-invalid' : ''"
+          name="statut" placeholder="Statut de l'entreprise">
+          <option>EIRL</option>
+          <option>SARL</option>
+          <option>EURL</option>
+          <option>SAS</option>
+          <option>SASU</option>
+          <option>SA</option>
+          <option>SNC</option>
+          <option>Association</option>
+          <option>Autre</option>
+        </select>
+      </div>
+
     </div>
 
-    <div class="form-group col-md-6">
-      <label for="statut">Statut (S.A.R.L, Association ...)</label>
-      <small id="statut" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
-      <select id="statut" formControlName="statut" type="text" class="form-control" [ngClass]="formCreate.controls['statut'].invalid ? 'is-invalid' : ''"
-        name="statut" placeholder="Statut de l'entreprise">
-        <option>EIRL</option>
-        <option>SARL</option>
-        <option>EURL</option>
-        <option>SAS</option>
-        <option>SASU</option>
-        <option>SA</option>
-        <option>SNC</option>
-        <option>Association</option>
-        <option>Autre</option>
-      </select>
+    <div class="form-group">
+      <label for="description">Description de l'entreprise</label>
+      <textarea cols="30" rows="3" id="description" formControlName="description" type="text" class="form-control"
+        placeholder="Décrivez en quelques mot l'activité de votre entreprise."></textarea>
     </div>
-
-  </div>
 
     <div class="form-group">
       <label for="siteWeb">Site Web</label>
@@ -91,25 +97,25 @@
 
     <div class="form-row">
 
-    <div class="form-group col-md-6">
-      <label for="ville">Ville</label>
-      <input id="ville" formControlName="ville" type="text" class="form-control" [ngClass]="formCreate.controls['ville'].invalid ? 'is-invalid' : ''"
-        placeholder="Lyon">
-      <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('required')">
-        La ville est requise !
-      </label>
-    </div>
+      <div class="form-group col-md-6">
+        <label for="ville">Ville</label>
+        <input id="ville" formControlName="ville" type="text" class="form-control" [ngClass]="formCreate.controls['ville'].invalid ? 'is-invalid' : ''"
+          placeholder="Lyon">
+        <label class="text-danger" *ngIf="formCreate.controls['ville'].hasError('required')">
+          La ville est requise !
+        </label>
+      </div>
 
-    <div class="form-group col-md-6">
-      <label for="codePostal">Code Postal</label>
-      <input id="codePostal" formControlName="codePostal" type="text" class="form-control" [ngClass]="formCreate.controls['codePostal'].invalid ? 'is-invalid' : ''"
-        placeholder="Code Postal">
-      <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('required')">
-        Le code postal est requis !
-      </label>
-    </div>
+      <div class="form-group col-md-6">
+        <label for="codePostal">Code Postal</label>
+        <input id="codePostal" formControlName="codePostal" type="text" class="form-control" [ngClass]="formCreate.controls['codePostal'].invalid ? 'is-invalid' : ''"
+          placeholder="Code Postal">
+        <label class="text-danger" *ngIf="formCreate.controls['codePostal'].hasError('required')">
+          Le code postal est requis !
+        </label>
+      </div>
 
-  </div>
+    </div>
 
     <div class="form-group logo">
       <label for="logo" class="label-file">Logo</label>
@@ -142,21 +148,21 @@
 
     <div class="form-row">
 
-    <div class="form-group col-md-6">
-      <label for="fonction">Fonction</label>
-      <input formControlName="fonction" type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction">
-    </div>
+      <div class="form-group col-md-6">
+        <label for="fonction">Fonction</label>
+        <input formControlName="fonction" type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction">
+      </div>
 
-    <div class="form-group col-md-6">
-      <label for="tel">Téléphone</label>
-      <input id="tel" formControlName="tel" type="text" class="form-control" [ngClass]="formCreate.controls['tel'].invalid ? 'is-invalid' : ''"
-        placeholder="n°">
-      <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('required')">
-        Le téléphone est requis !
-      </label>
-    </div>
+      <div class="form-group col-md-6">
+        <label for="tel">Téléphone</label>
+        <input id="tel" formControlName="tel" type="text" class="form-control" [ngClass]="formCreate.controls['tel'].invalid ? 'is-invalid' : ''"
+          placeholder="n°">
+        <label class="text-danger" *ngIf="formCreate.controls['tel'].hasError('required')">
+          Le téléphone est requis !
+        </label>
+      </div>
 
-  </div>
+    </div>
 
     <div class="col-sm-12 titres">
       <h2>Identifiants de l'entreprise</h2>
@@ -208,7 +214,7 @@
           'check_circle' }}</i>
         Doit contenir au minimum une lettre minuscule !
       </label>
- 
+
     </div>
 
     <div class="form-group">

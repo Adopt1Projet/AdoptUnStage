@@ -36,7 +36,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       {
         siteWeb: [null],
         logo: [null],
-        fonction: [null],
+        description: [null],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])

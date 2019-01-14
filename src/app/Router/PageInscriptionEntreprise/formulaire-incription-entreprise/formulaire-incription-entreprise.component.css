@@ -36,7 +36,8 @@ hr {
 }
 
 input,
-select {
+select,
+textarea {
   background-color: #ebebeb;
   border: none;
 }
