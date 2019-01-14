@@ -68,3 +68,6 @@ select {
 .modeEmploi {
     padding-bottom: 1vh;
 }
+#lienFaq {
+    text-transform: uppercase;
+}
