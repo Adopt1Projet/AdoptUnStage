@@ -8,9 +8,9 @@
     margin: 4%;
 }
 
-
-
 h2 {
     color: #26a69a;
     font-weight: bolder;
+    display: block;
+    margin: auto;
 }

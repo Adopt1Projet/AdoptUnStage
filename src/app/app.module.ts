@@ -9,7 +9,7 @@ import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 
-//Mother fucking date
+// Post-it Julien : Mother fucking date
 
 
 

@@ -10,6 +10,8 @@ import { SimpleModalService } from 'ngx-simple-modal';
 import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
 
 import { AlertService } from '../../../services/alert.service';
+import { Observable } from 'rxjs';
+import { CollegeService } from '../../../services/college.service';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -18,6 +20,7 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
   public formCreate: FormGroup;
+  colleges: Observable<any>;
   stagiaire: Stagiaire;
   loading = false;
   confirmResult = null;
@@ -29,7 +32,9 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private alertService: AlertService,
+    private collegeService: CollegeService
     private SimpleModalService: SimpleModalService,
+
   ) {
     this.formCreate = this.createSignupForm();
   }
@@ -38,6 +43,23 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
 
   ngOnInit() {
+    this.collegeService.getCollegesList()
+    .subscribe(
+      data => {
+        this.colleges = data;
+        console.log (this.colleges);
+      }
+    );
+
+    /* this.stagiaireService.createStagiaire(stagiaire)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
+        },
+        error => {
+          console.log(error);
+          this.loading = false; */
   }
 
   showCgu() {
@@ -134,6 +156,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   retourPage() {
     this._location.back();
   }
+
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
