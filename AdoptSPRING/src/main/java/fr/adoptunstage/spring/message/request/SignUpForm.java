@@ -39,7 +39,7 @@ public class SignUpForm {
     
     private String prenom;
     
-    private String fonction;
+    private String contactMail;
     
     private String tel;
     
@@ -111,12 +111,12 @@ public class SignUpForm {
 		this.prenom = prenom;
 	}
 
-	public String getFonction() {
-		return fonction;
+	public String getContactMail() {
+		return contactMail;
 	}
 
-	public void setFonction(String fonction) {
-		this.fonction = fonction;
+	public void setContactMail(String contactMail) {
+		this.contactMail = contactMail;
 	}
 
 	public String getTel() {
