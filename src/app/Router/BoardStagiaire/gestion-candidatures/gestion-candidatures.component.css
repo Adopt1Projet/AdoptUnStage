@@ -1,0 +1,32 @@
+.bodyGestionCandidatures {
+    padding-bottom: 5%;
+    padding-top: 3vw;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 3vw;  
+}
+
+h1 {
+    text-align: center;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    background-color: #26a69a;
+    height: 8vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.btn:hover {
+    background-color: #2ed1bb;
+}

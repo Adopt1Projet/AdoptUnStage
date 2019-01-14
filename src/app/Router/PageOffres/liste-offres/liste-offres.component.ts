@@ -10,14 +10,22 @@ import { Offre } from 'src/app/modeles/offre';
 })
 export class ListeOffresComponent implements OnInit {
 
-  offres: Observable<Offre[]>;
+  offres: Offre[];
 
   constructor(private offreService: OffreService) { }
 
+  getColor(active) { (2)
+    if (active == true) {
+      return "green";
+    } else {
+      return "red";
+    }
+  }
+
 
   ngOnInit() {
-    this.offres = this.offreService.getAllOffres()
-    console.log(this.offres)
+    this.offreService.getAllOffres().subscribe
+      (data => { this.offres = data; console.log(this.offres) });
   };
 }
 

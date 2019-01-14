@@ -1,7 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from 'src/app/services/offre.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Offre } from 'src/app/modeles/offre';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modifier-offre',
@@ -10,42 +14,123 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ModifierOffreComponent implements OnInit {
 
-  @Input() formData: any = [];
-  offre: Offre;
+  id: number;
+  public formOffre: FormGroup;
+  private offre: any;
+  private submitForm: boolean = false;
+  loading = false;
+  submitted = false;
 
-  formOffre = new FormGroup({
-    id: new FormControl(),
-    titre: new FormControl(),
-    description: new FormControl(),
-    // période: new FormControl(),
-    rue: new FormControl(),
-    ville: new FormControl(),
-    codePostal: new FormControl(),
-  });
-  constructor(private offreService: OffreService) { }
+
+  constructor(
+    private offreService: OffreService,
+    private fb: FormBuilder,
+    private alertService: AlertService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location) {
+    this.formOffre = this.updateOffreForm();
+  }
 
   onSubmit() {
-    this.offre = this.formOffre.value;
-    this.offreService.updateOffre(this.offre.id, this.offre)
-      //   // this.formData.id, { titre: this.formData.titre, description: this.formData.description, rue: this.formData.rue, ville: this.formData.ville, codePostal: this.formData.codePostal }
-      //  )
-      .subscribe(data => console.log(this.formOffre.value), error => console.log(error));
 
-  }
-  deleteOffre(id) {
-    this.offreService.deleteOffre(id)
+    this.submitted = true;
+    this.loading = true;
+    const offre: Offre = this.formOffre.value;
+    console.log(offre);
+    if (this.formOffre.invalid) {
+      return;
+    }
+    console.log(this.formOffre.value);
+    this.submitForm = true;
+    /*  if (this.formOffre.value.titre == null) { this.formOffre.value.titre = this.offre.titre };
+     *  if (this.formOffre.value.description == null) { this.formOffre.value.description = this.offre.description };
+     *  if (this.formOffre.value.rue == null) { this.formOffre.value.rue = this.offre.rue };
+     *  if (this.formOffre.value.ville == null) { this.formOffre.value.ville = this.offre.ville };
+     *  if (this.formOffre.value.codePostal == null) { this.formOffre.value.codePostal = this.offre.codePostal };
+     *  if (this.formOffre.value.dateDebut == null) { this.formOffre.value.dateDebut = this.offre.dateDebut };
+     *  if (this.formOffre.value.dateFin == null) { this.formOffre.value.dateFin = this.offre.dateFin }; */
+    this.offreService.updateOffre(this.offre.id, this.formOffre.value)
       .subscribe(
         data => {
-          console.log(data);
+          this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
-        error => console.log(error));
+        error => {
+          this.alertService.error('Une erreur est servenue. Veuillez vérifier les informations entrées.', true);
+        });
+    this.router.navigate(['../boardentreprise/gestionoffres']);
   }
 
+  retourPage() {
+    this.location.back();
+  }
+
+  get f() { return this.formOffre.controls; }
+
   ngOnInit() {
-    this.offre = this.formOffre.value;
+
+    this.route.params.subscribe(params => {
+
+      this.id = params.id;
+      console.log(params);
+      console.log(params['id'])
+    })
+    this.offreService
+      .getOffre(this.id)
+      .subscribe(data => {
+        this.offre = data;
+        console.log(this.offre);
+        this.formOffre.setValue({
+          titre: this.offre.titre,
+          description: this.offre.description,
+          dateDebut: this.offre.dateDebut,
+          dateFin: this.offre.dateFin,
+          active : this.offre.active,
+          rue: this.offre.rue,
+          ville: this.offre.ville,
+          codePostal: this.offre.codePostal
+        });
+      },
+        error => console.log("Une erreur est survenue."));
+  }
+
+  updateOffreForm(): FormGroup {
+    return this.fb.group(
+      {
+        titre: [
+          null,
+          Validators.required
+        ],
+        description: [
+          null,
+          Validators.required
+        ],
+        dateDebut: [
+          null,
+          Validators.required
+        ],
+        dateFin: [
+          null,
+          Validators.required
+        ],
+        active: [
+          null,
+        ],
+        rue: [
+          null,
+          Validators.required
+        ],
+        ville: [
+          null,
+          Validators.required
+        ],
+        codePostal: [
+          null,
+          Validators.required
+        ],
+
+      },
+    );
   }
 
 }
-// (this.offre.id,
-//   { titre: this.offre.titre, description: this.offre.description, rue: this.offre.rue, ville: this.offre.ville, codePostal: this.offre.codePostal })
-

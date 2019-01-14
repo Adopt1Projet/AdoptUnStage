@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
+import fr.adoptunstage.spring.models.SignupMail;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.Stagiaire;
@@ -37,6 +38,9 @@ public class StagiaireService {
 	StagiaireRepository repository;
 	
 	@Autowired
+	MailService mailRepository;
+	
+	@Autowired
 	UserRepository userRepository;
 	
 	@Autowired
@@ -48,13 +52,17 @@ public class StagiaireService {
 	public List<Stagiaire> getAllStagiaire() {
 		List<Stagiaire> stagiaires = new ArrayList<>();
 		repository.findAll().forEach(stagiaires::add);
+		for (Stagiaire stagiaire : stagiaires) {
+			stagiaire.setPassword("");
+		}
 		return stagiaires;
 	}
 
 	public Stagiaire getOneStagiaire(String username) {
-		Stagiaire user = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-		return user;
+		stagiaire.setPassword("");
+		return stagiaire;
 	}
 
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
@@ -96,8 +104,14 @@ public class StagiaireService {
 
 		user.setRoles(roles);
 		userRepository.save(user);
-
+		
+		SignupMail signupStagiaire = new SignupMail(signUpRequest.getEmail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
+		mailRepository.signupStagiaireMail(signupStagiaire);
+		
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+		
+		
+		
 	}
 	
 
@@ -115,6 +129,7 @@ public class StagiaireService {
 					_stagiaire.setCodePostal(updateRequest.getCodePostal());
 					_stagiaire.setTel(updateRequest.getTel());
 					_stagiaire.setEmail(updateRequest.getEmail());
+					_stagiaire.setUsername(updateRequest.getUsername());
 
 			userRepository.save(_stagiaire);
 			
@@ -134,6 +149,7 @@ public class StagiaireService {
 			_stagiaire.setPassword(encoder.encode(updateRequest.getPassword()));
 
 			userRepository.save(_stagiaire);
+			
 			
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {

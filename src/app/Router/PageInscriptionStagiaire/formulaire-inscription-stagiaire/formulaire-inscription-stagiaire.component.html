@@ -7,12 +7,12 @@
         <div class="modeEmploi">
             <p>Inscris-toi en quelques clics et trouve le stage qui te plait ! </p>
             <ol>
-                <li>Remplis le formulaire ci-dessous pour créer ton compte personnel</li>
-                <li>Réponds aux annonces de stages en ligne avec ton CV et ta lettre de motivation</li>
-                <li>Gère tes candidature en ligne directement sur le site internet</li>
-                <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage</li>
+                <li>Remplis le formulaire ci-dessous pour créer ton compte personnel.</li>
+                <li>Réponds aux annonces de stages en ligne avec ton CV.</li>
+                <li>Gère tes candidatures en ligne directement sur le site internet.</li>
+                <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage.</li>
             </ol>
-            <p>Des questions ? Consultes notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta
+            <p>Des questions ? Consulte notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta
                 question
                 <a id="lienFaq" routerLink="/contact">ici</a>.</p>
         </div>
@@ -116,7 +116,7 @@
             <label for="confirmMail">Confirmation de l'E-mail</label>
             <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formCreate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
             <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('required')">
-                Le mail est requis!
+                La confirmation du mail est requise!
             </label>
             <label class="text-danger" *ngIf="formCreate.controls['confirmMail'].hasError('NoMailMatch')">
                 Entrez une adresse mail valide!
@@ -133,25 +133,25 @@
                 <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
                     formCreate.controls['password'].hasError('minlength') ? 'cancel' :
                     'check_circle' }}</i>
-                Dois contenir au minimum 6 caractères!
+                Doit contenir au minimum 6 caractères!
             </label>
             <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
                 <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
                     formCreate.controls['password'].hasError('hasNumber') ? 'cancel' :
                     'check_circle' }}</i>
-                Dois contenir au minimum un chiffre!
+                Doit contenir au minimum un chiffre!
             </label>
             <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
                 <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
                     formCreate.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
                     'check_circle' }}</i>
-                Dois contenir au minimum une lettre majuscule!
+                Doit contenir au minimum une lettre majuscule!
             </label>
             <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
                 <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
                     formCreate.controls['password'].hasError('hasSmallCase') ? 'cancel' :
                     'check_circle' }}</i>
-                Dois contenir au minimum une lettre minuscule!
+                Doit contenir au minimum une lettre minuscule!
             </label>
             <!-- <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
               <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
@@ -166,7 +166,7 @@
             <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control"
                 [ngClass]="formCreate.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
             <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('required')">
-                Mot de passe requis!
+                La confirmation du mot de passe est requise!
             </label>
             <label class="text-danger" *ngIf="formCreate.controls['confirmPassword'].hasError('NoPasswordMatch')">
                 Mot de passe incorrect!
@@ -176,7 +176,7 @@
         <div class="form-group form-check">
             <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input">
             <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
-                du site et m'y conformer
+                du site et m'y conformer.
             </label>
             <label class="text-danger" *ngIf="formCreate.controls['checkCgu'].hasError('required')">
                 Veuillez lire et accepter les conditions d'utilisation!
@@ -185,9 +185,9 @@
         </div>
 
         <div class="form-group d-flex justify-content-around">
-            <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5 shadow">Retour</button>
+            <button (click)="retourPage()" type="button" class="btn col-4 col-sm-5">Retour</button>
 
-            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5 shadow">Valider</button>
+            <button [disabled]="formCreate.invalid" type="submit" class="btn col-4 col-sm-5">Valider</button>
             <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
         </div>
 

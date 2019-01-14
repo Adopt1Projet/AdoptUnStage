@@ -1,0 +1,27 @@
+.bodyOffres {
+    background-color: white;
+    max-height: 35vh;
+    overflow: auto;
+}
+
+.tableHeader {
+    background-color: #2fa89a;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+    padding-top: 2vw;
+    padding-bottom: 2vh;
+}
+
+h2 {
+    color: #26a69a;
+    font-weight: bolder;
+}
+
+img {
+max-width : 70px;
+}

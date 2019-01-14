@@ -37,10 +37,6 @@ export class OffreService {
     return this.http.get(`${this.baseUrl}`);
   }
 
-  getOffreByCodePostal(codePostal: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/codePostal/${codePostal}`);
-  }
-
   deleteAll(): Observable<any> {
     return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
   }
@@ -51,5 +47,9 @@ export class OffreService {
 
   getOffresListStagiaire(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/mesoffresstagiaire/${username}`);
+  }
+
+  getOffresListStagiairePourvues(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/mesoffresstagiairepourvues/${username}`);
   }
 }
