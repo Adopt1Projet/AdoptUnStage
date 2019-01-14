@@ -34,7 +34,6 @@ export class InfosEntrepriseComponent implements OnInit {
       .getEntreprise(this.username)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,
@@ -47,6 +46,7 @@ export class InfosEntrepriseComponent implements OnInit {
           codePostal: this.entreprise.codePostal,
           //logo: this.entreprise.logo,
           contactMail: this.entreprise.contactMail,
+          description: this.entreprise.description,
           tel: this.entreprise.tel,
           email: this.entreprise.email,
           confirmMail: this.entreprise.email
@@ -66,6 +66,7 @@ export class InfosEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
+        description: [null],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])

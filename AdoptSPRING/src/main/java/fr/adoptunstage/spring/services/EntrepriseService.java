@@ -129,6 +129,7 @@ public class EntrepriseService {
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
 									_entreprise.setContactMail(updateRequest.getContactMail());
+									_entreprise.setDescription(updateRequest.getDescription());
 									_entreprise.setTel(updateRequest.getTel());
 									_entreprise.setEmail(updateRequest.getEmail());
 									_entreprise.setUsername(updateRequest.getUsername());
