@@ -10,16 +10,16 @@
 
 .btnEntreprise {
     background-color: #00ac9a;
-    box-shadow: 3px 3px 8px rgb(105, 105, 105);
-    height: 5vh;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+    height: 8vh;
     color: white;
     font-weight: bold;
 }
 
 .btnStagiaire {
     background-color: #ffffff;
-    box-shadow: 3px 3px 8px rgb(105, 105, 105);
-    height: 5vh;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+    height: 8vh;
     color: black;
     font-weight: bold;
 }
@@ -28,3 +28,42 @@
 .btn:hover {
     background-color: #2ed1bb;
 }
+
+/* 
+.btnStagiaire {
+    background-color: #2a9984;
+    border: none;
+    margin: 10%;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+}
+
+.btnEntreprise {
+    background-color: #2a9984;
+    border: none;
+    margin: 10%;
+    box-shadow: 3px 3px 8px rgb(43, 43, 43);
+}
+
+.btnStagiaire h1 {
+    color: black;
+}
+
+.btnEntreprise h1 {
+    color: black;
+}
+
+.btnStagiaire h6 {
+    color: black;
+}
+
+.btnEntreprise h6 {
+    color: black;
+}
+
+.btnStagiaire:hover {
+    background-color: #2ed1bb;
+}
+
+.btnEntreprise:hover {
+    background-color: #2ed1bb;
+} */

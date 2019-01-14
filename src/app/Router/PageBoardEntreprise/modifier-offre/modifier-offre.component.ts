@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OffreService } from 'src/app/services/offre.service';
-import { Offre } from 'src/app/modeles/offre';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { AlertService } from '../../../services/alert.service';
 import { Router } from '@angular/router';
 
@@ -18,8 +16,6 @@ export class ModifierOffreComponent implements OnInit {
   public formOffre: FormGroup;
   private offre: any;
   private submitForm: boolean = false;
-  loading = false;
-  submitted = false;
 
 
   constructor(
@@ -27,20 +23,12 @@ export class ModifierOffreComponent implements OnInit {
     private fb: FormBuilder,
     private alertService: AlertService,
     private route: ActivatedRoute,
-    private router: Router,
-    private location: Location) {
+    private router: Router) {
     this.formOffre = this.updateOffreForm();
   }
 
   onSubmit() {
 
-    this.submitted = true;
-    this.loading = true;
-    const offre: Offre = this.formOffre.value;
-    console.log(offre);
-    if (this.formOffre.invalid) {
-      return;
-    }
     console.log(this.formOffre.value);
     this.submitForm = true;
     /*  if (this.formOffre.value.titre == null) { this.formOffre.value.titre = this.offre.titre };
@@ -61,12 +49,6 @@ export class ModifierOffreComponent implements OnInit {
     this.router.navigate(['../boardentreprise/gestionoffres']);
   }
 
-  retourPage() {
-    this.location.back();
-  }
-
-  get f() { return this.formOffre.controls; }
-
   ngOnInit() {
 
     this.route.params.subscribe(params => {
@@ -85,7 +67,6 @@ export class ModifierOffreComponent implements OnInit {
           description: this.offre.description,
           dateDebut: this.offre.dateDebut,
           dateFin: this.offre.dateFin,
-          active : this.offre.active,
           rue: this.offre.rue,
           ville: this.offre.ville,
           codePostal: this.offre.codePostal
@@ -99,34 +80,29 @@ export class ModifierOffreComponent implements OnInit {
       {
         titre: [
           null,
-          Validators.required
+          Validators.compose([Validators.required])
         ],
         description: [
           null,
-          Validators.required
+          Validators.compose([Validators.required])
         ],
         dateDebut: [
           null,
-          Validators.required
         ],
         dateFin: [
-          null,
-          Validators.required
-        ],
-        active: [
           null,
         ],
         rue: [
           null,
-          Validators.required
+          Validators.compose([Validators.required])
         ],
         ville: [
           null,
-          Validators.required
+          Validators.compose([Validators.required])
         ],
         codePostal: [
           null,
-          Validators.required
+          Validators.compose([Validators.required])
         ],
 
       },

@@ -19,28 +19,25 @@ export class FormulaireCreerOffreComponent implements OnInit {
 
   // @Input() formData: any = [];
   username: string;
-  public formOffre: FormGroup;
-  loading = false;
-  submitted = false;
 
+  formOffre = new FormGroup({
+    titre: new FormControl(),
+    description: new FormControl(),
+    dateDebut: new FormControl(),
+    dateFin: new FormControl(),
+    // période: new FormControl(),
+    rue: new FormControl(),
+    ville: new FormControl(),
+    codePostal: new FormControl(),
+  });
   constructor(
     private offreService: OffreService,
     private token: TokenStorageService,
-    private alertService: AlertService,
-    private fb: FormBuilder) { }
-
-    get f() { return this.formOffre.controls; }
-
+    private alertService: AlertService) { }
 
   onSubmit() {
-    this.submitted = true;
-    this.loading = true;
     const offre: Offre = this.formOffre.value;
     console.log(offre);
-
-    if (this.formOffre.invalid) {
-      return;
-    }
     this.alertService.success('Votre annonce à bien été créée. Vous pouvez la modifier dans l\'onglet "Gestion des annonces".', true);
     this.offreService.createOffre(this.username, offre)
       .subscribe(data => console.log(data), error => console.log(error));
@@ -49,36 +46,6 @@ export class FormulaireCreerOffreComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.token.getUsername();
-    this.formOffre = this.fb.group({
-      titre: [
-        '',
-        Validators.required
-      ],
-      description: [
-        '',
-        Validators.required
-      ],
-      dateDebut: [
-        '',
-        Validators.required
-      ],
-      dateFin: [
-        '',
-        Validators.required
-      ],
-      rue: [
-        '',
-        Validators.required
-      ],
-      ville: [
-        '',
-        Validators.required
-      ],
-      codePostal: [
-        '',
-        Validators.required
-      ]
-    })
 
   }
 

@@ -15,59 +15,49 @@ export class FormulaireContactComponent implements OnInit {
 
   public formContact: FormGroup;
   loading = false;
-  submitted = false;
 
   constructor(
     private mailService: SendEmailService,
     private fb: FormBuilder,
     private router: Router,
     private alertService: AlertService
-  ) { }
-
-  ngOnInit() {
-
-    this.formContact = this.fb.group({
-      title: [
-        '',
-        Validators.required
-      ],
-      message: [
-        '',
-        Validators.required
-      ],
-      prenom: [
-        '',
-        Validators.required
-      ],
-      name: [
-        '',
-        Validators.required
-      ],
-      email: [
-        '',
-        [Validators.email, Validators.required]
-      ]
-    })
+  ) {
+    this.formContact = this.createContactForm();
   }
 
-  // createContactForm(): FormGroup {
-  //   return this.fb.group(
-  //     {
+  ngOnInit() {
+  }
 
+  createContactForm(): FormGroup {
+    return this.fb.group(
+      {
 
-  //     });
-  // }
-
-  get f() { return this.formContact.controls; }
+        title: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        message: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        prenom: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        name: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        email: [
+          null,
+          Validators.compose([Validators.email, Validators.required])
+        ]
+      });
+  }
 
   onSubmit() {
-    this.submitted = true;
     const email: Email = this.formContact.value;
-    if (this.formContact.invalid) {
-      return;
-    }
     this.loading = true;
-    
     this.alertService.success('Votre message a bien été envoyé. Nous vous enverrons une réponse au plus vite.', true);
     this.mailService.sendMail(email)
       .pipe(first())
@@ -79,7 +69,7 @@ export class FormulaireContactComponent implements OnInit {
           console.log(error);
           this.loading = false;
         });
-    this.formContact.reset();
+        this.formContact.reset();
   }
 
 

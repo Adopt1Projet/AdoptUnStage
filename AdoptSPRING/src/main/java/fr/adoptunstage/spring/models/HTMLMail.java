@@ -109,7 +109,6 @@ public HTMLMail() {};
 			                    "<img src=\"../../../../../../../../src/assets/img/banner.png\" class=\"img-fluid w-100\" alt=\"\">" +
 			                "</body>" +
 		              "</html>";
-		
 //					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
 		return str;
 	}

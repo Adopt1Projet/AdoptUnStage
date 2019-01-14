@@ -8,17 +8,17 @@
                     <th>Offre</th>
                     <th>Ville</th>
                     <th>Période</th>
-                    <th>Détail</th>
                     <th>Etat</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let offre of offres async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
-                    <td><img src="../../../../assets/img/computuer.jpeg" alt=""></td>
+                    <td><img src="https://via.placeholder.com/140x100" alt=""></td>
                     <td>{{offre.entreprise.secteur}}</td>
                     <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
                     <td> {{offre.ville}} </td>
                     <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
+                    <td> {{offre.active}} </td>
                     <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
                     <td style="background-color : green; color: white;" *ngIf="offre.active == true">Dispo</td>
                     <td style="background-color : red; color: white;" *ngIf="offre.active == false">Pourvue</td>

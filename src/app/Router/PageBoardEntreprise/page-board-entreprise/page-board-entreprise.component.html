@@ -1,10 +1,10 @@
 <div class="container bodyBoard">
     <br>
     <div class="col-sm-12 titres">
-        <h2 *ngIf="entreprise">Bonjour <span style="color: #26a69a">{{entreprise.raisonSociale}}</span>, bienvenue sur
-            votre tableau de bord !</h2>
+        <h2 *ngIf="entreprise">Bonjour <span style="color: #26a69a">{{entreprise.raisonSociale}}</span>, bienvenue sur votre tableau de bord !</h2>
     </div>
     <hr>
+
     <div class="d-flex justify-content-around" (click)="onButtonGroupClick($event)">
         <button type="button" class="btn col-3 col-sm-3" routerLink="/boardentreprise/gestionoffres" routerLinkActive="router-link-active">Gestion
             des offres</button>
