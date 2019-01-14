@@ -16,3 +16,12 @@
 .btnModifierOffre {
     background-color: #2ed1bb;
 }
+
+.textetoggle {
+    margin-left: 15px;
+    font-size: 18px;
+    vertical-align : 50%;
+}
+#boutontoggle{
+    margin-bottom: 15px;
+}

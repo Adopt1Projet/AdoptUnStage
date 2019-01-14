@@ -22,10 +22,20 @@
       <input type="date" formControlName="dateFin" class="form-control" id="dateFin" value="{{offre.dateFin}}">
     </div>
 
+
     <!--  -->
     <ui-switch size="large" color="#26a69a" defaultBoColor="lightgrey" labelOn="Pourvue" labelOff="Libre"></ui-switch>
     <!--  -->
     
+
+    <div id="boutontoggle">
+      <ui-switch formControlName="active" [checked]="true" size="large" color="#26a69a"></ui-switch><span class="textetoggle"
+      style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
+      disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de stagiaire car votre
+      offre est pourvue.</span>
+    </div>
+
+
     <h2 class="text-center">Localisation du stage</h2>
     <div class="form-group">
       <label for="rue">Rue</label>

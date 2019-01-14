@@ -4,13 +4,14 @@
         <h2 *ngIf="entreprise">Bonjour <span style="color: #26a69a">{{entreprise.raisonSociale}}</span>, bienvenue sur votre tableau de bord !</h2>
     </div>
     <hr>
-    <div class="d-flex justify-content-around">
-        <button type="button" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/gestionoffres">Gestion
-            des annonces</button>
-        <button type="submit" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/creeroffre">Créer
+
+    <div class="d-flex justify-content-around" (click)="onButtonGroupClick($event)">
+        <button type="button" class="btn col-3 col-sm-3" routerLink="/boardentreprise/gestionoffres" routerLinkActive="router-link-active">Gestion
+            des offres</button>
+        <button type="submit" class="btn col-3 col-sm-3" routerLink="/boardentreprise/creeroffre" routerLinkActive="router-link-active">Créer
             une
-            annonce</button>
-        <button type="submit" class="btn col-3 col-sm-3 shadow" routerLink="/boardentreprise/infosentreprise">Mes infos
+            offre</button>
+        <button type="submit" class="btn col-3 col-sm-3" routerLink="/boardentreprise/infosentreprise" routerLinkActive="router-link-active">Mes infos
             de profil</button>
     </div>
     <router-outlet></router-outlet>
