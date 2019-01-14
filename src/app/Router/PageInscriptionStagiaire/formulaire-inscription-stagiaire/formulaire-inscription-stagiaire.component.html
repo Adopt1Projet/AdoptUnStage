@@ -175,8 +175,9 @@
 
         <div class="form-group form-check">
             <input id="checkCgu" formControlName="checkCgu" type="checkbox" class="form-check-input">
-            <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu les conditions d'utilisation
-                du site et m'y conformer.
+            <label class="form-check-label check" for="exampleCheck1">Je certifie avoir lu 
+                <button (click)=showCgu() type="button">les conditions d'utilisation</button>
+                du site et m'y conformer
             </label>
             <label class="text-danger" *ngIf="formCreate.controls['checkCgu'].hasError('required')">
                 Veuillez lire et accepter les conditions d'utilisation!
