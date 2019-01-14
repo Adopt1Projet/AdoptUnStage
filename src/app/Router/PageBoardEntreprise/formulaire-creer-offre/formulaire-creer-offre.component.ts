@@ -37,6 +37,7 @@ export class FormulaireCreerOffreComponent implements OnInit {
     this.loading = true;
     const offre: Offre = this.formOffre.value;
     console.log(offre);
+
     if (this.formOffre.invalid) {
       return;
     }
