@@ -32,7 +32,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private alertService: AlertService,
-    private collegeService: CollegeService
+    private collegeService: CollegeService,
     private SimpleModalService: SimpleModalService,
 
   ) {
