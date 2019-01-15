@@ -1,13 +1,11 @@
 <div class="container bodyCreerOffre">
-  <app-alert></app-alert>
-
   <h1 class="titre">Créer une offre</h1>
   <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="titre">Intitulé du poste</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
-        placeholder="Intitulé du poste">
+        placeholder="ex: Boulanger, Informaticien">
       <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
         <div *ngIf="f.titre.errors.required">L'intitulé du poste est requis !</div>
       </div>
@@ -16,7 +14,7 @@
     <div class="form-group">
       <label for="description">Descriptif du poste</label>
       <textarea class="form-control" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-        id="description" rows="3" placeholder="Décrivez en quelques lignes ce que je le stagiaire sera amené à faire et découvrir.">
+        id="description" rows="3" placeholder="Décrivez en quelques lignes ce que le stagiaire sera amené à faire et découvrir.">
     </textarea>
       <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
         <div *ngIf="f.description.errors.required">Le descriptif est requis !</div>
@@ -48,7 +46,7 @@
     <div class="form-group">
       <label for="rue">Adresse</label>
       <input type="text" class="form-control" formControlName="rue" id="rue" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"
-        placeholder="Adresse">
+        placeholder="ex: 25 rue de Vaise">
       <div *ngIf="submitted && f.rue.errors" class="invalid-feedback">
         <div *ngIf="f.rue.errors.required">L'adresse du lieu de stage est requise !</div>
       </div>
@@ -57,7 +55,7 @@
     <div class="form-group">
       <label for="ville">Ville</label>
       <input type="text" class="form-control" formControlName="ville" id="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
-        placeholder="Lyon">
+        placeholder="ex: Lyon">
       <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
         <div *ngIf="f.ville.errors.required">La ville est requise !</div>
       </div>
@@ -66,7 +64,7 @@
     <div class="form-group">
       <label for="codePostal">Code postal</label>
       <input type="text" class="form-control" formControlName="codePostal" id="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
-        placeholder="69000">
+        placeholder="ex: 69000">
       <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
         <div *ngIf="f.codePostal.errors.required">Le code postal est requis !</div>
       </div>
