@@ -190,5 +190,8 @@ export class InfosEntrepriseComponent implements OnInit {
           this.alertService.error('Une erreur est servenue.', true);
         });
     this.formUpdatePassword.reset();
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 }

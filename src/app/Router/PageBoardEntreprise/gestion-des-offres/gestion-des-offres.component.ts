@@ -51,20 +51,17 @@ export class GestionDesOffresComponent {
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
           this.deleteOffre(i);
-        }
-
-        // Refresh component list
-        setTimeout(() => {
           this.reloadData();
-        }, 100);
-
+        }
       });
   }
 
   reloadData() {
-    this.offreService.getOffresList(this.username).subscribe((data) => {
-      this.offres = data
-    });
+    setTimeout(() => {
+      this.offreService.getOffresList(this.username).subscribe((data) => {
+        this.offres = data
+      });
+    }, 100);
   }
   ngOnInit() {
     this.username = this.token.getUsername();
@@ -72,8 +69,6 @@ export class GestionDesOffresComponent {
   }
 
   ngOnChanges() {
-    setTimeout(() => {
-      this.reloadData();
-    }, 100);
+    this.reloadData();
   }
 }

@@ -1,6 +1,8 @@
 <div *ngIf="entreprise" class="container bodyFormulaire">
   <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
-
+    <br>
+    <br>
+    <app-alert></app-alert>
     <div class="col-sm-12 titre">
       <h1>Modifier les informations de mon entreprise</h1>
     </div>
@@ -189,9 +191,6 @@
     <div class="form-group d-flex justify-content-around">
       <button [disabled]="formUpdate.invalid" type="submit" class="btn col-4 col-sm-5">Valider les modifications</button>
     </div>
-
-    <app-alert *ngIf="submitForm"></app-alert>
-
   </form>
 
   <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
@@ -253,7 +252,5 @@
       <button [disabled]="formUpdatePassword.invalid" type="submit" class="btn col-4 col-sm-5">Modifier le mot
         de passe</button>
     </div>
-
-    <app-alert *ngIf="submitFormPassword"></app-alert>
   </form>
 </div>
