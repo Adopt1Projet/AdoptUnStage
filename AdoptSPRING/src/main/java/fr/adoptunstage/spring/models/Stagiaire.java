@@ -26,9 +26,6 @@ public class Stagiaire extends User {
 	@Column(name = "codePostal")
 	private String codePostal;
 	
-	@Column(name = "tel")
-	private String tel;
-	
 	@ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                 CascadeType.PERSIST,
@@ -104,24 +101,15 @@ public class Stagiaire extends User {
 		this.codePostal = codePostal;
 	}
 
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal, String tel) {
+	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal) {
 		super(name, username, email, password);
 		this.prenom = prenom;
 		this.etablissement = etablissement;
 		this.ville = ville;
 		this.codePostal = codePostal;
-		this.tel = tel;
 		this.offres = new HashSet<Offre>();
 	}
 

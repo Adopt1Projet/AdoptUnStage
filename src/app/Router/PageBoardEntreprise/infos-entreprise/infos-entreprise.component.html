@@ -7,7 +7,10 @@
 
     <div class="form-group">
 
-      <label for="raisonSociale">Raison Sociale</label>
+        <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+            remplis.</p>
+
+      <label for="raisonSociale">Raison Sociale*</label>
       <input id="raisonSociale" formControlName="raisonSociale" type="text" class="form-control" value="{{entreprise.raisonSociale}}">
       <label class="text-danger" *ngIf="formUpdate.controls['raisonSociale'].hasError('required')">
         La raison sociale est requise !
@@ -17,7 +20,7 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="secteur">Secteur d'activité</label>
+        <label for="secteur">Secteur d'activité*</label>
         <small class="form-text text-muted">Séléctionnez votre secteur d'activité.</small>
         <select id="secteur" formControlName="secteur" type="text" class="form-control" value="{{entreprise.secteur}}"
           name="secteur" placeholder="Secteur d'activité">
@@ -50,7 +53,7 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="statut">Statut (S.A.R.L, Association ...)</label>
+        <label for="statut">Statut (S.A.R.L, Association ...)*</label>
         <small id="statut" class="form-text text-muted">Séléctionnez le statut de votre entreprise</small>
         <select id="statut" formControlName="statut" type="text" class="form-control" value="{{entreprise.statut}}"
           name="statut" placeholder="Statut de l'entreprise">
@@ -69,12 +72,18 @@
     </div>
 
     <div class="form-group">
+      <label for="description">Description de l'entreprise</label>
+      <textarea cols="30" rows="3" id="description" formControlName="description" type="text" class="form-control"
+        placeholder="Décrivez en quelques mot l'activité de votre entreprise."></textarea>
+    </div>
+
+    <div class="form-group">
       <label for="siteWeb">Site Web</label>
       <input id="siteWeb" formControlName="siteWeb" type="text" class="form-control" placeholder="https://..." value="{{entreprise.siteWeb}}">
     </div>
 
     <div class="form-group">
-      <label for="adresse">Adresse</label>
+      <label for="adresse">Adresse*</label>
       <input id="adresse" formControlName="adresse" type="text" class="form-control" value="{{entreprise.adresse}}"
         placeholder="Adresse">
       <label class="text-danger" *ngIf="formUpdate.controls['adresse'].hasError('required')">
@@ -85,7 +94,7 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="ville">Ville</label>
+        <label for="ville">Ville*</label>
         <input id="ville" formControlName="ville" type="text" class="form-control" value="{{entreprise.ville}}"
           placeholder="Lyon">
         <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('required')">
@@ -94,7 +103,7 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="codePostal">Code Postal</label>
+        <label for="codePostal">Code Postal*</label>
         <input id="codePostal" formControlName="codePostal" type="text" class="form-control" value="{{entreprise.codePostal}}"
           placeholder="Code Postal">
         <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
@@ -116,7 +125,7 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="prenom">Prénom</label>
+        <label for="prenom">Prénom*</label>
         <input id="prenom" formControlName="prenom" type="text" class="form-control" value="{{entreprise.prenom}}"
           placeholder="Prénom">
         <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('required')">
@@ -125,7 +134,7 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="name">Nom</label>
+        <label for="name">Nom*</label>
         <input id="name" formControlName="name" type="text" class="form-control" value="{{entreprise.name}}"
           placeholder="Nom">
         <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('required')">
@@ -138,13 +147,16 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="fonction">Fonction</label>
-        <input formControlName="fonction" type="text" class="form-control" id="fonction" name="fonction" value="{{entreprise.fonction}}"
-          placeholder="Fonction">
+        <label for="contactMail">Email de contact*</label>
+        <input formControlName="contactMail" type="email" class="form-control" id="contactMail" name="contactMail" value="{{entreprise.contactMail}}"
+          placeholder="Email utilisé pour le traitement des candidatures">
+          <label class="text-danger" *ngIf="formUpdate.controls['contactMail'].hasError('required')">
+            L'Email de contact est requis !
+          </label>
       </div>
 
       <div class="form-group col-md-6">
-        <label for="tel">Téléphone</label>
+        <label for="tel">Téléphone*</label>
         <input id="tel" formControlName="tel" type="text" class="form-control" value="{{entreprise.tel}}" placeholder="n°">
         <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('required')">
           Le téléphone est requis !
@@ -158,7 +170,7 @@
     </div>
 
     <div class="form-group">
-      <label for="email">E-mail</label>
+      <label for="email">E-mail*</label>
       <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="formUpdate.controls['email'].invalid ? 'is-invalid' : ''">
 
       <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('required')">
@@ -167,7 +179,7 @@
     </div>
 
     <div class="form-group">
-      <label for="confirmMail">Confirmation de l'E-mail</label>
+      <label for="confirmMail">Confirmation de l'E-mail*</label>
       <input id="confirmMail" formControlName="confirmMail" type="email" class="form-control" [ngClass]="formUpdate.controls['confirmMail'].invalid ? 'is-invalid' : ''">
       <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('NoMailMatch')">
         Entrez une adresse mail valide !
@@ -190,7 +202,7 @@
 
     <div class="form-group">
 
-      <label for="password">Mot de passe</label>
+      <label for="password">Mot de passe*</label>
       <input id="password" formControlName="password" type="password" class="form-control" [ngClass]="formUpdatePassword.controls['password'].invalid ? 'is-invalid' : ''">
       <label class="text-danger col" *ngIf="formUpdatePassword.controls['password'].hasError('required')">
         Mot de passe requis!
@@ -227,7 +239,7 @@
     </div>
 
     <div class="form-group">
-      <label for="confirmPassword">Confirmation du mot de passe</label>
+      <label for="confirmPassword">Confirmation du mot de passe*</label>
       <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" [ngClass]="formUpdatePassword.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
       <label class="text-danger" *ngIf="formUpdatePassword.controls['confirmPassword'].hasError('required')">
         Mot de passe requis!
@@ -243,6 +255,5 @@
     </div>
 
     <app-alert *ngIf="submitFormPassword"></app-alert>
-
   </form>
 </div>

@@ -36,7 +36,8 @@ hr {
 }
 
 input,
-select {
+select,
+textarea {
   background-color: #ebebeb;
   border: none;
 }
@@ -73,4 +74,15 @@ select {
 ::placeholder {
   color: #C2BFCA;
   opacity: 1;
+}
+
+.cguButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(0, 119, 255);
+}
+
+.cguButton:hover {
+  text-decoration: underline;
 }

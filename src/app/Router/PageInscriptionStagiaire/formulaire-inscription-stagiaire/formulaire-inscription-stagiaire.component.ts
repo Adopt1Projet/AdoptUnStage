@@ -6,6 +6,8 @@ import { Stagiaire } from 'src/app/modeles/stagiaire';
 import { CustomValidators } from '../../../services/custom-validators';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
 
 import { AlertService } from '../../../services/alert.service';
 import { Observable } from 'rxjs';
@@ -19,7 +21,10 @@ import { CollegeService } from '../../../services/college.service';
 export class FormulaireInscriptionStagiaireComponent implements OnInit {
   public formCreate: FormGroup;
   colleges: Observable<any>;
+  stagiaire: Stagiaire;
   loading = false;
+  confirmResult = null;
+  submitted = false;
 
   constructor(
     private stagiaireService: StagiaireService,
@@ -28,9 +33,14 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private collegeService: CollegeService
+    private SimpleModalService: SimpleModalService,
+
   ) {
     this.formCreate = this.createSignupForm();
   }
+
+  get f() { return this.formCreate.controls; }
+
 
   ngOnInit() {
     this.collegeService.getCollegesList()
@@ -49,6 +59,20 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
         error => {
           console.log(error);
           this.loading = false; */
+  }
+
+  showCgu() {
+    console.log();
+    this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true})
+      .subscribe((isConfirmed) => {
+
+        // Get modal result
+        this.confirmResult = isConfirmed;
+        if (isConfirmed) {
+          this.ngOnInit();
+        }
+
+      });
   }
 
   createSignupForm(): FormGroup {
@@ -133,6 +157,12 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
+    if (this.formCreate.invalid) {
+      return;
+    }
+    this.loading = true;
+
     const stagiaire: Stagiaire = this.formCreate.value;
     this.loading = true;
     stagiaire.username = stagiaire.email;

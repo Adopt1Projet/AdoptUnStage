@@ -22,7 +22,12 @@ hr {
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
 
+.router-link-active {
+    background-color: #2ed1bb;
+}
 
-.btn:hover {
+
+
+button:hover {
     background-color: #2ed1bb;
 }

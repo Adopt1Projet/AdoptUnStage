@@ -36,14 +36,13 @@ export class FormulaireCreerOffreComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
     const offre: Offre = this.formOffre.value;
-    console.log(offre);
 
     if (this.formOffre.invalid) {
       return;
     }
     this.alertService.success('Votre annonce à bien été créée. Vous pouvez la modifier dans l\'onglet "Gestion des annonces".', true);
     this.offreService.createOffre(this.username, offre)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => error => console.log(error));
     this.formOffre.reset();
   }
 

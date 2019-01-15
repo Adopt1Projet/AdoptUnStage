@@ -76,10 +76,8 @@ export class GestionDesOffresComponent {
 
   }
   reloadData() {
-    console.log('REFRESHING DATA !')
     this.offreService.getOffresList(this.username).subscribe((data) => {
       this.offres = data
-      console.log(this.offres)
     });
   }
   ngOnInit() {

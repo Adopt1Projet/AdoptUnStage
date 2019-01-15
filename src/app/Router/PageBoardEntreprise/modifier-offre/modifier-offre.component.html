@@ -1,6 +1,6 @@
 <div *ngIf="offre" class="container bodyModifierOffre">
 
-  <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+  <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="titre">Intitulé du poste</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
@@ -38,12 +38,12 @@
       </div>
     </div>
 
-    <!--  -->
-    <ui-switch formControlName="active" [checked]="true" size="large" color="#26a69a" labelOn="Disponible" labelOff="Indisponible"></ui-switch><span
-      style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre annonce est
-      disponible.</span><span *ngIf="formOffre.value.active==false">Vous ne recherchez plus de stagiaire car votre
-      annonce est pourvue.</span>
-    <!--  -->
+    <div id="boutontoggle">
+      <ui-switch formControlName="active" [checked]="true" size="large" color="#26a69a"></ui-switch><span class="textetoggle"
+      style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
+      disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de stagiaire car votre
+      offre est pourvue.</span>
+    </div>
 
     <h2 class="text-center">Localisation du stage</h2>
     <div class="form-group">

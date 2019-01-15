@@ -82,7 +82,7 @@ public class EntrepriseService {
 
 		// Creating user's account
 		Entreprise user = new Entreprise(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getLogo(), signUpRequest.getPrenom(), signUpRequest.getFonction(), signUpRequest.getTel());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getLogo(), signUpRequest.getPrenom(), signUpRequest.getContactMail(), signUpRequest.getDescription(), signUpRequest.getTel());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("entreprise");
@@ -128,7 +128,8 @@ public class EntrepriseService {
 									_entreprise.setLogo(updateRequest.getLogo());
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
-									_entreprise.setFonction(updateRequest.getFonction());
+									_entreprise.setContactMail(updateRequest.getContactMail());
+									_entreprise.setDescription(updateRequest.getDescription());
 									_entreprise.setTel(updateRequest.getTel());
 									_entreprise.setEmail(updateRequest.getEmail());
 									_entreprise.setUsername(updateRequest.getUsername());

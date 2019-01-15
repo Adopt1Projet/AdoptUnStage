@@ -13,48 +13,46 @@ import java.util.Set;
 @Entity
 public class Entreprise extends User {
 
-
 	@Column(name = "raison_sociale")
 	private String raisonSociale;
-	
+
 	@Column(name = "secteur")
 	private String secteur;
-	
+
 	@Column(name = "statut")
 	private String statut;
-	
+
 	@Column(name = "adresse")
 	private String adresse;
-	
+
 	@Column(name = "ville")
 	private String ville;
-	
+
 	@Column(name = "codePostal")
 	private String codePostal;
-	
+
 	@Column(name = "logo") // TODO : Modifier en File dès que l'on aura appris comment faire.
 	private String logo;
-	
+
 	@Column(name = "prenom")
 	private String prenom;
 
 	
-	@Column(name = "fonction")
-	private String fonction;
+	@Column(name = "contactMail")
+	private String contactMail;
 	
+	@Column(name = "description")
+	private String description;
+
 	@Column(name = "tel")
 	private String tel;
-	
+
 	@Column(name = "siteWeb")
 	private String siteWeb;
-	
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="entreprise")
-	@JsonIgnore
-    private Set<Offre> offres; 
-	
-	
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "entreprise")
+	@JsonIgnore
+	private Set<Offre> offres;
 
 	public Set<Offre> getOffres() {
 		return offres;
@@ -63,7 +61,7 @@ public class Entreprise extends User {
 	public void setOffres(Set<Offre> offres) {
 		this.offres = offres;
 	}
-	
+
 	public void setOffre(Offre offre) {
 		this.offres.add(offre);
 	}
@@ -140,41 +138,50 @@ public class Entreprise extends User {
 		this.prenom = prenom;
 	}
 
-
-	public String getFonction() {
-		return fonction;
-	}
-
-	public void setFonction(String fonction) {
-		this.fonction = fonction;
-	}
-
 	public String getTel() {
 		return tel;
 	}
 
+	public String getContactMail() {
+		return contactMail;
+	}
+	
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+
+	public void setContactMail(String contactMail) {
+		this.contactMail = contactMail;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 
 	
 	public Entreprise () {}
 	
 	public Entreprise(String name, String username, String email, String password, String raisonSociale, String secteur, String statut, String siteWeb, String adresse, String ville,
-			String codePostal, String logo, String prenom, String fonction, String tel) {
+			String codePostal, String logo, String prenom, String contactMail, String description, String tel) {
 		super(name, username, email, password);
 		this.raisonSociale = raisonSociale;
 		this.secteur = secteur;
-		this.statut = statut;	
+		this.statut = statut;
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.logo = logo;
 		this.prenom = prenom;
-		this.fonction = fonction;
+		this.contactMail = contactMail;
+		this.description = description;
 		this.tel = tel;
 		this.siteWeb = siteWeb;
-		this.offres = new HashSet<Offre>(); 
+		this.offres = new HashSet<Offre>();
 
 	}
 

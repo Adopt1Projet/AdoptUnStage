@@ -7,8 +7,11 @@
 
         <div class="form-row">
 
+            <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+                remplis.</p>
+
             <div class="form-group col-md-6">
-                <label for="prenom">Prénom</label>
+                <label for="prenom">Prénom*</label>
                 <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" [ngClass]="formUpdate.controls['prenom'].invalid ? 'is-invalid' : ''"
                     placeholder="Prénom">
                 <label class="text-danger" *ngIf="formUpdate.controls['prenom'].hasError('required')">
@@ -17,7 +20,7 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="name">Nom</label>
+                <label for="name">Nom*</label>
                 <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="formUpdate.controls['name'].invalid ? 'is-invalid' : ''"
                     placeholder="Nom">
                 <label class="text-danger" *ngIf="formUpdate.controls['name'].hasError('required')">
@@ -41,7 +44,7 @@
         <div class="form-row">
 
             <div class="form-group col-md-6">
-                <label for="ville">Ville du domicile</label>
+                <label for="ville">Ville du domicile*</label>
                 <input formControlName="ville" type="text" class="form-control" id="ville" name="ville" [ngClass]="formUpdate.controls['ville'].invalid ? 'is-invalid' : ''"
                     placeholder="Ville">
                 <label class="text-danger" *ngIf="formUpdate.controls['ville'].hasError('required')">
@@ -50,7 +53,7 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="codePostal">Code Postal</label>
+                <label for="codePostal">Code Postal*</label>
                 <input formControlName="codePostal" type="text" class="form-control" id="codePostal" name="codePostal"
                     [ngClass]="formUpdate.controls['codePostal'].invalid ? 'is-invalid' : ''" placeholder="69009">
                 <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
@@ -60,21 +63,12 @@
 
         </div>
 
-        <div class="form-group">
-            <label for="tel">Téléphone</label>
-            <input formControlName="tel" type="text" class="form-control" id="tel" name="tel" [ngClass]="formUpdate.controls['tel'].invalid ? 'is-invalid' : ''"
-                placeholder="n°">
-            <label class="text-danger" *ngIf="formUpdate.controls['tel'].hasError('required')">
-                Le téléphone est requis!
-            </label>
-        </div>
-
         <div class="col-sm-12 titres">
             <h2>Modifier mon adresse mail</h2>
         </div>
 
         <div class="form-group">
-            <label for="mail">Modifier l'email</label>
+            <label for="mail">Modifier l'email*</label>
             <input formControlName="email" type="email" class="form-control" id="email" name="email" [ngClass]="formUpdate.controls['email'].invalid ? 'is-invalid' : ''"
                 placeholder="Exemple@mail.com">
             <label class="text-danger" *ngIf="formUpdate.controls['email'].hasError('required')">
@@ -86,7 +80,7 @@
         </div>
 
         <div class="form-group">
-            <label for="confirmMail">Confirmer le nouvel email</label>
+            <label for="confirmMail">Confirmer le nouvel email*</label>
             <input formControlName="confirmMail" type="email2" class="form-control" id="confirmMail" name="confirmMail"
                 [ngClass]="formUpdate.controls['confirmMail'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouvel e-mail">
             <label class="text-danger" *ngIf="formUpdate.controls['confirmMail'].hasError('required')">
@@ -112,7 +106,7 @@
             <h2>Modifier mon mot de passe</h2>
 
             <div class="form-group">
-                <label for="password">Modifier le mot de passe</label>
+                <label for="password">Modifier le mot de passe*</label>
                 <input formControlName="password" type="password" class="form-control" id="password" name="password"
                     [ngClass]="formUpdatePassword.controls['password'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouveau mot de passe">
                 <!--Modification possible de le mot de passe-->
@@ -146,7 +140,7 @@
             </div>
 
             <div class="form-group">
-                <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
+                <label for="confirmPassword">Confirmer le nouveau mot de passe*</label>
                 <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                     [ngClass]="formUpdatePassword.controls['confirmPassword'].invalid ? 'is-invalid' : ''" placeholder="Entre de nouveau ton mot de passe">
                 <label class="text-danger" *ngIf="formUpdatePassword.controls['confirmPassword'].hasError('required')">
