@@ -4,6 +4,8 @@ import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { CustomValidators } from '../../../services/custom-validators';
 import { TokenStorageService } from '../../../auth/token-storage.service';
 import { AlertService } from '../../../services/alert.service';
+import { CollegeService } from '../../../services/college.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-infos-stagiaire',
@@ -18,11 +20,13 @@ export class InfosStagiaireComponent implements OnInit {
   private stagiaire: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
+  colleges: Observable<any>;
 
   constructor(private token: TokenStorageService,
-    private stagiaireService: StagiaireService,
-    private alertService: AlertService,
-    private fb: FormBuilder) {
+              private stagiaireService: StagiaireService,
+              private alertService: AlertService,
+              private collegeService: CollegeService,
+              private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
@@ -42,6 +46,12 @@ export class InfosStagiaireComponent implements OnInit {
           email: this.stagiaire.email,
           confirmMail: this.stagiaire.email
         });
+    this.collegeService.getCollegesList()
+    .subscribe(
+      data => {
+      this.colleges = data;
+      console.log (this.colleges);
+    });
       },
         error => console.log("Une erreur est survenue."));
   }

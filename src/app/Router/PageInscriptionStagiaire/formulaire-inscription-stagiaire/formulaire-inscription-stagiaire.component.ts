@@ -48,8 +48,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       data => {
         this.colleges = data;
         console.log (this.colleges);
-      }
-    );
+      });
 
     /* this.stagiaireService.createStagiaire(stagiaire)
       .subscribe(
