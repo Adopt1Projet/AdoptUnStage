@@ -1,14 +1,14 @@
 <div *ngIf="entreprise" class="container bodyFormulaire">
   <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
-
+    
     <div class="col-sm-12 titre">
       <h1>Modifier les informations de mon entreprise</h1>
     </div>
-
+    <app-alert></app-alert>
     <div class="form-group">
 
-        <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-            remplis.</p>
+      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+        remplis.</p>
 
       <label for="raisonSociale">Raison Sociale*</label>
       <input id="raisonSociale" formControlName="raisonSociale" type="text" class="form-control" value="{{entreprise.raisonSociale}}">
@@ -148,11 +148,11 @@
 
       <div class="form-group col-md-6">
         <label for="contactMail">Email de contact*</label>
-        <input formControlName="contactMail" type="email" class="form-control" id="contactMail" name="contactMail" value="{{entreprise.contactMail}}"
-          placeholder="Email utilisé pour le traitement des candidatures">
-          <label class="text-danger" *ngIf="formUpdate.controls['contactMail'].hasError('required')">
-            L'Email de contact est requis !
-          </label>
+        <input formControlName="contactMail" type="email" class="form-control" id="contactMail" name="contactMail"
+          value="{{entreprise.contactMail}}" placeholder="Email utilisé pour le traitement des candidatures">
+        <label class="text-danger" *ngIf="formUpdate.controls['contactMail'].hasError('required')">
+          L'Email de contact est requis !
+        </label>
       </div>
 
       <div class="form-group col-md-6">
@@ -189,9 +189,6 @@
     <div class="form-group d-flex justify-content-around">
       <button [disabled]="formUpdate.invalid" type="submit" class="btn col-4 col-sm-5">Valider les modifications</button>
     </div>
-
-    <app-alert *ngIf="submitForm"></app-alert>
-
   </form>
 
   <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
@@ -253,7 +250,5 @@
       <button [disabled]="formUpdatePassword.invalid" type="submit" class="btn col-4 col-sm-5">Modifier le mot
         de passe</button>
     </div>
-
-    <app-alert *ngIf="submitFormPassword"></app-alert>
   </form>
 </div>

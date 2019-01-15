@@ -1,9 +1,10 @@
 <div class="container bodyCreerOffre">
   <h1 class="titre">Créer une offre</h1>
   <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
-
+    <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+      remplis.</p>
     <div class="form-group">
-      <label for="titre">Intitulé du poste</label>
+      <label for="titre">Intitulé du poste*</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
         placeholder="ex: Boulanger, Informaticien">
       <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
@@ -12,7 +13,7 @@
     </div>
 
     <div class="form-group">
-      <label for="description">Descriptif du poste</label>
+      <label for="description">Descriptif du poste*</label>
       <textarea class="form-control" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
         id="description" rows="3" placeholder="Décrivez en quelques lignes ce que le stagiaire sera amené à faire et découvrir.">
     </textarea>
@@ -22,7 +23,7 @@
     </div>
 
     <div class="form-group">
-      <label for="dateDebut">Date de début du stage</label>
+      <label for="dateDebut">Date de début du stage*</label>
       <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
         placeholder="">
       <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
@@ -31,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label for="dateFin">Date de fin du stage</label>
+      <label for="dateFin">Date de fin du stage*</label>
       <input type="date" formControlName="dateFin" class="form-control" id="dateFin" [ngClass]="{ 'is-invalid': submitted && f.dateFin.errors }"
         placeholder="">
       <div *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
@@ -44,7 +45,7 @@
     <h2 class="text-center">Localisation du stage</h2>
 
     <div class="form-group">
-      <label for="rue">Adresse</label>
+      <label for="rue">Adresse*</label>
       <input type="text" class="form-control" formControlName="rue" id="rue" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"
         placeholder="ex: 25 rue de Vaise">
       <div *ngIf="submitted && f.rue.errors" class="invalid-feedback">
@@ -53,7 +54,7 @@
     </div>
 
     <div class="form-group">
-      <label for="ville">Ville</label>
+      <label for="ville">Ville*</label>
       <input type="text" class="form-control" formControlName="ville" id="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
         placeholder="ex: Lyon">
       <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
@@ -62,7 +63,7 @@
     </div>
 
     <div class="form-group">
-      <label for="codePostal">Code postal</label>
+      <label for="codePostal">Code postal*</label>
       <input type="text" class="form-control" formControlName="codePostal" id="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
         placeholder="ex: 69000">
       <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
