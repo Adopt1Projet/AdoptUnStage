@@ -4,7 +4,7 @@
         <div class="col-sm-12 titre">
             <h2>Modifier mes coordonnées</h2>
         </div>
-
+        <app-alert></app-alert>
         <div class="form-row">
 
             <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -31,12 +31,12 @@
         </div>
 
         <div class="form-group">
-            <label for="etablissement">Établissement</label>
+            <label for="etablissement">Établissement*</label>
             <select formControlName="etablissement" type="text" class="form-control" [ngClass]="formUpdate.controls['etablissement'].invalid ? 'is-invalid' : ''"
                 id="etablissement" name="etablissement" [ngClass]="formUpdate.controls['nom'].invalid ? 'is-invalid' : ''"
                 placeholder="Établissement">
-                <option [ngValue]="null">Séléctionne ton collège</option>
-                <option *ngFor="let college of colleges" >{{college.nom}}</option>
+                <option [ngValue]="null">Sélectionne ton collège</option>
+                <option *ngFor="let college of colleges">{{college.nom}}</option>
                 <option>Autre collège</option>
             </select>
         </div>
@@ -90,13 +90,9 @@
                 Entrez une adresse mail valide!
             </label>
         </div>
-
         <div class="form-group d-flex justify-content-around">
             <button [disabled]="formUpdate.invalid" type="submit" class="btn">Valider les modifications</button>
         </div>
-
-        <app-alert *ngIf="submitForm"></app-alert>
-
     </form>
 
     <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
@@ -109,7 +105,7 @@
                 <label for="password">Modifier le mot de passe*</label>
                 <input formControlName="password" type="password" class="form-control" id="password" name="password"
                     [ngClass]="formUpdatePassword.controls['password'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouveau mot de passe">
-                <!--Modification possible de le mot de passe-->
+                <!--Modification possible du mot de passe-->
                 <label class="text-danger col" *ngIf="formUpdatePassword.controls['password'].hasError('required')">
                     Mot de passe requis!
                 </label>
@@ -155,10 +151,6 @@
                 <button [disabled]="formUpdatePassword.invalid" type="submit" class="btn">Valider le mot de
                     passe</button>
             </div>
-
         </div>
-
-        <app-alert *ngIf="submitFormPassword"></app-alert>
-
     </form>
 </div>

@@ -1,7 +1,45 @@
 <footer class="container footer sticky-bottom">
-  <div class="footerImg d-flex justify-content-center">
-    <a href="https://fr-fr.facebook.com/souffle9dotation/" target="_blank"><img src="/assets/img/FacebookLogo.png"></a>
-    <a href="https://twitter.com/Souffle9lyon" target="_blank"><img src="/assets/img/TwitterLogo.png"></a>
-    <a routerLink="/contact"><img src="/assets/img/ContactLogo.png" alt="Logo Contact"></a>
+
+  <div class="row logoSite">
+    <div class="col-md-3 text-center mb-3">
+      <img src="https://via.placeholder.com/200" alt="placeholder">
+    </div>
+
+    <div class="row col-md-3 d-flex justify-content-center">
+      <h4>Adopt'Un Stage</h4>
+      <ul>
+        <li><a routerLink="/boiteaoutils/faq">F.A.Q</a></li>
+        <li><a routerLink="/contact">Contactez-nous</a></li>
+        <li><button (click)=showCgu() type="button" class="cguButton">Informations légales</button></li>
+      </ul>
+    </div>
+
+    <div class="row col-md-3 d-flex justify-content-center logoPartenaires">
+      <h4>Nos partenaires</h4>
+      <ul>
+        <li><img src="../../assets/img/proBTP.png" alt=""><a href="https://www.probtp.com/" target="_blank">Pro BTP</a></li>
+        <li><img src="../../assets/img/Souffle9.png" alt=""><a href="https://www.souffle9.com/" target="_blank">Souffle
+            9</a></li>
+        <li><a routerLink="/partenaires">Voir nos autres partenaires</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-3 logoSociaux d-flex justify-content-center">
+      <div class="footerImg ">
+        <a href="https://fr-fr.facebook.com/souffle9dotation/" target="_blank"><img src="/assets/img/FacebookLogo.png"></a>
+        <a href="https://twitter.com/Souffle9lyon" target="_blank"><img src="/assets/img/TwitterLogo.png"></a>
+      </div>
+    </div>
   </div>
+  <div class="row copyright">
+    <div class="col-12 text-center">
+      <p>Copyright 2019 @ Adopt'Un Stage</p>
+    </div>
+  </div>
+
+
+
+
+
+
 </footer>

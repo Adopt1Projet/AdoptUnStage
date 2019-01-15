@@ -106,6 +106,7 @@ import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offr
 import { ActusAccueilComponent } from './Router/PageAccueil//actus-accueil/actus-accueil.component';
 import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/offres-accueil.component';
 import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
+import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
 
 
 @NgModule({
@@ -176,6 +177,7 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
     ActusAccueilComponent,
     OffresAccueilComponent,
     ConditionUtilisationComponent,
+    PageDetailNonConnecteComponent,
 
   ],
   imports: [

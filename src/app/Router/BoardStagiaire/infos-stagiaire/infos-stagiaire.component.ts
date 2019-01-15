@@ -23,10 +23,10 @@ export class InfosStagiaireComponent implements OnInit {
   colleges: Observable<any>;
 
   constructor(private token: TokenStorageService,
-              private stagiaireService: StagiaireService,
-              private alertService: AlertService,
-              private collegeService: CollegeService,
-              private fb: FormBuilder) {
+    private stagiaireService: StagiaireService,
+    private alertService: AlertService,
+    private collegeService: CollegeService,
+    private fb: FormBuilder) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
@@ -46,12 +46,12 @@ export class InfosStagiaireComponent implements OnInit {
           email: this.stagiaire.email,
           confirmMail: this.stagiaire.email
         });
-    this.collegeService.getCollegesList()
-    .subscribe(
-      data => {
-      this.colleges = data;
-      console.log (this.colleges);
-    });
+        this.collegeService.getCollegesList()
+          .subscribe(
+            data => {
+              this.colleges = data;
+              console.log(this.colleges);
+            });
       },
         error => console.log("Une erreur est survenue."));
   }
@@ -147,6 +147,9 @@ export class InfosStagiaireComponent implements OnInit {
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 
   onSubmitPassword() {
@@ -161,5 +164,8 @@ export class InfosStagiaireComponent implements OnInit {
           this.alertService.error('Une erreur est servenue.', true);
         });
     this.formUpdatePassword.reset();
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 }
