@@ -1,24 +1,30 @@
-<div class="container">
-<form [formGroup]="formPostuler" (ngSubmit)="onSubmit()">
-  <div *ngIf="postuler == false" class="row postulCenter d-flex justify-content-center">
-    
-      <div class="form downloadfiles">
-        <div class="row form-group file">
-          <p class="col-12">Un petit mot pour l'entreprise</p>
-          <textarea formControlName="motivation" class="col-12 postArea" type="text" name="text" placeholder="Présente-toi brièvement avec ton nom, prénom, établissement et date de stage par exemple."></textarea>
-        </div>
+<div class="container text-center">
+  <form [formGroup]="formPostuler" (ngSubmit)="onSubmit()">
+    <div *ngIf="postuler == false" class="row postulCenter d-flex justify-content-center">
+
+      <div class="form-group file">
+        <h4>Lettre de motivation *</h4>
+        <br>
+        <textarea formControlName="motivation" class="col-md-8 postArea" type="text" name="text" cols="100" rows="10"
+          placeholder="Madame, Monsieur,
+
+           Actuellement en classe de 3ème au collège ... , je suis à la recherche d'un stage d'observation pour une durée d'une semaine sur la période du ... au ..."></textarea>
+        <br>
+        <p>* Tu peux, si tu le souhaites, copier/coller ta lettre de motivation habituelle et l'adapter en
+          fonction
+          de l'entreprise et du poste recherché.</p>
       </div>
 
-  </div>
-  <app-alert></app-alert>
-  <div *ngIf="postuler == true" class="row btnPost d-flex justify-content-center">
-    <button type="button" class="col-md-6 btn btnValid" routerLink="/offres">Revenir à la liste d'offres</button>
-  </div>
-  <div *ngIf="postuler == false" class="row btnPost d-flex justify-content-around">
+    </div>
+    <app-alert></app-alert>
+    <div *ngIf="postuler == true" class="row btnPost d-flex justify-content-center">
+      <button type="button" class="col-md-6 btn btnValid" routerLink="/offres">Revenir à la liste d'offres</button>
+    </div>
+    <div *ngIf="postuler == false" class="row btnPost d-flex justify-content-around">
 
-    <button type="button" class="col-md-4 col-sm-5 btn btnValid mb-2" (click)="retourPage()">Retour</button>
+      <button type="button" class="col-md-4 col-sm-5 btn btnValid mb-2" (click)="retourPage()">Retour</button>
 
-    <button type="submit" class="col-md-4 col-sm-5 btn btnValid mb-2">Valider la <br>candidature</button>
-  </div>
-</form>
+      <button type="submit" class="col-md-4 col-sm-5 btn btnValid mb-2">Valider la <br>candidature</button>
+    </div>
+  </form>
 </div>

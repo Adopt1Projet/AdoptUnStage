@@ -20,7 +20,7 @@ export class PageDetailOffreComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
     this.offreService.getOffre(id).subscribe
-      (data => { this.offre = data; console.log(this.offre) });
+      (data => { this.offre = data });
 
   }
 
