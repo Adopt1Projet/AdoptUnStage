@@ -59,7 +59,8 @@ export class GestionDesOffresComponent {
   reloadData() {
     setTimeout(() => {
       this.offreService.getOffresList(this.username).subscribe((data) => {
-        this.offres = data
+        this.offres = data;
+        this.offres.sort((offre, offre2) => offre2.id - offre.id);
       });
     }, 100);
   }
