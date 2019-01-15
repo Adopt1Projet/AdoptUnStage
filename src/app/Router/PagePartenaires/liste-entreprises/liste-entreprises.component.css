@@ -1,0 +1,20 @@
+img {
+    width: 20vh;
+}
+
+.entreprise {
+    background-color: #E9E9E9;
+    padding: 2vh;
+}
+
+.row {
+    margin-top: 2vh;
+}
+
+a, h3 {
+    color: #00AC9A;
+}
+
+a:hover {
+    color: #008472;
+}

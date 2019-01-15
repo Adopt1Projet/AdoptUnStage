@@ -34,7 +34,7 @@ public class EntrepriseController {
 	UserDetailsServiceImpl userService;
 
 
-	@GetMapping("/")
+	@GetMapping("")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
 	}
