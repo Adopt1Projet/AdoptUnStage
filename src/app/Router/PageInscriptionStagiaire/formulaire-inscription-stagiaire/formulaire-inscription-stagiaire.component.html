@@ -46,11 +46,11 @@
 
         <div class="form-group">
 
-            <label for="etablissement">Établissement</label>
-            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="formCreate.controls['etablissement'].invalid ? 'is-invalid' : ''"
+            <label for="etablissement">Établissement*</label>
+            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etablissement.errors }"
 
                 name="etablissement" placeholder="Établissement">
-                <option [ngValue]="null">Séléctionne ton collège</option>
+                <option [ngValue]="null">Sélectionne ton collège</option>
                 <option *ngFor="let college of colleges" >{{college.nom}}</option>
                 <option>Autre collège</option>
             </select>

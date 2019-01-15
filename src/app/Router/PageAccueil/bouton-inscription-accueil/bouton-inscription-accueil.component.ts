@@ -15,14 +15,14 @@ export class BoutonInscriptionAccueilComponent implements OnInit {
   isStagiaire = false;
   info: any;
 
-  entreprise : Object;
-  stagiaire : Object;
+  entreprise: Object;
+  stagiaire: Object;
 
   constructor(private token: TokenStorageService,
-              private entrepriseService: EntrepriseService,
-              private stagiaireService: StagiaireService) { }
+    private entrepriseService: EntrepriseService,
+    private stagiaireService: StagiaireService) { }
 
-  ngOnInit() {
+  isLogged() {
     this.info = {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
@@ -32,18 +32,24 @@ export class BoutonInscriptionAccueilComponent implements OnInit {
     if (this.info.username != "" && this.info.username != null) { this.isInfo = true; }
     else { this.isInfo = false; }
 
-    if (this.info.authorities == "ROLE_STAGIAIRE") { 
-          this.isStagiaire = true;
-          this.stagiaireService.getStagiaire(this.info.username)
-            .subscribe(data => { this.stagiaire = data }) }
+    if (this.info.authorities == "ROLE_STAGIAIRE") {
+      this.isStagiaire = true;
+      this.stagiaireService.getStagiaire(this.info.username)
+        .subscribe(data => { this.stagiaire = data })
+    }
     else { this.isStagiaire = false; }
 
-    if (this.info.authorities == "ROLE_ENTREPRISE") { 
-          this.isEntreprise = true;
-          this.entrepriseService.getEntreprise(this.info.username)
-            .subscribe(data => { this.entreprise = data})
-    } 
+    if (this.info.authorities == "ROLE_ENTREPRISE") {
+      this.isEntreprise = true;
+      this.entrepriseService.getEntreprise(this.info.username)
+        .subscribe(data => { this.entreprise = data })
+    }
     else { this.isEntreprise = false; }
+  }
+
+
+  ngOnInit() {
+    this.isLogged()
   }
 
 }
