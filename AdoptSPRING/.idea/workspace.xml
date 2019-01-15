@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +14,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/CollegeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="180">
               <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#480#489#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,12 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-              <folding>
-                <element signature="e#956#963#0" expanded="true" />
-                <element signature="e#1175#1182#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="990">
+              <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -62,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6510">
-              <caret line="520" column="10" selection-start-line="520" selection-start-column="10" selection-end-line="520" selection-end-column="10" />
+            <state relative-caret-position="7290">
+              <caret line="498" column="10" selection-start-line="498" selection-start-column="10" selection-end-line="498" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -71,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="135">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="165">
               <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
             </state>
           </provider>
@@ -138,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,6 +239,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,16 +273,17 @@
       <updated>1544541404307</updated>
       <workItem from="1546525649525" duration="1268000" />
       <workItem from="1546595451173" duration="4840000" />
+      <workItem from="1547544699018" duration="276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14231000" />
+    <option name="totallyTimeSpent" value="14313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="685" y="27" width="913" height="873" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24277456" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24855492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -422,12 +414,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-          <folding>
-            <element signature="e#956#963#0" expanded="true" />
-            <element signature="e#1175#1182#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="990">
+          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -467,8 +455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6510">
-          <caret line="520" column="10" selection-start-line="520" selection-start-column="10" selection-end-line="520" selection-end-column="10" />
+        <state relative-caret-position="7290">
+          <caret line="498" column="10" selection-start-line="498" selection-start-column="10" selection-end-line="498" selection-end-column="10" />
         </state>
       </provider>
     </entry>
