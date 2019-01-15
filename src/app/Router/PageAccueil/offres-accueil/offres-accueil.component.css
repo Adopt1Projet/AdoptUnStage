@@ -25,3 +25,9 @@ h2 {
 img {
 max-width : 70px;
 }
+
+.lienOffres{
+    text-align: center;
+    margin-top: 13px;
+    padding-bottom : 15px;
+}
