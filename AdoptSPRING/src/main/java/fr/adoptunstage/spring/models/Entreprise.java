@@ -37,7 +37,6 @@ public class Entreprise extends User {
 	@Column(name = "prenom")
 	private String prenom;
 
-	
 	@Column(name = "contactMail")
 	private String contactMail;
 	
