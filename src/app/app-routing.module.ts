@@ -30,6 +30,7 @@ import { ActuDetailComponent } from './Router/PageActus/actu-detail/actu-detail.
 import { PageBoiteAOutilsComponent } from './Router/PageBoiteAOutils/page-boite-a-outils/page-boite-a-outils.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
+import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
@@ -77,6 +78,7 @@ const routes: Routes = [
   },
 
   { path: 'non-connecte', component: PageNonConnecteComponent },
+  { path: 'detail-non-connecte', component: PageDetailNonConnecteComponent},
   { path: 'erreur404', component: PageErrorComponent },
   { path: '**', redirectTo: 'erreur404' },
 ];
