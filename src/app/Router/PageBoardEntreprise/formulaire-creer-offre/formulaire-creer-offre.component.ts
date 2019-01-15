@@ -46,7 +46,7 @@ export class FormulaireCreerOffreComponent implements OnInit {
     this.offreService.createOffre(this.username, offre)
       .subscribe(data => {
         console.log(data),
-        this.alertService.success('Votre annonce à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+        this.alertService.success('Votre offre à bien été créée. Vous pouvez la modifier si nécessaire.', true);
       }, error => console.log(error));
     Object.keys(this.formOffre.controls).forEach(key => {
       this.formOffre.controls[key].setErrors(null)
