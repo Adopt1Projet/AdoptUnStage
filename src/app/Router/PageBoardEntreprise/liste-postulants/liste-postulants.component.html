@@ -1,0 +1,32 @@
+<div *ngIf="offre" class="container bodyPostulants">
+  <h2 class="titre">Liste des postulants pour l'offre : {{offre.titre}}</h2>
+  <h3 class="titre2">Référence : {{offre.id}}</h3>
+
+  <br>
+
+  <table *ngIf="postulants" class="table table-striped thead-light table-hover">
+    <thead class="bandeau">
+      <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Etablissement</th>
+        <th>Mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let postulant of postulants" style=" width: 300px;">
+        <td> {{postulant.prenom}} </td>
+        <td> {{postulant.name}} </td>
+        <td> {{postulant.etablissement}} </td>
+        <td><a href="mailto:{{postulant.email}}">{{postulant.email}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 *ngIf="!postulants">Il n'y a aucun postulant sur cette offre de stage pour le moment.</h4>
+
+  <div class="btnPost d-flex justify-content-around">
+    <button type="button" class="btn btnRetour" (click)="retourPage()">Retour</button>
+  </div>
+
+</div>

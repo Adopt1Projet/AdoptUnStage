@@ -1,0 +1,32 @@
+.bodyPostulants {
+    padding-bottom: 5%;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+}
+
+.titre2 {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.bandeau {
+    background-color: #26a69a;
+    color: white;
+}
+
+.btnRetour {
+    background-color: #00ac9a;
+    border: none;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 5px 25px 5px 25px;
+    font-weight: bolder;
+    margin: 2%;
+}
