@@ -2,7 +2,7 @@
   <h2 class="titre">Gestion des candidatures</h2>
   <h1 *ngIf="!offres">Aucune candidature en cours !</h1>
 
-  <h4>Mes candidatures en cours</h4>
+  <h4>Mes candidatures en cours <img src="/assets/img/happy.png" alt=""> </h4>
   <br>
 
   <table class="table table-striped thead-light table-hover">
@@ -29,7 +29,7 @@
   <button [routerLink]="'/offres'" type="button" class="btn col-6 center-block">Voir la liste des offres de
     stage</button>
 
-  <h4>Candidatures déjà pourvues :(</h4>
+  <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
 
   <table class="table table-striped thead-light table-hover">
     <thead *ngIf="offresPourvues">
