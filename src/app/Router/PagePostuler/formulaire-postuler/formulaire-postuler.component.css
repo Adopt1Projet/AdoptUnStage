@@ -1,11 +1,13 @@
 .postArea {
-    height: 150px;
     background-color: rgb(226, 226, 226);
     border: none;
 }
 
-.downloadfiles {
+.file {
     color: #2fa89a;
+}
+
+h4 {
     font-weight: bolder;
 }
 

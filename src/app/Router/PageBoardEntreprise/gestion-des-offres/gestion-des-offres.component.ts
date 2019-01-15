@@ -63,6 +63,7 @@ export class GestionDesOffresComponent {
       });
     }, 100);
   }
+  
   ngOnInit() {
     this.username = this.token.getUsername();
     this.reloadData();

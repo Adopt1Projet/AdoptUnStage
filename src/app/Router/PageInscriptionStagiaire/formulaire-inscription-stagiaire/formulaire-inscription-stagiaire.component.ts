@@ -33,7 +33,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private collegeService: CollegeService,
-    private SimpleModalService: SimpleModalService,
+    private SimpleModalService: SimpleModalService
 
   ) {
     this.formCreate = this.createSignupForm();

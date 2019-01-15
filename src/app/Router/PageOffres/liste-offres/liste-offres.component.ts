@@ -16,7 +16,9 @@ export class ListeOffresComponent implements OnInit {
 
   ngOnInit() {
     this.offreService.getAllOffres().subscribe
-      (data => { this.offres = data;});
+      (data => { this.offres = data;
+                 this.offres.sort((offre, offre2) => offre2.id - offre.id);
+      });
   };
 }
 

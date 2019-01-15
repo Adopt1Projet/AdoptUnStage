@@ -23,11 +23,13 @@ export class GestionCandidaturesComponent implements OnInit {
     this.offreService.getOffresListStagiaire(this.username)
       .subscribe(data => {
         this.offres = data;
+        this.offres.sort((offre, offre2) => offre2.id - offre.id);
     })
 
     this.offreService.getOffresListStagiairePourvues(this.username)
       .subscribe(data => {
         this.offresPourvues = data;
+        this.offresPourvues.sort((offre, offre2) => offre2.id - offre.id);
     })
 
   }
