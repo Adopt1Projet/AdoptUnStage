@@ -1,6 +1,6 @@
 <div *ngIf="offre" class="container bodyModifierOffre">
 
-  <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+  <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="titre">Intitulé du poste</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
