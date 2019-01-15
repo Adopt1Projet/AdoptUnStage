@@ -33,6 +33,7 @@ import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-conn
 import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-entreprise/infos-entreprise.component';
 import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
+import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -48,8 +49,8 @@ const routes: Routes = [
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   {
     path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
-      { path: 'gestionstagiaire', canActivate: [AuthGuardStagiaire], component: GestionCandidaturesComponent },
-      { path: 'infosstagiaire', canActivate: [AuthGuardStagiaire], component: InfosStagiaireComponent },
+      { path: 'gestionstagiaire', component: GestionCandidaturesComponent },
+      { path: 'infosstagiaire', component: InfosStagiaireComponent },
       { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
     ]
   },
@@ -58,10 +59,11 @@ const routes: Routes = [
   { path: 'article/:id', component: ActuDetailComponent },
   {
     path: 'boardentreprise', canActivate: [AuthGuardEntreprise], component: PageBoardEntrepriseComponent, children: [
-      { path: 'creeroffre', canActivate: [AuthGuardEntreprise], component: FormulaireCreerOffreComponent },
-      { path: 'gestionoffres', canActivate: [AuthGuardEntreprise], component: GestionDesOffresComponent },
-      { path: 'infosentreprise', canActivate: [AuthGuardEntreprise], component: InfosEntrepriseComponent },
+      { path: 'creeroffre', component: FormulaireCreerOffreComponent },
+      { path: 'gestionoffres', component: GestionDesOffresComponent },
+      { path: 'infosentreprise', component: InfosEntrepriseComponent },
       { path: 'modifieroffre/:id', component: ModifierOffreComponent },
+      { path: 'postulants/:id', component: ListePostulantsComponent },
       { path: 'offre-item', component: OffreItemComponent },
       { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
     ]

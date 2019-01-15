@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adoptunstage.spring.message.request.SignUpFormOffre;
 import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.models.Offre;
+import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.services.OffreService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -79,6 +80,11 @@ public class OffreController{
 	public ResponseEntity<?> postuler(@PathVariable("id_offre") long id_offre, @PathVariable("username") String username, 
 			@RequestBody SignUpPostuler requestPostuler) {
 		return service.postuler(id_offre, username, requestPostuler);
+	}
+	
+	@GetMapping(value = "/postulants/{id}")
+	public Set<Stagiaire> getPostulants(@PathVariable("id") long id  ) {
+		return service.getPostulants(id);
 	}
 	
 }
