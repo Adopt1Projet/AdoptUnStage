@@ -171,6 +171,11 @@ export class InfosEntrepriseComponent implements OnInit {
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
+
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+
   }
 
   onSubmitPassword() {
