@@ -25,7 +25,7 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     // ten we can get dialog result from caller code
     this.result = true;
     this.close();
-    this.alertService.success('Votre annonce a bien été supprimée.', true);
+    this.alertService.success('Votre offre a bien été supprimée.', true);
   }
   cancel() {
     this.result = false;
