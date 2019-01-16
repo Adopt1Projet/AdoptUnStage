@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.SignupMail;
@@ -62,11 +63,12 @@ public class EntrepriseService {
 		return entreprise;
 	}
 	
-
-	
-	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		repository.deleteById(id);
-		return new ResponseEntity<>("L'entreprise a été supprimée !", HttpStatus.OK);
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
 	}
 	
 	public ResponseEntity<?> postEntreprise(SignUpForm signUpRequest) {

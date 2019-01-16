@@ -4,6 +4,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
 import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infos-entreprise',
@@ -23,10 +24,13 @@ export class InfosEntrepriseComponent implements OnInit {
     private entrepriseService: EntrepriseService,
     private token: TokenStorageService,
     private alertService: AlertService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private router: Router) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
+
   }
+
 
   ngOnInit() {
     this.username = this.token.getUsername();
@@ -56,6 +60,7 @@ export class InfosEntrepriseComponent implements OnInit {
 
 
   }
+
 
   updateSignupForm(): FormGroup {
     return this.fb.group(
@@ -193,5 +198,18 @@ export class InfosEntrepriseComponent implements OnInit {
 
     document.body.scrollTop = 230; // For Safari
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+  }
+
+  onClickDeleteUser() {
+    this.username = this.token.getUsername();
+    this.entrepriseService.deleteUser(this.username)
+      .subscribe(
+        data => {
+          this.token.signOut();
+          this.router.navigate(['../../accueil']);
+        },
+        error => {
+        })
+
   }
 }

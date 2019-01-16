@@ -1,6 +1,6 @@
 <div *ngIf="entreprise" class="container bodyFormulaire">
   <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
-    
+
     <div class="col-sm-12 titre">
       <h1>Modifier les informations de mon entreprise</h1>
     </div>
@@ -191,6 +191,7 @@
     </div>
   </form>
 
+
   <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
 
     <div class="col-sm-12 titres">
@@ -251,4 +252,8 @@
         de passe</button>
     </div>
   </form>
+  <div class="form-group d-flex justify-content-around">
+    <button (click)=onClickDeleteUser() class="btn col-4 col-sm-5">Supprimer
+      définitivement mon compte</button>
+  </div>
 </div>
