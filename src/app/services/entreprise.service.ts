@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,6 +17,17 @@ export class EntrepriseService {
 
   createEntreprise(customer: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}` + `/creer`, customer);
+  }
+
+  createFileEntreprise(username: string, file : File): Observable<HttpEvent<{}>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/creerfile/${username}`, formData, {
+      responseType: 'text'
+    });
+ 
+    return this.http.request(req);
   }
 
   updateEntreprise(id: number, value: any): Observable<Object> {

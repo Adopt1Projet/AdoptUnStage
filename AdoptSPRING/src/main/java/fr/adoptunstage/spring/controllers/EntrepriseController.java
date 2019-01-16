@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
@@ -47,6 +49,11 @@ public class EntrepriseController {
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
 		return service.postEntreprise(signUpRequest);
+	}
+	
+	@PostMapping(value = "/creerfile/{username}")
+	public ResponseEntity<?> postEntrepriseFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.postEntrepriseFile(username, file);
 	}
 
 	@DeleteMapping("/{id}")
