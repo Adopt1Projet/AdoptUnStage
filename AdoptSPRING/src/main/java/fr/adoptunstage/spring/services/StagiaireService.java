@@ -91,7 +91,7 @@ public class StagiaireService {
 
 		// Creating user's account
 		Stagiaire user = new Stagiaire(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getCivilite(), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("stagiaire");
@@ -130,6 +130,7 @@ public class StagiaireService {
 
 		if (stagiaireData.isPresent()) {
 			Stagiaire _stagiaire = (Stagiaire) stagiaireData.get();
+					_stagiaire.setCivilite(updateRequest.getCivilite());
 					_stagiaire.setPrenom(updateRequest.getPrenom());
 					_stagiaire.setName(updateRequest.getName());
 					_stagiaire.setEtablissement(updateRequest.getEtablissement());
