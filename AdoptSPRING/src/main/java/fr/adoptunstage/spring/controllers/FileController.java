@@ -35,10 +35,12 @@ public class FileController {
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
                 .path(fileName)
-                .toUriString();
+                .toUriString();      
 
-        return new UploadFileResponse(fileName, fileDownloadUri,
+        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
+        
+        return uploadFileResponse;
     }
 
     @PostMapping("/uploadMultipleFiles")

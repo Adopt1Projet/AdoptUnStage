@@ -65,3 +65,6 @@ input, select, textarea{
     color: #C2BFCA;
     opacity: 1; 
 }
+#image{
+    max-width:15vh;
+}
