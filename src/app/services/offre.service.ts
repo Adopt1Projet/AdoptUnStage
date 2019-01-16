@@ -52,4 +52,8 @@ export class OffreService {
   getOffresListStagiairePourvues(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/mesoffresstagiairepourvues/${username}`);
   }
+
+  getPostulants(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/postulants/${id}`);
+  }
 }

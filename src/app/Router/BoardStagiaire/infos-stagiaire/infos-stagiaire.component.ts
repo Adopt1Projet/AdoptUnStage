@@ -6,6 +6,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 import { AlertService } from '../../../services/alert.service';
 import { CollegeService } from '../../../services/college.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infos-stagiaire',
@@ -23,10 +24,12 @@ export class InfosStagiaireComponent implements OnInit {
   colleges: Observable<any>;
 
   constructor(private token: TokenStorageService,
-              private stagiaireService: StagiaireService,
-              private alertService: AlertService,
-              private collegeService: CollegeService,
-              private fb: FormBuilder) {
+    private stagiaireService: StagiaireService,
+    private alertService: AlertService,
+    private collegeService: CollegeService,
+    private fb: FormBuilder,
+    private route: Router
+  ) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
@@ -46,12 +49,12 @@ export class InfosStagiaireComponent implements OnInit {
           email: this.stagiaire.email,
           confirmMail: this.stagiaire.email
         });
-    this.collegeService.getCollegesList()
-    .subscribe(
-      data => {
-      this.colleges = data;
-      console.log (this.colleges);
-    });
+        this.collegeService.getCollegesList()
+          .subscribe(
+            data => {
+              this.colleges = data;
+              console.log(this.colleges);
+            });
       },
         error => console.log("Une erreur est survenue."));
   }
@@ -147,6 +150,9 @@ export class InfosStagiaireComponent implements OnInit {
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 
   onSubmitPassword() {
@@ -161,5 +167,21 @@ export class InfosStagiaireComponent implements OnInit {
           this.alertService.error('Une erreur est servenue.', true);
         });
     this.formUpdatePassword.reset();
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+  }
+
+  onClickDeleteUser() {
+    this.username = this.token.getUsername();
+    this.stagiaireService.deleteUser(this.username)
+      .subscribe(
+        data => {
+          this.token.signOut();
+          this.route.navigate(['../../accueil']);
+        },
+        error => {
+        })
+
   }
 }

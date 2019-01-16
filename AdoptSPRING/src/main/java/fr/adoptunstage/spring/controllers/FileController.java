@@ -30,15 +30,17 @@ public class FileController {
     
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        String fileName = fileStorageService.storeFile(file);
+        String fileName = fileStorageService.storeFile(file, "");
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
                 .path(fileName)
-                .toUriString();
+                .toUriString();      
 
-        return new UploadFileResponse(fileName, fileDownloadUri,
+        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
+        
+        return uploadFileResponse;
     }
 
     @PostMapping("/uploadMultipleFiles")

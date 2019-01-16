@@ -30,3 +30,8 @@ h1 {
 .btn:hover {
     background-color: #2ed1bb;
 }
+
+.headBG {
+    background-color: #26a69a;
+    color : white;
+}

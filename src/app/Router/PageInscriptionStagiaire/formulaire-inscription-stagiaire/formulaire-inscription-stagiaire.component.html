@@ -8,7 +8,7 @@
             <p>Inscris-toi en quelques clics et trouve le stage qui te plait ! </p>
             <ol>
                 <li>Remplis le formulaire ci-dessous pour créer ton compte personnel.</li>
-                <li>Réponds aux annonces de stages en ligne avec ton CV.</li>
+                <li>Réponds aux offres de stages en ligne avec ton CV.</li>
                 <li>Gère tes candidatures en ligne directement sur le site internet.</li>
                 <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage.</li>
             </ol>
@@ -24,6 +24,21 @@
             <h2>Informations personnelles</h2>
         </div>
 
+        <div class="form-row">
+            <div class="form-group col-md-6 custom-control custom-checkbox">
+                <label class="checkcontainer">
+                    <input type="radio" checked="checked" formControlName="civilite" value="female">
+                    Madame
+                </label>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="checkcontainer">
+                    <input type="radio" formControlName="civilite" value="male">
+                    Monsieur
+                </label>
+            </div>
+        </div>
+        
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="prenom">Prénom*</label>
@@ -46,11 +61,11 @@
 
         <div class="form-group">
 
-            <label for="etablissement">Établissement</label>
-            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="formCreate.controls['etablissement'].invalid ? 'is-invalid' : ''"
+            <label for="etablissement">Établissement*</label>
+            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etablissement.errors }"
 
                 name="etablissement" placeholder="Établissement">
-                <option [ngValue]="null">Séléctionne ton collège</option>
+                <option [ngValue]="null">Sélectionne ton collège</option>
                 <option *ngFor="let college of colleges" >{{college.nom}}</option>
                 <option>Autre collège</option>
             </select>

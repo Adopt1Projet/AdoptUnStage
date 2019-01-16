@@ -19,6 +19,8 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   public formCreate: FormGroup;
+  file : FileList;
+  curentFile : File;
   loading = false;
   submitted = false;
   confirmResult = null;
@@ -37,11 +39,11 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   ngOnInit() {
   }
 
+
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
         siteWeb: [null],
-        logo: [null],
         contactMail: [
           null,
           Validators.compose([Validators.email, Validators.required])
@@ -134,6 +136,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   }
 
   get f() { return this.formCreate.controls; }
+  
 
   showCgu() {
     console.log();
@@ -153,20 +156,33 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     this._location.back();
   }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return;
+      return console.log(this.formCreate);
     }
     this.loading = true;
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
+    this.curentFile = this.file.item(0);
     this.entrepriseService.createEntreprise(entreprise)
       .pipe(first())
       .subscribe(
         data => {
           console.log(data);
+          this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
+            .subscribe(
+                data2 => {
+                  console.log(data2)
+                },
+                error => {
+                  console.log(error);
+                });;
           this.alertService.success('Merci de vous être enregistré, vous pouvez vous connecter.', true);
         },
         error => {

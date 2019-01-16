@@ -70,6 +70,14 @@ public class StagiaireService {
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);
 	}
 	
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
+	}
+	
 	public ResponseEntity<?> postStagiaire(SignUpFormStagiaire signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
@@ -83,7 +91,7 @@ public class StagiaireService {
 
 		// Creating user's account
 		Stagiaire user = new Stagiaire(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getCivilite(), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("stagiaire");
@@ -122,6 +130,7 @@ public class StagiaireService {
 
 		if (stagiaireData.isPresent()) {
 			Stagiaire _stagiaire = (Stagiaire) stagiaireData.get();
+					_stagiaire.setCivilite(updateRequest.getCivilite());
 					_stagiaire.setPrenom(updateRequest.getPrenom());
 					_stagiaire.setName(updateRequest.getName());
 					_stagiaire.setEtablissement(updateRequest.getEtablissement());

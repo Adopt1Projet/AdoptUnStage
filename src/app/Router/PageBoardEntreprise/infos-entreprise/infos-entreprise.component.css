@@ -55,6 +55,7 @@ input, select, textarea{
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
+
   
   
 .btn:hover {
@@ -64,4 +65,7 @@ input, select, textarea{
 ::placeholder { 
     color: #C2BFCA;
     opacity: 1; 
+}
+#image{
+    max-width:15vh;
 }

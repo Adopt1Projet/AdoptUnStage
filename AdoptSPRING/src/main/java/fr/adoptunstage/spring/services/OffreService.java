@@ -24,70 +24,65 @@ import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class OffreService {
-	
+
 	@Autowired
 	MailService mailRepository;
 
 	@Autowired
 	OffreRepository repository;
-	
+
 	@Autowired
 	UserRepository userRepository;
 
 	public Set<Offre> getAllOffres() {
 		Set<Offre> offres = new HashSet<Offre>();
 		repository.findAll().forEach(offres::add);
-		for(Offre offre : offres) {
+		for (Offre offre : offres) {
 			offre.getEntreprise().setPassword("");
 		}
 		return offres;
-	}
-	
-	public Set<Offre> getMesOffres(String username) {	
-		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username)
-				.orElseThrow(
-				() -> new UsernameNotFoundException
-				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = entreprise.getOffres();
-		for(Offre offre : offres) {
-			offre.getEntreprise().setPassword("");
-		}
-		return offres;
-	}
-	
-	public Set<Offre> getMesOffresStagiaire(String username) {	
-		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username)
-				.orElseThrow(
-				() -> new UsernameNotFoundException
-				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = stagiaire.getOffresNonPourvues();
-		for(Offre offre : offres) {
-			offre.getEntreprise().setPassword("");
-		}
-		return offres;
-	}
-	
-	public Set<Offre> getMesOffresStagiairePourvues(String username) {	
-		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username)
-				.orElseThrow(
-				() -> new UsernameNotFoundException
-				("User Not Found with -> username or email : " + username));
-		Set<Offre> offres = stagiaire.getOffresPourvues();	
-		for(Offre offre : offres) {
-			offre.getEntreprise().setPassword("");
-		}
-		return offres;
-	}
-	
-	public Offre getOffre(long id) { 
-		
-		Offre offre = repository.findById(id).orElseThrow(
-				() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));;
-		offre.getEntreprise().setPassword("");;
-		return offre;
-		
 	}
 
+	public Set<Offre> getMesOffres(String username) {
+		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = entreprise.getOffres();
+		for (Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
+		return offres;
+	}
+
+	public Set<Offre> getMesOffresStagiaire(String username) {
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = stagiaire.getOffresNonPourvues();
+		for (Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
+		return offres;
+	}
+
+	public Set<Offre> getMesOffresStagiairePourvues(String username) {
+		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		Set<Offre> offres = stagiaire.getOffresPourvues();
+		for (Offre offre : offres) {
+			offre.getEntreprise().setPassword("");
+		}
+		return offres;
+	}
+
+	public Offre getOffre(long id) {
+
+		Offre offre = repository.findById(id)
+				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
+		;
+		offre.getEntreprise().setPassword("");
+		;
+		return offre;
+
+	}
 
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		repository.deleteById(id);
@@ -115,45 +110,60 @@ public class OffreService {
 
 			return new ResponseEntity<>(repository.save(_offre), HttpStatus.OK);
 		} else {
-			
+
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	public ResponseEntity<?> postOffre(String username, SignUpFormOffre requestOffre) {
-						
+
 		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-	
+
 		Boolean active = true;
-		
-		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(),requestOffre.getDateDebut(),requestOffre.getDateFin(), requestOffre.getRue(),
-				requestOffre.getVille(), requestOffre.getCodePostal() , active);
-		
+
+		Offre _offre = new Offre(entreprise, requestOffre.getTitre(), requestOffre.getDescription(),
+				requestOffre.getDateDebut(), requestOffre.getDateFin(), requestOffre.getRue(), requestOffre.getVille(),
+				requestOffre.getCodePostal(), active);
+
 		repository.save(_offre);
-			
+
 		return new ResponseEntity<>(new ResponseMessage("Offre crée!"), HttpStatus.OK);
 	}
-	
+
 	public ResponseEntity<?> postuler(long id_offre, String username, SignUpPostuler requestPostuler) {
-		
-		Offre offre = repository.findById(id_offre).orElseThrow(
-				() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id_offre));
-		
+
+		Offre offre = repository.findById(id_offre)
+				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id_offre));
+
 		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
 
 		offre.setStagiaire(stagiaire);
 
 		repository.save(offre);
-		
-		HTMLMail mailToEntreprise = new HTMLMail (offre.getEntreprise().getEmail(), offre.getTitre(), requestPostuler.getMotivation(), stagiaire.getPrenom(),stagiaire.getName(),stagiaire.getEmail());
+
+		HTMLMail mailToEntreprise = new HTMLMail(offre.getEntreprise().getEmail(), offre.getTitre(),
+				requestPostuler.getMotivation(), stagiaire.getPrenom(), stagiaire.getName(), stagiaire.getEmail());
 		mailRepository.sendEmailToEntreprise(mailToEntreprise);
-		
-		String messageStagiaire = "Vous avez envoyez votre candidature à " + offre.getEntreprise().getEmail() + ": "+ requestPostuler.getMotivation();
-		HTMLMail mailToStagiaire = new HTMLMail (stagiaire.getEmail(), offre.getTitre(), messageStagiaire, stagiaire.getPrenom(),stagiaire.getName(),stagiaire.getEmail());
+
+		String messageStagiaire = "Vous avez envoyez votre candidature à " + offre.getEntreprise().getEmail() + ": "
+				+ requestPostuler.getMotivation();
+		HTMLMail mailToStagiaire = new HTMLMail(stagiaire.getEmail(), offre.getTitre(), messageStagiaire,
+				stagiaire.getPrenom(), stagiaire.getName(), stagiaire.getEmail());
 		mailRepository.sendEmailToEntreprise(mailToStagiaire);
-			
+
 		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
+	}
+
+	public Set<Stagiaire> getPostulants(long id) {
+		
+		Offre offre = repository.findById(id)
+				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
+
+		Set<Stagiaire> postulants = offre.getStagiaires();
+		
+		return postulants;
+
 	}
 }

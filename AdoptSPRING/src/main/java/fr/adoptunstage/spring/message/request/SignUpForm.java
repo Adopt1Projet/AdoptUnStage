@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.validation.constraints.*;
 
+import fr.adoptunstage.spring.payload.UploadFileResponse;
+
 public class SignUpForm {
 	@NotBlank
 	private String name;
@@ -37,7 +39,7 @@ public class SignUpForm {
 
 	private String codePostal;
 
-	private String logo;
+	private UploadFileResponse logo;
 
 	private String prenom;
 
@@ -95,11 +97,11 @@ public class SignUpForm {
 		this.codePostal = codePostal;
 	}
 
-	public String getLogo() {
+	public UploadFileResponse getLogo() {
 		return logo;
 	}
 
-	public void setLogo(String logo) {
+	public void setLogo(UploadFileResponse logo) {
 		this.logo = logo;
 	}
 

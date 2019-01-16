@@ -1,6 +1,6 @@
 .footer {
     background-color: #00ac9a;
-    padding: 15px;
+    padding-top: 15px;
 }
 
 /* .footerImg img {
@@ -8,7 +8,39 @@
     max-height: 50px;
 } */
 
-img {
+.cguButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+}
+
+.cguButton:hover {
+    text-decoration: underline;
+}
+
+.logoSite img {
     margin-left: 10px;
-    max-width: 35px;
+    max-width: 150px;
+}
+
+.logoSociaux img {
+    max-width: 50px;
+}
+
+.logoPartenaires img {
+    max-width: 60px;
+}
+
+a {
+    color: black;
+}
+
+.copyright {
+    margin-top: 5%;
+}
+
+.liste {
+    list-style: none;
 }

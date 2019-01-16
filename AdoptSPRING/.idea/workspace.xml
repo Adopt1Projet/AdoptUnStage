@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="9ba5f6df-4f1f-4a25-9e0d-621f028fcfdf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Entreprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Entreprise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Stagiaire.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/adoptunstage/spring/models/Stagiaire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app/Router/PageInscriptionStagiaire/formulaire-inscription-stagiaire/formulaire-inscription-stagiaire.component.ts" afterDir="false" />
+    </list>
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +27,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/CollegeService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -46,24 +62,43 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="990">
               <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="126" column="43" lean-forward="true" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="7290">
               <caret line="498" column="10" selection-start-line="498" selection-start-column="10" selection-end-line="498" selection-end-column="10" />
+=======
+            <state relative-caret-position="495">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="135">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
+=======
+            <state relative-caret-position="283">
+              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,11 +106,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="165">
               <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+=======
+            <state relative-caret-position="270">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
             </state>
           </provider>
         </entry>
@@ -101,12 +141,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/EntrepriseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Entreprise.java" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java" />
         <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java" />
       </list>
     </option>
   </component>
@@ -117,8 +157,8 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="685" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="913" />
     <option name="height" value="873" />
@@ -225,6 +265,35 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-rest-mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdoptSPRING" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="jwt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-rest-mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdoptSPRING" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-rest-mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdoptSPRING" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -273,17 +342,30 @@
       <updated>1544541404307</updated>
       <workItem from="1546525649525" duration="1268000" />
       <workItem from="1546595451173" duration="4840000" />
+<<<<<<< HEAD
       <workItem from="1547544699018" duration="276000" />
+=======
+      <workItem from="1547644557598" duration="332000" />
+      <workItem from="1547646424629" duration="2958000" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="14313000" />
+=======
+    <option name="totallyTimeSpent" value="23017000" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
   </component>
   <component name="ToolWindowManager">
-    <frame x="685" y="27" width="913" height="873" extended-state="0" />
+    <frame x="67" y="27" width="913" height="873" extended-state="1" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24855492" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.4080925" />
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -405,20 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/EntrepriseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="601">
@@ -436,10 +504,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="145" column="44" lean-forward="true" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="44" />
+        <state relative-caret-position="7290">
+          <caret line="487" column="10" selection-start-line="487" selection-start-column="10" selection-end-line="487" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/CollegeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="990">
+          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+=======
+        <state relative-caret-position="180">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/College.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/CollegeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/OffreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/repos/StagiaireRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/models/Stagiaire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="126" column="43" lean-forward="true" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -448,22 +576,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/controllers/StagiaireController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
+        <state relative-caret-position="495">
           <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/services/StagiaireService.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="7290">
           <caret line="498" column="10" selection-start-line="498" selection-start-column="10" selection-end-line="498" selection-end-column="10" />
+=======
+        <state relative-caret-position="283">
+          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 506a9c76c897d64dbd67baf6a3f17e27a9113a9e
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/adoptunstage/spring/message/request/SignUpFormStagiaire.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        <state relative-caret-position="270">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>

@@ -1,7 +1,6 @@
 .modal-content {
     background-color:#ffffff;
     border-radius: 4px;
-    width: 100%;
     will-change: opacity;
     display: inline-block;
     text-align: left;

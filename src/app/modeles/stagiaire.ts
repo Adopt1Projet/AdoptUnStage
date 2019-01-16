@@ -1,4 +1,5 @@
 export class Stagiaire {
+    civilite: string;
     name: string;
     username: string;
     email: string;

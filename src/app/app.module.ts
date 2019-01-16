@@ -9,11 +9,6 @@ import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 
-// Post-it Julien : Mother fucking date
-
-
-
-
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -103,9 +98,12 @@ import { AlertComponent } from './alert/alert.component';
 import { PageErrorComponent } from './Router/PageError/page-error/page-error.component';
 import { PageNonConnecteComponent } from './Router/PageNonConnecte/page-non-connecte/page-non-connecte.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
-import { ActusAccueilComponent } from './Router/PageAccueil//actus-accueil/actus-accueil.component';
-import { OffresAccueilComponent } from './Router/PageAccueil//offres-accueil/offres-accueil.component';
+import { ActusAccueilComponent } from './Router/PageAccueil/actus-accueil/actus-accueil.component';
+import { OffresAccueilComponent } from './Router/PageAccueil/offres-accueil/offres-accueil.component';
 import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
+import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
+import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
+
 
 
 @NgModule({
@@ -176,7 +174,8 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
     ActusAccueilComponent,
     OffresAccueilComponent,
     ConditionUtilisationComponent,
-
+    ListePostulantsComponent,
+    PageDetailNonConnecteComponent,
   ],
   imports: [
     BrowserModule,
