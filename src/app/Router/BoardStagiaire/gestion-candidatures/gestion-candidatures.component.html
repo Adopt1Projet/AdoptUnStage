@@ -5,8 +5,8 @@
   <h4>Mes candidatures en cours <img src="/assets/img/happy.png" alt=""> </h4>
   <br>
 
-  <table class="table table-striped thead-light table-hover">
-    <thead *ngIf="offres">
+  <table *ngIf="offres.length > 0" class="table table-striped thead-light table-hover">
+    <thead class="headBG">
       <tr>
         <th>Offre</th>
         <th>Période</th>
@@ -26,13 +26,15 @@
     </tbody>
   </table>
 
+  <h5 *ngIf="offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
+
   <button [routerLink]="'/offres'" type="button" class="btn col-6 center-block">Voir la liste des offres de
     stage</button>
 
   <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
 
-  <table class="table table-striped thead-light table-hover">
-    <thead *ngIf="offresPourvues">
+  <table *ngIf="offresPourvues == true" class="table table-striped thead-light table-hover">
+    <thead class="headBG">
       <tr>
         <th>Offre</th>
         <th>Période</th>
