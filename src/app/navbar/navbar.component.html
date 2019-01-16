@@ -28,10 +28,11 @@
         <li class="nav-item" *ngIf="isInfo==true">
           <a *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire">Mon compte</a>
           <a *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardedentreprise">Mon compte</a>
+          <a *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
         </li>
         <li class="nav-item">
           <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-          <a *ngIf="isStagiaire==true || isEntreprise==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
+          <a *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
         </li>
       </ul>
     </div>

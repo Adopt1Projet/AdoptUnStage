@@ -9,6 +9,7 @@ a:hover {
 
 .navbar {
     background-color: rgba(255, 255, 255, 0.774);
+    z-index: 999;
 }
 
 .navbar a {
@@ -18,4 +19,8 @@ a:hover {
 .no-padding {
     padding-left: 0;
     padding-right: 0;
+}
+
+.navbanner {
+    z-index: 999;
 }

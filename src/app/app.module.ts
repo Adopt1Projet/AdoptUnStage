@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
+import { AuthGuardAdmin } from './auth/auth.guardadmin'
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 
@@ -103,8 +104,58 @@ import { OffresAccueilComponent } from './Router/PageAccueil/offres-accueil/offr
 import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisation/condition-utilisation/condition-utilisation.component';
 import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
 import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
-
-
+import { PageAdminComponent } from './Router/PageAdmin/page-admin/page-admin.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+} from '@angular/material';
+import { SidenavAdminComponent } from './Router/PageAdmin/sidenav-admin/sidenav-admin.component';
+import { DashboardAdminComponent } from './Router/PageAdmin/dashboard-admin/dashboard-admin.component';
+import { ActuAdminComponent } from './Router/PageAdmin/actu-admin/actu-admin.component';
+import { FaqAdminComponent } from './Router/PageAdmin/faq-admin/faq-admin.component';
+import { PartenairesAdminComponent } from './Router/PageAdmin/partenaires-admin/partenaires-admin.component';
+import { OffresAdminComponent } from './Router/PageAdmin/offres-admin/offres-admin.component';
+import { StagiairesAdminComponent } from './Router/PageAdmin/stagiaires-admin/stagiaires-admin.component';
+import { EntreprisesAdminComponent } from './Router/PageAdmin/entreprises-admin/entreprises-admin.component';
+import { CollegesAdminComponent } from './Router/PageAdmin/colleges-admin/colleges-admin.component';
 
 @NgModule({
   declarations: [
@@ -176,22 +227,113 @@ import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-de
     ConditionUtilisationComponent,
     ListePostulantsComponent,
     PageDetailNonConnecteComponent,
+    PageAdminComponent,
+    SidenavAdminComponent,
+    DashboardAdminComponent,
+    ActuAdminComponent,
+    FaqAdminComponent,
+    PartenairesAdminComponent,
+    OffresAdminComponent,
+    StagiairesAdminComponent,
+    EntreprisesAdminComponent,
+    CollegesAdminComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
     SimpleModalModule.forRoot({container: "modal-container"}),
-    UiSwitchModule
+    UiSwitchModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    ScrollingModule,
+  ],
+  exports: [
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    ScrollingModule,
   ],
 
   entryComponents: [
     ConfirmComponent,
     ConditionUtilisationComponent
   ],
-  providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire],
+  providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire, AuthGuardAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

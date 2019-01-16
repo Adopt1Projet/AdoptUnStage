@@ -4,37 +4,36 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { TokenStorageService } from '../auth/token-storage.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardAdmin implements CanActivate {
 
     info: any;
+    isAdmin = false;
     isStagiaire = false;
     isEntreprise = false;
 
     constructor(private router: Router, private token: TokenStorageService) { }
 
-    isLogged() {
+    isLoggedAdmin() {
         this.info = {
             username: this.token.getUsername(),
             authorities: this.token.getAuthorities()
         };
 
-        if (this.info.authorities == "ROLE_STAGIAIRE") { return true; }
-        else if (this.info.authorities == "ROLE_ENTREPRISE") { return true; }
-        else if (this.info.authorities == "ROLE_ADMIN") { return true; }
+        if (this.info.authorities == "ROLE_ADMIN") { return true; }
         else { return false; }
 
 
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        if (this.isLogged() == true) {
+        if (this.isLoggedAdmin() == true) {
             // logged in so return true
             return true;
         }
 
         // not logged in so redirect to login page with the return url
         else {
-            this.router.navigate(['/detail-non-connecte']);
+            this.router.navigate(['/non-connecte']);
         }
 
     }

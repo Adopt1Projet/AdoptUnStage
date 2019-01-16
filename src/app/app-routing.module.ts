@@ -35,6 +35,16 @@ import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-ent
 import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
+import { PageAdminComponent } from './Router/PageAdmin/page-admin/page-admin.component';
+import { AuthGuardAdmin } from './auth/auth.guardadmin';
+import { DashboardAdminComponent } from './Router/PageAdmin/dashboard-admin/dashboard-admin.component';
+import { ActuAdminComponent } from './Router/PageAdmin/actu-admin/actu-admin.component';
+import { FaqAdminComponent } from './Router/PageAdmin/faq-admin/faq-admin.component';
+import { PartenairesAdminComponent } from './Router/PageAdmin/partenaires-admin/partenaires-admin.component';
+import { OffresAdminComponent } from './Router/PageAdmin/offres-admin/offres-admin.component';
+import { StagiairesAdminComponent } from './Router/PageAdmin/stagiaires-admin/stagiaires-admin.component';
+import { EntreprisesAdminComponent } from './Router/PageAdmin/entreprises-admin/entreprises-admin.component';
+import { CollegesAdminComponent } from './Router/PageAdmin/colleges-admin/colleges-admin.component';
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -44,6 +54,20 @@ const routes: Routes = [
   { path: 'offres', component: PageOffresComponent },
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+
+  { path: 'admin', canActivate: [AuthGuardAdmin], component: PageAdminComponent, children: [
+    { path: 'dashboard', component: DashboardAdminComponent },
+    { path: 'actus', component: ActuAdminComponent},
+    { path: 'faq', component: FaqAdminComponent},
+    { path: 'partenaires', component: PartenairesAdminComponent},
+    { path: 'offres', component: OffresAdminComponent},
+    { path: 'stagiaires', component: StagiairesAdminComponent},
+    { path: 'entreprises', component: EntreprisesAdminComponent},
+    { path: 'colleges', component: CollegesAdminComponent},
+    
+    
+    { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+  ]},
 
   { path: 'partenaires', component: PagePartenairesComponent },
   { path: 'detailoffre/:id', canActivate: [AuthGuard], component: PageDetailOffreComponent },
