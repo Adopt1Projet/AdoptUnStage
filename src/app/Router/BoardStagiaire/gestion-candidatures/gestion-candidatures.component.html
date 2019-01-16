@@ -1,11 +1,11 @@
 <div *ngIf="offres || offresPourvues" class="container bodyGestionCandidatures">
   <h2 class="titre">Gestion des candidatures</h2>
-  <h1 *ngIf="!offres">Aucune candidature en cours !</h1>
+  <h1 *ngIf="offres.length == 0">Aucune candidature en cours !</h1>
 
   <h4>Mes candidatures en cours <img src="/assets/img/happy.png" alt=""> </h4>
   <br>
 
-  <table *ngIf="offres.length > 0" class="table table-striped thead-light table-hover">
+  <table *ngIf="offres" class="table table-striped thead-light table-hover">
     <thead class="headBG">
       <tr>
         <th>Offre</th>
@@ -26,14 +26,14 @@
     </tbody>
   </table>
 
-  <h5 *ngIf="offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
+  <h5 *ngIf="!offres && offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
 
   <button [routerLink]="'/offres'" type="button" class="btn col-6 center-block">Voir la liste des offres de
     stage</button>
 
   <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
 
-  <table *ngIf="offresPourvues == true" class="table table-striped thead-light table-hover">
+  <table *ngIf="offresPourvues && offresPourvues == true" class="table table-striped thead-light table-hover">
     <thead class="headBG">
       <tr>
         <th>Offre</th>

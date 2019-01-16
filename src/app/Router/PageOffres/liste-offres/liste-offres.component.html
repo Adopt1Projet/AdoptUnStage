@@ -2,7 +2,7 @@
     <div *ngIf="offres" class="table-responsive">
         <table class="table table-striped thead-light table-hover">
             <thead class="bgHead">
-                <tr>
+                <tr align="center">
                     <th></th>
                     <th>Secteur</th>
                     <th>Offre</th>
@@ -13,13 +13,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let offre of getPage() async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                <tr align="center" *ngFor="let offre of getPage() async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
                     <td *ngIf="offre.entreprise.logo"><img src="{{offre.entreprise.logo}}" alt="Logo entreprise"></td>
                     <td *ngIf="!offre.entreprise.logo"><img src="assets/img/LogoAdopt.png" alt="Logo placeholder"></td>
                     <td>{{offre.entreprise.secteur}}</td>
                     <td> {{offre.titre}}<br> <b>{{offre.entreprise.raisonSociale}}</b> </td>
                     <td> {{offre.ville}} </td>
-                    <td> du {{offre.dateDebut}} <br> au {{offre.dateFin}} </td>
+                    <td> {{offre.dateDebut}} <br> au {{offre.dateFin}} </td>
                     <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:#00b499; cursor: pointer;">remove_red_eye</i></td>
                     <td style="background-color : #00b499; color: white;" *ngIf="offre.active == true">Dispo</td>
                     <td style="background-color : #e00000; color: white;" *ngIf="offre.active == false">Pourvue</td>

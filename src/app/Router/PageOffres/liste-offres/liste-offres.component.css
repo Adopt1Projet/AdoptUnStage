@@ -29,3 +29,7 @@ img {
 .page {
     margin: 0 auto;
 }
+
+td {
+    vertical-align: middle;
+  }
