@@ -41,6 +41,7 @@ export class InfosStagiaireComponent implements OnInit {
       .subscribe(data => {
         this.stagiaire = data;
         this.formUpdate.setValue({
+          civilite: this.stagiaire.civilite,
           prenom: this.stagiaire.prenom,
           name: this.stagiaire.name,
           etablissement: this.stagiaire.etablissement,
@@ -62,6 +63,7 @@ export class InfosStagiaireComponent implements OnInit {
   updateSignupForm(): FormGroup {
     return this.fb.group(
       {
+        civilite: [null],
         prenom: [
           null,
           Validators.compose([Validators.required])
