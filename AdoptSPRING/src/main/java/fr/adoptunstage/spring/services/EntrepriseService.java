@@ -121,7 +121,10 @@ public class EntrepriseService {
 	
 	public ResponseEntity<?> postEntrepriseFile(String username, MultipartFile file) {
 		
-        String fileName = fileStorageService.storeFile(file);
+		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		
+        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/api/downloadFile/")
@@ -131,8 +134,6 @@ public class EntrepriseService {
         UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
         
-        Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
-				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
         
         entreprise.setLogo(uploadFileResponse);
         userRepository.save(entreprise);
