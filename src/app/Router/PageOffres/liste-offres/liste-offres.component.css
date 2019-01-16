@@ -15,3 +15,17 @@
 img {
     width: 20vh;
 }
+
+.btn {
+    background-color: #00ac9a;
+    border: none;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 5px 25px 5px 25px;
+    font-weight: bolder;
+}
+
+.page {
+    margin: 0 auto;
+}
