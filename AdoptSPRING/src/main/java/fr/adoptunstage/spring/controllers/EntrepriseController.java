@@ -2,6 +2,7 @@ package fr.adoptunstage.spring.controllers;
 
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -63,5 +64,10 @@ public class EntrepriseController {
 	@PutMapping("/password/{id}")
 	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprisePassword(id, updateRequest);
+	}
+	
+	@GetMapping("/actives")
+	public List<Entreprise> getEntreprisesActives() {
+		return service.getEntreprisesActives();
 	}
 }

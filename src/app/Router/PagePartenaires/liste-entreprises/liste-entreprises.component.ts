@@ -16,7 +16,7 @@ export class ListeEntreprisesComponent implements OnInit {
   constructor(private entrepriseService : EntrepriseService) { }
 
   ngOnInit() {
-    this.entrepriseService.getEntrepriseList()
+    this.entrepriseService.getEntreprisesActives()
       .subscribe(data => { this.entreprises = data;
                            console.log(this.entreprises)})
   }
