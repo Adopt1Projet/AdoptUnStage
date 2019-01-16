@@ -40,3 +40,7 @@ a {
 .copyright {
     margin-top: 5%;
 }
+
+.liste {
+    list-style: none;
+}
