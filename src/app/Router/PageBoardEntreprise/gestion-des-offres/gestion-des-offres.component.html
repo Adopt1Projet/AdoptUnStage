@@ -3,7 +3,7 @@
   <app-alert></app-alert>
   <table class="table table-striped thead-light table-hover">
     <thead>
-      <tr>
+      <tr align="center">
         <th>Titre</th>
         <th>Début</th>
         <th>Fin</th>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let offre of offres" style=" width: 300px;">
+      <tr align="center" *ngFor="let offre of offres" style=" width: 300px;">
         <td> {{offre.titre}} </td>
         <td> {{offre.dateDebut}} </td>
         <td> {{offre.dateFin}} </td>
