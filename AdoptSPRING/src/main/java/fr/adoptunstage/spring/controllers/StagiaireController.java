@@ -48,6 +48,10 @@ public class StagiaireController {
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		return service.deleteStagiaire(id);
 	}
+	@DeleteMapping("/deleteuser/{username}")
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+		return service.deleteUser(username);
+	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateStagiaire(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest) {
