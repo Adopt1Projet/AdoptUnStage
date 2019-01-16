@@ -31,4 +31,8 @@ export class EntrepriseService {
     return this.http.get(`${this.baseUrl}`);
   }
 
+  getEntreprisesActives(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/actives`);
+  }
+
 }

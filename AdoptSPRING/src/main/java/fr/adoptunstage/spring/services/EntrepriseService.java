@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.SignupMail;
+import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
 import fr.adoptunstage.spring.repos.RoleRepository;
@@ -159,5 +161,21 @@ public class EntrepriseService {
 
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	public List<Entreprise> getEntreprisesActives() {
+		
+		List<Entreprise> entreprises = new ArrayList<>();
+		List<Entreprise> entreprisesActives = new ArrayList<>();
+		
+		repository.findAll().forEach(entreprises::add);
+		
+		for (Entreprise entreprise : entreprises) {
+			entreprise.setPassword("");
+			if (entreprise.getOffres().size() > 0) {
+				entreprisesActives.add(entreprise);
+			}
+		}
+		return entreprisesActives;
 	}
 }
