@@ -5,11 +5,25 @@
             <h2>Modifier mes coordonnées</h2>
         </div>
         <app-alert></app-alert>
+        
+
         <div class="form-row">
+            <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être remplis.</p>
+            <div class="form-group col-md-6 custom-control custom-checkbox">
+                <label class="checkcontainer">
+                    <input type="radio" checked="checked" formControlName="civilite" value="madame">
+                    Madame
+                </label>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="checkcontainer">
+                    <input type="radio" formControlName="civilite" value="monsieur">
+                    Monsieur
+                </label>
+            </div>
+        </div>
 
-            <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-                remplis.</p>
-
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="prenom">Prénom*</label>
                 <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" [ngClass]="formUpdate.controls['prenom'].invalid ? 'is-invalid' : ''"
@@ -27,7 +41,6 @@
                     Le nom est requis!
                 </label>
             </div>
-
         </div>
 
         <div class="form-group">

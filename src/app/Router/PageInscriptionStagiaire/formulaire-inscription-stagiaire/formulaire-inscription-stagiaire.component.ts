@@ -78,7 +78,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
-        civilite: [null],
+        civilite: [
+          null,
+          Validators.compose([Validators.required])
+        ],
         prenom: [
           null,
           Validators.compose([Validators.required])
