@@ -24,6 +24,7 @@ export class GestionCandidaturesComponent implements OnInit {
       .subscribe(data => {
         this.offres = data;
         this.offres.sort((offre, offre2) => offre2.id - offre.id);
+        console.log(this.offres);
     })
 
     this.offreService.getOffresListStagiairePourvues(this.username)
