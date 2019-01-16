@@ -70,6 +70,14 @@ public class StagiaireService {
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);
 	}
 	
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
+	}
+	
 	public ResponseEntity<?> postStagiaire(SignUpFormStagiaire signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),

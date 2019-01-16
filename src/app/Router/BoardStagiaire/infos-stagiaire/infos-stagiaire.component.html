@@ -151,6 +151,11 @@
                 <button [disabled]="formUpdatePassword.invalid" type="submit" class="btn">Valider le mot de
                     passe</button>
             </div>
+
         </div>
     </form>
+    <div class="form-group d-flex justify-content-around">
+        <button (click)=onClickDeleteUser() class="btn col-4 col-sm-5">Supprimer
+            définitivement mon compte</button>
+    </div>
 </div>

@@ -71,11 +71,12 @@ public class EntrepriseService {
 		return entreprise;
 	}
 	
-
-	
-	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		repository.deleteById(id);
-		return new ResponseEntity<>("L'entreprise a été supprimée !", HttpStatus.OK);
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
 	}
 	
 	public ResponseEntity<?> postEntreprise(SignUpForm signUpRequest) {

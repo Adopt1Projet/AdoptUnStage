@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
+import fr.adoptunstage.spring.models.User;
 import fr.adoptunstage.spring.security.services.UserDetailsServiceImpl;
 import fr.adoptunstage.spring.services.EntrepriseService;
 
@@ -57,12 +58,6 @@ public class EntrepriseController {
 		return service.postEntrepriseFile(username, file);
 	}
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		return service.deleteEntreprise(id);
-	}
-	
-
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprise(id, updateRequest);
@@ -71,6 +66,11 @@ public class EntrepriseController {
 	@PutMapping("/password/{id}")
 	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprisePassword(id, updateRequest);
+	}
+	
+	@DeleteMapping("/deleteuser/{username}")
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+		return service.deleteUser(username);
 	}
 	
 	@GetMapping("/actives")

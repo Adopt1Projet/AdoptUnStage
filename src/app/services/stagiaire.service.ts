@@ -30,4 +30,7 @@ export class StagiaireService {
   getStagiaireList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+  deleteUser(username: String): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/deleteuser/${username}`);
+  }
 }
