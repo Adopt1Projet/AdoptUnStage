@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { OffreService } from 'src/app/services/offre.service';
 import { Observable } from 'rxjs';
 import { Offre } from 'src/app/modeles/offre';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-liste-offres',
@@ -22,6 +23,10 @@ export class ListeOffresComponent implements OnInit {
     this.offreService.getAllOffres().subscribe
       (data => { this.offres = data;
                  this.offres.sort((offre, offre2) => offre2.id - offre.id);
+                  for (let i = 0; i < this.offres.length; i++) {
+                    this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
+                    this.offres[i].dateFin = moment(this.offres[i].dateFin).format("DD/MM/YYYY");
+                }
       });
   }
 

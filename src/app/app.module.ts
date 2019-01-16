@@ -9,11 +9,6 @@ import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 
-// Post-it Julien : Mother fucking date
-
-
-
-
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';

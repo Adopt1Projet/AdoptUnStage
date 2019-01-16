@@ -4,6 +4,7 @@ import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modif
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmComponent } from '../confirm/confirm.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-gestion-des-offres',
@@ -14,6 +15,7 @@ export class GestionDesOffresComponent {
   confirmResult = null;
   offres: any;
   username: string;
+  dateDebutOK: string;
 
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
@@ -61,6 +63,10 @@ export class GestionDesOffresComponent {
       this.offreService.getOffresList(this.username).subscribe((data) => {
         this.offres = data;
         this.offres.sort((offre, offre2) => offre2.id - offre.id);
+        for (let i = 0; i < this.offres.length; i++) {
+          this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
+          this.offres[i].dateFin = moment(this.offres[i].dateFin).format("DD/MM/YYYY");
+        }
       });
     }, 100);
   }
