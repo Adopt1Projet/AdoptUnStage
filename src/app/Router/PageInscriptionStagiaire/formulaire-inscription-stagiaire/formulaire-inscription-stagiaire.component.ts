@@ -33,6 +33,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private collegeService: CollegeService,
+    // tslint:disable-next-line:no-shadowed-variable
     private SimpleModalService: SimpleModalService,
     ) {
     this.formCreate = this.createSignupForm();
@@ -78,6 +79,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
+        civilite: [null],
         prenom: [
           null,
           Validators.compose([Validators.required])
@@ -91,10 +93,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
           Validators.compose([Validators.required])
         ],
         codePostal: [
-          null,
-          Validators.compose([Validators.required])
-        ],
-        tel: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -127,13 +125,13 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
               hasSmallCase: true
             }),
             // check whether the entered password has a special character
-            /* 
+            /*
              * CustomValidators.patternValidator(
              *  /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/,
              *  {
              *    hasSpecialCharacters: true
              *  }
-             *  ), 
+             *  )
             */
             Validators.minLength(6)
           ])
@@ -159,7 +157,8 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return;
+      return console.log(this.formCreate)
+      ;
     }
     this.loading = true;
 
@@ -171,7 +170,8 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.alertService.success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
+          this.alertService
+          .success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
         },
         error => {
           console.log(error);
@@ -180,4 +180,5 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
     this.router.navigate(['../connexion']);
   }
+
 }

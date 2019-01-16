@@ -14,6 +14,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Stagiaire extends User {
 
+	@Column(name = "civilite")
+	private String civilite;
+
 	@Column(name = "prenom")
 	private String prenom;
 
@@ -68,6 +71,16 @@ public class Stagiaire extends User {
 		this.offres.add(offre);
 	}
 
+
+	public String getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
+
 	public String getPrenom() {
 		return prenom;
 	}
@@ -104,8 +117,9 @@ public class Stagiaire extends User {
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal) {
+	public Stagiaire(String name, String username, String email, String password, String civilite, String prenom, String etablissement, String ville, String codePostal) {
 		super(name, username, email, password);
+		this.civilite = civilite;
 		this.prenom = prenom;
 		this.etablissement = etablissement;
 		this.ville = ville;

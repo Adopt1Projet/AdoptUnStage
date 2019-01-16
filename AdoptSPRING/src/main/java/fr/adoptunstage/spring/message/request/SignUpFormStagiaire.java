@@ -23,7 +23,8 @@ public class SignUpFormStagiaire {
     @Size(min = 6, max = 40)
     private String password;
     
-    
+    private String civilite;
+
     private String prenom;
     
     private String etablissement;
@@ -31,7 +32,11 @@ public class SignUpFormStagiaire {
     private String ville;
     
     private String codePostal;
-	
+
+
+	public String getCivilite() { return civilite; }
+
+	public void setCivilite(String civilite) { this.civilite = civilite; }
 
 	public String getName() {
 		return name;
@@ -126,5 +131,6 @@ public class SignUpFormStagiaire {
 	public SignUpFormStagiaire() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 }
