@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.models.Stagiaire;
@@ -41,6 +43,11 @@ public class StagiaireController {
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
 		return service.postStagiaire(signUpRequest);
+	}
+	
+	@PostMapping(value = "/creerfile/{username}")
+	public ResponseEntity<?> postStagiaireFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.postStagiaireFile(username, file);
 	}
 
 

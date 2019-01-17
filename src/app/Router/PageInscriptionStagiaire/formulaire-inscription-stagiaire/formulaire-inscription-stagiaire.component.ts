@@ -25,6 +25,8 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   loading = false;
   confirmResult = null;
   submitted = false;
+  file : FileList;
+  curentFile : File;
 
   constructor(
     private stagiaireService: StagiaireService,
@@ -74,6 +76,8 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
       });
   }
+
+
 
   createSignupForm(): FormGroup {
     return this.fb.group(
@@ -156,6 +160,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
     this._location.back();
   }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
@@ -171,6 +179,17 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          if (this.file != undefined){
+            this.curentFile = this.file.item(0);
+            this.stagiaireService.createFileStagiaire(stagiaire.username, this.curentFile)
+              .subscribe(
+                  data2 => {
+                    console.log(data2)
+                  },
+                  error => {
+                    console.log(error);
+                  });;
+            }
           console.log(data);
           this.alertService
           .success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);

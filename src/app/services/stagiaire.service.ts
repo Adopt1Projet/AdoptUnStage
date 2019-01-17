@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -32,5 +32,16 @@ export class StagiaireService {
   }
   deleteUser(username: String): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteuser/${username}`);
+  }
+
+  createFileStagiaire(username: string, file : File): Observable<HttpEvent<{}>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/creerfile/${username}`, formData, {
+      responseType: 'text'
+    });
+ 
+    return this.http.request(req);
   }
 }
