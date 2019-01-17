@@ -174,25 +174,27 @@ export class InfosEntrepriseComponent implements OnInit {
     this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.entreprise.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
-    this.curentFile = this.file.item(0);
     this.entrepriseService.updateEntreprise(this.entreprise.id, this.formUpdate.value)
       .subscribe(
         data => {
-          this.entrepriseService.createFileEntreprise(this.formUpdate.value.username, this.curentFile)
-            .subscribe(
-                data2 => {
-                  console.log(data2)
-                },
-                error => {
-                  console.log(error);
-                });;
+          if (this.file != undefined){
+            this.curentFile = this.file.item(0);
+            this.entrepriseService.createFileEntreprise(this.formUpdate.value.username, this.curentFile)
+              .subscribe(
+                  data2 => {
+                    console.log(data2)
+                  },
+                  error => {
+                    console.log(error);
+                  });;
+            }
           this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
 
-
+    location.reload();
     document.body.scrollTop = 230; // For Safari
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
 

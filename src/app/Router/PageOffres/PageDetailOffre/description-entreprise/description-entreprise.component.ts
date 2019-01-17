@@ -13,6 +13,7 @@ export class DescriptionEntrepriseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.offre);
   }
 
 }
