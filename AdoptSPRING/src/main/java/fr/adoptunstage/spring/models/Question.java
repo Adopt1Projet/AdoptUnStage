@@ -48,7 +48,6 @@ public class Question {
 	public Question() {}
 	
 	public Question(String question, String reponse) {
-		super();
 		this.question = question;
 		this.reponse = reponse;
 	}

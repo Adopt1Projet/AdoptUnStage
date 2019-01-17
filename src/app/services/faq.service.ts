@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FaqService {
 
-  private baseUrl = 'http://localhost:8080/api/questions';
+  private baseUrl = 'http://localhost:8080/api/question';
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +17,21 @@ export class FaqService {
 
   getQuestionsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  createFaq(username: string, faq: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}` + `/creer/${username}`, faq);
+  }
+
+  updateFaq(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  deleteFaq(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+  
+  deleteAll(): Observable<any> {
+    return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
   }
 }

@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
 
         if (this.info.authorities == "ROLE_STAGIAIRE") { return true; }
         else if (this.info.authorities == "ROLE_ENTREPRISE") { return true; }
+        else if (this.info.authorities == "ROLE_ADMIN") { return true; }
         else { return false; }
 
 

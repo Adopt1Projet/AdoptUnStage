@@ -20,6 +20,7 @@ a:active {
 
 .navbar {
     background-color: rgba(255, 255, 255, 0.774);
+    z-index: 999;
     transition: background-color 0.2s linear;
 }
 
@@ -37,6 +38,10 @@ a:active {
 .no-padding {
     padding-left: 0;
     padding-right: 0;
+}
+
+.navbanner {
+    z-index: 999;
 }
 
 .open{
