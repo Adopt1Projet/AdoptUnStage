@@ -14,33 +14,33 @@ public class Actu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@Column(name = "titre")
 	private String titre;
-	
+
 	@Column(name = "exergue")
 	private String exergue;
-	
-	@Column(name = "intertitre_1")
-	private String intertitre1;
-	
-	@Column(name = "intertitre_2")
-	private String intertitre2;
-	
-	@Column(name = "paragraphe_1")
-	private String paragraphe1;
-	
-	@Column(name = "paragraphe_2")
-	private String paragraphe2;
-	
-	@Column(name = "paragraphe_3")
-	private String paragraphe3;
-	
+
 	@Column(name = "image")
 	private String image;
-	
+
 	@Column(name = "legende_image")
 	private String legendeImage;
+
+	@Column(name = "paragraphe_1")
+	private String paragraphe1;
+
+	@Column(name = "intertitre_1")
+	private String intertitre1;
+
+	@Column(name = "paragraphe_2")
+	private String paragraphe2;
+
+	@Column(name = "intertitre_2")
+	private String intertitre2;
+
+	@Column(name = "paragraphe_3")
+	private String paragraphe3;
 
 	public long getId() {
 		return id;
@@ -113,7 +113,7 @@ public class Actu {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 	public String getLegendeImage() {
 		return legendeImage;
 	}
@@ -122,27 +122,27 @@ public class Actu {
 		this.legendeImage = legendeImage;
 	}
 
-	public Actu() {}
+	public Actu() {
+	}
 
-
-	public Actu(String titre, String exergue, String intertitre1, String intertitre2, String paragraphe1,
-			String paragraphe2, String paragraphe3, String image, String legendeImage) {
-		super();
+	public Actu(String titre, String exergue, String image, String legendeImage, String paragraphe1, String intertitre1,
+			String paragraphe2, String intertitre2, String paragraphe3) {
 		this.titre = titre;
 		this.exergue = exergue;
-		this.intertitre1 = intertitre1;
-		this.intertitre2 = intertitre2;
-		this.paragraphe1 = paragraphe1;
-		this.paragraphe2 = paragraphe2;
-		this.paragraphe3 = paragraphe3;
 		this.image = image;
 		this.legendeImage = legendeImage;
+		this.paragraphe1 = paragraphe1;
+		this.intertitre1 = intertitre1;
+		this.paragraphe2 = paragraphe2;
+		this.intertitre2 = intertitre2;
+		this.paragraphe3 = paragraphe3;
+
 	}
 
 	@Override
 	public String toString() {
-		return "Actu [id=" + id + ", titre=" + titre + ", exergue=" + exergue + ", intertitre1=" + intertitre1
-				+ ", intertitre2=" + intertitre2 + ", paragraphe1=" + paragraphe1 + ", paragraphe2=" + paragraphe2
-				+ ", paragraphe3=" + paragraphe3 + ", image=" + image + ", legendeImage=" + legendeImage + "]";
+		return "Actu [id=" + id + ", titre=" + titre + ", exergue=" + exergue + ", image=" + image + ", legendeImage="
+				+ legendeImage + ", intertitre1=" + ", paragraphe1=" + paragraphe1 + intertitre1 + ", paragraphe2="
+				+ paragraphe2 + ", intertitre2=" + intertitre2 + ", paragraphe3=" + paragraphe3 + "]";
 	}
 }

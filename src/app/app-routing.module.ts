@@ -35,16 +35,28 @@ import { InfosEntrepriseComponent } from './Router/PageBoardEntreprise/infos-ent
 import { ModifierOffreComponent } from './Router/PageBoardEntreprise/modifier-offre/modifier-offre.component';
 import { OffreItemComponent } from './Router/PageBoardEntreprise/offre-item/offre-item.component';
 import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
+
+// PAGES BOARD ADMIN :
+
 import { PageAdminComponent } from './Router/PageAdmin/page-admin/page-admin.component';
 import { AuthGuardAdmin } from './auth/auth.guardadmin';
-import { DashboardAdminComponent } from './Router/PageAdmin/dashboard-admin/dashboard-admin.component';
-import { ActuAdminComponent } from './Router/PageAdmin/actu-admin/actu-admin.component';
-import { FaqAdminComponent } from './Router/PageAdmin/faq-admin/faq-admin.component';
-import { PartenairesAdminComponent } from './Router/PageAdmin/partenaires-admin/partenaires-admin.component';
-import { OffresAdminComponent } from './Router/PageAdmin/offres-admin/offres-admin.component';
-import { StagiairesAdminComponent } from './Router/PageAdmin/stagiaires-admin/stagiaires-admin.component';
-import { EntreprisesAdminComponent } from './Router/PageAdmin/entreprises-admin/entreprises-admin.component';
-import { CollegesAdminComponent } from './Router/PageAdmin/colleges-admin/colleges-admin.component';
+import { DashboardAdminComponent } from './Router/PageAdmin/PageDashboardAdmin/dashboard-admin/dashboard-admin.component';
+import { ActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/actu-admin/actu-admin.component';
+import { FaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/faq-admin/faq-admin.component';
+import { PartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/partenaires-admin/partenaires-admin.component';
+import { OffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/offres-admin/offres-admin.component';
+import { StagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/stagiaires-admin/stagiaires-admin.component';
+import { EntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/entreprises-admin/entreprises-admin.component';
+import { CollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/colleges-admin/colleges-admin.component';
+import { CreateActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/create-actu-admin/create-actu-admin.component';
+import { PageActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-actu-admin/page-actu-admin.component';
+import { PageAccueilActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-actu-admin/page-accueil-actu-admin.component';
+import { ModifierActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/modifier-actu-admin/modifier-actu-admin.component';
+import { PageFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-faq-admin.component';
+import { PageAccueilFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin';
+import { CreerFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/creer-faq-admin/creer-faq-admin.component';
+import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modifier-faq-admin/modifier-faq-admin.component';
+
 
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
@@ -55,19 +67,37 @@ const routes: Routes = [
   { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
-  { path: 'admin', canActivate: [AuthGuardAdmin], component: PageAdminComponent, children: [
-    { path: 'dashboard', component: DashboardAdminComponent },
-    { path: 'actus', component: ActuAdminComponent},
-    { path: 'faq', component: FaqAdminComponent},
-    { path: 'partenaires', component: PartenairesAdminComponent},
-    { path: 'offres', component: OffresAdminComponent},
-    { path: 'stagiaires', component: StagiairesAdminComponent},
-    { path: 'entreprises', component: EntreprisesAdminComponent},
-    { path: 'colleges', component: CollegesAdminComponent},
-    
-    
-    { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
-  ]},
+  {
+    path: 'admin', canActivate: [AuthGuardAdmin], component: PageAdminComponent, children: [
+      { path: 'dashboard', component: DashboardAdminComponent },
+      {
+        path: 'actus', component: PageActuAdminComponent, children: [
+          { path: 'listeactus', component: ActuAdminComponent },
+          { path: 'creeractu', component: CreateActuAdminComponent },
+          { path: 'accueilactu', component: PageAccueilActuAdminComponent },
+          { path: 'modifieractu/:id', component: ModifierActuAdminComponent },
+          { path: '', redirectTo: '/admin/actus/accueilactu', pathMatch: 'full' },
+        ]
+      },
+      {
+        path: 'faq', component: PageFaqAdminComponent, children: [
+          { path: 'accueilfaq', component: PageAccueilFaqAdminComponent },
+          { path: 'listefaq', component: FaqAdminComponent },
+          { path: 'creerfaq', component: CreerFaqAdminComponent},
+          { path: 'modifierfaq/:id', component: ModifierFaqAdminComponent},
+          { path: '', redirectTo: '/admin/faq/accueilfaq', pathMatch: 'full' },
+        ]
+      },
+      { path: 'partenaires', component: PartenairesAdminComponent },
+      { path: 'offres', component: OffresAdminComponent },
+      { path: 'stagiaires', component: StagiairesAdminComponent },
+      { path: 'entreprises', component: EntreprisesAdminComponent },
+      { path: 'colleges', component: CollegesAdminComponent },
+
+
+      { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+    ]
+  },
 
   { path: 'partenaires', component: PagePartenairesComponent },
   { path: 'detailoffre/:id', canActivate: [AuthGuard], component: PageDetailOffreComponent },
@@ -102,7 +132,7 @@ const routes: Routes = [
   },
 
   { path: 'non-connecte', component: PageNonConnecteComponent },
-  { path: 'detail-non-connecte', component: PageDetailNonConnecteComponent},
+  { path: 'detail-non-connecte', component: PageDetailNonConnecteComponent },
   { path: 'erreur404', component: PageErrorComponent },
   { path: '**', redirectTo: 'erreur404' },
 ];

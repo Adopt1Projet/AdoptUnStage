@@ -1,0 +1,50 @@
+.headerActu {
+    background-color: #ffffff;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    border-radius: 10px;
+}
+.bodyAccueilActu {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 3vh;
+    margin-top: 3vh;
+    list-style-position: inside
+}
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+hr {
+    width: 75%;
+    border: 2px solid #000;
+}
+
+.btn {
+    background-color: #26a69a;
+    height: 8vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.router-link-active {
+    background-color: #2ed1bb;
+}
+
+
+
+button:hover {
+    background-color: #2ed1bb;
+}

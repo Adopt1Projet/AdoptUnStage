@@ -1,3 +1,4 @@
+/* Page complète du panel Admin mise au premier plan */
 .bodyAdmin {
   display: flex;
   flex-direction: column;
@@ -8,7 +9,7 @@
   right: 0;
   z-index: 1000;
 }
-
+/* Bouton de retour à l'accueil */
 .retourAccueil {
   margin-right: 2%;
 }
@@ -17,12 +18,16 @@
   color: #ffffff;
 }
 
+/* Mode mobile */
+
 .is-mobile .toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
 }
 
+
+/* Top header bar */
 .toolbar {
   background: linear-gradient(to right, #2fa89a, #2ed1bb)
 }
@@ -30,6 +35,8 @@
 h1.panelAdmin {
   margin-left: 8px;
 }
+
+
 
 mat-sidenav-container {
   /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
@@ -45,6 +52,11 @@ mat-sidenav-container {
 .sidenav-body {
   background-color: #ffffff;
   width: 170px;
+  box-shadow: 1px 0 20px rgba(0,0,0,.08);
+}
+
+hr {
+  width: 80%;
 }
 
 mat-nav-list a {

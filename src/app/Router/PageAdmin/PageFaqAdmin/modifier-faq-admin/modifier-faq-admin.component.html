@@ -1,0 +1,32 @@
+<div *ngIf="question" class="container col-10 bodyModifierFaq">
+    <h1 class="titre">Modifier l'actualité {{question.question}}</h1>
+    <form class="col-md-8" [formGroup]="formFaq" (ngSubmit)="onSubmit()">
+      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+        remplis.</p>
+      <div class="form-group">
+        <label for="question">Titre*</label>
+        <input type="text" formControlName="question" class="form-control" id="question" [ngClass]="{ 'is-invalid': submitted && f.question.errors }"
+          value="{{question.question}}">
+        <div *ngIf="submitted && f.question.errors" class="invalid-feedback">
+          <div *ngIf="f.question.errors.required">La question est requise !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="reponse">Exergue*</label>
+        <textarea class="form-control" formControlName="reponse" [ngClass]="{ 'is-invalid': submitted && f.reponse.errors }"
+          id="reponse" rows="3" value="{{question.reponse}}">
+        </textarea>
+        <div *ngIf="submitted && f.reponse.errors" class="invalid-feedback">
+          <div *ngIf="f.reponse.errors.required">La réponse est requise !</div>
+        </div>
+      </div>
+
+  
+      <div class="text-center d-flex justify-content-around">
+          <button type="button" class="btn btnModifierFaq" (click)="retourPage()">Retour</button>
+          <button class="btn btnModifierFaq" type="submit">Modifier la F.A.Q</button>
+        </div>
+  
+    </form>
+  </div>
