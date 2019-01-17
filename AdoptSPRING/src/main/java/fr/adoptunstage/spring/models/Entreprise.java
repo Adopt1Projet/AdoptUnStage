@@ -36,6 +36,9 @@ public class Entreprise extends User {
 	@Column(name = "codePostal")
 	private String codePostal;
 
+	@Column(name = "civilite")
+	private String civilite;
+
 	@Column(name = "prenom")
 	private String prenom;
 
@@ -137,6 +140,10 @@ public class Entreprise extends User {
 	}
 
 
+	public String getCivilite() { return civilite; }
+
+	public void setCivilite(String civilite) { this.civilite = civilite; }
+
 	public String getPrenom() {
 		return prenom;
 	}
@@ -183,6 +190,7 @@ public class Entreprise extends User {
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.logo = new UploadFileResponse ("", "", "", 0);
+		this.civilite = civilite;
 		this.prenom = prenom;
 		this.contactMail = contactMail;
 		this.description = description;

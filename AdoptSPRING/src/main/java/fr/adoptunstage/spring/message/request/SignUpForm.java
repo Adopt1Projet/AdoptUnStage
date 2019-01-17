@@ -41,6 +41,8 @@ public class SignUpForm {
 
 	private UploadFileResponse logo;
 
+	private String civilite;
+
 	private String prenom;
 
 	private String description;
@@ -104,6 +106,10 @@ public class SignUpForm {
 	public void setLogo(UploadFileResponse logo) {
 		this.logo = logo;
 	}
+
+	public String getCivilite() { return civilite; }
+
+	public void setCivilite(String civilite) { this.civilite = civilite; }
 
 	public String getPrenom() {
 		return prenom;
