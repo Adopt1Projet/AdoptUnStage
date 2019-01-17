@@ -8,6 +8,7 @@ import { AuthGuardStagiaire } from './auth/auth.guardstagiaire';
 import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
+import { MatButtonModule } from '@angular/material';
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -186,6 +187,7 @@ import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-de
     ReactiveFormsModule,
     SimpleModalModule.forRoot({ container: "modal-container" }),
     UiSwitchModule,
+    MatButtonModule,
   ],
 
   entryComponents: [
