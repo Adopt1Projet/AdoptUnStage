@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Stagiaire } from 'src/app/modeles/stagiaire';
 import { StagiaireService } from 'src/app/services/stagiaire.service';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-stagiaires-admin',
@@ -8,33 +9,48 @@ import { StagiaireService } from 'src/app/services/stagiaire.service';
   styleUrls: ['./stagiaires-admin.component.css']
 })
 export class StagiairesAdminComponent implements OnInit {
+  displayedColumns: string[] = ['civilite', 'name', 'prenom', 'email', 'etablissement', 'ville', 'codePostal', 'modifier', 'supprimer'];
+  public array: any;
+  public stagiaires: any;
+  public pageSize = 5;
+  public currentPage = 0;
+  public totalSize = 0;
 
-  stagiaires: Stagiaire[];
-  page: number;
-  taillePage: number;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private stagiaireService: StagiaireService) { }
 
+  applyFilter(filterValue: string) {
+    this.stagiaires.filter = filterValue.trim().toLowerCase();
+  }
+
   ngOnInit() {
-    this.page = 0;
-    this.taillePage = 5;
     this.stagiaireService.getStagiaireList().subscribe
-      (data => { this.stagiaires = data;
-                 this.stagiaires.sort((stagiaire, stagiaire2) => stagiaire2.id - stagiaire.id);
+      (data => {
+        this.stagiaires = new MatTableDataSource<Stagiaire[]>(data);
+        setTimeout(() => {
+          this.stagiaires.paginator = this.paginator;
+          this.stagiaires.sort = this.sort;
+        });
+        this.array = data;
+        this.totalSize = this.stagiaires.length;
+        this.iterator();
+
+
       });
   }
 
-  increasePage() {
-    this.page++;
+  public handlePage(e: any) {
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
   }
 
-  decreasePage() {
-    this.page--;
-  }
-
-  getPage() {
-    const debut = this.page*this.taillePage;
-    const fin = Number(this.taillePage) + Number(this.page*this.taillePage);
-    return this.stagiaires.slice(debut,fin);
+  private iterator() {
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.array.slice(start, end);
+    this.array = part;
   }
 }

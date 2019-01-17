@@ -4,6 +4,10 @@
     padding-top: 3vh;
     border-radius: 10px;
 }
+
+mat-tab-group mat-tab {
+    color: black;
+}
 .bodyAccueilActu {
     text-align: center;
     background-color: #ffffff;

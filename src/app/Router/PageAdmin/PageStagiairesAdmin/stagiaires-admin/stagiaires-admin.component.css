@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+}
+
+.material-icons {
+  border-radius: 5px;
+  border: 2px solid;
+  width: 50px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efeded;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
