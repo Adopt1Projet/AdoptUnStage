@@ -176,6 +176,7 @@ import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-de
     ConditionUtilisationComponent,
     ListePostulantsComponent,
     PageDetailNonConnecteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -183,8 +184,8 @@ import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-de
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    SimpleModalModule.forRoot({container: "modal-container"}),
-    UiSwitchModule
+    SimpleModalModule.forRoot({ container: "modal-container" }),
+    UiSwitchModule,
   ],
 
   entryComponents: [
