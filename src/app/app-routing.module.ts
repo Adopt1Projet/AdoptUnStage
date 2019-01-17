@@ -90,7 +90,9 @@ const routes: Routes = [
       },
       { path: 'partenaires', component: PartenairesAdminComponent },
       { path: 'offres', component: OffresAdminComponent },
-      { path: 'stagiaires', component: StagiairesAdminComponent },
+      { path: 'stagiaires', component: StagiairesAdminComponent, children: [
+
+      ] },
       { path: 'entreprises', component: EntreprisesAdminComponent },
       { path: 'colleges', component: CollegesAdminComponent },
 

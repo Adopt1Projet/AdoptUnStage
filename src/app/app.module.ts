@@ -167,6 +167,9 @@ import { CreerPartenaireAdminComponent } from './Router/PageAdmin/PagePartenaire
 import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-partenaires-admin.component';
 import { ModifierPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-admin/modifier-partenaire-admin.component';
 import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modifier-faq-admin/modifier-faq-admin.component';
+import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
+import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
+import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/creer-stagiaire-admin/creer-stagiaire-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -257,7 +260,10 @@ import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modif
     CreerPartenaireAdminComponent,
     PagePartenairesAdminComponent,
     ModifierPartenaireAdminComponent,
-    ModifierFaqAdminComponent
+    ModifierFaqAdminComponent,
+    PageStagiaireAdminComponent,
+    ModifierStagiaireAdminComponent,
+    CreerStagiaireAdminComponent
   ],
   imports: [
     BrowserModule,

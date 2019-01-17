@@ -28,7 +28,7 @@ public class StagiaireController {
 	@Autowired
 	StagiaireService service;
 
-	@GetMapping("/")
+	@GetMapping("")
 	public List<Stagiaire> getAllStagiaire() {
 		return service.getAllStagiaire();
 	}

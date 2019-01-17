@@ -4,7 +4,7 @@
       <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
         remplis.</p>
       <div class="form-group">
-        <label for="question">Titre*</label>
+        <label for="question">Question*</label>
         <input type="text" formControlName="question" class="form-control" id="question" [ngClass]="{ 'is-invalid': submitted && f.question.errors }"
           value="{{question.question}}">
         <div *ngIf="submitted && f.question.errors" class="invalid-feedback">
@@ -13,7 +13,7 @@
       </div>
   
       <div class="form-group">
-        <label for="reponse">Exergue*</label>
+        <label for="reponse">Réponse*</label>
         <textarea class="form-control" formControlName="reponse" [ngClass]="{ 'is-invalid': submitted && f.reponse.errors }"
           id="reponse" rows="3" value="{{question.reponse}}">
         </textarea>

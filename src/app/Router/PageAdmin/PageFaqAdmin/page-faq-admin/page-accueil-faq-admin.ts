@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
     <li>Supprimer les F.A.Q</li>
   </ul>
 
-  <p>Attention, toute modification ou suppression de contenue est IRREVERSIBLE.</p>
+  <p>Attention, toute modification ou suppression de contenu est IRREVERSIBLE.</p>
   </div>
   `,
   styleUrls: ['./page-faq-admin.component.css']
