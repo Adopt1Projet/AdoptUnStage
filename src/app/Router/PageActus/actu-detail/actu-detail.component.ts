@@ -11,18 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActuDetailComponent implements OnInit {
 
-  actus: Observable<any>;
+  actus: any;
   article: Actu;
 
   constructor(private serviceActu: ActuService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    this.serviceActu.getActusList()
+    const id = this.route.snapshot.params['id'];
+    this.serviceActu.getActu(id)
       .subscribe(data => {
         this.actus = data;
-        const id = this.route.snapshot.params['id'];
-        this.article = this.actus[id - 1];
+        // this.article = this.actus[id - 1];
       });
   }
 

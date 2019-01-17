@@ -65,6 +65,8 @@ export class FormulaireConnexionComponent implements OnInit {
 
         if (this.roles[0] == "ROLE_STAGIAIRE") { this.router.navigate(['../boardstagiaire/gestionstagiaire']); }
         if (this.roles[0] == "ROLE_ENTREPRISE") { this.router.navigate(['../boardentreprise']); }
+        if (this.roles[0] == "ROLE_ADMIN") { this.router.navigate(['../accueil']); }
+        
       },
       error => {
         console.log(error);

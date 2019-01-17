@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   info: any;
   isInfo = false;
+  isAdmin = false;
   isStagiaire = false;
   isEntreprise = false;
 
@@ -36,6 +37,9 @@ export class NavbarComponent implements OnInit {
 
       if (this.info.authorities == "ROLE_ENTREPRISE") { this.isEntreprise = true; }
       else { this.isEntreprise = false; }
+
+      if (this.info.authorities == "ROLE_ADMIN") { this.isAdmin = true; }
+      else { this.isAdmin = false; } 
     }, 100)
   }
 

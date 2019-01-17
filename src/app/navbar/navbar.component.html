@@ -28,10 +28,11 @@
         <li class="nav-item" *ngIf="isInfo==true">
           <a mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon compte</a>
           <a mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardedentreprise" routerLinkActive="router-link-active">Mon compte</a>
+          <a mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
         </li>
         <li class="nav-item">
           <a mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-          <a mat-button *ngIf="isStagiaire==true || isEntreprise==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
+          <a mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
         </li>
       </ul>
     </div>
