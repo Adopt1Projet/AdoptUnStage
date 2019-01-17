@@ -89,7 +89,7 @@ public class EntrepriseService {
 
 		// Creating user's account
 		Entreprise user = new Entreprise(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getPrenom(), signUpRequest.getContactMail(), signUpRequest.getDescription(), signUpRequest.getTel());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getCivilite(), signUpRequest.getPrenom(), signUpRequest.getContactMail(), signUpRequest.getDescription(), signUpRequest.getTel());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("entreprise");
@@ -155,6 +155,7 @@ public class EntrepriseService {
 									_entreprise.setVille(updateRequest.getVille());
 									_entreprise.setCodePostal(updateRequest.getCodePostal());
 									_entreprise.setLogo(updateRequest.getLogo());
+									_entreprise.setCivilite(updateRequest.getCivilite());
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
 									_entreprise.setContactMail(updateRequest.getContactMail());

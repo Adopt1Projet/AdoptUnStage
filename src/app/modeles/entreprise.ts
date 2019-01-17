@@ -1,4 +1,5 @@
 export interface Entreprise {
+    civilite: string;
     name: string;
     username: string;
     email: string;

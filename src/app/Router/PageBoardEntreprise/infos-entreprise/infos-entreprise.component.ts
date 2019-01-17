@@ -52,6 +52,7 @@ export class InfosEntrepriseComponent implements OnInit {
           ville: this.entreprise.ville,
           codePostal: this.entreprise.codePostal,
           //logo: this.entreprise.logo,
+          civilite: this.entreprise.civilite,
           contactMail: this.entreprise.contactMail,
           description: this.entreprise.description,
           tel: this.entreprise.tel,
@@ -96,6 +97,10 @@ export class InfosEntrepriseComponent implements OnInit {
           Validators.compose([Validators.required])
         ],
         codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        civilite: [
           null,
           Validators.compose([Validators.required])
         ],
