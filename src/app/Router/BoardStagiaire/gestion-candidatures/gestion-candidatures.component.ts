@@ -25,8 +25,15 @@ export class GestionCandidaturesComponent implements OnInit {
 
   public downloadPDF() {
     console.log(this.offres);
+    
     var docDefinition = {
       content: [
+        {
+          text: 'Ma liste de candidatures sur AdoptUnStage.fr',
+          fontSize: 20,
+          bold: true,
+          alignment: 'center'
+        },
         {
           layout: 'lightHorizontalLines', // optional
           table: {
@@ -43,8 +50,9 @@ export class GestionCandidaturesComponent implements OnInit {
 
 
     this.offres.forEach((offre) => {
-      let temp: any[] = [offre.titre, offre.description, offre.entreprise.secteur, offre.rue, offre.ville, offre.codePostal];
-      docDefinition.content[0].table.body.push(temp);
+      let temp: any[] = [offre.titre + " " + offre.entreprise.raisonSociale, offre.description, offre.entreprise.secteur, offre.rue, offre.ville, offre.codePostal];
+      docDefinition.content[0].text;
+      docDefinition.content[1].table.body.push(temp);
     });
 
     pdfMake.createPdf(docDefinition).download();
