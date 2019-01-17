@@ -1,3 +1,5 @@
+import { Entreprise } from './entreprise';
+
 export class Offre {
     id: number;
     idEntreprise: number;
@@ -9,5 +11,6 @@ export class Offre {
     ville: string;
     codePostal: number;
     active: boolean;
+    entreprise: Entreprise;
 
 }

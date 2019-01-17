@@ -2,7 +2,7 @@ package fr.adoptunstage.spring.controllers;
 
 
 import java.util.List;
-import java.util.Set;
+
 
 import javax.validation.Valid;
 
@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
-import fr.adoptunstage.spring.models.User;
+
 import fr.adoptunstage.spring.security.services.UserDetailsServiceImpl;
 import fr.adoptunstage.spring.services.EntrepriseService;
 

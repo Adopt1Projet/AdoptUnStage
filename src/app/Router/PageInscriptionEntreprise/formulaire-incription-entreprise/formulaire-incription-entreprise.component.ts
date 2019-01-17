@@ -173,20 +173,22 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
-    /* this.curentFile = this.file.item(0); */
+    
     this.entrepriseService.createEntreprise(entreprise)
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data);
-          /* this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
+          if (this.file != undefined){
+          this.curentFile = this.file.item(0);
+          this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
             .subscribe(
                 data2 => {
                   console.log(data2)
                 },
                 error => {
                   console.log(error);
-                });; */
+                });;
+          }
           this.alertService.success('Merci de vous être enregistré, vous pouvez vous connecter.', true);
         },
         error => {

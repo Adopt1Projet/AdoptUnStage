@@ -3,7 +3,6 @@ package fr.adoptunstage.spring.models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -189,8 +188,7 @@ public class Entreprise extends User {
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePostal = codePostal;
-		this.logo = new UploadFileResponse ("", "", "", 0);
-		this.civilite = civilite;
+		this.logo = new UploadFileResponse (null, null, null, 0);
 		this.prenom = prenom;
 		this.contactMail = contactMail;
 		this.description = description;
