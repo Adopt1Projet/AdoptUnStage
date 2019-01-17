@@ -46,3 +46,7 @@ max-width : 10vh;
 .btn:hover {
     background-color: #2ed1bb;
 }
+
+td {
+    vertical-align: middle;
+}
