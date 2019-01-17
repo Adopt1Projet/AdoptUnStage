@@ -15,7 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
@@ -24,6 +25,7 @@ import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.models.User;
+import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.StagiaireRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
@@ -39,6 +41,10 @@ public class StagiaireService {
 	
 	@Autowired
 	MailService mailRepository;
+	
+	@Autowired
+	FileStorageService fileStorageService;
+	
 	
 	@Autowired
 	UserRepository userRepository;
@@ -121,6 +127,29 @@ public class StagiaireService {
 		
 		
 	}
+	
+	
+	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {
+				
+				Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+						() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+				
+		        String fileName = fileStorageService.storeFile(file, stagiaire.getUsername());
+		
+		        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+		                .path("/api/downloadFile/")
+		                .path(fileName)
+		                .toUriString();      
+		
+		        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+		                file.getContentType(), file.getSize());
+		        
+		        
+		        stagiaire.setCV(uploadFileResponse);
+		        userRepository.save(stagiaire);
+		        
+		        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+		    }
 	
 
 	
