@@ -167,13 +167,13 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return console.log(this.formCreate);
+      return ;
     }
     this.loading = true;
+    console.log(this.formCreate)
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
-    
     this.entrepriseService.createEntreprise(entreprise)
       .pipe(first())
       .subscribe(
