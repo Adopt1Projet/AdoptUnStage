@@ -63,7 +63,10 @@ export class InfosStagiaireComponent implements OnInit {
   updateSignupForm(): FormGroup {
     return this.fb.group(
       {
-        civilite: [null],
+        civilite: [
+          null,
+          Validators.compose([Validators.required])
+        ],
         prenom: [
           null,
           Validators.compose([Validators.required])
