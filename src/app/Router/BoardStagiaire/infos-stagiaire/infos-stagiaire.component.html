@@ -75,6 +75,7 @@
             </div>
 
             <div class="form-row logo">
+                <a *ngIf="stagiaire.cv.fileDownloadUri" href="{{stagiaire.cv.fileDownloadUri}}" title="Pdf">Télécharge ton CV acutel ici</a>
                 <div class="form-group">
                   <label for="cv" class="label-file">Changer le CV :</label>
                   <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="cv" name="cv">
