@@ -158,6 +158,7 @@ public class EntrepriseService {
 									_entreprise.setVille(updateRequest.getVille());
 									_entreprise.setCodePostal(updateRequest.getCodePostal());
 									_entreprise.setLogo(updateRequest.getLogo());
+									_entreprise.setCivilite(updateRequest.getCivilite());
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
 									_entreprise.setContactMail(updateRequest.getContactMail());

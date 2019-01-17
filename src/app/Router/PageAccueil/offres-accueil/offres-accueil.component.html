@@ -18,8 +18,8 @@
 
                 <tbody *ngFor="let offre of offres; let i=index">
                     <tr *ngIf="i < 5" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
-                        <td *ngIf="offre.entreprise.logo"><img src="{{offre.entreprise.logo}}" alt="Logo entreprise"></td>
-                        <td *ngIf="!offre.entreprise.logo"><img src="assets/img/LogoAdopt.png" alt="Logo placeholder"></td>
+                        <td *ngIf="offre.entreprise.logo.fileDownloadUri"><img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Logo entreprise"></td>
+                        <td *ngIf="offre.entreprise.logo.fileDownloadUri == null"><img src="assets/img/LogoAdopt.png" alt="Logo par default"></td>
                         <td>{{offre.entreprise.secteur}}</td>
                         <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
                         <td> {{offre.ville}} </td>
