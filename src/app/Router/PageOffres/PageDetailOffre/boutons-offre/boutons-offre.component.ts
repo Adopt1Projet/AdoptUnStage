@@ -21,10 +21,10 @@ export class BoutonsOffreComponent implements OnInit {
   hasPostuled: boolean = false;
 
 
-  constructor(private token: TokenStorageService, 
-              private location: Location,
-              private offreService: OffreService) { }
-  
+  constructor(private token: TokenStorageService,
+    private location: Location,
+    private offreService: OffreService) { }
+
   retourPage() {
     this.location.back();
   }
@@ -33,16 +33,17 @@ export class BoutonsOffreComponent implements OnInit {
     this.role = this.token.getAuthorities();
     this.username = this.token.getUsername();
 
+    if (this.role[0] == 'ROLE_STAGIAIRE') {
     this.offreService.getOffresListStagiaire(this.username)
       .subscribe(data => {
         this.offresStagiaire = data;
-        for(let i = 0; i < this.offresStagiaire.length; i++) {
-          if (this.offresStagiaire[i].id 
+        for (let i = 0; i < this.offresStagiaire.length; i++) {
+          if (this.offresStagiaire[i].id
             == this.offre.id) {
-              this.hasPostuled = true;
+            this.hasPostuled = true;
+          }
         }
-      }
       })
+    }
   }
-
 }
