@@ -2,8 +2,10 @@
   <h2><i class="material-icons md-36">location_city</i>Employeur</h2>
   <div class="row">
     <div class="col-6">
-      <img *ngIf="offre.entreprise.logo == null" class="imgDescEntreprise" src="https://lovelandfireandice.com/wp-content/uploads/logo-placeholder-generic.200x200.png"
-        alt="">
+      <img *ngIf="offre.entreprise.logo.fileDownloadUri" class="imgDescEntreprise" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">    
+      <img *ngIf="offre.entreprise.logo.fileDownloadUri == null" class="imgDescEntreprise" src="assets/img/LogoAdopt.png"
+        alt="logo par default">
+      
     </div>
     <div class="col-6">
       <h4><b>{{ offre.entreprise.raisonSociale }}</b></h4>
