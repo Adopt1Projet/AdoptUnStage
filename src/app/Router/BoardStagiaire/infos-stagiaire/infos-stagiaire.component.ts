@@ -173,6 +173,7 @@ export class InfosStagiaireComponent implements OnInit {
 
     document.body.scrollTop = 230; // For Safari
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+    location.reload();
   }
 
   onSubmitPassword() {

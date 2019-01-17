@@ -11,6 +11,7 @@
         <th>Nom</th>
         <th>Etablissement</th>
         <th>Mail</th>
+        <th>CV</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
         <td> {{postulant.name}} </td>
         <td> {{postulant.etablissement}} </td>
         <td><a href="mailto:{{postulant.email}}">{{postulant.email}}</a></td>
+        <td>
+          <a *ngIf="postulant.cv.fileDownloadUri" href="{{postulant.cv.fileDownloadUri}}">Télécharger le CV</a>
+          <p *ngIf="postulant.cv.fileDownloadUri == null">CV à venir</p>
+        </td>
       </tr>
     </tbody>
   </table>
