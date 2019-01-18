@@ -12,7 +12,7 @@ import { AlertService } from 'src/app/services/alert.service';
   styleUrls: ['./stagiaires-admin.component.css']
 })
 export class StagiairesAdminComponent implements OnInit {
-  displayedColumns: string[] = ['civilite', 'name', 'prenom', 'email', 'etablissement', 'ville', 'codePostal', 'modifier', 'supprimer'];
+  displayedColumns: string[] = ['civilite', 'name', 'prenom', 'email', 'etablissement', 'ville', 'codePostal', 'candidatures', 'modifier', 'supprimer'];
   public array: any;
   public stagiaires: any;
   public pageSize = 5;

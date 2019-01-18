@@ -84,6 +84,13 @@ public class StagiaireService {
 		return stagiaire;
 	}
 
+	public Stagiaire getAdminStagiaire(@PathVariable("id") long id) {
+		Stagiaire stagiaire = repository.findById(id).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> id : " + id));
+		stagiaire.setPassword("");
+		return stagiaire;
+	}
+
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		repository.deleteById(id);
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);

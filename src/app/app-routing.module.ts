@@ -64,6 +64,8 @@ import { PageAccueilOffresAdminComponent } from './Router/PageAdmin/PageOffresAd
 import { PostulantsOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/postulants-offre-admin/postulants-offre-admin.component';
 import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/modifier-offre-admin/modifier-offre-admin.component';
 import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
+import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
+import { CandidaturesStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/candidatures-stagiaire-admin/candidatures-stagiaire-admin.component';
 
 
 const routes: Routes = [
@@ -110,7 +112,9 @@ const routes: Routes = [
         path: 'stagiaires', component: PageStagiaireAdminComponent, children: [
           { path: 'accueilstagiaires', component: PageAccueilStagiairesAdminComponent },
           { path: 'listestagiaires', component: StagiairesAdminComponent },
+          { path: 'modifierstagiaire/:id', component: ModifierStagiaireAdminComponent},
           { path: 'creerstagiaire', component: CreerStagiaireAdminComponent },
+          { path: 'candidaturesstagiaire/:username', component: CandidaturesStagiaireAdminComponent},
           { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
         ]
       },
