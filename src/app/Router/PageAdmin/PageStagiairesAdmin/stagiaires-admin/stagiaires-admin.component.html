@@ -42,9 +42,17 @@
         <td mat-cell *matCellDef="let stagiaire"> {{stagiaire.codePostal}} </td>
       </ng-container>
 
+      <i class="material-icons"></i>
+
+        <ng-container matColumnDef="candidatures">
+          <th mat-header-cell *matHeaderCellDef>Candidatures</th>
+          <td mat-cell *matCellDef="let stagiaire"> <i [routerLink]="['/admin/stagiaires/candidaturesstagiaire/', stagiaire.username]"
+              class="material-icons" style="color:#ff9900; cursor: pointer;">assignment</i> </td>
+        </ng-container>
+
       <ng-container matColumnDef="modifier">
         <th mat-header-cell *matHeaderCellDef>Modifier</th>
-        <td mat-cell *matCellDef="let stagiaire"> <i [routerLink]="['/boardentreprise/modifieroffre', stagiaire.id]"
+        <td mat-cell *matCellDef="let stagiaire"> <i [routerLink]="['/admin/stagiaires/modifierstagiaire', stagiaire.id]"
             class="material-icons" style="color:blue; cursor: pointer;">edit</i> </td>
       </ng-container>
 
