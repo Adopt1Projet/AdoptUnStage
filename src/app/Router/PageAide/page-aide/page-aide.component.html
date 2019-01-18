@@ -23,4 +23,10 @@
         Pour plus d'informations, explorez le <a href="https://readymag.com/edugouv/tutostages/troisieme-employeur/" target="_blank">Tuto des stages élèves </a>!
       </p>
   </div>
+  <div>
+    <h2>Comment contacter les collèges ?</h2>
+    <ul *ngFor="let college of colleges">
+      <p>{{college.nom}} : {{ college.contactPublic }}</p>
+    </ul>
+  </div>
 </div>

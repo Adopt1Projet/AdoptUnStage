@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CollegeService } from '../../../services/college.service';
+import { Observable } from 'rxjs';
+import { College } from '../../../modeles/college';
 
 @Component({
   selector: 'app-page-aide',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAideComponent implements OnInit {
 
-  constructor() { }
+  colleges: any;
+  
+
+  constructor(private collegeService: CollegeService) { }
 
   ngOnInit() {
-  }
+    this.collegeService.getCollegesList()
+          .subscribe(
+            data => {
+              this.colleges = data;
+              console.log(data);
+            
+            },
+            error => console.log("Une erreur est survenue.")
+            );
+            
+     }
+  
 
 }
