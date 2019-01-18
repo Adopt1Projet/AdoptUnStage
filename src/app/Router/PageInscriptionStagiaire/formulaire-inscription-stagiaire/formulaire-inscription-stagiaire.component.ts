@@ -12,6 +12,7 @@ import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/c
 import { AlertService } from '../../../services/alert.service';
 import { Observable } from 'rxjs';
 import { CollegeService } from '../../../services/college.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-formulaire-inscription-stagiaire',
@@ -27,8 +28,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   submitted = false;
   file : FileList;
   curentFile : File;
+  info: any;
 
   constructor(
+    private token: TokenStorageService,
     private stagiaireService: StagiaireService,
     private _location: Location,
     private fb: FormBuilder,
@@ -43,24 +46,22 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
   get f() { return this.formCreate.controls; }
 
+  isAdmin() {
+    this.info = {
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+
+    };
+  }
 
   ngOnInit() {
+    this.isAdmin()
     this.collegeService.getCollegesList()
     .subscribe(
       data => {
         this.colleges = data;
         console.log (this.colleges);
       });
-
-    /* this.stagiaireService.createStagiaire(stagiaire)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.alertService.success('Merci de t\'être enregistré, maintenant connecte toi !', true);
-        },
-        error => {
-          console.log(error);
-          this.loading = false; */
   }
 
   showCgu() {
@@ -76,8 +77,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
 
       });
   }
-
-
 
   createSignupForm(): FormGroup {
     return this.fb.group(
@@ -191,15 +190,24 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
                   });;
             }
           console.log(data);
-          this.alertService
-          .success('Merci de t\'être enregistré, tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
+          if (this.info.authorities == "ROLE_ADMIN") {
+            this.alertService
+          .success('Vous avez bien créé le compte stagiaire ' + stagiaire.prenom + " " + stagiaire.name, true);
+          }
+          else { this.alertService
+            .success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true); }
+          
         },
         error => {
           console.log(error);
           this.loading = false;
         });
 
-    this.router.navigate(['../connexion']);
+        if (this.info.authorities == "ROLE_ADMIN") {
+          this.router.navigate(['../admin/stagiaires/listestagiaires']);
+        }
+        else { this.router.navigate(['../connexion']); }
+    
   }
 
 }

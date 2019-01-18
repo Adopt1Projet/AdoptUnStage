@@ -170,6 +170,7 @@ import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modif
 import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
 import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
 import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/creer-stagiaire-admin/creer-stagiaire-admin.component';
+import { PageAccueilStagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-accueil-stagiaires-admin';
 @NgModule({
   declarations: [
     AppComponent,
@@ -263,7 +264,8 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
     ModifierFaqAdminComponent,
     PageStagiaireAdminComponent,
     ModifierStagiaireAdminComponent,
-    CreerStagiaireAdminComponent
+    CreerStagiaireAdminComponent,
+    PageAccueilStagiairesAdminComponent,
 
   ],
   imports: [
