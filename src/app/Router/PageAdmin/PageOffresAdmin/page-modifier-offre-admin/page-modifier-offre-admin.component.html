@@ -1,24 +1,32 @@
-<div class="container col-10 p-0 bodyModifierOffreAdmin">
+<div *ngIf="offre" class="container col-10 p-0 bodyModifierOffreAdmin">
   <div class="row col-12 p-0">
     <div class="col-md-4 cardEntreprise p-0">
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          <mat-card-title><b>{{offre.entreprise.raisonSociale}}</b></mat-card-title>
+          <mat-card-subtitle><b>secteur :</b> {{offre.entreprise.secteur}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image *ngIf="offre.entreprise.logo.fileDownloadUri" class="imgDescEntreprise" src="{{offre.entreprise.logo.fileDownloadUri}}"
+          alt="logo entreprise">
+        <img mat-card-image *ngIf="offre.entreprise.logo.fileDownloadUri == null" class="imgDescEntreprise" src="assets/img/LogoAdopt.png"
+          alt="logo par default">
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+            {{offre.entreprise.description}}
           </p>
+          <p><i class="material-icons">web</i><b>Site web : </b> <a href="{{offre.entreprise.siteWeb}}" target="_blank">{{offre.entreprise.siteWeb}}</a>
+          </p>
+          <p><i class="material-icons">email</i> <b>Mail :</b> {{offre.entreprise.username}}</p>
+          <p><i class="material-icons">phone</i> <b>Tel :</b> {{offre.entreprise.tel}}</p>
+          <p><i class="material-icons">supervisor_account</i> <b>Référent :</b> {{offre.entreprise.name}}
+            {{offre.entreprise.prenom}}</p>
+
+          <p><i class="material-icons">home</i> <b>Adresse :</b> <br>
+            {{offre.entreprise.adresse}} <br>
+            {{offre.entreprise.ville}} <br>
+            {{offre.entreprise.codePostal}}</p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
       </mat-card>
     </div>
     <div class="col-md-8 p-0">

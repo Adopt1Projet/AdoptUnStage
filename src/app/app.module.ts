@@ -176,6 +176,7 @@ import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/
 import { PageAccueilOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-accueil-offres-admin';
 import { PostulantsOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/postulants-offre-admin/postulants-offre-admin.component';
 import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
+import { CandidaturesStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/candidatures-stagiaire-admin/candidatures-stagiaire-admin.component';
 
 @NgModule({
   declarations: [
@@ -277,6 +278,7 @@ import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAd
     PageAccueilOffresAdminComponent,
     PostulantsOffreAdminComponent,
     PageModifierOffreAdminComponent,
+    CandidaturesStagiaireAdminComponent,
 
   ],
   imports: [
