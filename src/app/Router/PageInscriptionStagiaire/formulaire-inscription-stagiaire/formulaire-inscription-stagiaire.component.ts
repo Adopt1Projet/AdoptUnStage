@@ -186,7 +186,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
                   data2 => {
                   },
                   error => {
-                    this.alertService.success('Ton cv n\'a pas le bon format mais ton compte a bien été créé, tu viens de recevoir un mail de confirmation. Maintenant connecte toi ! !', true);
+                    this.alertService.success('Ton cv n\'a pas le bon format mais ton compte a bien été créé, tu viens de recevoir un mail de confirmation. Maintenant connecte toi !', true);
                   });;
             }
           this.alertService

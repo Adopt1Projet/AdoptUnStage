@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,6 +52,17 @@ public class EntrepriseService {
 	
 	@Autowired
 	PasswordEncoder encoder;
+	
+	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
+
+	
+	public static boolean validateFileExtn(String ext){
+		Matcher mtch = fileExtnPtrn.matcher(ext);
+		if(mtch.matches()){
+		return true;
+		}
+		return false;
+		}
 
 	
 	public List<Entreprise> getAllEntreprises() {
@@ -119,24 +132,28 @@ public class EntrepriseService {
 	
 	public ResponseEntity<?> postEntrepriseFile(String username, MultipartFile file) {
 		
-		Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
-				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		if (validateFileExtn(file.getOriginalFilename())) {	 
 		
-        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
-
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/api/downloadFile/")
-                .path(fileName)
-                .toUriString();      
-
-        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
-                file.getContentType(), file.getSize());
-        
-        
-        entreprise.setLogo(uploadFileResponse);
-        userRepository.save(entreprise);
-        
-        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+			
+	        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
+	
+	        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+	                .path("/api/downloadFile/")
+	                .path(fileName)
+	                .toUriString();      
+	
+	        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+	                file.getContentType(), file.getSize());
+	        
+	        
+	        entreprise.setLogo(uploadFileResponse);
+	        userRepository.save(entreprise);
+	        
+	        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
     }
 	
 	
@@ -154,7 +171,6 @@ public class EntrepriseService {
 									_entreprise.setAdresse(updateRequest.getAdresse());
 									_entreprise.setVille(updateRequest.getVille());
 									_entreprise.setCodePostal(updateRequest.getCodePostal());
-									_entreprise.setLogo(updateRequest.getLogo());
 									_entreprise.setCivilite(updateRequest.getCivilite());
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
