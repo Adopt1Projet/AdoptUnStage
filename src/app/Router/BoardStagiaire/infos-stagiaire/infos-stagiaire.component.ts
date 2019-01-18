@@ -22,8 +22,8 @@ export class InfosStagiaireComponent implements OnInit {
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
   colleges: Observable<any>;
-  file : FileList;
-  curentFile : File;
+  file: FileList;
+  curentFile: File;
 
   constructor(private token: TokenStorageService,
     private stagiaireService: StagiaireService,
