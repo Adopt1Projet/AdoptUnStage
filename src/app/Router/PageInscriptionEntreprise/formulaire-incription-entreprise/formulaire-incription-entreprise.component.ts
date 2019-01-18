@@ -186,10 +186,10 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
                   console.log(data2)
                 },
                 error => {
-                  console.log(error);
+                  this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
                 });;
           }
-          this.alertService.success('Merci de vous être enregistré, vous pouvez vous connecter.', true);
+          this.alertService.success('Merci de vous être enregistré, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
         },
         error => {
           console.log(error);
