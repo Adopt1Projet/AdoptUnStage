@@ -22,16 +22,16 @@
       </div>
     </div>
 
-    <!--<div class="form-group">
+    <div class="form-group">
     <label for="dateDebut">Date de début du stage*</label>
       <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
         placeholder="">
       <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
         <div *ngIf="f.dateDebut.errors.required">La date de début du stage est requise !</div>
       </div>
-    </div> -->
+    </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <mat-form-field>
         <input class="calendrier" matInput [matDatepicker]="picker" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
           placeholder="Date du début de stage">
@@ -41,7 +41,7 @@
       <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
         <div *ngIf="f.dateDebut.errors.required">La date de début du stage est requise !</div>
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label for="dateFin">Date de fin du stage*</label>

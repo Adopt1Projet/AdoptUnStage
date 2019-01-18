@@ -69,3 +69,7 @@ input, select, textarea{
 #image{
     max-width:15vh;
 }
+
+.deleteCompte {
+    padding-bottom: 5vh;
+}
