@@ -22,6 +22,8 @@ export class InfosStagiaireComponent implements OnInit {
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
   colleges: Observable<any>;
+  file : FileList;
+  curentFile : File;
 
   constructor(private token: TokenStorageService,
     private stagiaireService: StagiaireService,
@@ -40,6 +42,7 @@ export class InfosStagiaireComponent implements OnInit {
       .getStagiaire(this.username)
       .subscribe(data => {
         this.stagiaire = data;
+        console.log(this.stagiaire)
         this.formUpdate.setValue({
           civilite: this.stagiaire.civilite,
           prenom: this.stagiaire.prenom,
@@ -141,6 +144,10 @@ export class InfosStagiaireComponent implements OnInit {
     );
   }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
+
   onSubmit() {
     this.submitFormPassword = false;
     this.submitForm = true;
@@ -150,6 +157,17 @@ export class InfosStagiaireComponent implements OnInit {
     this.stagiaireService.updateStagiaire(this.stagiaire.id, this.formUpdate.value)
       .subscribe(
         data => {
+          if (this.file != undefined){
+            this.curentFile = this.file.item(0);
+            this.stagiaireService.createFileStagiaire(this.formUpdate.value.username, this.curentFile)
+              .subscribe(
+                  data2 => {
+                    console.log(data2)
+                  },
+                  error => {
+                    console.log(error);
+                  });;
+            }
           this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
@@ -158,6 +176,7 @@ export class InfosStagiaireComponent implements OnInit {
 
     document.body.scrollTop = 230; // For Safari
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+    
   }
 
   onSubmitPassword() {

@@ -1,8 +1,8 @@
-<div *ngIf="offre" class="container bodyModifierOffre">
-    <h1 class="titre">Modifier l'offre {{offre.titre}}</h1>
+<div *ngIf="offre" class="container col-10 bodyModifierOffre">
+  <h1 class="titre">Modifier l'offre {{offre.titre}}</h1>
   <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
-      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-          remplis.</p>
+    <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+      remplis.</p>
     <div class="form-group">
       <label for="titre">Intitulé du poste*</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
@@ -42,9 +42,10 @@
 
     <div id="boutontoggle">
       <ui-switch formControlName="active" [checked]="true" size="large" color="#26a69a"></ui-switch><span class="textetoggle"
-      style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
-      disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de stagiaire car votre
-      offre est pourvue.</span>
+        style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
+        disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de
+        stagiaire car votre
+        offre est pourvue.</span>
     </div>
 
     <h2 class="text-center">Localisation du stage*</h2>

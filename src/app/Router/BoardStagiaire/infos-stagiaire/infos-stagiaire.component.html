@@ -74,6 +74,16 @@
                 </label>
             </div>
 
+            <div class="form-row logo">
+                <div class="form-group col-md-12">
+                    <a *ngIf="stagiaire.cv.fileDownloadUri" href="{{stagiaire.cv.fileDownloadUri}}" title="Pdf">Télécharge ton CV actuel ici</a>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="cv" class="label-file">Changer le CV :</label>
+                  <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="cv" name="cv">
+                </div>
+            </div>
+
         </div>
 
         <div class="col-sm-12 titres">

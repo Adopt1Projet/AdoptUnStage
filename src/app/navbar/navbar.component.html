@@ -7,31 +7,32 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/accueil">Accueil</a>
+          <a mat-button class="nav-link mx-3" routerLink="/accueil" routerLinkActive="router-link-active">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/quisommesnous">Qui sommes-nous ?</a>
+          <a mat-button class="nav-link mx-3" routerLink="/quisommesnous" routerLinkActive="router-link-active">Qui sommes-nous ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/actus">Actualités</a>
+          <a mat-button class="nav-link mx-3" routerLink="/actus" routerLinkActive="router-link-active">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/partenaires">Partenaires</a>
+          <a mat-button class="nav-link mx-3" routerLink="/partenaires" routerLinkActive="router-link-active">Partenaires</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/boiteaoutils">Boîte à outils</a>
+          <a mat-button class="nav-link mx-3" routerLink="/boiteaoutils" routerLinkActive="router-link-active">Boîte à outils</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-3" routerLink="/contact">Contact</a>
+          <a mat-button class="nav-link mx-3" routerLink="/contact" routerLinkActive="router-link-active">Contact</a>
         </li>
 
         <li class="nav-item" *ngIf="isInfo==true">
-          <a *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire">Mon compte</a>
-          <a *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardedentreprise">Mon compte</a>
+          <a mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon compte</a>
+          <a mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardedentreprise" routerLinkActive="router-link-active">Mon compte</a>
+          <a mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-          <a *ngIf="isStagiaire==true || isEntreprise==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
+          <a mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+          <a mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()" routerLink="/accueil">Déconnexion</a>
         </li>
       </ul>
     </div>
