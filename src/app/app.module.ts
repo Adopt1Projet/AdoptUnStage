@@ -105,11 +105,11 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
 import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
 import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
 import { PageAdminComponent } from './Router/PageAdmin/page-admin/page-admin.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -161,7 +161,7 @@ import { PageActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-ac
 import { PageAccueilActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-actu-admin/page-accueil-actu-admin.component';
 import { ModifierActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/modifier-actu-admin/modifier-actu-admin.component';
 import { PageFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-faq-admin.component';
-import { PageAccueilFaqAdminComponent } from "./Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin";
+import { PageAccueilFaqAdminComponent } from "./Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin";
 import { CreerFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/creer-faq-admin/creer-faq-admin.component';
 import { CreerPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-admin/creer-partenaire-admin.component';
 import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-partenaires-admin.component';
@@ -273,7 +273,7 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    SimpleModalModule.forRoot({container: "modal-container"}),
+    SimpleModalModule.forRoot({ container: "modal-container" }),
     UiSwitchModule,
     CdkTableModule,
     CdkTreeModule,
@@ -315,7 +315,7 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
     MatTreeModule,
     ScrollingModule,
   ],
-  
+
   exports: [
     CdkTableModule,
     CdkTreeModule,
@@ -362,7 +362,7 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
     ConfirmComponent,
     ConditionUtilisationComponent
   ],
-  
+
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire, AuthGuardAdmin],
   bootstrap: [AppComponent]
 })
