@@ -183,10 +183,9 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
             this.stagiaireService.createFileStagiaire(stagiaire.username, this.curentFile)
               .subscribe(
                   data2 => {
-                    console.log(data2)
                   },
                   error => {
-                    console.log(error);
+                    this.alertService.success('Ton cv n\'a pas le bon format mais ton compte a bien été créé, tu viens de recevoir un mail de confirmation. Maintenant connecte toi !', true);
                   });;
             }
           console.log(data);
@@ -197,9 +196,9 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
           else { this.alertService
             .success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true); }
           
+
         },
         error => {
-          console.log(error);
           this.loading = false;
         });
 
