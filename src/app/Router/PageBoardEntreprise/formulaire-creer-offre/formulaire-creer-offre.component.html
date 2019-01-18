@@ -23,12 +23,11 @@
     </div>
 
     <div class="form-group">
-      <label for="dateDebut">Date de début du stage*</label>
-      <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
-        placeholder="">
-      <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
-        <div *ngIf="f.dateDebut.errors.required">La date de début du stage est requise !</div>
-      </div>
+      <mat-form-field>
+        <input class="calendrier" matInput [matDatepicker]="picker" placeholder="Date du début de stage">
+        <mat-datepicker-toggle class="calendrier" matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </div>
 
     <div class="form-group">
