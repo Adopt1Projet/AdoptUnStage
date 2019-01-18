@@ -165,7 +165,7 @@ export class InfosStagiaireComponent implements OnInit {
                     this.alertService.success('Ton CV et tes autres modifications ont bien été prises en compte !', true);
                   },
                   error => {
-                    this.alertService.error('Ton cv n\'a pas le bon format mais tes autres modifications ont bien été prises en compte !', true);;
+                    this.alertService.error('Ton cv n\'a pas le bon format mais tes autres modifications ont bien été prises en compte !', true);
                   });;
             }
           this.alertService.success('Tes modifications ont bien été prises en compte !', true);
