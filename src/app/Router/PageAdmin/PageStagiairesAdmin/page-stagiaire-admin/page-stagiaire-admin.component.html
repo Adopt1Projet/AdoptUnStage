@@ -1,3 +1,19 @@
-<p>
-  page-stagiaire-admin works!
-</p>
+<div class="container-fluid bodyPageStagiairesAdmin">
+  <br>
+
+  <div class="headerStagiaires">
+    <div class="col-sm-12 titre">
+      <h1>
+        Stagiaires
+      </h1>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around">
+      <button type="button" class="btn col-3 col-sm-3" routerLink="/admin/stagiaires/listestagiaires" routerLinkActive="router-link-active">Liste
+        des Stagiaires</button>
+      <button type="submit" class="btn col-3 col-sm-3" routerLink="/admin/stagiaires/creerstagiaire" routerLinkActive="router-link-active">Créer
+        un Stagiaire</button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

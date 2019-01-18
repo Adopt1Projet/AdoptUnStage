@@ -56,6 +56,14 @@ import { PageFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-
 import { PageAccueilFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin';
 import { CreerFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/creer-faq-admin/creer-faq-admin.component';
 import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modifier-faq-admin/modifier-faq-admin.component';
+import { PageAccueilStagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-accueil-stagiaires-admin';
+import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
+import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/creer-stagiaire-admin/creer-stagiaire-admin.component';
+import { PageOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-offres-admin.component';
+import { PageAccueilOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-accueil-offres-admin';
+import { PostulantsOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/postulants-offre-admin/postulants-offre-admin.component';
+import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/modifier-offre-admin/modifier-offre-admin.component';
+import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
 
 
 const routes: Routes = [
@@ -83,16 +91,29 @@ const routes: Routes = [
         path: 'faq', component: PageFaqAdminComponent, children: [
           { path: 'accueilfaq', component: PageAccueilFaqAdminComponent },
           { path: 'listefaq', component: FaqAdminComponent },
-          { path: 'creerfaq', component: CreerFaqAdminComponent},
-          { path: 'modifierfaq/:id', component: ModifierFaqAdminComponent},
+          { path: 'creerfaq', component: CreerFaqAdminComponent },
+          { path: 'modifierfaq/:id', component: ModifierFaqAdminComponent },
           { path: '', redirectTo: '/admin/faq/accueilfaq', pathMatch: 'full' },
         ]
       },
       { path: 'partenaires', component: PartenairesAdminComponent },
-      { path: 'offres', component: OffresAdminComponent },
-      { path: 'stagiaires', component: StagiairesAdminComponent, children: [
-
-      ] },
+      {
+        path: 'offres', component: PageOffresAdminComponent, children: [
+          { path: 'accueiloffres', component: PageAccueilOffresAdminComponent },
+          { path: 'listeoffres', component: OffresAdminComponent },
+          { path: 'postulantsoffre/:id', component: PostulantsOffreAdminComponent },
+          { path: 'modifieroffre/:id', component: PageModifierOffreAdminComponent},
+          { path: '', redirectTo: '/admin/offres/accueiloffres', pathMatch: 'full' },
+        ]
+      },
+      {
+        path: 'stagiaires', component: PageStagiaireAdminComponent, children: [
+          { path: 'accueilstagiaires', component: PageAccueilStagiairesAdminComponent },
+          { path: 'listestagiaires', component: StagiairesAdminComponent },
+          { path: 'creerstagiaire', component: CreerStagiaireAdminComponent },
+          { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
+        ]
+      },
       { path: 'entreprises', component: EntreprisesAdminComponent },
       { path: 'colleges', component: CollegesAdminComponent },
 
