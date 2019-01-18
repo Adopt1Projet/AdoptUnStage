@@ -1,52 +1,18 @@
-.bodyOffres {
-    background-color: white;
-    max-height: 35vh;
-    overflow: auto;
-}
-
-.tableHeader {
-    background-color: #2fa89a;
-}
-
-.titre {
-    color: #26a69a;
-    text-align: center;
-    font-weight: bold;
-    margin: 0 auto;
-    padding-top: 2vw;
-    padding-bottom: 2vh;
-}
-
-h2 {
-    color: #26a69a;
-    font-weight: bolder;
-}
-
-img {
-max-width : 10vh;
-}
-
-.lienOffres{
-    text-align: center;
-    margin-top: 13px;
-    padding-bottom : 15px;
-}
-
-.showOffres {
-    width: 300px;
-    height: 60px;
-    background-color: #2fa89a;
-    color: white;
-    font-weight: bolder;
-    font-size: 1.4em;
-    box-shadow: 3px 3px 8px rgb(43, 43, 43);
-
-}
-
-.btn:hover {
-    background-color: #2ed1bb;
-}
-
-td {
-    vertical-align: middle;
-}
+table {
+    width: 100%;
+  }
+  
+  .material-icons {
+    border-radius: 5px;
+    border: 2px solid;
+    width: 50px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efeded;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
