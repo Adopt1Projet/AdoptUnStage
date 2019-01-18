@@ -23,7 +23,6 @@ export class ActuAdminComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data)
-          this.alertService.success('L\'actualité a bien été supprimée.', true);
         },
         error => console.log(error));
   }
@@ -36,6 +35,7 @@ export class ActuAdminComponent implements OnInit {
         // Get modal result
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
+          this.alertService.success('L\'actualité a bien été supprimée.', true);
           this.deleteActu(i);
           this.reloadData();
         }

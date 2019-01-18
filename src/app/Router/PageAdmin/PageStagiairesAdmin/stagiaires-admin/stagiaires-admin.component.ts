@@ -15,7 +15,6 @@ export class StagiairesAdminComponent implements OnInit {
   displayedColumns: string[] = ['civilite', 'name', 'prenom', 'email', 'etablissement', 'ville', 'codePostal', 'modifier', 'supprimer'];
   public array: any;
   public stagiaires: any;
-  stagiaire: Stagiaire;
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
@@ -55,8 +54,7 @@ export class StagiairesAdminComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data)
-          this.alertService
-          .success('Le compte a bien été supprimé.', true);
+          this.alertService.success('Le compte a bien été supprimé.', true);
         },
         error => console.log(error));
   }

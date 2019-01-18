@@ -59,6 +59,11 @@ import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modif
 import { PageAccueilStagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-accueil-stagiaires-admin';
 import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
 import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/creer-stagiaire-admin/creer-stagiaire-admin.component';
+import { PageOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-offres-admin.component';
+import { PageAccueilOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-accueil-offres-admin';
+import { PostulantsOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/postulants-offre-admin/postulants-offre-admin.component';
+import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/modifier-offre-admin/modifier-offre-admin.component';
+import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
 
 
 const routes: Routes = [
@@ -92,12 +97,20 @@ const routes: Routes = [
         ]
       },
       { path: 'partenaires', component: PartenairesAdminComponent },
-      { path: 'offres', component: OffresAdminComponent },
+      {
+        path: 'offres', component: PageOffresAdminComponent, children: [
+          { path: 'accueiloffres', component: PageAccueilOffresAdminComponent },
+          { path: 'listeoffres', component: OffresAdminComponent },
+          { path: 'postulantsoffre/:id', component: PostulantsOffreAdminComponent },
+          { path: 'modifieroffre/:id', component: PageModifierOffreAdminComponent},
+          { path: '', redirectTo: '/admin/offres/accueiloffres', pathMatch: 'full' },
+        ]
+      },
       {
         path: 'stagiaires', component: PageStagiaireAdminComponent, children: [
           { path: 'accueilstagiaires', component: PageAccueilStagiairesAdminComponent },
           { path: 'listestagiaires', component: StagiairesAdminComponent },
-          { path: 'creerstagiaire', component: CreerStagiaireAdminComponent},
+          { path: 'creerstagiaire', component: CreerStagiaireAdminComponent },
           { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
         ]
       },

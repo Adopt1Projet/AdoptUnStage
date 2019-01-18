@@ -1,0 +1,69 @@
+.btnModifierOffre {
+    background-color: #26a69a;
+    height: 5vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+
+}
+
+.btnModifierOffre:hover {
+    background-color: #2ed1bb;
+}
+
+.bodyModifierOffre {
+    padding-bottom: 5%;
+    background-color: #ffffff;
+    margin-top: 3vh;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    margin-bottom: 3vh;
+}
+
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+}
+
+.is-invalid {
+    border-left: solid 6px red;
+}
+  
+
+form {
+    color: #26a69a;
+    margin: 0 auto;
+    padding-top: 3vw;
+    padding-bottom: 3vh;
+}
+  
+h1,
+h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+  
+input,
+select,
+textarea {
+    background-color: #ebebeb;
+    border: none;
+}
+
+::placeholder {
+    color: #C2BFCA;
+    opacity: 1;
+}
+.textetoggle {
+    margin-left: 15px;
+    font-size: 18px;
+    vertical-align : 50%;
+}
+#boutontoggle{
+    margin-bottom: 15px;
+}

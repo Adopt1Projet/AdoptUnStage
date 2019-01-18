@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FaqService } from 'src/app/services/faq.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmComponent } from '../../../PageBoardEntreprise/confirm/confirm.component';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-faq-admin',
@@ -12,7 +13,9 @@ export class FaqAdminComponent implements OnInit {
   questions: [any];
   confirmResult = null;
 
-  constructor(private SimpleModalService: SimpleModalService,
+  constructor(
+    private alertService: AlertService,
+    private SimpleModalService: SimpleModalService,
     private faqService: FaqService) { }
 
   deleteFaq(i) {
@@ -32,6 +35,7 @@ export class FaqAdminComponent implements OnInit {
         // Get modal result
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
+          this.alertService.success('La question a bien été supprimée.', true);
           this.deleteFaq(i);
           this.reloadData();
         }
