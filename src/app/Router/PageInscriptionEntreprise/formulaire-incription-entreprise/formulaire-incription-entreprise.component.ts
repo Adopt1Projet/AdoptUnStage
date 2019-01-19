@@ -11,6 +11,7 @@ import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/c
 
 
 import { AlertService } from '../../../services/alert.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -19,13 +20,15 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   public formCreate: FormGroup;
-  file : FileList;
-  curentFile : File;
+  file: FileList;
+  curentFile: File;
   loading = false;
   submitted = false;
   confirmResult = null;
+  info: any;
 
   constructor(
+    private token: TokenStorageService,
     private entrepriseService: EntrepriseService,
     private _location: Location,
     private fb: FormBuilder,
@@ -37,8 +40,16 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isAdmin()
   }
 
+  isAdmin() {
+    this.info = {
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+
+    };
+  }
 
   createSignupForm(): FormGroup {
     return this.fb.group(
@@ -140,7 +151,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   }
 
   get f() { return this.formCreate.controls; }
-  
+
 
   showCgu() {
     console.log();
@@ -167,7 +178,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return ;
+      return;
     }
     this.loading = true;
     console.log(this.formCreate)
@@ -178,10 +189,10 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if (this.file != undefined){
-          this.curentFile = this.file.item(0);
-          this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
-            .subscribe(
+          if (this.file != undefined) {
+            this.curentFile = this.file.item(0);
+            this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
+              .subscribe(
                 data2 => {
                   console.log(data2)
                 },
@@ -189,7 +200,17 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
                   this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
                 });;
           }
+          if (this.info.authorities == "ROLE_ADMIN") {
+            this.alertService
+              .success('Vous avez bien créé le compte entreprise ' + entreprise.email, true);
+          }
+          else {
           this.alertService.success('Merci de vous être enregistré, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
+          }
+          if (this.info.authorities == "ROLE_ADMIN") {
+            this.router.navigate(['../admin/entreprises/listeentreprises']);
+          }
+          else { this.router.navigate(['../connexion']); }
         },
         error => {
           console.log(error);

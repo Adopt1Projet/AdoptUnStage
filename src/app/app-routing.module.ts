@@ -66,6 +66,11 @@ import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/
 import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
 import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
 import { CandidaturesStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/candidatures-stagiaire-admin/candidatures-stagiaire-admin.component';
+import { PageAccueilEntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-accueil-entreprises-admin';
+import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-entreprise-admin.component';
+import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
+import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/creer-entreprise-admin/creer-entreprise-admin.component';
+import { OffresEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/offres-entreprise-admin/offres-entreprise-admin.component';
 
 
 const routes: Routes = [
@@ -118,7 +123,14 @@ const routes: Routes = [
           { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
         ]
       },
-      { path: 'entreprises', component: EntreprisesAdminComponent },
+      { path: 'entreprises', component: PageEntrepriseAdminComponent, children: [
+        { path: 'accueilentreprises', component: PageAccueilEntreprisesAdminComponent },
+        { path: 'listeentreprises', component: EntreprisesAdminComponent},
+        { path: 'modifierentreprise/:username', component: ModifierEntrepriseAdminComponent},
+        { path: 'creerentreprise', component: CreerEntrepriseAdminComponent},
+        { path: 'offresentreprise/:username', component: OffresEntrepriseAdminComponent},
+        { path: '', redirectTo: '/admin/entreprises/accueilentreprises', pathMatch: 'full' },
+      ] },
       { path: 'colleges', component: CollegesAdminComponent },
 
 
