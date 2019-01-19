@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   <ul>
     <li>Créer des stagiaires</li>
     <li>Voir la liste de tout les stagiaires inscrits</li>
+    <li>Voir la liste des candidatures des stagiaires</li>
     <li>Modifier des stagiaires</li>
     <li>Supprimer des stagiaires</li>
   </ul>
