@@ -1,3 +1,15 @@
+@media screen and (min-width: 601px) {
+    .titre {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titre {
+        font-size: 6vw;
+    }
+}
+
 .btnModifierOffre {
     background-color: #26a69a;
     height: 5vh;

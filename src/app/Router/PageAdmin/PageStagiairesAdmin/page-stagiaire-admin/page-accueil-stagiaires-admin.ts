@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-accueil-stagiaires-admin',
   template: `
   
-<div class="container col-10 bodyAccueilStagiaires">
+<div class="container col-12 col-md-10 bodyAccueilStagiaires">
   Vous êtes sur le pannel de gestion des stagiaires inscrits.
   Sur ce dernier, vous aurez la possibilité de :
   <ul>

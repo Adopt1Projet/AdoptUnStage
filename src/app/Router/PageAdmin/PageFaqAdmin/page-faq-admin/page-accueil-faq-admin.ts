@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-accueil-faq-admin',
   template: `
   
-<div class="container col-10 bodyAccueilFaq">
+<div class="container col-12 col-md-10 bodyAccueilFaq">
   Vous êtes sur le pannel des F.A.Q.
   Sur ce dernier, vous aurez la possibilité de :
   <ul>
