@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-accueil-offres-admin',
   template: `
   
-<div class="container col-10 bodyAccueilOffres">
+<div class="container col-12 col-md-10 bodyAccueilOffres">
   Vous êtes sur le pannel de gestion des offres enregistrées.
   Sur ce dernier, vous aurez la possibilité de :
   <ul>

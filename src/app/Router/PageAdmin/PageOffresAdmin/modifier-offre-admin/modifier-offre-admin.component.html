@@ -1,4 +1,4 @@
-<div *ngIf="offre" class="container col-11 bodyModifierOffre">
+<div *ngIf="offre" class="container col-12 col-md-10 bodyModifierOffre">
   <h1 class="titre">Modifier l'offre {{offre.titre}}</h1>
   <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
     <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -48,7 +48,7 @@
         offre est pourvue.</span>
     </div>
 
-    <h2 class="text-center">Localisation du stage*</h2>
+    <h3 class="text-center">Localisation du stage*</h3>
     <div class="form-group">
       <label for="rue">Rue</label>
       <input type="text" class="form-control" formControlName="rue" id="rue" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"

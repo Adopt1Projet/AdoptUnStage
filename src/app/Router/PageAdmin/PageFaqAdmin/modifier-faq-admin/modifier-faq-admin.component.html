@@ -1,4 +1,4 @@
-<div *ngIf="question" class="container col-10 bodyModifierFaq">
+<div *ngIf="question" class="container col-12 col-md-10 bodyModifierFaq">
     <h1 class="titre">Modifier l'actualité {{question.question}}</h1>
     <form class="col-md-8" [formGroup]="formFaq" (ngSubmit)="onSubmit()">
       <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -24,8 +24,9 @@
 
   
       <div class="text-center d-flex justify-content-around">
-          <button type="button" class="btn btnModifierFaq" (click)="retourPage()">Retour</button>
-          <button class="btn btnModifierFaq" type="submit">Modifier la F.A.Q</button>
+          <button type="button" class="btn col-5 col-md-4 btnModifierFaq" (click)="retourPage()">Retour</button>
+          <button class="btn d-none d-md-block btnModifierFaq col-md-4" type="submit">Modifier la F.A.Q</button>
+          <button class="btn d-block d-md-none btnModifierFaq col-5" type="submit">Modifier</button>
         </div>
   
     </form>

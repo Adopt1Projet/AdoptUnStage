@@ -1,4 +1,4 @@
-<div *ngIf="actus" class="container col-10 bodyModifierActu">
+<div *ngIf="actus" class="container col-12 col-md-10 bodyModifierActu">
     <h1 class="titre">Modifier l'actualité {{actus.titre}}</h1>
     <form class="col-md-8" [formGroup]="formActu" (ngSubmit)="onSubmit()">
       <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -64,9 +64,14 @@
         </textarea>
       </div>
   
-      <div class="text-center d-flex justify-content-around">
-          <button type="button" class="btn btnModifierActu" (click)="retourPage()">Retour</button>
-          <button class="btn btnModifierActu" type="submit">Modifier l'actualité</button>
+      <div class="text-center d-none d-md-block d-md-flex justify-content-around">
+          <button type="button" class="btn btnModifierActu col-4 " (click)="retourPage()">Retour</button>
+          <button class="btn col-4 btnModifierActu" type="submit">Modifier l'actualité</button>
+        </div>
+
+        <div class="text-center d-block d-md-none d-flex justify-content-around">
+          <button type="button" class="btn btnModifierActu col-5 " (click)="retourPage()">Retour</button>
+          <button class="btn col-5 btnModifierActu" type="submit">Modifier</button>
         </div>
   
     </form>
