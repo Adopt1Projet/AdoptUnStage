@@ -1,3 +1,14 @@
+@media screen and (min-width: 601px) {
+    .titre {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titre {
+        font-size: 6vw;
+    }
+}
 
 img {
     max-width: 10vh;
@@ -6,7 +17,6 @@ img {
 .bodyActusAdmin {
     background-color: #ffffff;
     border-radius: 10px;
-    margin-top : 3vh;
     margin-bottom: 3vh;
 }
 

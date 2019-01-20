@@ -35,11 +35,11 @@ export class CreateActuAdminComponent implements OnInit {
     if (this.formActu.invalid) {
       return;
     }
-    this.router.navigate(['../admin/actus/listeactus']);
     this.actuService.createActu(this.username, actu)
       .subscribe(data => {
         console.log(data),
         this.alertService.success('Votre actu à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+        this.router.navigate(['../admin/actus/listeactus']);
       }, error => console.log(error));
     Object.keys(this.formActu.controls).forEach(key => {
       this.formActu.controls[key].setErrors(null)

@@ -15,6 +15,9 @@ export class StagiaireService {
     return this.http.get(`${this.baseUrl}/getone/${username}`);
   }
 
+  getAdminStagiaire(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/adminget/${id}`);
+  }
   createStagiaire(customer: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}` + `/creer`, customer);
   }

@@ -17,6 +17,7 @@ import fr.adoptunstage.spring.payload.UploadFileResponse;
 
 @Entity
 public class Stagiaire extends User {
+	
 
 	@Column(name = "civilite")
 	private String civilite;
@@ -137,6 +138,16 @@ public class Stagiaire extends User {
 
 	public Stagiaire(String name, String username, String email, String password, String civilite, String prenom, String etablissement, String ville, String codePostal) {
 		super(name, username, email, password);
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.etablissement = etablissement;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.CV = new UploadFileResponse (null, null, null, 0);
+		this.offres = new HashSet<Offre>();
+	}
+	public Stagiaire(Long id, String name, String username, String email, String password, String civilite, String prenom, String etablissement, String ville, String codePostal) {
+		super(id, name, username, email, password);
 		this.civilite = civilite;
 		this.prenom = prenom;
 		this.etablissement = etablissement;

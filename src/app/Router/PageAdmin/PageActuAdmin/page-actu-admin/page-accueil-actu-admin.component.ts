@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-accueil-actu-admin',
   template: `
   
-<div class="container col-10 bodyAccueilActu">
+<div class="container col-12 col-md-10 bodyAccueilActu">
   Vous êtes sur le pannel des Actualités.
   Sur ce dernier, vous aurez la possibilité de :
   <ul>

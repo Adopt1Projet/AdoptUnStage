@@ -36,7 +36,7 @@ export class CreerFaqAdminComponent implements OnInit {
     this.actuService.createFaq(this.username, faq)
       .subscribe(data => {
         console.log(data),
-          this.alertService.success('Votre faq à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+          this.alertService.success('Votre question réponse à bien été créée. Vous pouvez la modifier si nécessaire.', true);
       }, error => console.log(error));
     Object.keys(this.formFaq.controls).forEach(key => {
       this.formFaq.controls[key].setErrors(null)

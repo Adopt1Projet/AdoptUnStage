@@ -1,4 +1,4 @@
-<div class="container col-10 bodyCreerActu">
+<div class="container col-12 col-md-10 bodyCreerActu">
   <h1 class="titre">Créer une actualité</h1>
   <form class="col-md-8" [formGroup]="formActu" (ngSubmit)="onSubmit()">
     <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -65,8 +65,7 @@
     </div>
 
     <div class="text-center">
-      <button class="btn btnPosterActu" type="submit">Créer l'actualité</button>
+      <button class="btn btnPosterActu" type="submit">Créer l'actualité</button><img class="loadingImg" *ngIf="loading" src="../../../../assets/img/loading.gif" />
     </div>
-
   </form>
 </div>

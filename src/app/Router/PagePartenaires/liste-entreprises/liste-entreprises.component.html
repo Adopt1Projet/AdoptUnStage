@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row" *ngFor="let entreprise of entreprises; let odd=odd; let even=even">
         <div class="col-md-3 col-sm-2">
-            <img *ngIf="entreprise.logo" src="{{entreprise.logo}}" alt="Logo entreprise">
-            <img *ngIf="!entreprise.logo" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
+            <img *ngIf="entreprise.logo" src="{{entreprise.logo.fileDownloadUri}}" alt="Logo entreprise">
+            <img *ngIf="entreprise.logo==0" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
         </div>
         <div class="col-md-9 col-sm-10 entreprise">
             <div>
                 <h3>{{entreprise.raisonSociale}}</h3>
                 <p *ngIf="entreprise.description">{{entreprise.description}}</p>
-                <p *ngIf="!entreprise.description">Cette entreprise partenaire n'a pas décrit son activité.</p>
+                <p *ngIf="entreprise.description==0">Cette entreprise partenaire n'a pas décrit son activité.</p>
                 <a *ngIf="entreprise.siteWeb" href="{{entreprise.siteWeb}}" target="_blank">Visiter leur site web</a>
             </div>
         </div>

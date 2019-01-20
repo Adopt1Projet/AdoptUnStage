@@ -5,6 +5,7 @@ import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import * as moment from 'moment';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-gestion-des-offres',
@@ -21,6 +22,7 @@ export class GestionDesOffresComponent {
   editComp: ModifierOffreComponent;
 
   constructor(
+    private alertService: AlertService,
     private SimpleModalService: SimpleModalService,
     private offreService: OffreService,
     private token: TokenStorageService) {
@@ -40,6 +42,7 @@ export class GestionDesOffresComponent {
       .subscribe(
         data => {
           console.log(data)
+          this.alertService.success('Votre offre a bien été supprimée.', true);
         },
         error => console.log(error));
   }

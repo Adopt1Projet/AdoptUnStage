@@ -1,0 +1,21 @@
+.example-header-image {
+    background-image: url('/assets/img/LogoIcone.png');
+    background-size: cover;
+}
+
+.cardEntreprise{
+    margin-top: 3vh;
+}
+
+.mat-card {
+    border-radius: 10px;
+}
+
+.material-icons {
+    margin-right: 5px;
+    color: #00B499;
+}
+
+b {
+    color: #00B499;
+}
