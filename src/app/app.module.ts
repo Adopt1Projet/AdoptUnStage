@@ -85,7 +85,6 @@ import { VideoPresentationComponent } from './Router/PageQuiSommesNous/video-pre
 import { FormulaireContactComponent } from './Router/PageContactezNous/formulaire-contact/formulaire-contact.component';
 import { PageContactezNousComponent } from './Router/PageContactezNous/page-contactez-nous/page-contactez-nous.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
-import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Page actualités
@@ -170,6 +169,9 @@ import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modif
 import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
 import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
 import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/creer-stagiaire-admin/creer-stagiaire-admin.component';
+import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
+import { ListeAideComponent } from './Router/PageAide/liste-aide/liste-aide.component';
+import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -263,7 +265,9 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
     ModifierFaqAdminComponent,
     PageStagiaireAdminComponent,
     ModifierStagiaireAdminComponent,
-    CreerStagiaireAdminComponent
+    CreerStagiaireAdminComponent,
+    ListeAideComponent,
+    ItemAideComponent
 
   ],
   imports: [
