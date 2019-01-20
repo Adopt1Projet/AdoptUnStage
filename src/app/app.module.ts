@@ -104,11 +104,11 @@ import { ConditionUtilisationComponent } from './Router/ModalConditionUtilisatio
 import { ListePostulantsComponent } from './Router/PageBoardEntreprise/liste-postulants/liste-postulants.component';
 import { PageDetailNonConnecteComponent } from './Router/PageNonConnecte/page-detail-non-connecte/page-detail-non-connecte.component';
 import { PageAdminComponent } from './Router/PageAdmin/page-admin/page-admin.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -160,7 +160,7 @@ import { PageActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-ac
 import { PageAccueilActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/page-actu-admin/page-accueil-actu-admin.component';
 import { ModifierActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/modifier-actu-admin/modifier-actu-admin.component';
 import { PageFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-faq-admin.component';
-import { PageAccueilFaqAdminComponent } from "./Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin";
+import { PageAccueilFaqAdminComponent } from "./Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin";
 import { CreerFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/creer-faq-admin/creer-faq-admin.component';
 import { CreerPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-admin/creer-partenaire-admin.component';
 import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-partenaires-admin.component';
@@ -172,6 +172,20 @@ import { CreerStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesA
 import { PageAideComponent } from './Router/PageAide/page-aide/page-aide.component';
 import { ListeAideComponent } from './Router/PageAide/liste-aide/liste-aide.component';
 import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.component';
+import { PageAccueilStagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-accueil-stagiaires-admin';
+import { PageOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-offres-admin.component';
+import { ModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/modifier-offre-admin/modifier-offre-admin.component';
+import { PageAccueilOffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-offres-admin/page-accueil-offres-admin';
+import { PostulantsOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/postulants-offre-admin/postulants-offre-admin.component';
+import { PageModifierOffreAdminComponent } from './Router/PageAdmin/PageOffresAdmin/page-modifier-offre-admin/page-modifier-offre-admin.component';
+import { CandidaturesStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/candidatures-stagiaire-admin/candidatures-stagiaire-admin.component';
+import { OffresEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/offres-entreprise-admin/offres-entreprise-admin.component';
+import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/creer-entreprise-admin/creer-entreprise-admin.component';
+import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
+import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-entreprise-admin.component';
+import { PageAccueilEntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-accueil-entreprises-admin';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -267,7 +281,19 @@ import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.compone
     ModifierStagiaireAdminComponent,
     CreerStagiaireAdminComponent,
     ListeAideComponent,
-    ItemAideComponent
+    ItemAideComponent,
+    PageAccueilStagiairesAdminComponent,
+    PageOffresAdminComponent,
+    ModifierOffreAdminComponent,
+    PageAccueilOffresAdminComponent,
+    PostulantsOffreAdminComponent,
+    PageModifierOffreAdminComponent,
+    CandidaturesStagiaireAdminComponent,
+    OffresEntrepriseAdminComponent,
+    CreerEntrepriseAdminComponent,
+    ModifierEntrepriseAdminComponent,
+    PageEntrepriseAdminComponent,
+    PageAccueilEntreprisesAdminComponent,
 
   ],
   imports: [
@@ -277,7 +303,7 @@ import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.compone
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    SimpleModalModule.forRoot({container: "modal-container"}),
+    SimpleModalModule.forRoot({ container: "modal-container" }),
     UiSwitchModule,
     CdkTableModule,
     CdkTreeModule,
@@ -319,7 +345,7 @@ import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.compone
     MatTreeModule,
     ScrollingModule,
   ],
-  
+
   exports: [
     CdkTableModule,
     CdkTreeModule,
@@ -366,7 +392,7 @@ import { ItemAideComponent } from './Router/PageAide/item-aide/item-aide.compone
     ConfirmComponent,
     ConditionUtilisationComponent
   ],
-  
+
   providers: [httpInterceptorProviders, AuthGuard, AuthGuardEntreprise, AuthGuardStagiaire, AuthGuardAdmin],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +37,7 @@ import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class StagiaireService {
-	
+		
 	@Autowired
 	StagiaireRepository repository;
 	
@@ -55,6 +57,17 @@ public class StagiaireService {
 	@Autowired
 	PasswordEncoder encoder;
 	
+	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(txt|doc|docx|odt|pdf))$)");
+
+	
+	public static boolean validateFileExtn(String ext){
+		Matcher mtch = fileExtnPtrn.matcher(ext);
+		if(mtch.matches()){
+		return true;
+		}
+		return false;
+		}
+	
 	public List<Stagiaire> getAllStagiaire() {
 		List<Stagiaire> stagiaires = new ArrayList<>();
 		repository.findAll().forEach(stagiaires::add);
@@ -67,6 +80,13 @@ public class StagiaireService {
 	public Stagiaire getOneStagiaire(String username) {
 		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		stagiaire.setPassword("");
+		return stagiaire;
+	}
+
+	public Stagiaire getAdminStagiaire(@PathVariable("id") long id) {
+		Stagiaire stagiaire = repository.findById(id).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> id : " + id));
 		stagiaire.setPassword("");
 		return stagiaire;
 	}
@@ -129,26 +149,32 @@ public class StagiaireService {
 	}
 	
 	
-	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {
+	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {	 
+		    	
+		 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
 				
-				Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
-						() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
-				
-		        String fileName = fileStorageService.storeFile(file, stagiaire.getUsername());
-		
-		        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-		                .path("/api/downloadFile/")
-		                .path(fileName)
-		                .toUriString();      
-		
-		        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
-		                file.getContentType(), file.getSize());
-		        
-		        
-		        stagiaire.setCV(uploadFileResponse);
-		        userRepository.save(stagiaire);
-		        
-		        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+					Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+							() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+					
+			        String fileName = fileStorageService.storeFile(file, stagiaire.getUsername());
+			
+			        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+			                .path("/api/downloadFile/")
+			                .path(fileName)
+			                .toUriString();      
+			
+			        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+			                file.getContentType(), file.getSize());
+			        
+			        
+			        stagiaire.setCV(uploadFileResponse);
+			        userRepository.save(stagiaire);
+			        
+			        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			 		}
+			        
+			     return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+	                
 		    }
 	
 

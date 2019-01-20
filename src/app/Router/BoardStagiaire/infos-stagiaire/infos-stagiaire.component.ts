@@ -162,13 +162,13 @@ export class InfosStagiaireComponent implements OnInit {
             this.stagiaireService.createFileStagiaire(this.formUpdate.value.username, this.curentFile)
               .subscribe(
                   data2 => {
-                    console.log(data2)
+                    this.alertService.success('Ton CV et tes autres modifications ont bien été prises en compte !', true);
                   },
                   error => {
-                    console.log(error);
+                    this.alertService.error('Ton cv n\'a pas le bon format mais tes autres modifications ont bien été prises en compte !', true);
                   });;
             }
-          this.alertService.success('Vos modifications ont bien été prises en compte !', true);
+          this.alertService.success('Tes modifications ont bien été prises en compte !', true);
         },
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);

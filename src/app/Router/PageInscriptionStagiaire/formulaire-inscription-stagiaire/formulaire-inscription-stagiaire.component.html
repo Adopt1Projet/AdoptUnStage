@@ -1,21 +1,6 @@
 <div class="container bodyFormulaire">
 
     <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
-        <div class="col-sm-12 titres">
-            <h1>Création d'un compte stagiaire</h1>
-        </div>
-        <div class="modeEmploi">
-            <p>Inscris-toi en quelques clics et trouve le stage qui te plait ! </p>
-            <ol>
-                <li>Remplis le formulaire ci-dessous pour créer ton compte personnel.</li>
-                <li>Réponds aux offres de stages en ligne avec ton CV.</li>
-                <li>Gère tes candidatures en ligne directement sur le site internet.</li>
-                <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage.</li>
-            </ol>
-            <p>Des questions ? Consulte notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta
-                question
-                <a id="lienFaq" routerLink="/contact">ici</a>.</p>
-        </div>
         <hr>
         <br>
         <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -96,8 +81,9 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group">     
             <label for="cv" class="label-file">Curriculum vitae</label>
+            <p style="font-style: italic">*Formats acceptés : pdf, txt, doc, docx, odt.</p>
             <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="cv" name="cv">
         </div>
     

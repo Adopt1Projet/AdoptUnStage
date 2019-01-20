@@ -1,16 +1,18 @@
-<div class="container col-10" *ngIf="questions">
-  <div class="row col-12 bodyFaqAdmin" *ngFor="let question of questions; let i=index">
-    
-    <div class="col-md-10 col-sm-10">
+<br>
+<app-alert></app-alert>
+<div class="container-fluid col-12 col-md-10" *ngIf="questions">
+  <div class="col-12 bodyFaqAdmin" *ngFor="let question of questions; let i=index">
+    <div class="row">
+    <div class="col-md-10 col-12">
       <h5><b>Q : {{question.question}}</b></h5>
     </div>
-    <div class="col-1 material-icon-edit">
+    <div class="col-md-1 col-4 material-icon-edit">
         <button [routerLink]="['/admin/faq/modifierfaq', question.id]" class="material-icons" style="color:blue; cursor: pointer;">edit</button>
     </div>
-    <div class="col-1 material-icon-del">
+    <div class="col-md-1 col-4 material-icon-del">
         <button class="material-icons" style="color:red;" (click)=showConfirm(question.id)>delete</button>
     </div>
-  
+  </div>
     <div class="col-md-12 col-sm-12 reponse">
       <p>{{question.reponse}}</p>
     </div>

@@ -1,0 +1,14 @@
+.bodyGestionOffres {
+    padding-bottom: 5%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 3vh;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}

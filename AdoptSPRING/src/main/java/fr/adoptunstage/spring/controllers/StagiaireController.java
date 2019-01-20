@@ -39,6 +39,11 @@ public class StagiaireController {
 	public Stagiaire getOneStagiaire(@PathVariable("username") String username) {
 		return service.getOneStagiaire(username);
 	}
+
+	@GetMapping(value = "/adminget/{id}")
+	public Stagiaire getAdminStagiaire(@PathVariable("id") long id ) {
+		return service.getAdminStagiaire(id);
+	}
 	
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
