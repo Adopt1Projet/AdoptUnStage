@@ -81,7 +81,7 @@ export class CreerActeurAdminComponent implements OnInit {
               }
           this.alertService
             .success('Vous avez bien créé le compte acteur ' + acteur.nom, true);
-          this.router.navigate(['../admin/partenaires/accueilpartenaires']);
+          this.router.navigate(['../admin/partenaires/acteurs/listeacteurs']);
         },
         error => {
           console.log(error);

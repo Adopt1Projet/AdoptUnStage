@@ -180,13 +180,17 @@ import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprise
 import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
 import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-entreprise-admin.component';
 import { PageAccueilEntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-accueil-entreprises-admin';
-import { PageAccueilPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-accueil-partenaires-admin';
+import { PageAccueilPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-accueil-partenaires-admin';
 import { CreerActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-acteur-admin/creer-acteur-admin.component';
 import { CreerCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-createur-admin/creer-createur-admin.component';
 import { ActeursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/acteurs-partenaires-admin.component';
 import { EntreprisesPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/entreprises-partenaires-admin.component';
 import { CreateursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/createurs-partenaires-admin.component';
 import { CreerPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-entreprise-admin/creer-partenaire-entreprise-admin.component';
+import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/btn-acteurs-admin';
+import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
+import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
+import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
 
 @NgModule({
   declarations: [
@@ -298,7 +302,11 @@ import { CreerPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/Page
     ActeursPartenairesAdminComponent,
     EntreprisesPartenairesAdminComponent,
     CreateursPartenairesAdminComponent,
-    CreerPartenaireEntrepriseAdminComponent
+    CreerPartenaireEntrepriseAdminComponent,
+    BtnActeursAdminComponent,
+    BtnCreateursAdminComponent,
+    EntreprisesActiveAdminComponent,
+    BtnEntreprisesAdminComponent,
 
   ],
   imports: [

@@ -79,6 +79,10 @@ import { ModifierPartenaireAdminComponent } from './Router/PageAdmin/PagePartena
 import { CreerCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-createur-admin/creer-createur-admin.component';
 import { CreerActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-acteur-admin/creer-acteur-admin.component';
 import { CreerPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-entreprise-admin/creer-partenaire-entreprise-admin.component';
+import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/btn-acteurs-admin';
+import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
+import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
+import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
 
 
 const routes: Routes = [
@@ -114,13 +118,21 @@ const routes: Routes = [
       {
         path: 'partenaires', component: PagePartenairesAdminComponent, children: [
           { path: 'accueilpartenaires', component: PageAccueilPartenairesAdminComponent },
-          { path: 'acteurs', component: CreerActeurAdminComponent },
-          // { path: 'createurs', component: CreateursPartenairesAdminComponent },
-          // { path: 'entreprises', component: EntreprisesPartenairesAdminComponent },
-          { path: 'createurs', component: CreerCreateurAdminComponent },
-          { path: 'entreprises', component: CreerPartenaireEntrepriseAdminComponent },
+          { path: 'acteurs', component: BtnActeursAdminComponent, children: [
+            { path: 'listeacteurs', component: ActeursPartenairesAdminComponent},
+            { path: 'creeracteur', component: CreerActeurAdminComponent },
+          ] },
+          { path: 'createurs', component: BtnCreateursAdminComponent, children: [
+            { path: 'listecreateurs', component: CreateursPartenairesAdminComponent},
+            { path: 'creercreateur', component: CreerCreateurAdminComponent },
+          ] },
+          { path: 'entreprises', component: BtnEntreprisesAdminComponent, children: [
+            { path: 'listeentreprises', component: EntreprisesPartenairesAdminComponent},
+            { path: 'listeentreprisesparticipantes', component: EntreprisesActiveAdminComponent},
+            { path: 'creerentreprise', component: CreerPartenaireEntrepriseAdminComponent },
+          ] },
           { path: 'modifierpartenaire/:id', component: ModifierPartenaireAdminComponent },
-          { path: 'creeracteur', component: CreerActeurAdminComponent },
+          
           { path: 'creercreateur', component: CreerCreateurAdminComponent },
           { path: 'creerentreprise', component: CreateursPartenairesAdminComponent },
           { path: '', redirectTo: '/admin/partenaires/accueilpartenaires', pathMatch: 'full' },

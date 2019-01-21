@@ -80,7 +80,7 @@ export class CreerPartenaireEntrepriseAdminComponent implements OnInit {
           }
           this.alertService
           .success('Vous avez bien créé le compte acteur ' + entreprise.nom, true);
-          this.router.navigate(['../admin/partenaires/accueilpartenaires']);
+          this.router.navigate(['../admin/partenaires/entreprises/listeentreprises']);
 
         },
         error => {

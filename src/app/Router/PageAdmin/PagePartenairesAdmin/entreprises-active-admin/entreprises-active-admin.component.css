@@ -2,35 +2,6 @@ img {
     width: 75px;
 }
 
-.bodyBtnEntreprises {
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-top: 3vh;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    margin-bottom: 3vh;
-}
-
-.btn {
-    background-color: #26a69a;
-    height: 8vh;
-    color: white;
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-top: 3vh;
-    box-shadow: 3px 3px 8px rgb(105, 105, 105);
-}
-
-.router-link-active {
-    background-color: #2ed1bb;
-}
-
-
-
-button:hover {
-    background-color: #2ed1bb;
-}
-
 .bodyListeEntreprises {
     background-color: #ffffff;
     border-radius: 10px;
