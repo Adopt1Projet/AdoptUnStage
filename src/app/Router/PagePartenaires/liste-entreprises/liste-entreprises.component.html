@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container partenaires">
     <div class="row" *ngFor="let entreprise of entreprises; let odd=odd; let even=even">
         <div class="col-md-3 col-sm-2">
             <img *ngIf="entreprise.logo" src="{{entreprise.logo.fileDownloadUri}}" alt="Logo entreprise">
@@ -14,4 +14,17 @@
         </div>
     </div>
     <br>
+
+    <div class="row" *ngFor="let entreprisePartenaire of entreprisesPartenaires, let odd=odd; let even=even">
+        <div class="col-md-3 col-sm-2">
+            <img *ngIf="entreprisePartenaire.logo.fileDownloadUri" src="{{entreprisePartenaire.logo.fileDownloadUri}}" alt="Logo entreprise">
+            </div>
+        <div class="col-md-9 col-sm-10 entreprise">
+            <div>
+                <h3>{{entreprisePartenaire.nom}}</h3>
+                <p>{{entreprisePartenaire.description}}</p>
+                <a *ngIf="entreprisePartenaire.siteWeb" href="{{entreprisePartenaire.siteWeb}}" target="_blank">Visiter leur site web</a>
+            </div>
+        </div>
+    </div>
 </div>

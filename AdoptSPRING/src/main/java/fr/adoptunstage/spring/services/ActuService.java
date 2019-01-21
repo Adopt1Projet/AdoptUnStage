@@ -70,7 +70,7 @@ public class ActuService {
 
 	public ResponseEntity<?> postActu(ActuRequest requestActu) {
 
-		Actu _actu = new Actu(requestActu.getTitre(), requestActu.getExergue(), requestActu.getImage(),
+		Actu _actu = new Actu(requestActu.getTitre(), requestActu.getExergue(),
 				requestActu.getLegendeImage(), requestActu.getParagraphe1(), requestActu.getIntertitre1(),
 				requestActu.getParagraphe2(), requestActu.getIntertitre2(), requestActu.getParagraphe3());
 

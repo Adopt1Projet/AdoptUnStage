@@ -1,8 +1,10 @@
 <div class="container col-12 col-md-10 bodyCreerActu">
   <h1 class="titre">Créer une actualité</h1>
   <form class="col-md-8" [formGroup]="formActu" (ngSubmit)="onSubmit()">
+
     <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
       remplis.</p>
+
     <div class="form-group">
       <label for="titre">Titre*</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
@@ -15,18 +17,18 @@
     <div class="form-group">
       <label for="exergue">Exergue*</label>
       <textarea class="form-control" formControlName="exergue" [ngClass]="{ 'is-invalid': submitted && f.exergue.errors }"
-        id="exergue" rows="3" placeholder="Décrivez en quelques mots l'actualité à présenter.">
+        id="exergue" rows="3" placeholder="Décrivez en quelques mots l'actualité à afficher.">
       </textarea>
       <div *ngIf="submitted && f.exergue.errors" class="invalid-feedback">
         <div *ngIf="f.exergue.errors.required">L'exergue est requise !</div>
       </div>
     </div>
 
-    <div class="form-group image">
-        <label for="image" class="label-file">Image</label>
-        <p style="font-style: italic">*Formats acceptés : jpg, png, jpeg, gif.</p>
-        <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="image" name="image">
-      </div>
+    <div class="form-group logo">
+      <label for="logo" class="label-file">Image</label>
+      <p style="font-style: italic">*Formats acceptés : jpg, png, jpeg, gif.</p>
+      <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="logo" name="logo">
+    </div>
 
     <div class="form-group">
       <label for="legendeImage">Légende de l'image</label>
@@ -39,7 +41,7 @@
         id="paragraphe1" rows="3">
       </textarea>
       <div *ngIf="submitted && f.paragraphe1.errors" class="invalid-feedback">
-        <div *ngIf="f.paragraphe1.errors.required">Le premier paragraphe est Requis !</div>
+        <div *ngIf="f.paragraphe1.errors.required">Le premier paragraphe est requis !</div>
       </div>
     </div>
 
@@ -66,7 +68,8 @@
     </div>
 
     <div class="text-center">
-      <button class="btn btnPosterActu" type="submit">Créer l'actualité</button><img class="loadingImg" *ngIf="loading" src="../../../../assets/img/loading.gif" />
+      <button class="btn btnPosterActu" type="submit">Créer l'actualité</button><img class="loadingImg" *ngIf="loading"
+        src="../../../../assets/img/loading.gif" />
     </div>
   </form>
 </div>

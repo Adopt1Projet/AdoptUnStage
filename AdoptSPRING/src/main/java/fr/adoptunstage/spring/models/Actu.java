@@ -131,7 +131,7 @@ public class Actu {
 	public Actu() {
 	}
 
-	public Actu(String titre, String exergue, String image, String legendeImage, String paragraphe1, String intertitre1,
+	public Actu(String titre, String exergue, String legendeImage, String paragraphe1, String intertitre1,
 			String paragraphe2, String intertitre2, String paragraphe3) {
 		this.titre = titre;
 		this.exergue = exergue;

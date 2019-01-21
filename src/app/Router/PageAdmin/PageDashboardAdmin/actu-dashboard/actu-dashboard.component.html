@@ -22,8 +22,8 @@
       <ng-container matColumnDef="image">
         <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
         <mat-cell *matCellDef="let actu">
-          <img *ngIf="actu.image.fileDownloadUri" class="imgDescActu" src="{{entreprise.logo.fileDownloadUri}}" alt="image actualité">
-          <img *ngIf="actu.image.fileDownloadUri == null" class="imgDescActu" src="assets/img/LogoAdopt.png" alt="image par default">
+          <img *ngIf="actu.logo.fileDownloadUri" class="imgDescActu" src="{{actu.logo.fileDownloadUri}}" alt="image actualité">
+          <img *ngIf="actu.logo.fileDownloadUri == null" class="imgDescActu" src="assets/img/LogoAdopt.png" alt="image par default">
         </mat-cell>
       </ng-container>
 

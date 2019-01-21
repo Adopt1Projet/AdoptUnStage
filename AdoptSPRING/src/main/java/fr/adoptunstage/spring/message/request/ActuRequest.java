@@ -6,8 +6,6 @@ public class ActuRequest {
 	
 	private String exergue;
 	
-	private String image;
-	
 	private String legendeImage;
 	
 	private String intertitre1;
@@ -34,14 +32,6 @@ public class ActuRequest {
 
 	public void setExergue(String exergue) {
 		this.exergue = exergue;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public String getLegendeImage() {

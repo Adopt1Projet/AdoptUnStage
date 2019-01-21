@@ -61,11 +61,6 @@ export class StagiairesDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-
-    if (this.stagiaire.civilite == "monsieur") {
-      this.stagiaire.civilite = "Mr";
-    }
-    else { this.stagiaire.civilite = "Mme" }
   }
 
   ngOnChanges() {

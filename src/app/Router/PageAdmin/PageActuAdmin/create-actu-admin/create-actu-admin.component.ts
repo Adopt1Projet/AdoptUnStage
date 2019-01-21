@@ -35,7 +35,6 @@ export class CreateActuAdminComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.loading = true;
     const actu: Actu = this.formActu.value;
     if (this.formActu.invalid) {
       return;
@@ -43,6 +42,7 @@ export class CreateActuAdminComponent implements OnInit {
     this.actuService.createActu(actu)
       .subscribe(data => {
         console.log(data);
+        this.loading = true;
         if (this.file != undefined) {
           this.curentFile = this.file.item(0);
           this.actuService.createFileActu(actu.titre, this.curentFile)
@@ -51,10 +51,10 @@ export class CreateActuAdminComponent implements OnInit {
                 console.log(data2)
               },
               error => {
-                this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
+                this.alertService.success('Votre logo n\'a pas le bon format mais votre actualité a bien été créée', true);
               });
             }
-        this.alertService.success('Votre actu à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+        this.alertService.success('Votre actu a bien été créée. Vous pouvez la modifier si nécessaire.', true);
         this.router.navigate(['../admin/actus/listeactus']);
       }, error => console.log(error));
     Object.keys(this.formActu.controls).forEach(key => {
@@ -71,9 +71,6 @@ export class CreateActuAdminComponent implements OnInit {
       exergue: [
         '',
         Validators.required
-      ],
-      image: [
-        '',
       ],
       legendeImage: [
         '',
