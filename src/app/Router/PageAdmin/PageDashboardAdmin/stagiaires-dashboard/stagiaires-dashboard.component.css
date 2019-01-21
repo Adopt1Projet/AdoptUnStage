@@ -1,0 +1,41 @@
+.componentBodyStagiaires {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 3vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin-bottom: 3vh;
+}
+
+.mat-elevation-z8 {
+  background-color: #efeded
+}
+
+table {
+  width: 100%;
+}
+
+
+mat-paginator {
+  display: none;
+}
+
+.titre {
+  color: #26a69a;
+  text-align: center;
+  font-weight: bolder;
+  margin: 0 auto;
+  padding-top: 1vw;
+  padding-bottom: 1vh;
+}
+
+.btn {
+  background-color: #26a69a;
+  color: white;
+  font-weight: bold;
+  box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+button:hover {
+  background-color: #2ed1bb;
+}

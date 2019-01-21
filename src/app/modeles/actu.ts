@@ -2,7 +2,7 @@ export class Actu {
     id: number;
     titre: string;
     exergue: string;
-    image: string;
+    logo: string;
     legendeImage: string;
     paragraphe1: string;
     intertitre1: string;

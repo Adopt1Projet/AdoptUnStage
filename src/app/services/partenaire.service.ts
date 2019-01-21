@@ -61,7 +61,7 @@ export class PartenaireService {
     return this.http.get(`${this.baseUrl}/actor`);
   }
   getActor(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/` + `/getActor${id}`);
+    return this.http.get(`${this.baseUrl}` + `/getActor/${id}`);
   }
 
   createFileActor(nom: String, file : File): Observable<HttpEvent<{}>> {

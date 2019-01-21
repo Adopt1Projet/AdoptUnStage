@@ -6,7 +6,7 @@
   <blockquote *ngIf="actus.exergue"><i>{{actus.exergue}}</i></blockquote>
   <br>
   <figure>
-    <img *ngIf="actus.image" src="{{actus.image}}" alt="image actus">
+    <img *ngIf="actus.logo.fileDownloadUri" src="{{actus.logo.fileDownloadUri}}" alt="image actus">
     <figcaption>{{actus.legendeImage}}</figcaption>
   </figure>
   <br>

@@ -1,0 +1,40 @@
+<div class="col-12 p-0 componentBodyOffres ">
+    <div class="titre">
+        <h2>DERNIERES OFFRES</h2>
+    </div>
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="offres" [class.isMobile]="isMobile" matSort>
+
+            <ng-container matColumnDef="titre">
+                <mat-header-cell *matHeaderCellDef> Titre </mat-header-cell>
+                <mat-cell *matCellDef="let offre">
+                    {{offre.titre}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="secteur">
+                <mat-header-cell *matHeaderCellDef> Secteur </mat-header-cell>
+                <mat-cell *matCellDef="let offre">
+                    {{offre.entreprise.secteur}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="pourvue">
+                <mat-header-cell *matHeaderCellDef> pourvue </mat-header-cell>
+                <mat-cell *matCellDef="let offre">
+                    <p style="background-color : #00b499; color: white;" *ngIf="offre.active == true">Dispo</p>
+                    <p style="background-color : #e00000; color: white;" *ngIf="offre.active == false">Pourvue</p>
+                </mat-cell>
+
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator paginator [pageSize]="pageSize" [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)"></mat-paginator>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <button type="button" class="btn col-5" routerLink="/admin/offres/listeoffres">Voir toutes les offres</button>
+</div>

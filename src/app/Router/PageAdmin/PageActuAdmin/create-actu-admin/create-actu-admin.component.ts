@@ -16,6 +16,8 @@ export class CreateActuAdminComponent implements OnInit {
   public formActu: FormGroup;
   loading = false;
   submitted = false;
+  file: FileList;
+  curentFile: File;
 
   constructor(
     private actuService: ActuService,
@@ -27,18 +29,32 @@ export class CreateActuAdminComponent implements OnInit {
 
   get f() { return this.formActu.controls; }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
+
   onSubmit() {
     this.submitted = true;
-    this.loading = true;
     const actu: Actu = this.formActu.value;
-
     if (this.formActu.invalid) {
       return;
     }
-    this.actuService.createActu(this.username, actu)
+    this.actuService.createActu(actu)
       .subscribe(data => {
-        console.log(data),
-        this.alertService.success('Votre actu à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+        console.log(data);
+        this.loading = true;
+        if (this.file != undefined) {
+          this.curentFile = this.file.item(0);
+          this.actuService.createFileActu(actu.titre, this.curentFile)
+            .subscribe(
+              data2 => {
+                console.log(data2)
+              },
+              error => {
+                this.alertService.success('Votre logo n\'a pas le bon format mais votre actualité a bien été créée', true);
+              });
+            }
+        this.alertService.success('Votre actu a bien été créée. Vous pouvez la modifier si nécessaire.', true);
         this.router.navigate(['../admin/actus/listeactus']);
       }, error => console.log(error));
     Object.keys(this.formActu.controls).forEach(key => {
@@ -47,7 +63,6 @@ export class CreateActuAdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = this.token.getUsername();
     this.formActu = this.fb.group({
       titre: [
         '',
@@ -56,9 +71,6 @@ export class CreateActuAdminComponent implements OnInit {
       exergue: [
         '',
         Validators.required
-      ],
-      image: [
-        '',
       ],
       legendeImage: [
         '',
