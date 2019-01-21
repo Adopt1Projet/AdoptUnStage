@@ -11,6 +11,8 @@ public class HTMLMail{
 	private String name;
 	private String email;
 	
+	
+	
 	public String getTitle() {
 		return title;
 	}
