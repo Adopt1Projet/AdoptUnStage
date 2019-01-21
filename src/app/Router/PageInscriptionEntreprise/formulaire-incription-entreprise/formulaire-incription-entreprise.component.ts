@@ -11,6 +11,7 @@ import { ConditionUtilisationComponent } from '../../ModalConditionUtilisation/c
 
 
 import { AlertService } from '../../../services/alert.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-formulaire-incription-entreprise',
@@ -19,11 +20,15 @@ import { AlertService } from '../../../services/alert.service';
 })
 export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   public formCreate: FormGroup;
+  file: FileList;
+  curentFile: File;
   loading = false;
   submitted = false;
   confirmResult = null;
+  info: any;
 
   constructor(
+    private token: TokenStorageService,
     private entrepriseService: EntrepriseService,
     private _location: Location,
     private fb: FormBuilder,
@@ -35,17 +40,26 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isAdmin()
+  }
+
+  isAdmin() {
+    this.info = {
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+
+    };
   }
 
   createSignupForm(): FormGroup {
     return this.fb.group(
       {
         siteWeb: [null],
-        logo: [null],
         contactMail: [
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
+        description: [null],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])
@@ -67,6 +81,10 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
           Validators.compose([Validators.required])
         ],
         codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        civilite: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -134,6 +152,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
   get f() { return this.formCreate.controls; }
 
+
   showCgu() {
     console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
@@ -152,12 +171,17 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
     this._location.back();
   }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
       return;
     }
     this.loading = true;
+    console.log(this.formCreate)
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
@@ -165,8 +189,28 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data);
-          this.alertService.success('Merci de vous être enregistré, vous pouvez vous connecter.', true);
+          if (this.file != undefined) {
+            this.curentFile = this.file.item(0);
+            this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
+              .subscribe(
+                data2 => {
+                  console.log(data2)
+                },
+                error => {
+                  this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
+                });;
+          }
+          if (this.info.authorities == "ROLE_ADMIN") {
+            this.alertService
+              .success('Vous avez bien créé le compte entreprise ' + entreprise.email, true);
+          }
+          else {
+          this.alertService.success('Merci de vous être enregistré, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
+          }
+          if (this.info.authorities == "ROLE_ADMIN") {
+            this.router.navigate(['../admin/entreprises/listeentreprises']);
+          }
+          else { this.router.navigate(['../connexion']); }
         },
         error => {
           console.log(error);

@@ -41,7 +41,7 @@ export class OffreService {
     return this.http.delete(`${this.baseUrl}` + `/supprimer`, { responseType: 'text' });
   }
 
-  postuler(id_offre: number, username : String, value : any): Observable<any>{
+  postuler(id_offre: number, username: String, value: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/postuler/${id_offre}/${username}`, value);
   }
 
@@ -51,5 +51,9 @@ export class OffreService {
 
   getOffresListStagiairePourvues(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/mesoffresstagiairepourvues/${username}`);
+  }
+
+  getPostulants(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/postulants/${id}`);
   }
 }

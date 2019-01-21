@@ -7,12 +7,20 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import fr.adoptunstage.spring.payload.UploadFileResponse;
+
 @Entity
 public class Stagiaire extends User {
+	
+
+	@Column(name = "civilite")
+	private String civilite;
 
 	@Column(name = "prenom")
 	private String prenom;
@@ -35,7 +43,21 @@ public class Stagiaire extends User {
 	@JsonIgnore
     private Set<Offre> offres; 
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "upload_id")
+	private UploadFileResponse CV;
 	
+	
+	
+	
+	public UploadFileResponse getCV() {
+		return CV;
+	}
+
+	public void setCV(UploadFileResponse CV) {
+		this.CV = CV;
+	}
+
 	public Set<Offre> getOffresNonPourvues() {
 		Set<Offre> offresActives = new HashSet<Offre>();
 		for(Offre offre : offres) {
@@ -67,6 +89,16 @@ public class Stagiaire extends User {
 	public void setOffre(Offre offre) {
 		this.offres.add(offre);
 	}
+
+
+	public String getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
 
 	public String getPrenom() {
 		return prenom;
@@ -104,12 +136,24 @@ public class Stagiaire extends User {
 	
 	public Stagiaire() {}
 
-	public Stagiaire(String name, String username, String email, String password, String prenom, String etablissement, String ville, String codePostal) {
+	public Stagiaire(String name, String username, String email, String password, String civilite, String prenom, String etablissement, String ville, String codePostal) {
 		super(name, username, email, password);
+		this.civilite = civilite;
 		this.prenom = prenom;
 		this.etablissement = etablissement;
 		this.ville = ville;
 		this.codePostal = codePostal;
+		this.CV = new UploadFileResponse (null, null, null, 0);
+		this.offres = new HashSet<Offre>();
+	}
+	public Stagiaire(Long id, String name, String username, String email, String password, String civilite, String prenom, String etablissement, String ville, String codePostal) {
+		super(id, name, username, email, password);
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.etablissement = etablissement;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.CV = new UploadFileResponse (null, null, null, 0);
 		this.offres = new HashSet<Offre>();
 	}
 

@@ -1,0 +1,72 @@
+@media screen and (min-width: 601px) {
+    .titre {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titre {
+        font-size: 6vw;
+    }
+}
+
+.bodyCreerActu {
+    padding-bottom: 5%;
+    background-color: #ffffff;
+    margin-top: 3vh;
+    border-radius: 10px;
+}
+
+.btnPosterActu {
+    background-color: #26a69a;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+
+.btnPosterActu:hover {
+    background-color: #2ed1bb;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3vh;
+}
+
+.is-invalid {
+    border-left: solid 6px red;
+}
+
+
+form {
+    color: #26a69a;
+    margin: 0 auto;
+    padding-top: 3vw;
+    padding-bottom: 3vh;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+input,
+select,
+textarea {
+    background-color: #ebebeb;
+    border: none;
+}
+
+::placeholder {
+    color: #C2BFCA;
+    opacity: 1;
+}
+
+.loadingImg {
+    width: 70px;
+}

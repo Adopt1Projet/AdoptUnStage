@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
@@ -22,6 +26,7 @@ import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.SignupMail;
 import fr.adoptunstage.spring.models.User;
+import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.EntrepriseRepository;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
@@ -37,6 +42,9 @@ public class EntrepriseService {
 	MailService mailRepository;
 	
 	@Autowired
+	FileStorageService fileStorageService;
+	
+	@Autowired
 	UserRepository userRepository;
 	
 	@Autowired
@@ -44,6 +52,17 @@ public class EntrepriseService {
 	
 	@Autowired
 	PasswordEncoder encoder;
+	
+	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
+
+	
+	public static boolean validateFileExtn(String ext){
+		Matcher mtch = fileExtnPtrn.matcher(ext);
+		if(mtch.matches()){
+		return true;
+		}
+		return false;
+		}
 
 	
 	public List<Entreprise> getAllEntreprises() {
@@ -62,11 +81,12 @@ public class EntrepriseService {
 		return entreprise;
 	}
 	
-
-	
-	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		repository.deleteById(id);
-		return new ResponseEntity<>("L'entreprise a été supprimée !", HttpStatus.OK);
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
 	}
 	
 	public ResponseEntity<?> postEntreprise(SignUpForm signUpRequest) {
@@ -82,7 +102,7 @@ public class EntrepriseService {
 
 		// Creating user's account
 		Entreprise user = new Entreprise(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getLogo(), signUpRequest.getPrenom(), signUpRequest.getContactMail(), signUpRequest.getTel());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getRaisonSociale(), signUpRequest.getSecteur(), signUpRequest.getStatut(), signUpRequest.getSiteWeb(), signUpRequest.getAdresse(), signUpRequest.getVille(), signUpRequest.getCodePostal(), signUpRequest.getCivilite(), signUpRequest.getPrenom(), signUpRequest.getContactMail(), signUpRequest.getDescription(), signUpRequest.getTel());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("entreprise");
@@ -110,6 +130,32 @@ public class EntrepriseService {
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 	
+	public ResponseEntity<?> postEntrepriseFile(String username, MultipartFile file) {
+		
+		if (validateFileExtn(file.getOriginalFilename())) {	 
+		
+			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+			
+	        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
+	
+	        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+	                .path("/api/downloadFile/")
+	                .path(fileName)
+	                .toUriString();      
+	
+	        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+	                file.getContentType(), file.getSize());
+	        
+	        
+	        entreprise.setLogo(uploadFileResponse);
+	        userRepository.save(entreprise);
+	        
+	        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+    }
+	
 	
 	
 	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
@@ -125,10 +171,11 @@ public class EntrepriseService {
 									_entreprise.setAdresse(updateRequest.getAdresse());
 									_entreprise.setVille(updateRequest.getVille());
 									_entreprise.setCodePostal(updateRequest.getCodePostal());
-									_entreprise.setLogo(updateRequest.getLogo());
+									_entreprise.setCivilite(updateRequest.getCivilite());
 									_entreprise.setPrenom(updateRequest.getPrenom());
 									_entreprise.setName(updateRequest.getName());
 									_entreprise.setContactMail(updateRequest.getContactMail());
+									_entreprise.setDescription(updateRequest.getDescription());
 									_entreprise.setTel(updateRequest.getTel());
 									_entreprise.setEmail(updateRequest.getEmail());
 									_entreprise.setUsername(updateRequest.getUsername());
@@ -158,5 +205,21 @@ public class EntrepriseService {
 
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	public List<Entreprise> getEntreprisesActives() {
+		
+		List<Entreprise> entreprises = new ArrayList<>();
+		List<Entreprise> entreprisesActives = new ArrayList<>();
+		
+		repository.findAll().forEach(entreprises::add);
+		
+		for (Entreprise entreprise : entreprises) {
+			entreprise.setPassword("");
+			if (entreprise.getOffres().size() > 0) {
+				entreprisesActives.add(entreprise);
+			}
+		}
+		return entreprisesActives;
 	}
 }

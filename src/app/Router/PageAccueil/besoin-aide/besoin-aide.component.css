@@ -11,7 +11,8 @@ h2 {
 }
 
 img {
-    width: 80%;
+    max-width: 2wh;
+    
 }
 
 p {

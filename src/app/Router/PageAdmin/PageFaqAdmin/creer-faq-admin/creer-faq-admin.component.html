@@ -1,0 +1,29 @@
+<div class="container col-12 col-md-10 bodyCreerFaq">
+    <h1 class="titre">Créer une F.A.Q</h1>
+    <form class="col-md-8" [formGroup]="formFaq" (ngSubmit)="onSubmit()">
+      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+        remplis.</p>
+      <div class="form-group">
+        <label for="question">Question*</label>
+        <input type="text" formControlName="question" class="form-control" id="question" [ngClass]="{ 'is-invalid': submitted && f.question.errors }"
+          placeholder="">
+        <div *ngIf="submitted && f.question.errors" class="invalid-feedback">
+          <div *ngIf="f.question.errors.required">La question est requise !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="reponse">Réponse*</label>
+        <textarea class="form-control" formControlName="reponse" [ngClass]="{ 'is-invalid': submitted && f.reponse.errors }"
+          id="reponse" rows="3" placeholder="">
+        </textarea>
+        <div *ngIf="submitted && f.reponse.errors" class="invalid-feedback">
+          <div *ngIf="f.reponse.errors.required">La réponse est requise !</div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btnPosterFaq" type="submit">Poster ma F.A.Q</button>
+      </div>
+  
+    </form>
+  </div>

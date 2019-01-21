@@ -21,7 +21,6 @@ export class OffreItemComponent implements OnInit {
     this.offreService.deleteOffre(this.offre.id)
       .subscribe(
         data => {
-          console.log(data);
           this.list.reloadData();
         },
         error => console.log(error));
@@ -30,7 +29,6 @@ export class OffreItemComponent implements OnInit {
     this.offreService.updateOffre(this.offre.id, this.offre)
       .subscribe(
         data => {
-          console.log(data);
           this.list.reloadData();
         },
         error => console.log(error));

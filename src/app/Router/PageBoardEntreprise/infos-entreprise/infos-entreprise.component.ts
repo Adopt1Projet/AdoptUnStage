@@ -4,6 +4,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
 import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infos-entreprise',
@@ -15,6 +16,8 @@ export class InfosEntrepriseComponent implements OnInit {
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
   private username;
+  file : FileList;
+  curentFile : File;
   private entreprise: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
@@ -23,10 +26,13 @@ export class InfosEntrepriseComponent implements OnInit {
     private entrepriseService: EntrepriseService,
     private token: TokenStorageService,
     private alertService: AlertService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private router: Router) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
+
   }
+
 
   ngOnInit() {
     this.username = this.token.getUsername();
@@ -46,7 +52,9 @@ export class InfosEntrepriseComponent implements OnInit {
           ville: this.entreprise.ville,
           codePostal: this.entreprise.codePostal,
           //logo: this.entreprise.logo,
+          civilite: this.entreprise.civilite,
           contactMail: this.entreprise.contactMail,
+          description: this.entreprise.description,
           tel: this.entreprise.tel,
           email: this.entreprise.email,
           confirmMail: this.entreprise.email
@@ -57,6 +65,7 @@ export class InfosEntrepriseComponent implements OnInit {
 
   }
 
+
   updateSignupForm(): FormGroup {
     return this.fb.group(
       {
@@ -66,6 +75,7 @@ export class InfosEntrepriseComponent implements OnInit {
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
+        description: [null],
         raisonSociale: [
           null,
           Validators.compose([Validators.required])
@@ -87,6 +97,10 @@ export class InfosEntrepriseComponent implements OnInit {
           Validators.compose([Validators.required])
         ],
         codePostal: [
+          null,
+          Validators.compose([Validators.required])
+        ],
+        civilite: [
           null,
           Validators.compose([Validators.required])
         ],
@@ -156,6 +170,9 @@ export class InfosEntrepriseComponent implements OnInit {
     );
   }
 
+  onChange(event) {
+    this.file = event.target.files;
+  }
 
   onSubmit() {
     this.submitFormPassword = false;
@@ -165,11 +182,26 @@ export class InfosEntrepriseComponent implements OnInit {
     this.entrepriseService.updateEntreprise(this.entreprise.id, this.formUpdate.value)
       .subscribe(
         data => {
+          if (this.file != undefined){
+            this.curentFile = this.file.item(0);
+            this.entrepriseService.createFileEntreprise(this.formUpdate.value.username, this.curentFile)
+              .subscribe(
+                  data2 => {
+                    this.alertService.success('Votre logo et vos autres modifications ont bien été prises en compte !', true);
+                  },
+                  error => {
+                    this.alertService.error('Votre logo n\'a pas le bon format mais vos autres modifications ont bien été prises en compte !', true);
+                  });;
+            }
           this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
           this.alertService.error('Une erreur est servenue. L\'email renseigné est peut-être déjà utilisé.', true);
         });
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+
   }
 
   onSubmitPassword() {
@@ -184,5 +216,21 @@ export class InfosEntrepriseComponent implements OnInit {
           this.alertService.error('Une erreur est servenue.', true);
         });
     this.formUpdatePassword.reset();
+
+    document.body.scrollTop = 230; // For Safari
+    document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
+  }
+
+  onClickDeleteUser() {
+    this.username = this.token.getUsername();
+    this.entrepriseService.deleteUser(this.username)
+      .subscribe(
+        data => {
+          this.token.signOut();
+          this.router.navigate(['../../accueil']);
+        },
+        error => {
+        })
+
   }
 }

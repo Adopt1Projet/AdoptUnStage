@@ -4,50 +4,54 @@ import java.util.Set;
 
 import javax.validation.constraints.*;
 
+import fr.adoptunstage.spring.payload.UploadFileResponse;
+
 public class SignUpForm {
-    @NotBlank
-    private String name;
+	@NotBlank
+	private String name;
 
-    @NotBlank
-    @Size(min = 3, max = 50)
-    private String username;
+	@NotBlank
+	@Size(min = 3, max = 50)
+	private String username;
 
-    @NotBlank
-    @Size(max = 60)
-    @Email
-    private String email;
-    
-    private Set<String> role;
-    
-    @NotBlank
-    @Size(min = 6, max = 40)
-    private String password;
-    
-    private String raisonSociale;
-    
-    private String secteur;
-    
-    private String statut;
-    
-    private String adresse;
-    
-    private String ville;
-    
-    private String codePostal;
-    
-    private String logo;
-    
-    private String prenom;
-    
-    private String contactMail;
-    
-    private String tel;
-    
-    private String siteWeb;
-    
-    
+	@NotBlank
+	@Size(max = 60)
+	@Email
+	private String email;
 
-    public String getRaisonSociale() {
+	private String contactMail;
+
+	private Set<String> role;
+
+	@NotBlank
+	@Size(min = 6, max = 40)
+	private String password;
+
+	private String raisonSociale;
+
+	private String secteur;
+
+	private String statut;
+
+	private String adresse;
+
+	private String ville;
+
+	private String codePostal;
+
+	private UploadFileResponse logo;
+
+	private String civilite;
+
+	private String prenom;
+
+	private String description;
+
+	private String tel;
+
+	private String siteWeb;
+
+	public String getRaisonSociale() {
 		return raisonSociale;
 	}
 
@@ -95,13 +99,17 @@ public class SignUpForm {
 		this.codePostal = codePostal;
 	}
 
-	public String getLogo() {
+	public UploadFileResponse getLogo() {
 		return logo;
 	}
 
-	public void setLogo(String logo) {
+	public void setLogo(UploadFileResponse logo) {
 		this.logo = logo;
 	}
+
+	public String getCivilite() { return civilite; }
+
+	public void setCivilite(String civilite) { this.civilite = civilite; }
 
 	public String getPrenom() {
 		return prenom;
@@ -115,8 +123,16 @@ public class SignUpForm {
 		return contactMail;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
 	public void setContactMail(String contactMail) {
 		this.contactMail = contactMail;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getTel() {
@@ -136,42 +152,42 @@ public class SignUpForm {
 	}
 
 	public String getName() {
-        return name;
-    }
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    public Set<String> getRole() {
-    	return this.role;
-    }
-    
-    public void setRole(Set<String> role) {
-    	this.role = role;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<String> getRole() {
+		return this.role;
+	}
+
+	public void setRole(Set<String> role) {
+		this.role = role;
+	}
 }

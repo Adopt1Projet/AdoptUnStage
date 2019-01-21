@@ -1,0 +1,58 @@
+<div class="bodyAdmin" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar justify-content-between">
+    <div class="row align-items-center">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="panelAdmin">Panel Admin</h1>
+    </div>
+    <div class="row retourAccueil align-items-center">
+      <button mat-icon-button routerLink="/accueil">
+        <mat-icon>home</mat-icon>
+      </button>
+      <a class="retourAccueilText d-none d-md-block" routerLink="/accueil">Retour à l'accueil</a>
+      <a class="retourAccueilText d-block d-md-none" routerLink="/accueil">Accueil</a>
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav opened="true" class="sidenav-body" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="router-link-active"><i class="material-icons">
+            dashboard</i>Dashboard</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/actus" routerLinkActive="router-link-active"><i class="material-icons">
+            font_download</i>Actualités</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/faq" routerLinkActive="router-link-active"><i class="material-icons">
+            contact_support</i>F.A.Q</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/partenaires" routerLinkActive="router-link-active"><i class="material-icons">
+            group_work</i>Partenaires</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/offres" routerLinkActive="router-link-active"><i class="material-icons">
+            business_center</i>Offres</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/stagiaires" routerLinkActive="router-link-active"><i class="material-icons">
+            group</i>Stagiaires</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/entreprises" routerLinkActive="router-link-active"><i class="material-icons">
+            domain</i>Entreprises</a>
+        <hr>
+        <a mat-list-item routerLink="/admin/colleges" routerLinkActive="router-link-active"><i class="material-icons">
+            location_city</i>Collèges</a>
+        <hr>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+    <router-outlet class="router"></router-outlet>
+  </mat-sidenav-container>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

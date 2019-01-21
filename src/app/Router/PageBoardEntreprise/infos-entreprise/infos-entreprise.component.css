@@ -35,7 +35,7 @@ h1, h2{
     font-weight: bolder;
 }
   
-input, select{
+input, select, textarea{
     background-color: #ebebeb;
     border: none;
 }
@@ -55,6 +55,7 @@ input, select{
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
+
   
   
 .btn:hover {
@@ -64,4 +65,11 @@ input, select{
 ::placeholder { 
     color: #C2BFCA;
     opacity: 1; 
+}
+#image{
+    max-width:15vh;
+}
+
+.deleteCompte {
+    padding-bottom: 5vh;
 }

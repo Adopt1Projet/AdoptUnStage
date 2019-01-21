@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Partenaire } from '../../../modeles/partenaire';
-import { PartenaireService } from '../../../services/partenaire.service';
-import { TokenStorageService } from '../../../auth/token-storage.service';
+import { EntrepriseService } from 'src/app/services/entreprise.service';
+import { Entreprise } from 'src/app/modeles/entreprise';
 
 @Component({
   selector: 'app-liste-entreprises',
@@ -12,11 +11,13 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
 })
 export class ListeEntreprisesComponent implements OnInit {
 
-  partenaires: Observable<Partenaire[]>;
+  entreprises: Observable<Entreprise[]>;
 
-  constructor(private partenaireService: PartenaireService) { }
+  constructor(private entrepriseService : EntrepriseService) { }
 
   ngOnInit() {
-    this.partenaires = this.partenaireService.getPartenairesList();
+    this.entrepriseService.getEntreprisesActives()
+      .subscribe(data => { this.entreprises = data;
+                           console.log(this.entreprises)})
   }
 }

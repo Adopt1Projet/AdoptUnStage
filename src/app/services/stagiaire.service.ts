@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,9 @@ export class StagiaireService {
     return this.http.get(`${this.baseUrl}/getone/${username}`);
   }
 
+  getAdminStagiaire(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/adminget/${id}`);
+  }
   createStagiaire(customer: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}` + `/creer`, customer);
   }
@@ -29,5 +32,19 @@ export class StagiaireService {
 
   getStagiaireList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+  deleteUser(username: String): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/deleteuser/${username}`);
+  }
+
+  createFileStagiaire(username: string, file : File): Observable<HttpEvent<{}>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/creerfile/${username}`, formData, {
+      responseType: 'text'
+    });
+ 
+    return this.http.request(req);
   }
 }

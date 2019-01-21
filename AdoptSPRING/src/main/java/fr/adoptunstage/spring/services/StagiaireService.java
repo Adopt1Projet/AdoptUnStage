@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
@@ -24,6 +27,7 @@ import fr.adoptunstage.spring.models.Role;
 import fr.adoptunstage.spring.models.RoleName;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.models.User;
+import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.StagiaireRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
@@ -33,12 +37,16 @@ import fr.adoptunstage.spring.repos.UserRepository;
 
 @Service
 public class StagiaireService {
-	
+		
 	@Autowired
 	StagiaireRepository repository;
 	
 	@Autowired
 	MailService mailRepository;
+	
+	@Autowired
+	FileStorageService fileStorageService;
+	
 	
 	@Autowired
 	UserRepository userRepository;
@@ -48,6 +56,17 @@ public class StagiaireService {
 	
 	@Autowired
 	PasswordEncoder encoder;
+	
+	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(txt|doc|docx|odt|pdf))$)");
+
+	
+	public static boolean validateFileExtn(String ext){
+		Matcher mtch = fileExtnPtrn.matcher(ext);
+		if(mtch.matches()){
+		return true;
+		}
+		return false;
+		}
 	
 	public List<Stagiaire> getAllStagiaire() {
 		List<Stagiaire> stagiaires = new ArrayList<>();
@@ -65,9 +84,24 @@ public class StagiaireService {
 		return stagiaire;
 	}
 
+	public Stagiaire getAdminStagiaire(@PathVariable("id") long id) {
+		Stagiaire stagiaire = repository.findById(id).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> id : " + id));
+		stagiaire.setPassword("");
+		return stagiaire;
+	}
+
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		repository.deleteById(id);
 		return new ResponseEntity<>("Le stagiaire a été supprimé !", HttpStatus.OK);
+	}
+	
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username ) {
+		
+		User user =  userRepository.findByUsername(username).orElseThrow(
+				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+		userRepository.delete(user);
+		return new ResponseEntity<>(new ResponseMessage("L'entreprise a été supprimée !"), HttpStatus.OK);
 	}
 	
 	public ResponseEntity<?> postStagiaire(SignUpFormStagiaire signUpRequest) {
@@ -83,7 +117,7 @@ public class StagiaireService {
 
 		// Creating user's account
 		Stagiaire user = new Stagiaire(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
+				encoder.encode(signUpRequest.getPassword()), signUpRequest.getCivilite(), signUpRequest.getPrenom(), signUpRequest.getEtablissement(), signUpRequest.getVille(), signUpRequest.getCodePostal());
 
 		Set<String> strRoles = new HashSet<String>();
 		strRoles.add("stagiaire");
@@ -114,6 +148,35 @@ public class StagiaireService {
 		
 	}
 	
+	
+	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {	 
+		    	
+		 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
+				
+					Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+							() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+					
+			        String fileName = fileStorageService.storeFile(file, stagiaire.getUsername());
+			
+			        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+			                .path("/api/downloadFile/")
+			                .path(fileName)
+			                .toUriString();      
+			
+			        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+			                file.getContentType(), file.getSize());
+			        
+			        
+			        stagiaire.setCV(uploadFileResponse);
+			        userRepository.save(stagiaire);
+			        
+			        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			 		}
+			        
+			     return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+	                
+		    }
+	
 
 	
 	public ResponseEntity<?> updateStagiaire(@PathVariable("id") long id, @RequestBody SignUpFormStagiaire updateRequest) {
@@ -122,6 +185,7 @@ public class StagiaireService {
 
 		if (stagiaireData.isPresent()) {
 			Stagiaire _stagiaire = (Stagiaire) stagiaireData.get();
+					_stagiaire.setCivilite(updateRequest.getCivilite());
 					_stagiaire.setPrenom(updateRequest.getPrenom());
 					_stagiaire.setName(updateRequest.getName());
 					_stagiaire.setEtablissement(updateRequest.getEtablissement());

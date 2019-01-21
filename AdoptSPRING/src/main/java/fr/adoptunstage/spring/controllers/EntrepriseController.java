@@ -3,6 +3,7 @@ package fr.adoptunstage.spring.controllers;
 
 import java.util.List;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpForm;
 import fr.adoptunstage.spring.models.Entreprise;
+
 import fr.adoptunstage.spring.security.services.UserDetailsServiceImpl;
 import fr.adoptunstage.spring.services.EntrepriseService;
 
@@ -34,7 +38,7 @@ public class EntrepriseController {
 	UserDetailsServiceImpl userService;
 
 
-	@GetMapping("/")
+	@GetMapping("")
 	public List<Entreprise> getAllEntreprises() {
 		return service.getAllEntreprises();
 	}
@@ -48,12 +52,11 @@ public class EntrepriseController {
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody SignUpForm signUpRequest) {
 		return service.postEntreprise(signUpRequest);
 	}
-
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
-		return service.deleteEntreprise(id);
-	}
 	
+	@PostMapping(value = "/creerfile/{username}")
+	public ResponseEntity<?> postEntrepriseFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.postEntrepriseFile(username, file);
+	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
@@ -63,5 +66,15 @@ public class EntrepriseController {
 	@PutMapping("/password/{id}")
 	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprisePassword(id, updateRequest);
+	}
+	
+	@DeleteMapping("/deleteuser/{username}")
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+		return service.deleteUser(username);
+	}
+	
+	@GetMapping("/actives")
+	public List<Entreprise> getEntreprisesActives() {
+		return service.getEntreprisesActives();
 	}
 }

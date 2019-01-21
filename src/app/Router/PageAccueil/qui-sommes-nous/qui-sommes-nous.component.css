@@ -8,9 +8,12 @@
     margin: 4%;
 }
 
-
-
 h2 {
     color: #26a69a;
     font-weight: bolder;
+}
+
+.videoQsn {
+    display: flex;
+    align-items: center;
 }

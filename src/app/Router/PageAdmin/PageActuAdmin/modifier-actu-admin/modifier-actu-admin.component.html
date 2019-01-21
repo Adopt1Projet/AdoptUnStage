@@ -1,0 +1,78 @@
+<div *ngIf="actus" class="container col-12 col-md-10 bodyModifierActu">
+    <h1 class="titre">Modifier l'actualité {{actus.titre}}</h1>
+    <form class="col-md-8" [formGroup]="formActu" (ngSubmit)="onSubmit()">
+      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+        remplis.</p>
+      <div class="form-group">
+        <label for="titre">Titre*</label>
+        <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
+          value="{{actus.titre}}">
+        <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
+          <div *ngIf="f.titre.errors.required">Le titre de l'actualité est requis !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="exergue">Exergue*</label>
+        <textarea class="form-control" formControlName="exergue" [ngClass]="{ 'is-invalid': submitted && f.exergue.errors }"
+          id="exergue" rows="3" value="{{actus.exergue}}">
+        </textarea>
+        <div *ngIf="submitted && f.exergue.errors" class="invalid-feedback">
+          <div *ngIf="f.exergue.errors.required">L'exergue est requise !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="image">Lien de l'image</label>
+        <input type="text" formControlName="image" class="form-control" id="image" value="{{actus.image}}">
+      </div>
+  
+      <div class="form-group">
+        <label for="legendeImage">Légende image</label>
+        <input type="text" formControlName="legendeImage" class="form-control" id="legendeImage" value="{{actus.legendeImage}}">
+      </div>
+  
+      <div class="form-group">
+        <label for="paragraphe1">Paragraphe 1*</label>
+        <textarea class="form-control" formControlName="paragraphe1" [ngClass]="{ 'is-invalid': submitted && f.paragraphe1.errors }"
+          id="paragraphe1" rows="3" value="{{actus.paragraphe1}}">
+        </textarea>
+        <div *ngIf="submitted && f.paragraphe1.errors" class="invalid-feedback">
+          <div *ngIf="f.paragraphe1.errors.required">Le premier paragraphe est Requis !</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="intertitre1">Intertitre 1</label>
+        <input type="text" class="form-control" formControlName="intertitre1" id="intertitre1" value="{{actus.intertitre1}}">
+      </div>
+  
+      <div class="form-group">
+        <label for="paragraphe2">Paragraphe 2</label>
+        <textarea class="form-control" formControlName="paragraphe2" id="paragraphe2" rows="3" value="{{actus.paragraphe2}}">
+        </textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="intertitre2">Intertitre 2</label>
+        <input type="text" class="form-control" formControlName="intertitre2" id="intertitre2" value="{{actus.intertitre2}}">
+      </div>
+  
+      <div class="form-group">
+        <label for="paragraphe3">Paragraphe 3</label>
+        <textarea class="form-control" formControlName="paragraphe3" id="paragraphe3" rows="3" value="{{actus.paragraphe3}}">
+        </textarea>
+      </div>
+  
+      <div class="text-center d-none d-md-block d-md-flex justify-content-around">
+          <button type="button" class="btn btnModifierActu col-4 " (click)="retourPage()">Retour</button>
+          <button class="btn col-4 btnModifierActu" type="submit">Modifier l'actualité</button>
+        </div>
+
+        <div class="text-center d-block d-md-none d-flex justify-content-around">
+          <button type="button" class="btn btnModifierActu col-5 " (click)="retourPage()">Retour</button>
+          <button class="btn col-5 btnModifierActu" type="submit">Modifier</button>
+        </div>
+  
+    </form>
+  </div>

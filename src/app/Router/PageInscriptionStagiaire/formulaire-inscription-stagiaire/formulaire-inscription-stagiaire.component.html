@@ -1,21 +1,6 @@
 <div class="container bodyFormulaire">
 
     <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formCreate">
-        <div class="col-sm-12 titres">
-            <h1>Création d'un compte stagiaire</h1>
-        </div>
-        <div class="modeEmploi">
-            <p>Inscris-toi en quelques clics et trouve le stage qui te plait ! </p>
-            <ol>
-                <li>Remplis le formulaire ci-dessous pour créer ton compte personnel.</li>
-                <li>Réponds aux annonces de stages en ligne avec ton CV.</li>
-                <li>Gère tes candidatures en ligne directement sur le site internet.</li>
-                <li>Consulte les conseils et les documents mis à ta disposition pour bien réussir ton stage.</li>
-            </ol>
-            <p>Des questions ? Consulte notre <a id="lienFaq" routerLink="/faq">FAQ</a> ou pose-nous directement ta
-                question
-                <a id="lienFaq" routerLink="/contact">ici</a>.</p>
-        </div>
         <hr>
         <br>
         <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
@@ -24,6 +9,21 @@
             <h2>Informations personnelles</h2>
         </div>
 
+        <div class="form-row">
+            <div class="form-group col-md-6 custom-control custom-checkbox">
+                <label class="checkcontainer">
+                    <input type="radio" checked="checked" formControlName="civilite" value="madame">
+                    Madame
+                </label>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="checkcontainer">
+                    <input type="radio" formControlName="civilite" value="monsieur">
+                    Monsieur
+                </label>
+            </div>
+        </div>
+        
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="prenom">Prénom*</label>
@@ -45,17 +45,20 @@
         </div>
 
         <div class="form-group">
+
             <label for="etablissement">Établissement*</label>
-            <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
             <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etablissement.errors }"
+
                 name="etablissement" placeholder="Établissement">
-                <option>Collège Jean de Verrazane</option>
-                <option>Collège Jean Perrin</option>
-                <option>Collège Victor Schoechler</option>
+                <option [ngValue]="null">Sélectionne ton collège</option>
+                <option *ngFor="let college of colleges" >{{college.nom}}</option>
+                <option>Autre collège</option>
             </select>
+
             <div *ngIf="submitted && f.etablissement.errors" class="invalid-feedback">
                 <div *ngIf="f.etablissement.errors.required">L'établissement est requis!</div>
             </div>
+
         </div>
 
         <div class="form-row">
@@ -77,6 +80,13 @@
                 </div>
             </div>
         </div>
+
+        <div class="form-group">     
+            <label for="cv" class="label-file">Curriculum vitae</label>
+            <p style="font-style: italic">*Formats acceptés : pdf, txt, doc, docx, odt.</p>
+            <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="cv" name="cv">
+        </div>
+    
 
         <div class="col-sm-12 titres">
             <h2>Identifiants</h2>

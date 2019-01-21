@@ -1,11 +1,30 @@
 package fr.adoptunstage.spring.payload;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="upload")
 public class UploadFileResponse {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+	private long id;
+	
     private String fileName;
+    
     private String fileDownloadUri;
+    
     private String fileType;
+    
     private long size;
+    
+    public UploadFileResponse() {
+    }
 
     public UploadFileResponse(String fileName, String fileDownloadUri, String fileType, long size) {
         this.fileName = fileName;

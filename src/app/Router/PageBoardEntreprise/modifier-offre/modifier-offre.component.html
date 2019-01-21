@@ -1,8 +1,10 @@
-<div *ngIf="offre" class="container bodyModifierOffre">
-
-  <form [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+<div *ngIf="offre" class="container col-10 bodyModifierOffre">
+  <h1 class="titre">Modifier l'offre {{offre.titre}}</h1>
+  <form class="col-md-8" [formGroup]="formOffre" (ngSubmit)="onSubmit()">
+    <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+      remplis.</p>
     <div class="form-group">
-      <label for="titre">Intitulé du poste</label>
+      <label for="titre">Intitulé du poste*</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" [ngClass]="{ 'is-invalid': submitted && f.titre.errors }"
         value="{{offre.titre}}">
       <div *ngIf="submitted && f.titre.errors" class="invalid-feedback">
@@ -11,7 +13,7 @@
     </div>
 
     <div class="form-group">
-      <label for="description">Descriptif du poste</label>
+      <label for="description">Descriptif du poste*</label>
       <textarea class="form-control" formControlName="description" id="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
         value="{{offre.description}}" rows="3">
       </textarea>
@@ -21,7 +23,7 @@
     </div>
 
     <div class="form-group">
-      <label for="dateDebut">Date de début du stage</label>
+      <label for="dateDebut">Date de début du stage*</label>
       <input type="date" formControlName="dateDebut" class="form-control" id="dateDebut" [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }"
         value="{{offre.dateDebut}}">
       <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
@@ -30,7 +32,7 @@
     </div>
 
     <div class="form-group">
-      <label for="dateFin">Date de fin du stage</label>
+      <label for="dateFin">Date de fin du stage*</label>
       <input type="date" formControlName="dateFin" class="form-control" id="dateFin" [ngClass]="{ 'is-invalid': submitted && f.dateFin.errors }"
         value="{{offre.dateFin}}">
       <div *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
@@ -40,12 +42,13 @@
 
     <div id="boutontoggle">
       <ui-switch formControlName="active" [checked]="true" size="large" color="#26a69a"></ui-switch><span class="textetoggle"
-      style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
-      disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de stagiaire car votre
-      offre est pourvue.</span>
+        style="color:#26a69a" *ngIf="formOffre.value.active">Vous recherchez un stagiaire et votre offre est
+        disponible.</span><span class="textetoggle" *ngIf="formOffre.value.active==false">Vous ne recherchez plus de
+        stagiaire car votre
+        offre est pourvue.</span>
     </div>
 
-    <h2 class="text-center">Localisation du stage</h2>
+    <h2 class="text-center">Localisation du stage*</h2>
     <div class="form-group">
       <label for="rue">Rue</label>
       <input type="text" class="form-control" formControlName="rue" id="rue" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"
@@ -56,7 +59,7 @@
     </div>
 
     <div class="form-group">
-      <label for="ville">Ville</label>
+      <label for="ville">Ville*</label>
       <input type="text" class="form-control" formControlName="ville" id="ville" [ngClass]="{ 'is-invalid': submitted && f.rue.errors }"
         value="{{offre.ville}}">
       <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
@@ -65,7 +68,7 @@
     </div>
 
     <div class="form-group">
-      <label for="codePostal">Code postal</label>
+      <label for="codePostal">Code postal*</label>
       <input type="text" class="form-control" formControlName="codePostal" id="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
         value="{{offre.codePostal}}">
       <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">

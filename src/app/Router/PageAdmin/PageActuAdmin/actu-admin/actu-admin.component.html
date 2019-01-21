@@ -1,0 +1,42 @@
+<br>
+<app-alert></app-alert>
+<div class="container-fluid col-12 col-md-10 bodyActusAdmin">
+    
+    <div class="container p-0 componentBodyActus">
+
+        <h1 class="titre">Dernières actualités</h1>
+
+
+        <div class="bodyActus">
+            <div *ngIf="actus" class="table-responsive">
+                <table class="table table-striped thead-light table-hover">
+                    <thead class="tableHeader">
+                        <tr>
+                            <th></th>
+                            <th>Légende</th>
+                            <th>Titre</th>
+                            <th>Exergue</th>
+                            <th>Détail</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let actu of actus; let i=index">
+                        <tr>
+                            <td *ngIf="actu.image"><img src="{{actu.image}}" alt="Logo actu"></td>
+                            <td *ngIf="!actu.image"><img src="assets/img/LogoAdopt.png" alt="Logo placeholder"></td>
+                            <td> {{actu.legendeImage}} </td>
+                            <td>{{actu.titre}}</td>
+                            <td> {{actu.exergue}}</td>
+                            <td><button [routerLink]="['/article/', actu.id]" class="material-icons" style="color:#26a69a; cursor: pointer;">remove_red_eye</button></td>
+                            <td><button [routerLink]="['/admin/actus/modifieractu', actu.id]" class="material-icons"
+                                    style="color:blue; cursor: pointer;">edit</button></td>
+                            <td><button class="material-icons" style="color:red;" (click)=showConfirm(actu.id)>delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

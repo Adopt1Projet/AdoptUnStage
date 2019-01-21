@@ -1,51 +1,41 @@
 <div class="container">
     <div *ngIf="offres" class="table-responsive">
         <table class="table table-striped thead-light table-hover">
-            <thead>
-                <tr>
+            <thead class="bgHead">
+                <tr align="center">
+                    <th></th>
                     <th></th>
                     <th>Secteur</th>
                     <th>Offre</th>
                     <th>Ville</th>
                     <th>Période</th>
-                    <th>Détail</th>
                     <th>Etat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let offre of offres async" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
-                    <td><img src="../../../../assets/img/computuer.jpeg" alt=""></td>
+                <tr align="center" *ngFor="let offre of getPage() async" class="listOffre" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                    <td><img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Logo entreprise"></td>
+                    <td><img *ngIf="!offre.entreprise.logo.fileDownloadUri" src="assets/img/LogoAdopt.png" alt="Logo par default"></td>
                     <td>{{offre.entreprise.secteur}}</td>
-                    <td> {{offre.titre}}<br> {{offre.entreprise.raisonSociale}} </td>
+                    <td> {{offre.titre}}<br> <b>{{offre.entreprise.raisonSociale}}</b> </td>
                     <td> {{offre.ville}} </td>
-                    <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
-                    <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">remove_red_eye</i></td>
-                    <td style="background-color : green; color: white;" *ngIf="offre.active == true">Dispo</td>
-                    <td style="background-color : red; color: white;" *ngIf="offre.active == false">Pourvue</td>
+                    <td> {{offre.dateDebut}} <br> au {{offre.dateFin}} </td>
+                    <td style="background-color : #00b499; color: white;" *ngIf="offre.active == true">Dispo</td>
+                    <td style="background-color : #e00000; color: white;" *ngIf="offre.active == false">Pourvue</td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
-
-
-<!-- <div class="container">
-    <div class="list-group">
-        <a class="list-group-item bgHead">
-            <div class="row">
-                <div class="col-5 textHead">Offre de stage</div>
-                <div class="col-1 textHead">Etat</div>
-                <div class="col-4 textHead">Domaine d'activité</div>
-                <div class="col-2 textHead">Période</div>
-
-            </div>
-        </a>
-        <app-item-offre *ngFor="let offre of offres" [offreTitre]="offre.titre" [offreContenu]="offre.contenu"
-            [logoEntreprise]="offre.logoEntreprise" [offreNomEntreprise]="offre.nomEntreprise" [offreSecteur]="offre.secteur"
-            [offrePourvu]="offre.pourvu" [offreDateDebut]="offre.dateDebut" [offreDateFin]="offre.dateFin"></app-item-offre>
+    <div class="row d-flex justify-content-between">
+        <div *ngIf="page != 0">
+            <button class="btn" (click)="decreasePage()">Page précédente</button>
+        </div>
+        <div class="mt-3 page">
+            <h4 *ngIf="page != 0">Page : <span style="color : #00ac9a;"><b>{{page}}</b></span></h4>
+        </div>
+        <div *ngIf="getPage().length > 0 && !(getPage().length < 5)">
+            <button class="btn" (click)="increasePage()">Page suivante</button>
+        </div>
     </div>
-
-    <ngb-pagination class="d-flex justify-content-center pagination" [collectionSize]="120" [(page)]="page" [maxSize]="5"
-        [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-
-</div> -->
+    <br>
+</div>

@@ -4,12 +4,26 @@
         <div class="col-sm-12 titre">
             <h2>Modifier mes coordonnées</h2>
         </div>
+        <app-alert></app-alert>
+        
 
         <div class="form-row">
+            <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être remplis.</p>
+            <div class="form-group col-md-6 custom-control custom-checkbox">
+                <label class="checkcontainer">
+                    <input type="radio" checked="checked" formControlName="civilite" value="madame">
+                    Madame
+                </label>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="checkcontainer">
+                    <input type="radio" formControlName="civilite" value="monsieur">
+                    Monsieur
+                </label>
+            </div>
+        </div>
 
-            <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
-                remplis.</p>
-
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="prenom">Prénom*</label>
                 <input formControlName="prenom" type="text" class="form-control" id="prenom" name="prenom" [ngClass]="formUpdate.controls['prenom'].invalid ? 'is-invalid' : ''"
@@ -27,19 +41,16 @@
                     Le nom est requis!
                 </label>
             </div>
-
         </div>
 
         <div class="form-group">
             <label for="etablissement">Établissement*</label>
-            <small id="etablissement" class="form-text text-muted">Séléctionne ton collège.</small>
             <select formControlName="etablissement" type="text" class="form-control" [ngClass]="formUpdate.controls['etablissement'].invalid ? 'is-invalid' : ''"
                 id="etablissement" name="etablissement" [ngClass]="formUpdate.controls['nom'].invalid ? 'is-invalid' : ''"
                 placeholder="Établissement">
-                <option value=""></option>
-                <option>Collège Jean de Verrazane</option>
-                <option>Collège Jean Perrin</option>
-                <option>Collège Victor Schoechler</option>
+                <option [ngValue]="null">Sélectionne ton collège</option>
+                <option *ngFor="let college of colleges">{{college.nom}}</option>
+                <option>Autre collège</option>
             </select>
         </div>
 
@@ -61,6 +72,17 @@
                 <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
                     Le code postal est requis!
                 </label>
+            </div>
+
+            <div class="form-row logo">
+                <div class="form-group col-md-12">
+                    <a *ngIf="stagiaire.cv.fileDownloadUri" href="{{stagiaire.cv.fileDownloadUri}}" title="Pdf">Télécharge ton CV actuel ici</a>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="cv" class="label-file">Changer le CV :</label>
+                  <p style="font-style: italic">*Formats acceptés : pdf, txt, doc, docx, odt.</p>
+                  <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="cv" name="cv">
+                </div>
             </div>
 
         </div>
@@ -92,13 +114,9 @@
                 Entrez une adresse mail valide!
             </label>
         </div>
-
         <div class="form-group d-flex justify-content-around">
             <button [disabled]="formUpdate.invalid" type="submit" class="btn">Valider les modifications</button>
         </div>
-
-        <app-alert *ngIf="submitForm"></app-alert>
-
     </form>
 
     <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
@@ -111,7 +129,7 @@
                 <label for="password">Modifier le mot de passe*</label>
                 <input formControlName="password" type="password" class="form-control" id="password" name="password"
                     [ngClass]="formUpdatePassword.controls['password'].invalid ? 'is-invalid' : ''" placeholder="Entre ton nouveau mot de passe">
-                <!--Modification possible de le mot de passe-->
+                <!--Modification possible du mot de passe-->
                 <label class="text-danger col" *ngIf="formUpdatePassword.controls['password'].hasError('required')">
                     Mot de passe requis!
                 </label>
@@ -159,8 +177,9 @@
             </div>
 
         </div>
-
-        <app-alert *ngIf="submitFormPassword"></app-alert>
-
     </form>
+    <div class="form-group d-flex justify-content-around">
+        <button (click)=onClickDeleteUser() class="btn col-4 col-sm-5">Supprimer
+            définitivement mon compte</button>
+    </div>
 </div>

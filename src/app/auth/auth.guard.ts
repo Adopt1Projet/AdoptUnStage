@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
 
         if (this.info.authorities == "ROLE_STAGIAIRE") { return true; }
         else if (this.info.authorities == "ROLE_ENTREPRISE") { return true; }
+        else if (this.info.authorities == "ROLE_ADMIN") { return true; }
         else { return false; }
 
 
@@ -33,7 +34,7 @@ export class AuthGuard implements CanActivate {
 
         // not logged in so redirect to login page with the return url
         else {
-            this.router.navigate(['/non-connecte']);
+            this.router.navigate(['/detail-non-connecte']);
         }
 
     }

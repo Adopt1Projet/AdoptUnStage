@@ -9,6 +9,7 @@ import { CustomValidators } from 'src/app/services/custom-validators';
 
 import { FormControl } from '@angular/forms';
 import { AlertService } from '../../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaire-creer-offre',
@@ -27,7 +28,8 @@ export class FormulaireCreerOffreComponent implements OnInit {
     private offreService: OffreService,
     private token: TokenStorageService,
     private alertService: AlertService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
     get f() { return this.formOffre.controls; }
 
@@ -36,15 +38,19 @@ export class FormulaireCreerOffreComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
     const offre: Offre = this.formOffre.value;
-    console.log(offre);
 
     if (this.formOffre.invalid) {
       return;
     }
-    this.alertService.success('Votre annonce à bien été créée. Vous pouvez la modifier dans l\'onglet "Gestion des annonces".', true);
+    this.router.navigate(['../boardentreprise/gestionoffres']);
     this.offreService.createOffre(this.username, offre)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.formOffre.reset();
+      .subscribe(data => {
+        console.log(data),
+        this.alertService.success('Votre offre à bien été créée. Vous pouvez la modifier si nécessaire.', true);
+      }, error => console.log(error));
+    Object.keys(this.formOffre.controls).forEach(key => {
+      this.formOffre.controls[key].setErrors(null)
+    });
   }
 
   ngOnInit() {

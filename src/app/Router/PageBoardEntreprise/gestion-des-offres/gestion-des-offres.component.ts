@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from "src/app/services/offre.service";
 import { ModifierOffreComponent } from 'src/app/Router/PageBoardEntreprise/modifier-offre/modifier-offre.component'
 import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmComponent } from '../confirm/confirm.component';
-import { Router } from '@angular/router';
+import * as moment from 'moment';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-gestion-des-offres',
@@ -14,34 +14,35 @@ import { Router } from '@angular/router';
 })
 export class GestionDesOffresComponent {
   confirmResult = null;
-  offre: Offre;
   offres: any;
   username: string;
-  
+  dateDebutOK: string;
+
   @ViewChild(ModifierOffreComponent)
   editComp: ModifierOffreComponent;
 
   constructor(
+    private alertService: AlertService,
     private SimpleModalService: SimpleModalService,
     private offreService: OffreService,
-    private token: TokenStorageService,
-    private router: Router) {
+    private token: TokenStorageService) {
   }
-  deleteOffres() {
-    this.offreService.deleteAll()
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log('ERROR: ' + error));
-  }
+  // deleteOffres() {
+  //   this.offreService.deleteAll()
+  //     .subscribe(
+  //       data => {
+  //         console.log(data);
+  //         this.reloadData();
+  //       },
+  //       error => console.log('ERROR: ' + error));
+  // }
+
   deleteOffre(i) {
     this.offreService.deleteOffre(i)
       .subscribe(
         data => {
-          console.log(data);
-          this.reloadData();
+          console.log(data)
+          this.alertService.success('Votre offre a bien été supprimée.', true);
         },
         error => console.log(error));
   }
@@ -55,38 +56,30 @@ export class GestionDesOffresComponent {
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
           this.deleteOffre(i);
-          this.ngOnInit();
-          location.reload();
+          this.reloadData();
         }
-
       });
   }
 
-  public editOffre(offre) {
-    this.editComp.formOffre.setValue({
-      id: offre.id,
-      titre: offre.titre,
-      description: offre.description,
-      dateDebut: offre.dateDebut,
-      dateFin: offre.dateFin,
-      rue: offre.rue,
-      ville: offre.ville,
-      codePostal: offre.codePostal
-    });
-
-  }
   reloadData() {
-    console.log('REFRESHING DATA !')
-    this.offreService.getOffresList(this.username).subscribe((data) => {
-      this.offres = data
-      console.log(this.offres)
-    });
+    setTimeout(() => {
+      this.offreService.getOffresList(this.username).subscribe((data) => {
+        this.offres = data;
+        this.offres.sort((offre, offre2) => offre2.id - offre.id);
+        for (let i = 0; i < this.offres.length; i++) {
+          this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
+          this.offres[i].dateFin = moment(this.offres[i].dateFin).format("DD/MM/YYYY");
+        }
+      });
+    }, 100);
   }
+  
   ngOnInit() {
     this.username = this.token.getUsername();
-
     this.reloadData();
-
   }
 
+  ngOnChanges() {
+    this.reloadData();
+  }
 }

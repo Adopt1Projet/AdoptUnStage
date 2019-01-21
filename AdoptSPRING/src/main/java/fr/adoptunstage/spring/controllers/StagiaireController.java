@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.adoptunstage.spring.message.request.SignUpFormStagiaire;
 import fr.adoptunstage.spring.models.Stagiaire;
@@ -28,7 +30,7 @@ public class StagiaireController {
 	@Autowired
 	StagiaireService service;
 
-	@GetMapping("/")
+	@GetMapping("")
 	public List<Stagiaire> getAllStagiaire() {
 		return service.getAllStagiaire();
 	}
@@ -37,16 +39,30 @@ public class StagiaireController {
 	public Stagiaire getOneStagiaire(@PathVariable("username") String username) {
 		return service.getOneStagiaire(username);
 	}
+
+	@GetMapping(value = "/adminget/{id}")
+	public Stagiaire getAdminStagiaire(@PathVariable("id") long id ) {
+		return service.getAdminStagiaire(id);
+	}
 	
 	@PostMapping(value = "/creer")
 	public ResponseEntity<?> postStagiaire(@Valid @RequestBody SignUpFormStagiaire signUpRequest) {
 		return service.postStagiaire(signUpRequest);
+	}
+	
+	@PostMapping(value = "/creerfile/{username}")
+	public ResponseEntity<?> postStagiaireFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.postStagiaireFile(username, file);
 	}
 
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteStagiaire(@PathVariable("id") long id) {
 		return service.deleteStagiaire(id);
+	}
+	@DeleteMapping("/deleteuser/{username}")
+	public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
+		return service.deleteUser(username);
 	}
 	
 	@PutMapping("/{id}")
