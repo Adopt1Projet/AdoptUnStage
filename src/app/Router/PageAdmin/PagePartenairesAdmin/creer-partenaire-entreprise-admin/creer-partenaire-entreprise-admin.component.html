@@ -1,0 +1,46 @@
+<div class="container col-12 col-md-10 bodyCreerEntreprise">
+  <h1 class="titre">Créer une entreprise partenaire</h1>
+  <form class="col-md-8" [formGroup]="formCreate" (ngSubmit)="onSubmit()">
+    <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+      remplis.</p>
+
+    <div class="form-group">
+      <label for="nom">Nom*</label>
+      <input type="text" formControlName="nom" class="form-control" id="nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"
+        placeholder="">
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">Le nom est requis !</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description*</label>
+      <textarea class="form-control" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+        id="description" rows="3" placeholder="">
+      </textarea>
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">La réponse est requise !</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="siteWeb">Site Web*</label>
+      <input class="form-control" formControlName="siteWeb" [ngClass]="{ 'is-invalid': submitted && f.siteWeb.errors }"
+        id="siteWeb" rows="3" placeholder="">
+      <div *ngIf="submitted && f.siteWeb.errors" class="invalid-feedback">
+        <div *ngIf="f.siteWeb.errors.required">La réponse est requise !</div>
+      </div>
+    </div>
+
+    <div class="form-group logo">
+      <label for="logo" class="label-file">Logo</label>
+      <p style="font-style: italic">*Formats acceptés : jpg, png, jpeg, gif.</p>
+      <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="logo" name="logo">
+    </div>
+
+    <div class="text-center">
+      <button class="btn btnPosterEntreprise" type="submit">Créer l'entreprise</button>
+    </div>
+
+  </form>
+</div>

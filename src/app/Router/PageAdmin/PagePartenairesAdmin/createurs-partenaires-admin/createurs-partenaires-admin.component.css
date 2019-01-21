@@ -1,0 +1,79 @@
+img {
+    width: 75px;
+}
+
+.bodyBtnCreateurs {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 3vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    margin-bottom: 3vh;
+}
+
+.btn {
+    background-color: #26a69a;
+    height: 8vh;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.router-link-active {
+    background-color: #2ed1bb;
+}
+
+
+
+button:hover {
+    background-color: #2ed1bb;
+}
+
+.bodyListeCreateurs {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 3vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    margin-bottom: 3vh;
+}
+
+.mat-elevation-z8 {
+    background-color: #efeded
+}
+
+table {
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+.material-icons {
+    border-radius: 5px;
+    border: 2px solid;
+    width: 50px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efeded;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+td.mat-cell {
+    max-width: 200px;
+    height: 75px;
+    padding: 2px 10px;
+
+    /* Nécessaires pour text-overflow */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.overflow-ellipsis {
+    text-overflow: ellipsis;
+}
