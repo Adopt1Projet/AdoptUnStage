@@ -11,7 +11,6 @@ import { College } from '../../../modeles/college';
 export class PageAideComponent implements OnInit {
 
   colleges: any;
-  
 
   constructor(private collegeService: CollegeService) { }
 
@@ -25,8 +24,7 @@ export class PageAideComponent implements OnInit {
             },
             error => console.log("Une erreur est survenue.")
             );
-            
-     }
+  }
   
 
 }
