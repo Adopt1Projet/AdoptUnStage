@@ -22,10 +22,11 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="image">Lien de l'image</label>
-      <input type="text" formControlName="image" class="form-control" id="image" placeholder="">
-    </div>
+    <div class="form-group image">
+        <label for="image" class="label-file">Image</label>
+        <p style="font-style: italic">*Formats acceptés : jpg, png, jpeg, gif.</p>
+        <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="image" name="image">
+      </div>
 
     <div class="form-group">
       <label for="legendeImage">Légende de l'image</label>

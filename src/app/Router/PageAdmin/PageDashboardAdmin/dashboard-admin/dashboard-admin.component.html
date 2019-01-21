@@ -1,5 +1,20 @@
-<div class="container-fluid bodyDashboard">
-  <p>
-    dashboard-admin works!
-  </p>
+<div class="container col-12 col-md-12 bodyDashboard">
+  <div class="row col-12 justify-content-around">
+    <div class="row col-6">
+    <app-stagiaires-dashboard class="col-12"></app-stagiaires-dashboard>
+      <div class="col-12">
+        <h3 class="titre">Bienvenue sur le Panel Admin !</h3>
+        <p>Vous avez accès à tous le back office du site à partir de ce dernier.</p>
+        <p>Gérer les actualités, les membres, les partenaires, et tout ceci très simplement!</p>
+        <p>Vous avez aussi la possibilité de gérer les offres des entreprises, et avez accès à la liste des postulants pour chacune.</p>
+      </div>
+  </div>
+    <div class="row col-6">
+      <app-offres-dashboard class="col-12"></app-offres-dashboard>
+      <app-entreprises-dashboard class="col-12"></app-entreprises-dashboard>
+    </div>
+  </div>
+  <div class="row col-12 justify-content-around">
+      <app-actu-dashboard class="col-12"></app-actu-dashboard>
+  </div>
 </div>

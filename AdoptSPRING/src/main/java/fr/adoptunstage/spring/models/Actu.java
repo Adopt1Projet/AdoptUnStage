@@ -1,11 +1,16 @@
 package fr.adoptunstage.spring.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import fr.adoptunstage.spring.payload.UploadFileResponse;
 
 @Entity
 @Table(name = "actus")
@@ -20,9 +25,6 @@ public class Actu {
 
 	@Column(name = "exergue")
 	private String exergue;
-
-	@Column(name = "image")
-	private String image;
 
 	@Column(name = "legende_image")
 	private String legendeImage;
@@ -41,6 +43,10 @@ public class Actu {
 
 	@Column(name = "paragraphe_3")
 	private String paragraphe3;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "upload_id")
+	private UploadFileResponse logo;
 
 	public long getId() {
 		return id;
@@ -106,12 +112,12 @@ public class Actu {
 		this.paragraphe3 = paragraphe3;
 	}
 
-	public String getImage() {
-		return image;
+	public UploadFileResponse getLogo() {
+		return logo;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setLogo(UploadFileResponse logo) {
+		this.logo = logo;
 	}
 
 	public String getLegendeImage() {
@@ -129,20 +135,21 @@ public class Actu {
 			String paragraphe2, String intertitre2, String paragraphe3) {
 		this.titre = titre;
 		this.exergue = exergue;
-		this.image = image;
 		this.legendeImage = legendeImage;
 		this.paragraphe1 = paragraphe1;
 		this.intertitre1 = intertitre1;
 		this.paragraphe2 = paragraphe2;
 		this.intertitre2 = intertitre2;
 		this.paragraphe3 = paragraphe3;
+		this.logo = new UploadFileResponse(null, null, null, 0);
 
 	}
 
 	@Override
 	public String toString() {
-		return "Actu [id=" + id + ", titre=" + titre + ", exergue=" + exergue + ", image=" + image + ", legendeImage="
-				+ legendeImage + ", intertitre1=" + ", paragraphe1=" + paragraphe1 + intertitre1 + ", paragraphe2="
-				+ paragraphe2 + ", intertitre2=" + intertitre2 + ", paragraphe3=" + paragraphe3 + "]";
+		return "Actu [id=" + id + ", titre=" + titre + ", exergue=" + exergue + ", legendeImage=" + legendeImage
+				+ ", intertitre1=" + ", paragraphe1=" + paragraphe1 + intertitre1 + ", paragraphe2=" + paragraphe2
+				+ ", intertitre2=" + intertitre2 + ", paragraphe3=" + paragraphe3 + ", logo=" + logo + "]";
 	}
+
 }

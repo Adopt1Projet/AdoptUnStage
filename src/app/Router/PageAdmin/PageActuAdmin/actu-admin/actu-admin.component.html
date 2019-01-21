@@ -24,8 +24,8 @@
 
                     <tbody *ngFor="let actu of actus; let i=index">
                         <tr>
-                            <td *ngIf="actu.image"><img src="{{actu.image}}" alt="Logo actu"></td>
-                            <td *ngIf="!actu.image"><img src="assets/img/LogoAdopt.png" alt="Logo placeholder"></td>
+                            <td *ngIf="actu.image.fileDownloadUri"><img src="{{actu.image.fileDownloadUri}}" alt="Logo actu"></td>
+                            <td *ngIf="!actu.image.fileDownloadUri"><img src="assets/img/LogoAdopt.png" alt="Logo placeholder"></td>
                             <td> {{actu.legendeImage}} </td>
                             <td>{{actu.titre}}</td>
                             <td> {{actu.exergue}}</td>

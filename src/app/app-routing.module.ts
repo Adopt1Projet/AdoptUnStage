@@ -75,7 +75,6 @@ import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenaire
 import { ActeursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/acteurs-partenaires-admin.component';
 import { CreateursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/createurs-partenaires-admin.component';
 import { EntreprisesPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/entreprises-partenaires-admin.component';
-import { ModifierPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-admin/modifier-partenaire-admin.component';
 import { CreerCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-createur-admin/creer-createur-admin.component';
 import { CreerActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-acteur-admin/creer-acteur-admin.component';
 import { CreerPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-entreprise-admin/creer-partenaire-entreprise-admin.component';
@@ -83,6 +82,9 @@ import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmi
 import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
 import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
 import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
+import { ModifierActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-acteur-admin/modifier-acteur-admin.component';
+import { ModifierCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-createur-admin/modifier-createur-admin.component';
+import { ModifierPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-entreprise-admin/modifier-partenaire-entreprise-admin.component';
 
 
 const routes: Routes = [
@@ -121,20 +123,19 @@ const routes: Routes = [
           { path: 'acteurs', component: BtnActeursAdminComponent, children: [
             { path: 'listeacteurs', component: ActeursPartenairesAdminComponent},
             { path: 'creeracteur', component: CreerActeurAdminComponent },
+            { path: 'modifieracteur/:id', component: ModifierActeurAdminComponent}
           ] },
           { path: 'createurs', component: BtnCreateursAdminComponent, children: [
             { path: 'listecreateurs', component: CreateursPartenairesAdminComponent},
             { path: 'creercreateur', component: CreerCreateurAdminComponent },
+            { path: 'modifiercreateur/:id', component: ModifierCreateurAdminComponent},
           ] },
           { path: 'entreprises', component: BtnEntreprisesAdminComponent, children: [
             { path: 'listeentreprises', component: EntreprisesPartenairesAdminComponent},
             { path: 'listeentreprisesparticipantes', component: EntreprisesActiveAdminComponent},
             { path: 'creerentreprise', component: CreerPartenaireEntrepriseAdminComponent },
-          ] },
-          { path: 'modifierpartenaire/:id', component: ModifierPartenaireAdminComponent },
-          
-          { path: 'creercreateur', component: CreerCreateurAdminComponent },
-          { path: 'creerentreprise', component: CreateursPartenairesAdminComponent },
+            { path: 'modifierentreprise/:id', component: ModifierPartenaireEntrepriseAdminComponent},
+          ] },          
           { path: '', redirectTo: '/admin/partenaires/accueilpartenaires', pathMatch: 'full' },
         ]
       },
