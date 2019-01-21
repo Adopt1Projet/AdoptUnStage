@@ -184,6 +184,10 @@ import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprise
 import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
 import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-entreprise-admin.component';
 import { PageAccueilEntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/page-entreprise-admin/page-accueil-entreprises-admin';
+import { PageAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-aide-admin.component';
+import { ListeAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/liste-aide-admin/liste-aide-admin.component';
+import { CreerAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/creer-aide-admin/creer-aide-admin.component';
+import { ModifierAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/modifier-aide-admin/modifier-aide-admin.component';
 
 
 @NgModule({
@@ -294,6 +298,10 @@ import { PageAccueilEntreprisesAdminComponent } from './Router/PageAdmin/PageEnt
     ModifierEntrepriseAdminComponent,
     PageEntrepriseAdminComponent,
     PageAccueilEntreprisesAdminComponent,
+    PageAideAdminComponent,
+    ListeAideAdminComponent,
+    CreerAideAdminComponent,
+    ModifierAideAdminComponent
 
   ],
   imports: [
