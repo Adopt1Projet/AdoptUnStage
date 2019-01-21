@@ -43,7 +43,6 @@ import { AuthGuardAdmin } from './auth/auth.guardadmin';
 import { DashboardAdminComponent } from './Router/PageAdmin/PageDashboardAdmin/dashboard-admin/dashboard-admin.component';
 import { ActuAdminComponent } from './Router/PageAdmin/PageActuAdmin/actu-admin/actu-admin.component';
 import { FaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/faq-admin/faq-admin.component';
-import { PartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/partenaires-admin/partenaires-admin.component';
 import { OffresAdminComponent } from './Router/PageAdmin/PageOffresAdmin/offres-admin/offres-admin.component';
 import { StagiairesAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/stagiaires-admin/stagiaires-admin.component';
 import { EntreprisesAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/entreprises-admin/entreprises-admin.component';
@@ -71,6 +70,19 @@ import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprises
 import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
 import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/creer-entreprise-admin/creer-entreprise-admin.component';
 import { OffresEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/offres-entreprise-admin/offres-entreprise-admin.component';
+import { PageAccueilPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-accueil-partenaires-admin';
+import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-partenaires-admin.component';
+import { ActeursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/acteurs-partenaires-admin.component';
+import { CreateursPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/createurs-partenaires-admin.component';
+import { EntreprisesPartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/entreprises-partenaires-admin.component';
+import { ModifierPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-admin/modifier-partenaire-admin.component';
+import { CreerCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-createur-admin/creer-createur-admin.component';
+import { CreerActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-acteur-admin/creer-acteur-admin.component';
+import { CreerPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/creer-partenaire-entreprise-admin/creer-partenaire-entreprise-admin.component';
+import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/acteurs-partenaires-admin/btn-acteurs-admin';
+import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
+import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
+import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
 
 
 const routes: Routes = [
@@ -103,13 +115,35 @@ const routes: Routes = [
           { path: '', redirectTo: '/admin/faq/accueilfaq', pathMatch: 'full' },
         ]
       },
-      { path: 'partenaires', component: PartenairesAdminComponent },
+      {
+        path: 'partenaires', component: PagePartenairesAdminComponent, children: [
+          { path: 'accueilpartenaires', component: PageAccueilPartenairesAdminComponent },
+          { path: 'acteurs', component: BtnActeursAdminComponent, children: [
+            { path: 'listeacteurs', component: ActeursPartenairesAdminComponent},
+            { path: 'creeracteur', component: CreerActeurAdminComponent },
+          ] },
+          { path: 'createurs', component: BtnCreateursAdminComponent, children: [
+            { path: 'listecreateurs', component: CreateursPartenairesAdminComponent},
+            { path: 'creercreateur', component: CreerCreateurAdminComponent },
+          ] },
+          { path: 'entreprises', component: BtnEntreprisesAdminComponent, children: [
+            { path: 'listeentreprises', component: EntreprisesPartenairesAdminComponent},
+            { path: 'listeentreprisesparticipantes', component: EntreprisesActiveAdminComponent},
+            { path: 'creerentreprise', component: CreerPartenaireEntrepriseAdminComponent },
+          ] },
+          { path: 'modifierpartenaire/:id', component: ModifierPartenaireAdminComponent },
+          
+          { path: 'creercreateur', component: CreerCreateurAdminComponent },
+          { path: 'creerentreprise', component: CreateursPartenairesAdminComponent },
+          { path: '', redirectTo: '/admin/partenaires/accueilpartenaires', pathMatch: 'full' },
+        ]
+      },
       {
         path: 'offres', component: PageOffresAdminComponent, children: [
           { path: 'accueiloffres', component: PageAccueilOffresAdminComponent },
           { path: 'listeoffres', component: OffresAdminComponent },
           { path: 'postulantsoffre/:id', component: PostulantsOffreAdminComponent },
-          { path: 'modifieroffre/:id', component: PageModifierOffreAdminComponent},
+          { path: 'modifieroffre/:id', component: PageModifierOffreAdminComponent },
           { path: '', redirectTo: '/admin/offres/accueiloffres', pathMatch: 'full' },
         ]
       },
@@ -117,20 +151,22 @@ const routes: Routes = [
         path: 'stagiaires', component: PageStagiaireAdminComponent, children: [
           { path: 'accueilstagiaires', component: PageAccueilStagiairesAdminComponent },
           { path: 'listestagiaires', component: StagiairesAdminComponent },
-          { path: 'modifierstagiaire/:id', component: ModifierStagiaireAdminComponent},
+          { path: 'modifierstagiaire/:id', component: ModifierStagiaireAdminComponent },
           { path: 'creerstagiaire', component: CreerStagiaireAdminComponent },
-          { path: 'candidaturesstagiaire/:username', component: CandidaturesStagiaireAdminComponent},
+          { path: 'candidaturesstagiaire/:username', component: CandidaturesStagiaireAdminComponent },
           { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
         ]
       },
-      { path: 'entreprises', component: PageEntrepriseAdminComponent, children: [
-        { path: 'accueilentreprises', component: PageAccueilEntreprisesAdminComponent },
-        { path: 'listeentreprises', component: EntreprisesAdminComponent},
-        { path: 'modifierentreprise/:username', component: ModifierEntrepriseAdminComponent},
-        { path: 'creerentreprise', component: CreerEntrepriseAdminComponent},
-        { path: 'offresentreprise/:username', component: OffresEntrepriseAdminComponent},
-        { path: '', redirectTo: '/admin/entreprises/accueilentreprises', pathMatch: 'full' },
-      ] },
+      {
+        path: 'entreprises', component: PageEntrepriseAdminComponent, children: [
+          { path: 'accueilentreprises', component: PageAccueilEntreprisesAdminComponent },
+          { path: 'listeentreprises', component: EntreprisesAdminComponent },
+          { path: 'modifierentreprise/:username', component: ModifierEntrepriseAdminComponent },
+          { path: 'creerentreprise', component: CreerEntrepriseAdminComponent },
+          { path: 'offresentreprise/:username', component: OffresEntrepriseAdminComponent },
+          { path: '', redirectTo: '/admin/entreprises/accueilentreprises', pathMatch: 'full' },
+        ]
+      },
       { path: 'colleges', component: CollegesAdminComponent },
 
 
