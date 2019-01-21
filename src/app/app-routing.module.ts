@@ -71,6 +71,10 @@ import { PageEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprises
 import { ModifierEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/modifier-entreprise-admin/modifier-entreprise-admin.component';
 import { CreerEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/creer-entreprise-admin/creer-entreprise-admin.component';
 import { OffresEntrepriseAdminComponent } from './Router/PageAdmin/PageEntreprisesAdmin/offres-entreprise-admin/offres-entreprise-admin.component';
+import { PageAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-aide-admin.component';
+import { ListeAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/liste-aide-admin/liste-aide-admin.component';
+import { ModifierAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/modifier-aide-admin/modifier-aide-admin.component';
+import { CreerAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/creer-aide-admin/creer-aide-admin.component';
 
 
 const routes: Routes = [
@@ -92,6 +96,13 @@ const routes: Routes = [
           { path: 'accueilactu', component: PageAccueilActuAdminComponent },
           { path: 'modifieractu/:id', component: ModifierActuAdminComponent },
           { path: '', redirectTo: '/admin/actus/accueilactu', pathMatch: 'full' },
+        ]
+      },
+      {path: 'aide', component: PageAideAdminComponent, children: [
+          { path: 'listeaide', component: ListeAideAdminComponent},
+          { path: 'creeraide', component: CreerAideAdminComponent},
+          { path: 'modifieraide/:id', component: ModifierAideAdminComponent},
+          { path: '', redirectTo: '/admin/aide', pathMatch: 'full'},
         ]
       },
       {
