@@ -32,8 +32,7 @@
     </h3>
   </ng-template>
   <h5 *ngIf="!offres && offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
-  <button [routerLink]="'/offres'" type="button" class="btn col-6 center-block">Voir la liste des offres de
-    stage</button>
+  <br>
   <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
   <table *ngIf="offresPourvues && offresPourvues == true" class="table table-striped thead-light table-hover">
     <thead class="headBG">
