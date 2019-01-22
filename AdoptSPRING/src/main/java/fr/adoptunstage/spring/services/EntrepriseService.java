@@ -124,7 +124,7 @@ public class EntrepriseService {
 		user.setRoles(roles);
 		userRepository.save(user);
 		
-		SignupMail signupEntreprise = new SignupMail(signUpRequest.getEmail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
+		SignupMail signupEntreprise = new SignupMail(signUpRequest.getContactMail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
 		mailRepository.signupEntrepriseMail(signupEntreprise);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
