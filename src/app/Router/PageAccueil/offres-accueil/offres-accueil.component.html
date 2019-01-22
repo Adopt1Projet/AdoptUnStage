@@ -51,64 +51,62 @@
     <div class="example-container mat-elevation-z8">
         <mat-table #table [dataSource]="offres" [class.isMobile]="isMobile" matSort>
 
-            <!--- Note that these columns can be defined in any order.
-                        The actual rendered columns are set as a property on the row definition" -->
-
-            <!-- Position Column -->
-            <ng-container matColumnDef="titre">
-                <mat-header-cell *matHeaderCellDef> Titre </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
-                    <span class="mobile-label">Titre:</span>
-                    {{offre.titre}}
+            <ng-container matColumnDef="logo">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
+                    <span class="mobile-label"></span>
+                    <img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
                 </mat-cell>
             </ng-container>
 
-            <!-- Name Column -->
+            <ng-container matColumnDef="titre">
+                <mat-header-cell *matHeaderCellDef> Offre </mat-header-cell>
+                <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
+                    <span class="mobile-label">Offre:</span>
+                    <b>{{offre.titre}}</b>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="entreprise">
+                <mat-header-cell *matHeaderCellDef> Entreprise </mat-header-cell>
+                <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
+                    <span class="mobile-label">Entreprise:</span>
+                    {{offre.entreprise.raisonSociale}}
+                </mat-cell>
+            </ng-container>
+
             <ng-container matColumnDef="secteur">
                 <mat-header-cell *matHeaderCellDef> Secteur </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
+                <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
                     <span class="mobile-label">Secteur:</span>
                     {{offre.entreprise.secteur}}
                 </mat-cell>
             </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="statut">
-                <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
-                    <span class="mobile-label">Statut:</span>
-                    {{offre.entreprise.statut}}
-                </mat-cell>
-            </ng-container>
-
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="ville">
-                <mat-header-cell *matHeaderCellDef> Ville </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
-                    <span class="mobile-label">Ville:</span>
-                    {{offre.ville}}
-                </mat-cell>
-            </ng-container>
-
             <ng-container matColumnDef="codePostal">
-                <mat-header-cell *matHeaderCellDef> CodePostal </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
-                    <span class="mobile-label">CodePostal:</span>
+                <mat-header-cell style="justify-content: center" *matHeaderCellDef> CP </mat-header-cell>
+                <mat-cell style="justify-content: center" [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
+                    <span class="mobile-label">Code postal:</span>
                     {{offre.codePostal}}
                 </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="pourvue">
-                <mat-header-cell *matHeaderCellDef> pourvue </mat-header-cell>
-                <mat-cell *matCellDef="let offre">
-                    <span class="mobile-label">pourvue:</span>
-                    {{offre.pourvue}}
+            <ng-container matColumnDef="ville">
+                <mat-header-cell style="justify-content: center" *matHeaderCellDef> Ville </mat-header-cell>
+                <mat-cell style="justify-content: center" [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
+                    <span class="mobile-label">Ville:</span>
+                    {{offre.ville}}
                 </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
+        <mat-paginator paginator [pageSize]="pageSize" [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)"></mat-paginator>
     </div>
-
+    <div class="d-flex justify-content-around">
+        <button type="button" class="btn col-md-5" routerLink="/offres" routerLinkActive="router-link-active">Voir
+            toutes les offres</button>
+    </div>
+    <br>
 </div>
