@@ -22,15 +22,15 @@
 
 .logoSite img {
     margin-left: 10px;
-    max-width: 150px;
+    max-width: 100px;
 }
 
-.logoSociaux img {
-    max-width: 50px;
+.logoSociaux {
+    width: 50px;
 }
 
 .logoPartenaires img {
-    max-width: 60px;
+    max-width: 80px;
 }
 
 a {
