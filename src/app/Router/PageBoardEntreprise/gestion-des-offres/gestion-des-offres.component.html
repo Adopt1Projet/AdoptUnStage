@@ -22,7 +22,7 @@
         <td> {{offre.dateFin}} </td>
         <td> {{offre.ville}} </td>
         <td><i [routerLink]="['/boardentreprise/postulants', offre.id]" class="material-icons" style="color:#ff9900; cursor: pointer;">people</i></td>
-        <td *ngIf="offre.active == true"><i class="material-icons" style="color: green; cursor: pointer;">lock_open</i></td>
+        <td *ngIf="offre.active == true"><i class="material-icons" style="color: green">lock_open</i></td>
         <td *ngIf="offre.active == false"><i class="material-icons" style="color: red">lock</i></td>
         <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:#00b499; cursor: pointer;">remove_red_eye</i></td>
         <td><i [routerLink]="['/boardentreprise/modifieroffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">edit</i></td>

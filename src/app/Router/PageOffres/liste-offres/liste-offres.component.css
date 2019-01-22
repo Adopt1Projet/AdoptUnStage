@@ -31,6 +31,10 @@ img {
     margin: 0 auto;
 }
 
-td {
- 
+table {
+    width: 100%;
+}
+
+tr.mat-row {
+    height: 100px;
 }

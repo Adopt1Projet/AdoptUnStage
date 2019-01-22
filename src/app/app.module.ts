@@ -318,7 +318,7 @@ import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageColleg
     PageAideAdminComponent,
     ListeAideAdminComponent,
     CreerAideAdminComponent,
-    ModifierAideAdminComponent
+    ModifierAideAdminComponent,
     PageAccueilPartenairesAdminComponent,
     CreerActeurAdminComponent,
     CreerCreateurAdminComponent,
