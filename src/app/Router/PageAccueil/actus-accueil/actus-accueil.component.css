@@ -1,13 +1,6 @@
 .card-group {
-    max-height: 35vh;
     overflow: auto;
     padding: 3vh;
-}
-
-img {
-    display: block;
-    margin: auto;
-    overflow: auto;
 }
 
 .card {

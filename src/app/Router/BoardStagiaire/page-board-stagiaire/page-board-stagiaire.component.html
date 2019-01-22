@@ -1,14 +1,18 @@
 <div class="container bodyBoard">
     <br>
     <div class="col-sm-12 titres">
-        <h2 *ngIf="stagiaire">Bonjour <span style="color: #26a69a">{{stagiaire.prenom}}</span>, bienvenue sur ton tableau de bord !</h2>
+        <h2 *ngIf="stagiaire">Bonjour <span style="color: #26a69a">{{stagiaire.prenom}}</span>, bienvenue sur ton
+            tableau de bord !</h2>
     </div>
     <hr>
     <div class="d-flex justify-content-around">
-        <button mat-raised-button type="button" class="btn col-4 col-sm-5" routerLink="/boardstagiaire/infosstagiaire" routerLinkActive="router-link-active">Mes infos
+        <button mat-raised-button type="button" class="btn col-md-3 col-sm-3" routerLink="/boardstagiaire/infosstagiaire"
+            routerLinkActive="router-link-active">Mes infos
             de profil</button>
-        <button mat-raised-button type="submit" class="btn col-4 col-sm-5" routerLink="/boardstagiaire/gestionstagiaire" routerLinkActive="router-link-active">Mes
+        <button mat-raised-button type="submit" class="btn col-md-3 col-sm-3" routerLink="/boardstagiaire/gestionstagiaire"
+            routerLinkActive="router-link-active">Mes
             candidatures en cours</button>
+        <button mat-raised-button type="submit" class="btn col-md-3 col-sm-3" routerLink="/offres">Offres de stage<i class="material-icons" style="color: #00f0d8; size: 200% ">arrow_forward_ios</i><i class="material-icons" style="color: #00f0d8; size: 200% ">arrow_forward_ios</i><i class="material-icons" style="color: #00f0d8; size: 200% ">arrow_forward_ios</i> </button>
     </div>
     <router-outlet></router-outlet>
 </div>
