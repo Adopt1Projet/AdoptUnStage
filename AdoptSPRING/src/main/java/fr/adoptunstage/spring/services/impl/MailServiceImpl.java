@@ -22,6 +22,7 @@ import fr.adoptunstage.spring.models.EntrepriseMail;
 import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.services.MailService;
 import fr.adoptunstage.spring.models.SignupMail;
+import fr.adoptunstage.spring.models.StagiaireMail;
 import fr.adoptunstage.spring.payload.UploadFileResponse;
 
 @Service
@@ -107,7 +108,7 @@ public class MailServiceImpl implements MailService {
 		return "ok";
     }
 	
-	public String sendEmailToStagiaire(HTMLMail mail) {
+	public String sendEmailToStagiaire(StagiaireMail mail) {
 		
 		String titre = "Reponse automatique de candidature sur Adoptunstage.fr";
 

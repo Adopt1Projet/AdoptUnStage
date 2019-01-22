@@ -20,6 +20,7 @@ import fr.adoptunstage.spring.models.EntrepriseMail;
 import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.models.Stagiaire;
+import fr.adoptunstage.spring.models.StagiaireMail;
 import fr.adoptunstage.spring.repos.OffreRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
 
@@ -144,14 +145,12 @@ public class OffreService {
 
 		repository.save(offre);
 
-		EntrepriseMail mailToEntreprise = new EntrepriseMail(offre.getEntreprise().getEmail(), offre.getTitre(),
+		EntrepriseMail mailToEntreprise = new EntrepriseMail(offre.getEntreprise().getContactMail(), offre.getTitre(),
 				requestPostuler.getMotivation(), stagiaire.getPrenom(), stagiaire.getName(), stagiaire.getEmail());
 		mailRepository.sendEmailToEntreprise(mailToEntreprise, stagiaire.getCV());
 
-		String messageStagiaire = "Vous avez envoyez votre candidature à " + offre.getEntreprise().getEmail() + ": "
-				+ requestPostuler.getMotivation();
-		HTMLMail mailToStagiaire = new HTMLMail(stagiaire.getEmail(), offre.getTitre(), messageStagiaire,
-				stagiaire.getPrenom(), stagiaire.getName(), stagiaire.getEmail());
+		StagiaireMail mailToStagiaire = new StagiaireMail(stagiaire.getEmail(), offre.getTitre(), requestPostuler.getMotivation(),
+				stagiaire.getPrenom(), offre.getEntreprise().getRaisonSociale());
 		mailRepository.sendEmailToStagiaire(mailToStagiaire);
 
 		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);

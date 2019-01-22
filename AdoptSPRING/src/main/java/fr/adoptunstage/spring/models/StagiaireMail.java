@@ -1,28 +1,25 @@
 package fr.adoptunstage.spring.models;
 
-public class EntrepriseMail {
-	
+
+
+public class StagiaireMail {
+		
 	private String to;
 	private String title;
 	private String message;
 	private String prenom;
-	private String name;
-	private String email;
-
-	public EntrepriseMail(String to,
+	private String entrepriseName;
+	
+	public StagiaireMail(String to,
 			String title, 
 			String message, 
-			String prenom, 
-			String name, 
-			String email) {
-		 
+			String prenom,  
+			String entrepriseName) {	 
 							this.to = to;
 							this.title = "Adopt'Un Stage : " + title;
 							this.message = message;
 							this.prenom = prenom;
-							this.name = name;
-							this.email = email;
-						
+							this.entrepriseName = entrepriseName;	
 	}
 	
 	
@@ -84,29 +81,15 @@ public class EntrepriseMail {
 
 
 
-	public String getName() {
-		return name;
+	public String getEntrepriseName() {
+		return entrepriseName;
 	}
 
 
 
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEntrepriseName(String entrepriseName) {
+		this.entrepriseName = entrepriseName;
 	}
 
 
@@ -115,11 +98,10 @@ public class EntrepriseMail {
 	public String buildMyMessage() {
 		String str = "<html>" +
 			                "<body>" +
-			                	"<p>Bonjour,</p>" +
-			                	"<p><span style=\"color: #2ed1bb; font-weight: bolder;\">" + this.prenom + " " + this.name + "</span>" + " vient de postuler à votre annonce pour un stage de 3ème sur le site Adopt'Un Stage.</p>" +
-			                	"<p>Vous pourrez lui répondre par mail : " + "<span style=\"color: #2ed1bb; font-weight: bolder;\">" + this.email + "</span>.</p>" +
-			                	"<p>" + this.prenom + " vous a laissé un message, ainsi que son CV en pièce jointe.</p>" +
-			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
+			                	"<p>Bonjour <span style=\"color: #2ed1bb; font-weight: bolder;\">" + this.prenom + ",</span></p>" +
+			                	"<p>Tu as bien envoyé ta candidature à <span style=\"color: #2ed1bb; font-weight: bolder;\">" + this.entrepriseName + ".</span></p>" +
+			                	"<p>Ton message :</p>" +  
+			                	"<p>" + this.message + "</p>" +
 			                    "<br />" +
 			                    "<br />" +
 			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Cordialement,</span></p>" +
