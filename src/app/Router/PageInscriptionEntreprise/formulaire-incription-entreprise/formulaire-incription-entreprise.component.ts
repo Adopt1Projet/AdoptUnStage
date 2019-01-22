@@ -154,7 +154,6 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
 
   showCgu() {
-    console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
       .subscribe((isConfirmed) => {
 
@@ -181,7 +180,6 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    console.log(this.formCreate)
     const entreprise: Entreprise = this.formCreate.value;
     this.loading = true;
     entreprise.username = entreprise.email;
@@ -194,7 +192,6 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
             this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
               .subscribe(
                 data2 => {
-                  console.log(data2)
                 },
                 error => {
                   this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);

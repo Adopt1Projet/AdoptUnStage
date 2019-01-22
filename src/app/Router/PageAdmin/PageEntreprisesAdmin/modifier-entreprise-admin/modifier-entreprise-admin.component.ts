@@ -36,12 +36,10 @@ export class ModifierEntrepriseAdminComponent implements OnInit {
 
   ngOnInit() {
     const username = this.route.snapshot.params['username'];
-    console.log(username);
     this.entrepriseService
       .getEntreprise(username)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,

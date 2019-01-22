@@ -53,14 +53,12 @@ export class OffresAdminComponent implements OnInit {
     this.offreService.deleteOffre(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('L\'offre a bien été supprimé.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

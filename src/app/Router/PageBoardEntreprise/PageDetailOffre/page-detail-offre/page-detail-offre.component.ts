@@ -17,8 +17,6 @@ export class PageDetailOffreComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.token.getUsername()
-    console.log(this.offres)
-
   }
 
 }

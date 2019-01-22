@@ -23,13 +23,11 @@ export class ListeEntreprisesComponent implements OnInit {
     this.entrepriseService.getEntreprisesActives()
       .subscribe(data => {
       this.entreprises = data;
-        console.log(this.entreprises)
       })
 
     this.partenaireService.getAllEntreprises()
       .subscribe(data2 => {
       this.entreprisesPartenaires = data2;
-        console.log(this.entreprisesPartenaires)
       })
   }
 }

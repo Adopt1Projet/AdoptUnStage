@@ -60,12 +60,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .subscribe(
         data => {
           this.colleges = data;
-          console.log(this.colleges);
         });
   }
 
   showCgu() {
-    console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
       .subscribe((isConfirmed) => {
 
@@ -166,7 +164,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return console.log(this.formCreate)
         ;
     }
     this.loading = true;
@@ -188,7 +185,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
                   this.alertService.success('Ton cv n\'a pas le bon format mais ton compte a bien été créé, tu viens de recevoir un mail de confirmation. Maintenant connecte toi !', true);
                 });;
           }
-          console.log(data);
           if (this.info.authorities == "ROLE_ADMIN") {
             this.alertService
               .success('Vous avez bien créé le compte stagiaire ' + stagiaire.prenom + " " + stagiaire.name, true);

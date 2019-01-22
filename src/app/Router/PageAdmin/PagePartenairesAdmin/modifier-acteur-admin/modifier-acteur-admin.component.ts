@@ -31,12 +31,10 @@ export class ModifierActeurAdminComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    console.log(id);
     this.partenaireService
       .getActor(id)
       .subscribe(data => {
         this.acteur = data;
-        console.log(this.acteur);
         this.formUpdate.setValue({
           nom: this.acteur.nom,
           description: this.acteur.description,

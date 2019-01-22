@@ -41,14 +41,12 @@ export class CreateActuAdminComponent implements OnInit {
     }
     this.actuService.createActu(actu)
       .subscribe(data => {
-        console.log(data);
         this.loading = true;
         if (this.file != undefined) {
           this.curentFile = this.file.item(0);
           this.actuService.createFileActu(actu.titre, this.curentFile)
             .subscribe(
               data2 => {
-                console.log(data2)
               },
               error => {
                 this.alertService.success('Votre logo n\'a pas le bon format mais votre actualité a bien été créée', true);

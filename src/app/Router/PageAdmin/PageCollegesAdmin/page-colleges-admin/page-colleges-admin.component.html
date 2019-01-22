@@ -1,0 +1,25 @@
+<div class="container-fluid bodyPageCollegesAdmin">
+  <br>
+  <div class="headerColleges">
+    <div class="col-sm-12 titre">
+      <h1>
+        Collèges
+      </h1>
+    </div>
+    <hr>
+    <div class="d-md-flex d-none d-md-block justify-content-around">
+      <button type="button" class="btn col-3 col-sm-3" routerLink="/admin/colleges/listecolleges" routerLinkActive="router-link-active">Liste
+        des collèges</button>
+      <button type="submit" class="btn col-3 col-sm-3" routerLink="/admin/colleges/ajoutercollege" routerLinkActive="router-link-active">Ajouter
+        un collège</button>
+    </div>
+
+    <div class="d-flex d-block d-md-none justify-content-around">
+        <button type="button" class="btn col-5" routerLink="/admin/colleges/listecolleges" routerLinkActive="router-link-active">Liste
+          collèges</button>
+        <button type="submit" class="btn col-5" routerLink="/admin/colleges/creercollege" routerLinkActive="router-link-active">Ajouter
+          collège</button>
+      </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

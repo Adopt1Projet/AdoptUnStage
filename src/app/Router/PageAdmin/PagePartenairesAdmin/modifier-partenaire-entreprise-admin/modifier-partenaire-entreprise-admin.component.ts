@@ -30,12 +30,10 @@ export class ModifierPartenaireEntrepriseAdminComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    console.log(id);
     this.partenaireService
       .getEntreprise(id)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           nom: this.entreprise.nom,
           description: this.entreprise.description,
