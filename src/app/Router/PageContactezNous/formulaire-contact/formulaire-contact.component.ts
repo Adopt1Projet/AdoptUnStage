@@ -73,7 +73,6 @@ export class FormulaireContactComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data);
         },
         error => {
           console.log(error);

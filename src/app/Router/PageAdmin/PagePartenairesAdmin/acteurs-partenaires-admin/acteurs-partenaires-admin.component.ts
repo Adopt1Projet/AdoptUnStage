@@ -53,14 +53,12 @@ export class ActeursPartenairesAdminComponent implements OnInit {
     this.partenaireService.deleteActor(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('L\'acteur a bien été supprimé.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 
@@ -77,6 +75,7 @@ export class ActeursPartenairesAdminComponent implements OnInit {
     setTimeout(() => {
       this.partenaireService.getAllActors().subscribe
       (data => {
+        console.log(data);
         this.acteurs = new MatTableDataSource<Partenaire[]>(data);
         setTimeout(() => {
           this.acteurs.paginator = this.paginator;

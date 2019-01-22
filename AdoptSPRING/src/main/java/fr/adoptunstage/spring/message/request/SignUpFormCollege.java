@@ -1,49 +1,24 @@
-package fr.adoptunstage.spring.models;
+package fr.adoptunstage.spring.message.request;
 
-import javax.persistence.*;
+public class SignUpFormCollege {
 
-@Entity
-@Table(name = "colleges")
-public class College {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
-	@Column(name = "nom")
 	private String nom;
 
-	@Column(name = "adresse")
 	private String adresse;
 
-	@Column(name = "ville")
 	private String ville;
 
-	@Column(name = "codePostal")
 	private String codePostal;
 
-	@Column(name = "contactPublic")
 	private String contactPublic;
 
-	@Column(name = "nomReferent")
 	private String nomReferent;
 
-	@Column(name = "prenomReferent")
 	private String prenomReferent;
 
-	@Column(name = "emailReferent")
 	private String emailReferent;
 
-	@Column(name = "telReferent")
 	private String telReferent;
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getNom() {
 		return nom;
@@ -116,28 +91,4 @@ public class College {
 	public void setTelReferent(String telReferent) {
 		this.telReferent = telReferent;
 	}
-
-	public College() {
-	};
-
-	public College(String nom, String adresse, String ville, String codePostal, String contactPublic,
-			String nomReferent, String prenomReferent, String emailReferent, String telReferent) {
-		this.nom = nom;
-		this.adresse = adresse;
-		this.ville = ville;
-		this.codePostal = codePostal;
-		this.contactPublic = contactPublic;
-		this.nomReferent = nomReferent;
-		this.prenomReferent = prenomReferent;
-		this.emailReferent = emailReferent;
-		this.telReferent = telReferent;
-	}
-
-	@Override
-	public String toString() {
-		return "College [id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", ville=" + ville + ", codePostal="
-				+ codePostal + ", contactPublic=" + contactPublic + ", nomReferent=" + nomReferent + ", prenomReferent="
-				+ prenomReferent + ", emailReferent=" + emailReferent + ", telReferent=" + telReferent + "]";
-	}
-
 }

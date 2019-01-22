@@ -40,7 +40,6 @@ export class InfosEntrepriseComponent implements OnInit {
       .getEntreprise(this.username)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,

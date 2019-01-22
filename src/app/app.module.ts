@@ -204,6 +204,10 @@ import { EntreprisesDashboardComponent } from './Router/PageAdmin/PageDashboardA
 import { ModifierActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-acteur-admin/modifier-acteur-admin.component';
 import { ModifierCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-createur-admin/modifier-createur-admin.component';
 import { ModifierPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-entreprise-admin/modifier-partenaire-entreprise-admin.component';
+import { CreerCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/creer-college-admin/creer-college-admin.component';
+import { ModifierCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/modifier-college-admin/modifier-college-admin.component';
+import { PageCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-colleges-admin.component';
+import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-accueil-colleges-admin';
 
 
 @NgModule({
@@ -333,7 +337,10 @@ import { ModifierPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/P
     ModifierActeurAdminComponent,
     ModifierCreateurAdminComponent,
     ModifierPartenaireEntrepriseAdminComponent,
-
+    CreerCollegeAdminComponent,
+    ModifierCollegeAdminComponent,
+    PageCollegesAdminComponent,
+    PageAccueilCollegesAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -47,7 +47,6 @@ export class ModifierStagiaireAdminComponent implements OnInit {
       .getAdminStagiaire(id)
       .subscribe(data => {
         this.stagiaire = data;
-        console.log(this.stagiaire)
         this.formUpdate.setValue({
           civilite: this.stagiaire.civilite,
           prenom: this.stagiaire.prenom,
@@ -62,7 +61,6 @@ export class ModifierStagiaireAdminComponent implements OnInit {
           .subscribe(
             data => {
               this.colleges = data;
-              console.log(this.colleges);
             });
       },
         error => console.log("Une erreur est survenue."));
@@ -158,7 +156,6 @@ export class ModifierStagiaireAdminComponent implements OnInit {
     this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.stagiaire.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
-    console.log(this.formUpdate.value)
     this.stagiaireService.updateStagiaire(this.stagiaire.id, this.formUpdate.value)
       .subscribe(
         data => {
@@ -167,7 +164,6 @@ export class ModifierStagiaireAdminComponent implements OnInit {
             this.stagiaireService.createFileStagiaire(this.formUpdate.value.username, this.curentFile)
               .subscribe(
                   data2 => {
-                    console.log(data2)
                   },
                   error => {
                     console.log(error);

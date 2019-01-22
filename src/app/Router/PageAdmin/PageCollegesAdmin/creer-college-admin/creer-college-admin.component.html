@@ -1,0 +1,89 @@
+<div class="container col-12 col-md-10 bodyAjouterCollege">
+  <h1 class="titre">Ajouter un collège</h1>
+  <form class="col-md-8" [formGroup]="formCollege" (ngSubmit)="onSubmit()">
+    <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+      remplis.</p>
+    <div class="form-group">
+      <label for="nom">Nom*</label>
+      <input type="text" formControlName="nom" class="form-control" id="nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"
+        placeholder="Nom ou Raison sociale">
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">Le nom est requis !</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adresse">Adresse*</label>
+      <input class="form-control" formControlName="adresse" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"
+        id="adresse" placeholder="N° et rue">
+      <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+        <div *ngIf="f.adresse.errors.required">L'adresse est requise !</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="ville">Ville*</label>
+        <input class="form-control" formControlName="ville" [ngClass]="{ 'is-invalid': submitted && f.ville.errors }"
+          id="ville" placeholder="Lyon">
+          <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+            <div *ngIf="f.ville.errors.required">La ville est requise !</div>
+          </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="codePostal">Code postal*</label>
+        <input class="form-control" formControlName="codePostal" [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
+          id="codePostal" placeholder="69000">
+        <label class="text-danger" *ngIf="formCollege.controls['codePostal'].hasError('required')">
+          
+        </label>
+        <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
+          <div *ngIf="f.codePostal.errors.required">Le code postal est requis !</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="contactPublic">Contact public*</label>
+      <input class="form-control" formControlName="contactPublic" [ngClass]="{ 'is-invalid': submitted && f.contactPublic.errors }"
+        id="contactPublic" placeholder="Contact public">
+      <div *ngIf="submitted && f.contactPublic.errors" class="invalid-feedback">
+        <div *ngIf="f.contactPublic.errors.required">Un contact public est requis !</div>
+      </div>
+    </div>
+
+    <h2 class="titre">Référent du collège</h2>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nomReferent">Nom</label>
+        <input class="form-control" formControlName="nomReferent" [ngClass]="{ 'is-invalid': submitted && f.nomReferent.errors }"
+          id="nomReferent" placeholder="Nom">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="prenomReferent">Prénom</label>
+        <input class="form-control" formControlName="prenomReferent" [ngClass]="{ 'is-invalid': submitted && f.prenomReferent.errors }"
+          id="prenomReferent" placeholder="Prénom">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="emailReferent">Email</label>
+        <input class="form-control" formControlName="emailReferent" [ngClass]="{ 'is-invalid': submitted && f.emailReferent.errors }"
+          id="emailReferent" placeholder="Email">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="telReferent">Téléphone</label>
+        <input class="form-control" formControlName="telReferent" [ngClass]="{ 'is-invalid': submitted && f.telReferent.errors }"
+          id="telReferent" placeholder="Téléphone">
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btnPosterCollege" type="submit">Valider l'ajout du collège</button>
+    </div>
+  </form>
+</div>

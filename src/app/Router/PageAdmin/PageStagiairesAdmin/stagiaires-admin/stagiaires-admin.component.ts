@@ -53,14 +53,12 @@ export class StagiairesAdminComponent implements OnInit {
     this.stagiaireService.deleteUser(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('Le compte a bien été supprimé.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

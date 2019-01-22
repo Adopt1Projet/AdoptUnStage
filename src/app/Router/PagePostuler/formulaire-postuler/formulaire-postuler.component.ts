@@ -30,7 +30,7 @@ export class FormulairePostulerComponent implements OnInit {
   onSubmit() {
     console.log(this.formPostuler.value);
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
-      .subscribe(data => {console.log(data); 
+      .subscribe(data => { 
                  this.postuler = true;
                  this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pense à surveiller régulièrement ta boite mail pour la réponse !', true)
                 }, error => console.log(error));

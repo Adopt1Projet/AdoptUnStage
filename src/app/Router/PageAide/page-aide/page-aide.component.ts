@@ -19,7 +19,6 @@ export class PageAideComponent implements OnInit {
           .subscribe(
             data => {
               this.colleges = data;
-              console.log(data);
             
             },
             error => console.log("Une erreur est survenue.")

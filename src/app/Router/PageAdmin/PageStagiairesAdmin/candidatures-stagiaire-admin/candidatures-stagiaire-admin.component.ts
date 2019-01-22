@@ -27,7 +27,6 @@ export class CandidaturesStagiaireAdminComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
 
   public downloadPDF() {
-    console.log(this.offres);
 
     var docDefinition = {
       content: [
@@ -64,7 +63,6 @@ export class CandidaturesStagiaireAdminComponent implements OnInit {
 
   ngOnInit() {
     const username = this.route.snapshot.params['username'];
-    console.log(username);
     this.offreService.getOffresListStagiaire(username)
       .subscribe(data => {
         this.offres = data;

@@ -1,0 +1,84 @@
+<div *ngIf="college" class="container col-12 col-md-10 bodyModifierCollege">
+  <form class="col-md-8" [formGroup]="formUpdate" (ngSubmit)="onSubmit()">
+    <div class="col-sm-12 titre">
+      <h1>Modifier les informations du collège</h1>
+    </div>
+    <app-alert></app-alert>
+    <div class="form-group">
+
+      <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+        remplis.</p>
+
+      <label for="nom">Nom*</label>
+      <input type="text" formControlName="nom" class="form-control" id="nom" value="{{college.nom}}">
+      <label class="text-danger" *ngIf="formUpdate.controls['nom'].hasError('required')">
+        Le nom est requis !
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="adresse">Adresse*</label>
+      <input class="form-control" formControlName="adresse" id="adresse" value="{{college.adresse}}">
+      <label class="text-danger" *ngIf="formUpdate.controls['adresse'].hasError('required')">
+        L'adresse est requise !
+      </label>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="ville">Ville*</label>
+        <input class="form-control" formControlName="ville" id="ville" value="{{college.ville}}">
+        <div *ngIf="submitted && f.ville.errors" class="invalid-feedback">
+          <div *ngIf="f.ville.errors.required">La ville est requise !</div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="codePostal">Code postal*</label>
+        <input class="form-control" formControlName="codePostal" id="codePostal" value="{{college.codePostal}}">
+        <label class="text-danger" *ngIf="formUpdate.controls['codePostal'].hasError('required')">
+        </label>
+        <div *ngIf="submitted && f.codePostal.errors" class="invalid-feedback">
+          <div *ngIf="f.codePostal.errors.required">Le code postal est requis !</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="contactPublic">Contact public*</label>
+      <input class="form-control" formControlName="contactPublic" id="contactPublic" value="{{college.contactPublic}}">
+      <div *ngIf="submitted && f.contactPublic.errors" class="invalid-feedback">
+        <div *ngIf="f.contactPublic.errors.required">Un contact public est requis !</div>
+      </div>
+    </div>
+
+    <h2 class="titre">Référent du collège</h2>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nomReferent">Nom</label>
+        <input class="form-control" formControlName="nomReferent" id="nomReferent" value="{{college.nomReferent}}">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="prenomReferent">Prénom</label>
+        <input class="form-control" formControlName="prenomReferent" id="prenomReferent" value="{{college.prenomReferent}}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="emailReferent">Email</label>
+        <input class="form-control" formControlName="emailReferent"  id="emailReferent" value="{{college.emailReferent}}">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="telReferent">Téléphone</label>
+        <input class="form-control" formControlName="telReferent" id="telReferent" value="{{college.telReferent}}">
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btnPosterCollege" type="submit">Modifier le collège</button>
+    </div>
+  </form>
+</div>
