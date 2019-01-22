@@ -14,10 +14,9 @@ hr {
 
 .btn {
     background-color: #26a69a;
-    height: 8vh;
     color: white;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 3vh;
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
@@ -25,8 +24,6 @@ hr {
 .router-link-active {
     background-color: #2ed1bb;
 }
-
-
 
 button:hover {
     background-color: #2ed1bb;

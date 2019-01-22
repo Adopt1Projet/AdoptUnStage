@@ -11,7 +11,7 @@
             <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être remplis.</p>
             <div class="form-group col-md-6 custom-control custom-checkbox">
                 <label class="checkcontainer">
-                    <input type="radio" checked="checked" formControlName="civilite" value="madame">
+                    <input type="radio" checked="checked" formControlName="civilite" value="Mme">
                     Madame
                 </label>
             </div>
@@ -44,14 +44,20 @@
         </div>
 
         <div class="form-group">
+
             <label for="etablissement">Établissement*</label>
-            <select formControlName="etablissement" type="text" class="form-control" [ngClass]="formUpdate.controls['etablissement'].invalid ? 'is-invalid' : ''"
-                id="etablissement" name="etablissement" [ngClass]="formUpdate.controls['nom'].invalid ? 'is-invalid' : ''"
-                placeholder="Établissement">
-                <option [ngValue]="null">Sélectionne ton collège</option>
-                <option *ngFor="let college of colleges">{{college.nom}}</option>
+            <select id="etablissement" formControlName="etablissement" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etablissement.errors }"
+
+                name="etablissement" placeholder="Établissement">
+                <option [ngValue]="null">{{stagiaire.etablissement}}</option>
+                <option *ngFor="let college of colleges" >{{college.nom}}</option>
                 <option>Autre collège</option>
             </select>
+
+            <div *ngIf="submitted && f.etablissement.errors" class="invalid-feedback">
+                <div *ngIf="f.etablissement.errors.required">L'établissement est requis!</div>
+            </div>
+
         </div>
 
         <div class="form-row">

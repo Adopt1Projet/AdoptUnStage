@@ -47,6 +47,7 @@ export class GestionDesOffresComponent {
         error => console.log(error));
   }
 
+
   showConfirm(i) {
     console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)

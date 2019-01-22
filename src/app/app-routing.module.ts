@@ -148,7 +148,6 @@ const routes: Routes = [
       { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
     ]
   },
-  { path: 'contact', component: PageContactezNousComponent },
   { path: 'actus', component: PageActusComponent },
   { path: 'article/:id', component: ActuDetailComponent },
   {
@@ -166,6 +165,7 @@ const routes: Routes = [
     path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
       { path: 'faq', component: PageFaqComponent },
       { path: 'aide', component: PageAideComponent },
+      { path: 'contact', component: PageContactezNousComponent },
       { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
     ]
   },

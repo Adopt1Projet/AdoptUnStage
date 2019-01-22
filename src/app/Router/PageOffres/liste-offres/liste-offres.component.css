@@ -6,6 +6,7 @@
 
 .bgHead {
     background-color: #00B499;
+    font-size: 1.2em;
 }
 
 .bodyOffres {
@@ -31,5 +32,5 @@ img {
 }
 
 td {
-    vertical-align: middle;
+ 
 }

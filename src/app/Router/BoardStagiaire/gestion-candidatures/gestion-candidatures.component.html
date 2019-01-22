@@ -9,18 +9,14 @@
         <tr>
           <th>Offre</th>
           <th>Période</th>
-          <th>Rue</th>
-          <th>Ville</th>
-          <th>CP</th>
+          <th>Lieu du stage</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let offre of offres" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
           <td> {{offre.titre}} </td>
           <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
-          <td> {{offre.rue}} </td>
-          <td> {{offre.ville}} </td>
-          <td> {{offre.codePostal}} </td>
+          <td> {{offre.rue}} , {{offre.codePostal}} {{offre.ville}}</td>
         </tr>
       </tbody>
     </table>
@@ -33,24 +29,20 @@
   </ng-template>
   <h5 *ngIf="!offres && offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
   <br>
-  <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
+  <h4 *ngIf="offresPourvues && offresPourvues == true" >Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
   <table *ngIf="offresPourvues && offresPourvues == true" class="table table-striped thead-light table-hover">
     <thead class="headBG">
       <tr>
         <th>Offre</th>
         <th>Période</th>
-        <th>Rue</th>
-        <th>Ville</th>
-        <th>CP</th>
+        <th>Lieu du stage</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let offrePourvue of offresPourvues" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offrePourvue.id]">
         <td> {{offrePourvue.titre}} </td>
         <td> {{offrePourvue.dateDebut}} à {{offrePourvue.dateFin}} </td>
-        <td> {{offrePourvue.rue}} </td>
-        <td> {{offrePourvue.ville}} </td>
-        <td> {{offrePourvue.codePostal}} </td>
+        <td> {{offrePourvue.rue}}, {{offrePourvue.codePostal}} {{offrePourvue.ville}}</td>
       </tr>
     </tbody>
   </table>
