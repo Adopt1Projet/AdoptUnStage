@@ -1,65 +1,60 @@
-@media screen and (min-width: 601px) {
-    .titre {
-        font-size: 2vw;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .titre {
-        font-size: 6vw;
-    }
-}
+.is-invalid {
+    border-left: solid 6px red;
+}   
 
 .bodyModifierActu {
-    background-color: #ffffff;
+    background-color: white;
+    padding-bottom: 3vh;
     margin-top: 3vh;
     border-radius: 10px;
 }
-
-.btnModifierActu {
-    background-color: #26a69a;
-    color: white;
-    font-weight: bold;
-    font-size: 1.25rem;
-    margin-top: 3vh;
-    box-shadow: 3px 3px 8px rgb(105, 105, 105);
-
+  
+.titres{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
 }
 
-.btnModifierActu:hover {
-    background-color: #2ed1bb;
+.titre{
+    margin-bottom: 3vw;  
 }
-
-.titre {
-    color: #26a69a;
-    text-align: center;
-    font-weight: bolder;
-    padding-top: 3vh;
-}
-
-.is-invalid {
-    border-left: solid 6px red;
-}
-
 
 form {
     color: #26a69a;
     margin: 0 auto;
     padding-top: 3vw;
-    padding-bottom: 3vh;
 }
 
-h1,
-h2 {
+#image{
+    max-width:15vh;
+}
+
+h1, h2{
     text-align: center;
     font-weight: bolder;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     background-color: #ebebeb;
     border: none;
+}
+
+#logo{
+    max-width:25vh;
+}
+
+.btn{
+    background-color: #00ac9a;
+    height: 8vh;
+    width: 20vw;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.btn:hover {
+    background-color: #2ed1bb;
 }
 
 ::placeholder {

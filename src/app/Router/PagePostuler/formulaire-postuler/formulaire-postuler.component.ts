@@ -28,6 +28,7 @@ export class FormulairePostulerComponent implements OnInit {
               private _location: Location) { }
 
   onSubmit() {
+    console.log(this.formPostuler.value);
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
       .subscribe(data => {console.log(data); 
                  this.postuler = true;

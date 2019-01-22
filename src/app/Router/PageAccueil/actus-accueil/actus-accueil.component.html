@@ -19,7 +19,7 @@
   <div *ngIf="actus[actus.length - 1]" class="card m-2" [routerLink]="['/article', actus[actus.length - 1].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 1].image" src="assets/img/LogoAdopt.png"
       alt="image article">
-    <img class="card-img-top" *ngIf="actus[actus.length - 1].image" src="{{actus[actus.length - 1].image}}" alt="image article">
+    <img class="card-img-top" *ngIf="actus[actus.length - 1].logo.fileDownloadUri" src="{{actus[actus.length - 1].logo.fileDownloadUri}}" alt="image article">
     <div class="card-body">
       <h5 class="card-title">{{actus[actus.length - 1].titre}}</h5>
     </div>
@@ -28,7 +28,7 @@
   <div *ngIf="actus[actus.length - 2]" class="card m-2 d-none d-md-block" [routerLink]="['/article', actus[actus.length - 2].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 2].image" src="assets/img/LogoAdopt.png"
       alt="image article">
-    <img class="card-img-top" *ngIf="actus[actus.length - 2].image" src="{{actus[actus.length - 2].image}}" alt="image article">
+    <img class="card-img-top" *ngIf="actus[actus.length - 2].logo.fileDownloadUri" src="{{actus[actus.length - 2].logo.fileDownloadUri}}" alt="image article">
     <div class="card-body">
       <h5 class="card-title">{{actus[actus.length - 2].titre}}</h5>
     </div>
@@ -37,7 +37,7 @@
   <div *ngIf="actus[actus.length - 3]" class="card m-2 d-none d-md-block" [routerLink]="['/article', actus[actus.length - 3].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 3].image" src="assets/img/LogoAdopt.png"
       alt="image article">
-    <img class="card-img-top" *ngIf="actus[actus.length - 3].image" src="{{actus[actus.length - 3].image}}" alt="image article">
+    <img class="card-img-top" *ngIf="actus[actus.length - 3].logo.fileDownloadUri" src="{{actus[actus.length - 3].logo.fileDownloadUri}}" alt="image article">
     <div class="card-body">
       <h5 class="card-title">{{actus[actus.length - 3].titre}}</h5>
     </div>
@@ -46,7 +46,7 @@
   <div *ngIf="actus[actus.length - 4]" class="card m-2 d-none d-md-block" [routerLink]="['/article', actus[actus.length - 4].id]">
     <img class="card-img-top" *ngIf="!actus[actus.length - 4].image" src="/home/wilder/Documents/WildCodeSchool/AdoptUnStage/src/assets/img/LogoAdopt.png"
       alt="image article">
-    <img class="card-img-top" *ngIf="actus[actus.length - 4].image" src="{{actus[actus.length - 4].image}}" alt="image article">
+    <img class="card-img-top" *ngIf="actus[actus.length - 4].logo.fileDownloadUri" src="{{actus[actus.length - 4].logo.fileDownloadUri}}" alt="image article">
     <div class="card-body">
       <h5 class="card-title">{{actus[actus.length - 4].titre}}</h5>
     </div>

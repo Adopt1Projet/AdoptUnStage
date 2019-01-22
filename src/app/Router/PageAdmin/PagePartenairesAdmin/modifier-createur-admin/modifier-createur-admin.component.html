@@ -1,0 +1,50 @@
+<div *ngIf="createur" class="container bodyFormulaire">
+    <form class="col-md-8" (ngSubmit)="onSubmit()" [formGroup]="formUpdate">
+  
+      <div class="col-sm-12 titre">
+        <h1>Modifier les informations du créateur</h1>
+      </div>
+      <app-alert></app-alert>
+      <div class="form-group">
+  
+        <p style="font-style: italic">Les champs marqués d'un astérisque (*) sont obligatoires et doivent donc être
+          remplis.</p>
+  
+        <label for="nom">Raison Sociale*</label>
+        <input id="nom" formControlName="nom" type="text" class="form-control" value="{{createur.nom}}">
+        <label class="text-danger" *ngIf="formUpdate.controls['nom'].hasError('required')">
+          La raison sociale est requise !
+        </label>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description de l'createur</label>
+        <textarea cols="30" rows="3" id="description" formControlName="description" type="text" class="form-control"
+          placeholder="Décrivez en quelques mot l'activité de votre createur."></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="siteWeb">Site Web</label>
+        <input id="siteWeb" formControlName="siteWeb" type="text" class="form-control" placeholder="https://..." value="{{createur.siteWeb}}">
+      </div>
+  
+      <div class="form-row logo">
+        <div class="form-group col-md-4">
+          <img *ngIf="createur.logo.fileDownloadUri" id="image" src="{{createur.logo.fileDownloadUri}}" alt="logo de l'createur">
+          <img *ngIf="createur.logo.fileDownloadUri == null" id="image" src="assets/img/LogoAdopt.png" alt="logo par default">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="logo" class="label-file">Changer le logo :</label>
+          <p style="font-style: italic">*Formats acceptés : jpg, png, jpeg, gif.</p>
+          <input (change)="onChange($event)" type="file" class="form-control-file input-file" id="logo" name="logo">
+        </div>
+      </div>
+  
+  
+  
+      <div class="form-group d-flex justify-content-around">
+        <button [disabled]="formUpdate.invalid" type="submit" class="btn col-12 col-md-5">Valider les modifications</button>
+      </div>
+    </form>
+  
+  </div>

@@ -1,19 +1,20 @@
-<div class="container-fluid bodyPagePartenairesAdmin">
-    <br>
-  
-    <div class="headerPartenaires">
-      <div class="col-sm-12 titre">
-        <h1>
-          Partenaires
-        </h1>
-      </div>
-      <hr>
-      <div class="d-flex justify-content-around">
-        <button type="button" class="btn col-3 col-sm-3" routerLink="/admin/partenaires/list" routerLinkActive="router-link-active">Liste
-          des partenaires</button>
-        <button type="submit" class="btn col-3 col-sm-3" routerLink="/admin/partenaires/creerpartenaire" routerLinkActive="router-link-active">Créer
-          un partenaire</button>
-      </div>
+<div class="container-fluid bodyPagePartenaires">
+  <br>
+
+  <div class="headerPartenaires">
+    <div class="col-sm-12 titre">
+      <h1>
+        Partenaires
+      </h1>
     </div>
-    <router-outlet></router-outlet>
+    <hr>
+    <div class="d-flex justify-content-around">
+      <button type="button" class="btn col-3 col-sm-3" routerLink="/admin/partenaires/acteurs" routerLinkActive="router-link-active">Acteurs
+        principaux</button>
+      <button type="submit" class="btn col-3 col-sm-3" routerLink="/admin/partenaires/createurs" routerLinkActive="router-link-active">Créateurs</button>
+      <button type="submit" class="btn col-3 col-sm-3" routerLink="/admin/partenaires/entreprises" routerLinkActive="router-link-active">Entreprises
+        participantes</button>
+    </div>
   </div>
+  <router-outlet></router-outlet>
+</div>
