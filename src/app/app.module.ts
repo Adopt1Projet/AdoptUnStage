@@ -309,7 +309,7 @@ import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenaires
     PageAideAdminComponent,
     ListeAideAdminComponent,
     CreerAideAdminComponent,
-    ModifierAideAdminComponent
+    ModifierAideAdminComponent,
     PageAccueilPartenairesAdminComponent,
     CreerActeurAdminComponent,
     CreerCreateurAdminComponent,
