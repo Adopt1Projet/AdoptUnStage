@@ -87,6 +87,7 @@ import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmi
 import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
 import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
 import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
+import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-accueil-aide-admin';
 
 
 
@@ -112,10 +113,11 @@ const routes: Routes = [
         ]
       },
       {path: 'aide', component: PageAideAdminComponent, children: [
+          { path: 'accueilaide', component: PageAccueilAideAdminComponent},
           { path: 'listeaide', component: ListeAideAdminComponent},
           { path: 'creeraide', component: CreerAideAdminComponent},
           { path: 'modifieraide/:id', component: ModifierAideAdminComponent},
-          { path: '', redirectTo: '/admin/aide', pathMatch: 'full'},
+          { path: '', redirectTo: '/admin/aide/accueilaide', pathMatch: 'full'},
         ]
       },
       {

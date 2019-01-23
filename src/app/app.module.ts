@@ -198,7 +198,7 @@ import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmi
 import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
 import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
 import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
-
+import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-accueil-aide-admin';
 
 @NgModule({
   declarations: [
@@ -321,6 +321,7 @@ import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenaires
     BtnCreateursAdminComponent,
     EntreprisesActiveAdminComponent,
     BtnEntreprisesAdminComponent,
+    PageAccueilAideAdminComponent
 
   ],
   imports: [
