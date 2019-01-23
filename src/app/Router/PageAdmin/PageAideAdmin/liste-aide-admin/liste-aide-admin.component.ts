@@ -18,7 +18,7 @@ export class ListeAideAdminComponent implements OnInit {
     private aideService: AideService,
     private SimpleModalService: SimpleModalService ) { }
 
-  /* deleteAide(i) {
+  deleteAide(i) {
     this.aideService.deleteAide(i)
       .subscribe(
         data => {
@@ -26,8 +26,8 @@ export class ListeAideAdminComponent implements OnInit {
         },
       error => console.log(error));
   }
- */
-  /* showConfirm(i) {
+
+   showConfirm(i) {
     console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
@@ -40,7 +40,7 @@ export class ListeAideAdminComponent implements OnInit {
           this.reloadData();
         }
       });
-  } */
+  } 
 
   reloadData() {
     setTimeout(() => {
@@ -55,8 +55,8 @@ export class ListeAideAdminComponent implements OnInit {
     this.reloadData();
   }
 
-  /* ngOnChanges() {
+   ngOnChanges() {
     this.reloadData();
-  } */
+  } 
 
 }
