@@ -1,3 +1,61 @@
+@media screen and (max-width: 640px) {
+    img {
+        display: none;
+    }
+
+
+    #lol {
+        width: 100%;
+        float: left;
+        padding: 0;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #leftSide {
+        width: 100%;
+        float: left;
+
+    }
+
+    #rightSide {
+        width: 100%;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 641px) {
+    img {
+        width: 150px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+
+    #lol {
+        width: 100%;
+        float: left;
+        padding: 0;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #leftSide {
+        width: 50%;
+        float: left;
+
+    }
+
+    #rightSide {
+        width: 50%;
+        float: left;
+    }
+}
+
 .inscriptionStagiaire {
     background-color: #00ac9a;
     color: white;
@@ -11,7 +69,6 @@
 .btnEntreprise {
     background-color: #00ac9a;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
-    height: 5vh;
     color: white;
     font-weight: bold;
 }
@@ -19,7 +76,6 @@
 .btnStagiaire {
     background-color: #ffffff;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
-    height: 5vh;
     color: black;
     font-weight: bold;
 }

@@ -10,6 +10,10 @@
     border: none;
 }
 
+.card:hover {
+    opacity: 0.5;
+}
+
 .titre {
     color: #26a69a;
     text-align: center;
