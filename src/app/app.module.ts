@@ -56,6 +56,7 @@ import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-
 import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
 import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
 
+import { ClickOutsideModule } from 'ng-click-outside';
 // Board entreprise
 // tslint:disable-next-line:max-line-length
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
@@ -390,6 +391,7 @@ import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageColleg
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
+    ClickOutsideModule,
   ],
 
   exports: [

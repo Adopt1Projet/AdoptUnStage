@@ -48,12 +48,12 @@ a:active {
     height: 295px;
 }
 
+
 @media(max-width: 600px) {
 
     .navbar {
         background-color: #B9EAE3;
         z-index: 999;
-    }
-
-    
+    }   
 }
+
