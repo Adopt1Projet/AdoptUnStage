@@ -115,4 +115,17 @@ public HTMLMail() {};
 //					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
 		return str;
 	}
+	
+	public String buildMyCopie() {
+		String str = "<html>" +
+			                "<body>" +
+			                	"<p>Bonjour " + this.prenom + " " + this.name + ",</p>" +
+								"<p>Votre message a bien été envoyé à l'équipe d'Adopt'Un Stage.</p>" +
+			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
+			                "</body>" +
+		              "</html>";
+		
+//					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
+		return str;
+	}
 }
