@@ -49,11 +49,26 @@ a:active {
 }
 
 
-@media(max-width: 600px) {
+@media(max-width: 991px) {
 
-    .navbar {
-        background-color: #B9EAE3;
-        z-index: 999;
-    }   
+     .bannerImg {
+         display : none;
+     }
+     .logo {
+         max-width: 20%;
+         margin-right: 40%;
+         margin-top: 1%; 
+     }
+    
+}
+
+@media(min-width: 992px) {
+
+    .bannerSansLogo {
+        display : none;
+    }
+    .logo {
+        display : none;
+    }
 }
 
