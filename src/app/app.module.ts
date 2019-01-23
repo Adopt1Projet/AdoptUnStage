@@ -198,6 +198,7 @@ import { BtnActeursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmi
 import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/createurs-partenaires-admin/btn-createurs-admin';
 import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
 import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
+import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-accueil-aide-admin';
 import { ActuDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/actu-dashboard/actu-dashboard.component';
 import { OffresDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/offres-dashboard/offres-dashboard.component';
 import { StagiairesDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/stagiaires-dashboard/stagiaires-dashboard.component';
@@ -332,6 +333,7 @@ import { ConfirmDeleteUserComponent } from './Router/ConfirmsModals/confirm-dele
     BtnCreateursAdminComponent,
     EntreprisesActiveAdminComponent,
     BtnEntreprisesAdminComponent,
+    PageAccueilAideAdminComponent,
     ActuDashboardComponent,
     OffresDashboardComponent,
     StagiairesDashboardComponent,
