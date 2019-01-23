@@ -7,32 +7,32 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a mat-button class="nav-link mx-3" routerLink="/accueil" routerLinkActive="router-link-active">Accueil</a>
+          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/accueil" routerLinkActive="router-link-active">Accueil</a>
         </li>
         <li class="nav-item">
-          <a mat-button class="nav-link mx-3" routerLink="/actus" routerLinkActive="router-link-active">Actualités</a>
+          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/actus" routerLinkActive="router-link-active">Actualités</a>
         </li>
         <li class="nav-item">
-          <a mat-button class="nav-link mx-3" routerLink="/partenaires" routerLinkActive="router-link-active">Partenaires</a>
+          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/partenaires" routerLinkActive="router-link-active">Partenaires</a>
         </li>
         <li class="nav-item">
-          <a mat-button class="nav-link mx-3" routerLink="/boiteaoutils" routerLinkActive="router-link-active">Boîte à
+          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/boiteaoutils" routerLinkActive="router-link-active">Boîte à
             outils</a>
         </li>
         <li class="nav-item">
-          <a mat-button class="nav-link mx-3" routerLink="/quisommesnous" routerLinkActive="router-link-active">Qui
+          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/quisommesnous" routerLinkActive="router-link-active">Qui
             sommes-nous ?</a>
         </li>
         <li class="nav-item" *ngIf="isInfo==true">
-          <a mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon
+          <a (click)="retract()" mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon
             compte</a>
-          <a mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise" routerLinkActive="router-link-active">Mon
+          <a (click)="retract()" mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise" routerLinkActive="router-link-active">Mon
             compte</a>
-          <a mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
+          <a (click)="retract()" mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
         </li>
         <li class="nav-item">
-          <a mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-          <a mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()"
+          <a (click)="retract()" mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+          <a (click)="retract()" mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()"
             routerLink="/accueil">Déconnexion</a>
         </li>
       </ul>
@@ -44,3 +44,5 @@
     <img src="/assets/img/banner2.png" class="img-fluid w-100" alt="">
   </div>
 </div>
+
+

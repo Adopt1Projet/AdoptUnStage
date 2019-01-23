@@ -23,6 +23,14 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
+
+  
+  retract(){   
+    if (screen.width < 992){
+        $('button.navbar-toggler').click()
+    }
+  }
+
   login() {
     setTimeout(() => {
       this.info = {
