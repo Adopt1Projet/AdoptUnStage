@@ -2,6 +2,10 @@
     border-left: solid 6px red;
 }
 
+.passconfirm {
+    color: grey;
+}
+
 .material-icons {
     display: inline-flex;
     vertical-align: middle;
@@ -49,11 +53,11 @@ select {
     font-size: 1.25rem;
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
-  }
-  
-  .btnValider:hover {
+}
+
+.btnValider:hover {
     background-color: #2ed1bb;
-  }
+}
 
 .btnRetour {
     background-color: rgb(139, 139, 139);
@@ -64,9 +68,10 @@ select {
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
-  
+
 .btnRetour:hover {
-    background-color: #C2BFCA;;
+    background-color: #C2BFCA;
+    ;
 }
 
 ::placeholder {
@@ -88,6 +93,7 @@ select {
 .cguButton:hover {
     text-decoration: underline;
 }
+
 #lienFaq {
     text-transform: uppercase;
 

@@ -87,3 +87,7 @@ input, select, textarea{
 .deleteCompte {
     padding-bottom: 5vh;
 }
+
+.passconfirm {
+    color: grey;
+}

@@ -215,25 +215,26 @@
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Mot de passe requis!</div>
         </div>
-        <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+        <br>
+        <label class="col passconfirm" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('minlength')  ? '' : 'text-success'">
           <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
             formCreate.controls['password'].hasError('minlength') ? 'cancel' :
             'check_circle' }}</i>
           Doit contenir au minimum 6 caractères !
         </label>
-        <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+        <label class="col passconfirm" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasNumber')  ? '' : 'text-success'">
           <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
             formCreate.controls['password'].hasError('hasNumber') ? 'cancel' :
             'check_circle' }}</i>
           Doit contenir au minimum un chiffre !
         </label>
-        <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasCapitalCase')  ? 'text-danger' : 'text-success'">
+        <label class="col passconfirm" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasCapitalCase')  ? '' : 'text-success'">
           <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
             formCreate.controls['password'].hasError('hasCapitalCase') ? 'cancel' :
             'check_circle' }}</i>
           Doit contenir au minimum une lettre majuscule !
         </label>
-        <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+        <label class="col passconfirm" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSmallCase')  ? '' : 'text-success'">
           <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
             formCreate.controls['password'].hasError('hasSmallCase') ? 'cancel' :
             'check_circle' }}</i>
