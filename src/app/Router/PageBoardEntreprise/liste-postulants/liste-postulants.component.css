@@ -33,3 +33,7 @@
 .btnRetour:hover {
     background-color: #C2BFCA;;
 }
+
+table {
+    width: 100%;
+}

@@ -37,4 +37,17 @@ table {
 
 tr.mat-row {
     height: 100px;
+
+}
+
+th.mat-header-cell {
+    justify-content: flex-start;
+    background-color: #26a69a;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+}
+
+td.mat-cell {
+    justify-content: flex-start;
 }

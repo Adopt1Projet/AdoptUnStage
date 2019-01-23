@@ -204,6 +204,7 @@ const routes: Routes = [
     path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
       { path: 'gestionstagiaire', component: GestionCandidaturesComponent },
       { path: 'infosstagiaire', component: InfosStagiaireComponent },
+      { path: 'listeoffres', component: PageOffresComponent },
       { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
     ]
   },
@@ -214,10 +215,10 @@ const routes: Routes = [
       { path: 'creeroffre', component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', component: GestionDesOffresComponent },
       { path: 'infosentreprise', component: InfosEntrepriseComponent },
-      { path: 'modifieroffre/:id', component: ModifierOffreComponent },
-      { path: 'postulants/:id', component: ListePostulantsComponent },
+      { path: 'gestionoffres/modifieroffre/:id', component: ModifierOffreComponent },
+      { path: 'gestionoffres/postulants/:id', component: ListePostulantsComponent },
       { path: 'offre-item', component: OffreItemComponent },
-      { path: '', redirectTo: '/boardentreprise/creeroffre', pathMatch: 'full' },
+      { path: '', redirectTo: '/boardentreprise/gestionoffres', pathMatch: 'full' },
     ]
   },
   {

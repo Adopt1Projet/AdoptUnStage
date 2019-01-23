@@ -48,8 +48,8 @@
         <table mat-table class="limit" [dataSource]="offres" matSort>
 
             <ng-container matColumnDef="logo">
-                <th mat-header-cell *matHeaderCellDef>Logo</th>
-                <td mat-cell *matCellDef="let offre"><img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Logo entreprise"></td>
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let offre"><img src="{{offre.entreprise.logo.fileDownloadUri}}" style="margin: 10px;" alt="Logo entreprise"></td>
             </ng-container>
 
             <ng-container matColumnDef="titre">
@@ -75,14 +75,14 @@
             </ng-container>
 
             <ng-container matColumnDef="detail">
-                <th mat-header-cell *matHeaderCellDef>Détails</th>
-                <td mat-cell *matCellDef="let offre"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
-                        style="color:#00b499; cursor: pointer;">remove_red_eye</i> </td>
+                <th mat-header-cell *matHeaderCellDef class="text-center" >Détails</th>
+                <td mat-cell *matCellDef="let offre" class="text-center"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
+                        style="color:#00b499; cursor: pointer; font-size: 2.5em;">remove_red_eye</i> </td>
             </ng-container>
 
             <ng-container matColumnDef="etat">
-                <th mat-header-cell *matHeaderCellDef>Etat</th>
-                <td mat-cell *matCellDef="let offre">
+                <th mat-header-cell *matHeaderCellDef class="text-center">Etat</th>
+                <td mat-cell class="text-center" *matCellDef="let offre">
                     <span class="dispo" *ngIf="offre.active == true" style=" color: #00b499;"><b>Dispo</b></span>
                     <span class="pourvue" *ngIf="offre.active == false" style=" color: #e00000;"><b>Pourvue</b></span>
                 </td>
@@ -94,5 +94,6 @@
         <mat-paginator paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"
             [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)" showFirstLastButtons></mat-paginator>
     </div>
-
+    
 </div>
+<br>
