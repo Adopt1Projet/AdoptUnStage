@@ -22,13 +22,11 @@ export class ActuAdminComponent implements OnInit {
     this.actuService.deleteActu(i)
       .subscribe(
         data => {
-          console.log(data)
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

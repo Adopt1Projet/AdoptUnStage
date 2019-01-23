@@ -45,7 +45,7 @@ input, select, textarea{
 }
   
   
-.btn{
+.btnValider{
     background-color: #00ac9a;
     height: 8vh;
     width: 20vw;
@@ -56,10 +56,24 @@ input, select, textarea{
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
 
-  
-  
-.btn:hover {
+.btnValider:hover {
     background-color: #2ed1bb;
+}
+
+.btnSupprimer {
+    background-color: #ED0000;
+    height: 8vh;
+    width: 20vw;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.btnSupprimer:hover {
+    background-color: rgb(221, 107, 107);
+    border: solid 1px black;
 }
   
 ::placeholder { 
@@ -72,4 +86,8 @@ input, select, textarea{
 
 .deleteCompte {
     padding-bottom: 5vh;
+}
+
+.passconfirm {
+    color: grey;
 }

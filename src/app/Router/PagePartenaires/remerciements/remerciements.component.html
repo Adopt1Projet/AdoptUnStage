@@ -1,30 +1,19 @@
-<div class="container bodyRemerciements">
-  <h5>Remerciements aux créateurs</h5>
-  <hr>
-  <div class="row">
-    <div class="col-md-2 col-sm-3">
-      <img src="https://i.ibb.co/1Q1LwhP/logo-becom.png" alt="Logo BeCom">
+<div class="container bodyCreateurs">
+    <h4>Remerciement aux créateurs</h4>
+    <hr>
+    <div class="row" *ngFor="let createur of createurs">
+        <div class="col-md-3 col-sm-2">
+            <img *ngIf="createur.logo" src="{{createur.logo.fileDownloadUri}}" alt="Logo createur">
+            <img *ngIf="createur.logo==0" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
+        </div>
+        <div class="col-md-9 col-sm-10 partenaire">
+            <div>
+                <h3>{{createur.nom}}</h3>
+                <p *ngIf="createur.description">{{createur.description}}</p>
+                <p *ngIf="createur.description==0">Ce n'a pas décrit son activité.</p>
+                <a *ngIf="createur.siteWeb" href="{{createur.siteWeb}}" target="_blank">Visiter leur site web</a>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4 col-sm-9 partenaire">
-      <div>
-        <h3>Be Com</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse atque ab omnis, dignissimos nesciunt
-          perferendis nisi voluptates non explicabo earum provident nulla nihil amet quam vitae, asperiores recusandae
-          accusantium alias.</p>
-        <a href="http://www.ecoles-supdecom.com/" target="_blank">Visitez leur site web</a>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-3">
-      <img src="https://pbs.twimg.com/profile_images/697717251194150913/JaV7TAyN_400x400.jpg" alt="Logo WCS">
-    </div>
-    <div class="col-md-4 col-sm-9 partenaire">
-      <div>
-        <h3>Wild Code School</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse atque ab omnis, dignissimos nesciunt
-          perferendis nisi voluptates non explicabo earum provident nulla nihil amet quam vitae, asperiores recusandae
-          accusantium alias.</p>
-        <a href="https://wildcodeschool.fr/" target="_blank">Visitez leur site web</a>
-      </div>
-    </div>
+    <br>
   </div>
-</div>

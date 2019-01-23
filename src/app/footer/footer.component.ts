@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
     ) { }
 
   showCgu() {
-    console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
       .subscribe((isConfirmed) => {
 

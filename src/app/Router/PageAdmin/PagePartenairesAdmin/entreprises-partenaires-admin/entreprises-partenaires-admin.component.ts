@@ -53,14 +53,12 @@ export class EntreprisesPartenairesAdminComponent implements OnInit {
     this.partenaireService.deleteCreator(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('L\'entreprise a bien été supprimée.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

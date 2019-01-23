@@ -56,6 +56,7 @@ import { PageBoardStagiaireComponent } from './Router/BoardStagiaire/page-board-
 import { InfosStagiaireComponent } from './Router/BoardStagiaire/infos-stagiaire/infos-stagiaire.component';
 import { GestionCandidaturesComponent } from './Router/BoardStagiaire/gestion-candidatures/gestion-candidatures.component';
 
+import { ClickOutsideModule } from 'ng-click-outside';
 // Board entreprise
 // tslint:disable-next-line:max-line-length
 import { BoutonsInscriptionConnexionComponent } from './Router/PageConnexion/boutons-inscription-connexion/boutons-inscription-connexion.component';
@@ -162,7 +163,6 @@ import { PageFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/page-faq-
 import { PageAccueilFaqAdminComponent } from "./Router/PageAdmin/PageFaqAdmin/page-faq-admin/page-accueil-faq-admin";
 import { CreerFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/creer-faq-admin/creer-faq-admin.component';
 import { PagePartenairesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/page-partenaires-admin/page-partenaires-admin.component';
-import { ModifierPartenaireAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-admin/modifier-partenaire-admin.component';
 import { ModifierFaqAdminComponent } from './Router/PageAdmin/PageFaqAdmin/modifier-faq-admin/modifier-faq-admin.component';
 import { PageStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/page-stagiaire-admin/page-stagiaire-admin.component';
 import { ModifierStagiaireAdminComponent } from './Router/PageAdmin/PageStagiairesAdmin/modifier-stagiaire-admin/modifier-stagiaire-admin.component';
@@ -199,6 +199,19 @@ import { BtnCreateursAdminComponent } from './Router/PageAdmin/PagePartenairesAd
 import { EntreprisesActiveAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-active-admin/entreprises-active-admin.component';
 import { BtnEntreprisesAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/entreprises-partenaires-admin/btn-entreprises-admin';
 import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/page-aide-admin/page-accueil-aide-admin';
+import { ActuDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/actu-dashboard/actu-dashboard.component';
+import { OffresDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/offres-dashboard/offres-dashboard.component';
+import { StagiairesDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/stagiaires-dashboard/stagiaires-dashboard.component';
+import { EntreprisesDashboardComponent } from './Router/PageAdmin/PageDashboardAdmin/entreprises-dashboard/entreprises-dashboard.component';
+import { ModifierActeurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-acteur-admin/modifier-acteur-admin.component';
+import { ModifierCreateurAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-createur-admin/modifier-createur-admin.component';
+import { ModifierPartenaireEntrepriseAdminComponent } from './Router/PageAdmin/PagePartenairesAdmin/modifier-partenaire-entreprise-admin/modifier-partenaire-entreprise-admin.component';
+import { CreerCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/creer-college-admin/creer-college-admin.component';
+import { ModifierCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/modifier-college-admin/modifier-college-admin.component';
+import { PageCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-colleges-admin.component';
+import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-accueil-colleges-admin';
+import { ConfirmDeleteUserComponent } from './Router/ConfirmsModals/confirm-delete-user/confirm-delete-user.component';
+
 
 @NgModule({
   declarations: [
@@ -287,7 +300,6 @@ import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/
     PageAccueilFaqAdminComponent,
     CreerFaqAdminComponent,
     PagePartenairesAdminComponent,
-    ModifierPartenaireAdminComponent,
     ModifierFaqAdminComponent,
     PageStagiaireAdminComponent,
     ModifierStagiaireAdminComponent,
@@ -321,8 +333,19 @@ import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/
     BtnCreateursAdminComponent,
     EntreprisesActiveAdminComponent,
     BtnEntreprisesAdminComponent,
-    PageAccueilAideAdminComponent
-
+    PageAccueilAideAdminComponent,
+    ActuDashboardComponent,
+    OffresDashboardComponent,
+    StagiairesDashboardComponent,
+    EntreprisesDashboardComponent,
+    ModifierActeurAdminComponent,
+    ModifierCreateurAdminComponent,
+    ModifierPartenaireEntrepriseAdminComponent,
+    CreerCollegeAdminComponent,
+    ModifierCollegeAdminComponent,
+    PageCollegesAdminComponent,
+    PageAccueilCollegesAdminComponent,
+    ConfirmDeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -372,6 +395,7 @@ import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
+    ClickOutsideModule,
   ],
 
   exports: [
@@ -418,6 +442,7 @@ import { PageAccueilAideAdminComponent } from './Router/PageAdmin/PageAideAdmin/
 
   entryComponents: [
     ConfirmComponent,
+    ConfirmDeleteUserComponent,
     ConditionUtilisationComponent
   ],
 

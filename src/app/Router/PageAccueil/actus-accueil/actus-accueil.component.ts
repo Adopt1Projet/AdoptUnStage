@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Actu } from 'src/app/modeles/actu';
 import { ActuService } from 'src/app/services/actu.service';
 
 @Component({
@@ -17,6 +15,6 @@ export class ActusAccueilComponent implements OnInit {
   ngOnInit() {
     this.actuService.getActusList()
       .subscribe(data => this.actus = data);
-  };
+    };
 
 }

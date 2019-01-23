@@ -7,6 +7,8 @@ import { AlertService } from '../../../services/alert.service';
 import { CollegeService } from '../../../services/college.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { ConfirmDeleteUserComponent } from '../../ConfirmsModals/confirm-delete-user/confirm-delete-user.component';
 
 @Component({
   selector: 'app-infos-stagiaire',
@@ -17,6 +19,9 @@ export class InfosStagiaireComponent implements OnInit {
 
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
+  confirmResult = null;
+  loading = false;
+  submitted = false;
   private username;
   private stagiaire: any;
   private submitForm: boolean = false;
@@ -30,19 +35,19 @@ export class InfosStagiaireComponent implements OnInit {
     private alertService: AlertService,
     private collegeService: CollegeService,
     private fb: FormBuilder,
-    private route: Router
+    private route: Router,
+    private SimpleModalService : SimpleModalService
   ) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
   }
 
-  ngOnInit() {
+  reloadData() {
     this.username = this.token.getUsername();
     this.stagiaireService
       .getStagiaire(this.username)
       .subscribe(data => {
         this.stagiaire = data;
-        console.log(this.stagiaire)
         this.formUpdate.setValue({
           civilite: this.stagiaire.civilite,
           prenom: this.stagiaire.prenom,
@@ -57,10 +62,13 @@ export class InfosStagiaireComponent implements OnInit {
           .subscribe(
             data => {
               this.colleges = data;
-              console.log(this.colleges);
             });
       },
         error => console.log("Une erreur est survenue."));
+  }
+
+  ngOnInit() {
+    this.reloadData();
   }
 
   updateSignupForm(): FormGroup {
@@ -153,7 +161,6 @@ export class InfosStagiaireComponent implements OnInit {
     this.submitForm = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.stagiaire.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
-    console.log(this.formUpdate.value)
     this.stagiaireService.updateStagiaire(this.stagiaire.id, this.formUpdate.value)
       .subscribe(
         data => {
@@ -179,9 +186,16 @@ export class InfosStagiaireComponent implements OnInit {
     
   }
 
+  get f() { return this.formUpdatePassword.controls; }
+
   onSubmitPassword() {
+    this.submitted = true;
     this.submitForm = false;
+    this.loading = true;
     this.submitFormPassword = true;
+    if (this.formUpdatePassword.invalid) {
+      return;
+    }
     this.stagiaireService.updateStagiairePassword(this.stagiaire.id, this.formUpdatePassword.value)
       .subscribe(
         data => {
@@ -196,7 +210,7 @@ export class InfosStagiaireComponent implements OnInit {
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 
-  onClickDeleteUser() {
+  deleteUser() {
     this.username = this.token.getUsername();
     this.stagiaireService.deleteUser(this.username)
       .subscribe(
@@ -207,5 +221,18 @@ export class InfosStagiaireComponent implements OnInit {
         error => {
         })
 
+  }
+
+  onClickDeleteUser() {
+    this.SimpleModalService.addModal(ConfirmDeleteUserComponent)
+      .subscribe((isConfirmed) => {
+
+        // Get modal result
+        this.confirmResult = isConfirmed;
+        if (isConfirmed) {
+          this.deleteUser();
+          this.reloadData();
+        }
+      });
   }
 }

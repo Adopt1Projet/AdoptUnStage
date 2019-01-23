@@ -1,3 +1,57 @@
-<p>
-  colleges-admin works!
-</p>
+<br>
+<app-alert></app-alert>
+<div class="container col-12 col-md-10 bodyListeColleges d-flex justify-content-center">
+  <div class="col-12 col-md-10 mat-elevation-z8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre de recherche">
+    </mat-form-field>
+    <table mat-table class="limit" [dataSource]="colleges" matSort>
+
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+        <td mat-cell *matCellDef="let college"> {{college.nom}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="adresse">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Adresse</th>
+        <td mat-cell *matCellDef="let college"> {{college.adresse}} <br>
+          {{college.codePostal}} {{college.ville}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contactPublic">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact public</th>
+        <td mat-cell *matCellDef="let college"> {{college.contactPublic}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nomReferent">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Référent</th>
+        <td mat-cell *matCellDef="let college"> {{college.nomReferent}} <br> {{college.prenomReferent}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telReferent">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact du référent</th>
+        <td mat-cell *matCellDef="let college"> {{college.telReferent}} <br> {{college.emailReferent}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="modifier">
+        <th mat-header-cell *matHeaderCellDef>Modifier</th>
+        <td mat-cell *matCellDef="let college"> <i [routerLink]="['/admin/colleges/modifiercollege/', college.id]"
+            class="material-icons" style="color:blue; cursor: pointer;">edit</i> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="supprimer">
+        <th mat-header-cell *matHeaderCellDef>Supprimer</th>
+        <td mat-cell *matCellDef="let college"> <i class="material-icons" style="color:red; cursor: pointer;"
+            (click)=showConfirm(college.id)>delete</i>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator paginator [pageSize]="pageSize" [pageSizeOptions]="[1, 3, 5]" [showFirstLastButtons]="true" [length]="totalSize"
+      [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)" showFirstLastButtons></mat-paginator>
+  </div>
+ 
+</div>

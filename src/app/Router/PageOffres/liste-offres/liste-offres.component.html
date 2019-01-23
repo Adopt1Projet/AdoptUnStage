@@ -1,24 +1,24 @@
-<div class="container">
+<!-- <div class="container">
     <div *ngIf="offres" class="table-responsive">
         <table class="table table-striped thead-light table-hover">
             <thead class="bgHead">
-                <tr align="center">
+                <tr >
                     <th></th>
                     <th></th>
-                    <th>Secteur</th>
                     <th>Offre</th>
+                    <th>Secteur</th>
                     <th>Ville</th>
                     <th>Période</th>
                     <th>Etat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr align="center" *ngFor="let offre of getPage() async" class="listOffre" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
+                <tr  *ngFor="let offre of getPage() async" class="listOffre" style="cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
                     <td><img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Logo entreprise"></td>
                     <td><img *ngIf="!offre.entreprise.logo.fileDownloadUri" src="assets/img/LogoAdopt.png" alt="Logo par default"></td>
+                    <td> <b>{{offre.titre}} </b><br> {{offre.entreprise.raisonSociale}} </td>
                     <td>{{offre.entreprise.secteur}}</td>
-                    <td> {{offre.titre}}<br> <b>{{offre.entreprise.raisonSociale}}</b> </td>
-                    <td> {{offre.ville}} </td>
+                    <td> <b>{{offre.ville}}</b> <br> {{offre.codePostal}} </td>
                     <td> {{offre.dateDebut}} <br> au {{offre.dateFin}} </td>
                     <td style="background-color : #00b499; color: white;" *ngIf="offre.active == true">Dispo</td>
                     <td style="background-color : #e00000; color: white;" *ngIf="offre.active == false">Pourvue</td>
@@ -38,4 +38,62 @@
         </div>
     </div>
     <br>
+</div> -->
+
+<div class="container col-12 bodyListeOffres d-flex justify-content-center">
+    <div class="col-12 mat-elevation-z8">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre de recherche">
+        </mat-form-field>
+        <table mat-table class="limit" [dataSource]="offres" matSort>
+
+            <ng-container matColumnDef="logo">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let offre"><img src="{{offre.entreprise.logo.fileDownloadUri}}" style="margin: 10px;" alt="Logo entreprise"></td>
+            </ng-container>
+
+            <ng-container matColumnDef="titre">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Offre</th>
+                <td mat-cell *matCellDef="let offre"> <b>{{offre.titre}} </b><br> {{offre.raisonSociale}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="period" class="text-center">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Période</th>
+                <td mat-cell *matCellDef="let offre" [innerHTML]="offre.period"></td>
+            </ng-container>
+
+            <ng-container matColumnDef="secteur">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Secteur</th>
+                <td mat-cell *matCellDef="let offre"> {{offre.secteur}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ville">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Ville</th>
+                <td mat-cell *matCellDef="let offre"> <b>{{offre.ville}}</b> <br> {{offre.codePostal}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="detail">
+                <th mat-header-cell *matHeaderCellDef class="text-center" >Détails</th>
+                <td mat-cell *matCellDef="let offre" class="text-center"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
+                        style="color:#00b499; cursor: pointer; font-size: 2.5em;">remove_red_eye</i> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="etat">
+                <th mat-header-cell *matHeaderCellDef class="text-center">Etat</th>
+                <td mat-cell class="text-center" *matCellDef="let offre">
+                    <span class="dispo" *ngIf="offre.active == true" style=" color: #00b499;"><b>Dispo</b></span>
+                    <span class="pourvue" *ngIf="offre.active == false" style=" color: #e00000;"><b>Pourvue</b></span>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true"
+            [length]="totalSize" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+    
 </div>
+<br>

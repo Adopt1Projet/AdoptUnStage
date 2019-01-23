@@ -28,28 +28,17 @@ export class OffresEntrepriseAdminComponent implements OnInit {
     private offreService: OffreService,
     private route: ActivatedRoute) {
   }
-  // deleteOffres() {
-  //   this.offreService.deleteAll()
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.reloadData();
-  //       },
-  //       error => console.log('ERROR: ' + error));
-  // }
 
   deleteOffre(i) {
     this.offreService.deleteOffre(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('Votre offre a bien été supprimée.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 
@@ -65,7 +54,6 @@ export class OffresEntrepriseAdminComponent implements OnInit {
   reloadData() {
     setTimeout(() => {
       const username = this.route.snapshot.params['username'];
-    console.log(username);
       this.offreService.getOffresList(username).subscribe((data) => {
         this.offres = data;
         this.offres.sort((offre, offre2) => offre2.id - offre.id);

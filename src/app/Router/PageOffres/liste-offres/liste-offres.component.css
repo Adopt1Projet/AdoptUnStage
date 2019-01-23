@@ -6,6 +6,7 @@
 
 .bgHead {
     background-color: #00B499;
+    font-size: 1.2em;
 }
 
 .bodyOffres {
@@ -30,6 +31,23 @@ img {
     margin: 0 auto;
 }
 
-td {
-    vertical-align: middle;
+table {
+    width: 100%;
+}
+
+tr.mat-row {
+    height: 100px;
+
+}
+
+th.mat-header-cell {
+    justify-content: flex-start;
+    background-color: #26a69a;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+}
+
+td.mat-cell {
+    justify-content: flex-start;
 }

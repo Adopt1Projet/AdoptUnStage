@@ -27,28 +27,18 @@ export class GestionDesOffresComponent {
     private offreService: OffreService,
     private token: TokenStorageService) {
   }
-  // deleteOffres() {
-  //   this.offreService.deleteAll()
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.reloadData();
-  //       },
-  //       error => console.log('ERROR: ' + error));
-  // }
 
   deleteOffre(i) {
     this.offreService.deleteOffre(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('Votre offre a bien été supprimée.', true);
         },
         error => console.log(error));
   }
 
+
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

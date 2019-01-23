@@ -22,16 +22,18 @@ figcaption {
     font-style: italic;
 }
 
-.btn {
-    background-color: #26a69a;
-    height: 5vh;
+.btnRetour {
+    background-color: rgb(139, 139, 139);
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
-    margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
+  
+.btnRetour:hover {
+    background-color: #C2BFCA;;
+}
 
-.btnPost {
-    padding-bottom: 5vh;
+.texte {
+    margin: auto;
 }
