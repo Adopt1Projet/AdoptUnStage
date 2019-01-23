@@ -99,6 +99,11 @@
                 </mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="detail">
+                    <mat-header-cell style="justify-content: center" *matHeaderCellDef >Détails</mat-header-cell>
+                    <mat-cell style="justify-content: center" *matCellDef="let offre"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons">remove_red_eye</i> </mat-cell>
+                </ng-container>
+
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>

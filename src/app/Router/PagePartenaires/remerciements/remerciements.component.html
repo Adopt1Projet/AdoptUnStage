@@ -1,6 +1,4 @@
 <div class="container bodyCreateurs">
-    <h4>Remerciement aux créateurs</h4>
-    <hr>
     <div class="row" *ngFor="let createur of createurs">
         <div class="col-md-3 col-sm-2">
             <img *ngIf="createur.logo" src="{{createur.logo.fileDownloadUri}}" alt="Logo createur">

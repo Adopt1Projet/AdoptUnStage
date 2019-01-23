@@ -1,4 +1,4 @@
-.btnRetour {
+/* .btnRetour {
     background-color: #00ac9a;
     border: none;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
@@ -7,6 +7,18 @@
     padding: 5px 25px 5px 25px;
     font-weight: bolder;
     margin: 2%;
+} */
+
+.btnRetour {
+    background-color: rgb(139, 139, 139);
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+  
+.btnRetour:hover {
+    background-color: #C2BFCA;;
 }
 
 .btnPost {
@@ -25,7 +37,7 @@
     margin: 2%;
 }
 
-.btn:hover {
+.btnValid:hover {
     background-color: #2ed1bb;
 }
 
