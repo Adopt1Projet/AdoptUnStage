@@ -15,12 +15,28 @@ export class NavbarComponent implements OnInit {
   isStagiaire = false;
   isEntreprise = false;
 
+  navbarOpen = false;
+
   constructor(private token: TokenStorageService) { }
 
 
   logout() {
     this.token.signOut();
     window.location.reload();
+  }
+ 
+  onClickedOutside() {
+    if (screen.width < 992){
+      if (this.navbarOpen==true){
+        $('button.navbar-toggler').click();
+        this.navbarOpen=false;
+      }
+    }
+  }
+  
+  onClick(){
+    if (this.navbarOpen){this.navbarOpen=false;}
+    else {this.navbarOpen=true;}
   }
 
   login() {

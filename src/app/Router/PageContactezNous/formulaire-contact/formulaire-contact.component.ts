@@ -68,14 +68,15 @@ export class FormulaireContactComponent implements OnInit {
     }
     this.loading = true;
     
-    this.alertService.success('Votre message a bien été envoyé. Nous vous enverrons une réponse au plus vite.', true);
     this.mailService.sendMail(email)
       .pipe(first())
       .subscribe(
         data => {
+          this.alertService.success('Votre message a bien été envoyé. Nous vous enverrons une réponse au plus vite.', true);
+          this.loading = false;
         },
         error => {
-          console.log(error);
+          this.alertService.error('Une erreur est survenue lors de l\'envoie du message.', true);
           this.loading = false;
         });
     this.formContact.reset();

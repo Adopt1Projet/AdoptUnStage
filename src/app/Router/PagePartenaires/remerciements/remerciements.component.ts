@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PartenaireService } from 'src/app/services/partenaire.service';
 
 @Component({
   selector: 'app-remerciements',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemerciementsComponent implements OnInit {
 
-  constructor() { }
+  public createurs : any;
+
+  constructor(private partenaireService : PartenaireService) { }
 
   ngOnInit() {
+    this.createurs = this.partenaireService.getAllCreators()
+      .subscribe(data => {this.createurs = data;
+                          console.log(this.createurs)});
   }
 
 }

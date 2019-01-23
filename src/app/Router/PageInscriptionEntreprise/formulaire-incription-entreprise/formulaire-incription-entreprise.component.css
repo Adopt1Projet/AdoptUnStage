@@ -12,13 +12,11 @@
 
 .bodyFormulaire {
   background-color: #ffffff;
-  margin-top: 30px;
 }
 
 form {
   color: #26a69a;
   margin: 0 auto;
-  padding-top: 5vw;
   padding-bottom: 5vh;
 }
 
@@ -62,7 +60,6 @@ textarea {
 
 .btnValider {
   background-color: #26a69a;
-  height: 8vh;
   color: white;
   font-weight: bold;
   font-size: 1.25rem;
@@ -76,7 +73,6 @@ textarea {
 
 .btnRetour {
   background-color: rgb(139, 139, 139);
-  height: 8vh;
   color: white;
   font-weight: bold;
   font-size: 1.25rem;

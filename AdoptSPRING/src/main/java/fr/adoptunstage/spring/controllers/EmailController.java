@@ -23,8 +23,8 @@ public class EmailController {
 	
 	@PostMapping("/contact/sendemail")
 	@ResponseBody
-	public ResponseEntity<String> sendMail(@RequestBody HTMLMail mail){
-		return ResponseEntity.ok(service.sendEmail(mail));
+	public ResponseEntity<?> sendMail(@RequestBody HTMLMail mail){
+		return service.sendEmail(mail);
 	}
 }
 

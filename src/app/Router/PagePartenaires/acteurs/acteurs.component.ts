@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PartenaireService } from 'src/app/services/partenaire.service';
+import { Partenaire } from 'src/app/modeles/partenaire';
 
 @Component({
   selector: 'app-acteurs',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActeursComponent implements OnInit {
 
-  constructor() { }
+  public acteurs : any;
+
+  constructor(private partenaireService : PartenaireService) { }
 
   ngOnInit() {
+    this.acteurs = this.partenaireService.getAllActors()
+      .subscribe(data => {this.acteurs = data;
+                          console.log(this.acteurs)});
   }
 
 }

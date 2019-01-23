@@ -1,4 +1,4 @@
-.bodyRemerciements {
+.bodyCreateurs {
     margin-bottom: 5vh;
 }
 
@@ -8,11 +8,13 @@ hr {
 
 img {
     width: 20vh;
+    margin: auto;
 }
 
 .partenaire {
     background-color: #E9E9E9;
     padding: 2vh;
+    margin-top: 2vh;
 }
 
 a {
