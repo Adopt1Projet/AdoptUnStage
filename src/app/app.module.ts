@@ -209,6 +209,7 @@ import { CreerCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin
 import { ModifierCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/modifier-college-admin/modifier-college-admin.component';
 import { PageCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-colleges-admin.component';
 import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/page-colleges-admin/page-accueil-colleges-admin';
+import { ConfirmDeleteUserComponent } from './Router/ConfirmsModals/confirm-delete-user/confirm-delete-user.component';
 
 
 @NgModule({
@@ -341,7 +342,8 @@ import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageColleg
     CreerCollegeAdminComponent,
     ModifierCollegeAdminComponent,
     PageCollegesAdminComponent,
-    PageAccueilCollegesAdminComponent
+    PageAccueilCollegesAdminComponent,
+    ConfirmDeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -438,6 +440,7 @@ import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageColleg
 
   entryComponents: [
     ConfirmComponent,
+    ConfirmDeleteUserComponent,
     ConditionUtilisationComponent
   ],
 

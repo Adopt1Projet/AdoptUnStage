@@ -1,6 +1,9 @@
 .is-invalid {
   border-left: solid 6px red;
 }
+.passconfirm {
+  color: grey;
+}
 
 .material-icons {
   display: inline-flex;

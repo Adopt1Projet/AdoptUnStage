@@ -72,3 +72,7 @@ input, select {
     color: #C2BFCA;
     opacity: 1;
 }
+
+.passconfirm {
+    color: grey;
+}
