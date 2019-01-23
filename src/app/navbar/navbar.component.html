@@ -1,38 +1,38 @@
 <div class="container no-padding navbanner">
   <nav class="container navbar navbar-expand-lg fixed-top navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+    <button (clickOutside)="onClickedOutside()" (click)="onClick()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/accueil" routerLinkActive="router-link-active">Accueil</a>
+          <a mat-button class="nav-link mx-3" routerLink="/accueil" routerLinkActive="router-link-active">Accueil</a>
         </li>
         <li class="nav-item">
-          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/actus" routerLinkActive="router-link-active">Actualités</a>
+          <a mat-button class="nav-link mx-3" routerLink="/actus" routerLinkActive="router-link-active">Actualités</a>
         </li>
         <li class="nav-item">
-          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/partenaires" routerLinkActive="router-link-active">Partenaires</a>
+          <a mat-button class="nav-link mx-3" routerLink="/partenaires" routerLinkActive="router-link-active">Partenaires</a>
         </li>
         <li class="nav-item">
-          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/boiteaoutils" routerLinkActive="router-link-active">Boîte à
+          <a mat-button class="nav-link mx-3" routerLink="/boiteaoutils" routerLinkActive="router-link-active">Boîte à
             outils</a>
         </li>
         <li class="nav-item">
-          <a (click)="retract()" mat-button class="nav-link mx-3" routerLink="/quisommesnous" routerLinkActive="router-link-active">Qui
+          <a mat-button class="nav-link mx-3" routerLink="/quisommesnous" routerLinkActive="router-link-active">Qui
             sommes-nous ?</a>
         </li>
         <li class="nav-item" *ngIf="isInfo==true">
-          <a (click)="retract()" mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon
+          <a mat-button *ngIf="isStagiaire==true" class="nav-link mx-3" routerLink="/boardstagiaire" routerLinkActive="router-link-active">Mon
             compte</a>
-          <a (click)="retract()" mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise" routerLinkActive="router-link-active">Mon
+          <a mat-button *ngIf="isEntreprise==true" class="nav-link mx-3" routerLink="/boardentreprise" routerLinkActive="router-link-active">Mon
             compte</a>
-          <a (click)="retract()" mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
+          <a mat-button *ngIf="isAdmin==true" class="nav-link mx-3" routerLink="/admin">Panel Admin</a>
         </li>
         <li class="nav-item">
-          <a (click)="retract()" mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
-          <a (click)="retract()" mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()"
+          <a mat-button *ngIf="isInfo==false" class="nav-link mx-3" routerLink="/connexion">Connexion</a>
+          <a mat-button *ngIf="isStagiaire==true || isEntreprise==true || isAdmin==true" class="nav-link mx-3" (click)="logout()"
             routerLink="/accueil">Déconnexion</a>
         </li>
       </ul>
