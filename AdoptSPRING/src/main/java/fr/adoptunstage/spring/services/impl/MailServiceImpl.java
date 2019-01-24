@@ -1,6 +1,7 @@
 package fr.adoptunstage.spring.services.impl;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -81,15 +82,18 @@ public class MailServiceImpl implements MailService {
 	        helper.setTo(mail.getTo());
 	        helper.setSubject(mail.getTitle());
 	        
+	        if (CV.getFileName() == null) {return "ko";}
 	        File file = new File("uploads/" + CV.getFileName());
 	        FileDataSource datasource1 = new FileDataSource(file);
 	        DataHandler handler1 = new DataHandler(datasource1);
-	        MimeBodyPart fichierJoint = new MimeBodyPart();
+	        MimeBodyPart fichierJoint = new MimeBodyPart();        
+	        	        
 	        try {
 	        	fichierJoint.setDataHandler(handler1);
 	        	fichierJoint.setFileName(datasource1.getName());
 	        } catch (MessagingException e) {
 	            e.printStackTrace();
+	            return "ko";
 	        }
 	        
 	        MimeBodyPart content = new MimeBodyPart();
@@ -97,6 +101,7 @@ public class MailServiceImpl implements MailService {
 	            content.setContent(mail.buildMyMessage(), "text/html; charset=utf-8");
 	        } catch (MessagingException e) {
 	            e.printStackTrace();
+	            return "ko";
 	        }
 	        
 	        MimeMultipart mimeMultipart = new MimeMultipart();
@@ -106,6 +111,7 @@ public class MailServiceImpl implements MailService {
 	            mimeMultipart.addBodyPart(fichierJoint);
 	        } catch (MessagingException e) {
 	            e.printStackTrace();
+	            return "ko";
 	        }
 	        
 	        message.setContent(mimeMultipart);
