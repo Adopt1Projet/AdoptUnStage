@@ -19,7 +19,7 @@ mat-cell {
 }
 
 .material-icons {
-  color: #00b499;
+  color: #FB6F07;
   cursor: pointer;
   font-size: 2.5em;
 }
@@ -68,13 +68,13 @@ img {
 }
 
 h2 {
-  color: #26a69a;
+  color: #FB6F07;
   font-weight: bolder;
   margin-bottom: 2vh;
 }
 
 .btn {
-  background-color: #26a69a;
+  background-color: #FB6F07;
   color: white;
   font-weight: bold;
   font-size: 3vh;
@@ -83,7 +83,7 @@ h2 {
 }
 
 button:hover {
-  background-color: #2ed1bb;
+  background-color: #FF8E3A;
 }
 
 @media(max-width: 600px) {

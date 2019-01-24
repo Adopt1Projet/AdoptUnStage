@@ -1,15 +1,15 @@
 a:hover {
     border-radius: 10px;
-    background-color: #00B499;
+    background-color: #FF8E3A;
 }
 
 a:active {
-    background-color: #32e0c6;
+    background-color: #FFA35F;
     color: white;
 }
 
 .navbar a:focus {
-    background-color: #00B499;
+    background-color: #FFA35F;
     color: white;
     border-radius: 10px;
 }
@@ -53,6 +53,9 @@ a:active {
 
      .bannerImg {
          display : none;
+     }
+     .bannerSansLogo {
+        margin-top: 60px;
      }
      .logo {
          max-width: 20%;
