@@ -40,6 +40,13 @@ tr.mat-row {
 
 }
 
+td {
+    cursor: pointer;
+}
+tr.mat-row:hover {
+    background-color: #f8f9fa;
+}
+
 th.mat-header-cell {
     justify-content: flex-start;
     background-color: #26a69a;

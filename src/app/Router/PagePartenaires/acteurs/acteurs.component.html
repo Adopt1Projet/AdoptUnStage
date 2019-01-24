@@ -1,6 +1,4 @@
 <div class="container bodyActeurs">
-  <h4>Acteurs principaux</h4>
-  <hr>
   <div class="row" *ngFor="let acteur of acteurs">
       <div class="col-md-3 col-sm-2">
           <img *ngIf="acteur.logo" src="{{acteur.logo.fileDownloadUri}}" alt="Logo acteur">

@@ -3,4 +3,5 @@ export class Aide {
     titre: string;
     intertitre: string;
     texte: string;
+    lien: string;
 }

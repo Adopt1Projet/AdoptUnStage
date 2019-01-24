@@ -143,15 +143,16 @@ public class OffreService {
 
 		offre.setStagiaire(stagiaire);
 
-		repository.save(offre);
-
 		EntrepriseMail mailToEntreprise = new EntrepriseMail(offre.getEntreprise().getContactMail(), offre.getTitre(),
 				requestPostuler.getMotivation(), stagiaire.getPrenom(), stagiaire.getName(), stagiaire.getEmail());
-		mailRepository.sendEmailToEntreprise(mailToEntreprise, stagiaire.getCV());
-
+		String retourMail = mailRepository.sendEmailToEntreprise(mailToEntreprise, stagiaire.getCV());
+		if (retourMail.equals("ko")) {return new ResponseEntity<>(new ResponseMessage("pas de CV !"), HttpStatus.FORBIDDEN);}
+		
 		StagiaireMail mailToStagiaire = new StagiaireMail(stagiaire.getEmail(), offre.getTitre(), requestPostuler.getMotivation(),
 				stagiaire.getPrenom(), offre.getEntreprise().getRaisonSociale());
 		mailRepository.sendEmailToStagiaire(mailToStagiaire);
+		
+		repository.save(offre);
 
 		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
 	}

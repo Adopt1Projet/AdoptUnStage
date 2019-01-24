@@ -204,7 +204,6 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
         });
 
 
-
   }
 
 }
