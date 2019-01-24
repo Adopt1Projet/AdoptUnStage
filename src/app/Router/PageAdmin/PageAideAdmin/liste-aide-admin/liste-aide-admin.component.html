@@ -21,7 +21,7 @@
                   <td>{{aide.titre}}</td>
                   <td> {{aide.intertitre}}</td>
                   <td> {{aide.texte}}</td>
-                  <td><button [routerLink]="['/aide/', aide.id]" class="material-icons" style="color:#26a69a; cursor: pointer;">remove_red_eye</button></td>
+                  <td><button routerLink="/boiteaoutils/aide" class="material-icons" style="color:#26a69a; cursor: pointer;">remove_red_eye</button></td>
                   <td><button [routerLink]="['/admin/aide/modifieraide', aide.id]" class="material-icons"
                           style="color:blue; cursor: pointer;">edit</button></td>
                   <td><button class="material-icons" style="color:red;" (click)=showConfirm(aide.id)>delete</button></td>

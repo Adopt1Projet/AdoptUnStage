@@ -70,7 +70,8 @@ export class ModifierAideAdminComponent implements OnInit {
         this.formAide.setValue({
           titre: this.aide.titre,
           intertitre: this.aide.intertitre,
-          texte: this.aide.texte
+          texte: this.aide.texte,
+          lien: this.aide.lien
         });
       },
         error => console.log("Une erreur est survenue."));
@@ -80,16 +81,16 @@ export class ModifierAideAdminComponent implements OnInit {
     return this.fb.group(
       {
     titre: [
-      '',
-      Validators.required
+      ''
     ],
     intertitre: [
-      '',
-      Validators.required
+      ''
     ],
     texte: [
-      '',
-      Validators.required
+      ''
+    ],
+    lien: [
+      ''
     ]
     })
   }
