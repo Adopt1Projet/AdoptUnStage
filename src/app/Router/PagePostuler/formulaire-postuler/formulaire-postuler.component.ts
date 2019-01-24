@@ -33,7 +33,10 @@ export class FormulairePostulerComponent implements OnInit {
       .subscribe(data => { 
                  this.postuler = true;
                  this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pense à surveiller régulièrement ta boite mail pour la réponse !', true)
-                }, error => console.log(error));
+                }, error => { 
+                  console.log(error);
+                  this.alertService.error('Tu dois d\'abord télécharger un CV pour pouvoir envoyer une postulation !', true)}
+                  );
   }
 
   retourPage() {

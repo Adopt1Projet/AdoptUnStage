@@ -10,7 +10,7 @@ import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 })
 
 export class OffresAccueilComponent implements OnInit {
-  displayedColumns: string[] = ['logo', 'titre', 'entreprise', 'secteur', 'codePostal', 'ville', 'detail'];
+  displayedColumns: string[] = ['logo', 'titre', 'entreprise', 'secteur', 'ville', 'codePostal', 'detail'];
 
   // displayedColumns = ['position', 'name', 'weight', 'symbol'];
   // offre = new MatTableDataSource<Offre[]>();

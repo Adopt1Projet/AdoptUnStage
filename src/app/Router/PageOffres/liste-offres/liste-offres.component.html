@@ -77,14 +77,14 @@
             <ng-container matColumnDef="detail">
                 <th mat-header-cell *matHeaderCellDef class="text-center" >Détails</th>
                 <td mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre" class="text-center"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
-                        style="color:#00b499; cursor: pointer; font-size: 2.5em;">remove_red_eye</i> </td>
+                        style="color:#FB6F07; cursor: pointer; font-size: 2.5em;">remove_red_eye</i> </td>
             </ng-container>
 
             <ng-container matColumnDef="etat">
                 <th mat-header-cell *matHeaderCellDef class="text-center">Etat</th>
                 <td mat-cell [routerLink]="['/detailoffre', offre.id]" class="text-center" *matCellDef="let offre">
-                    <span class="dispo" *ngIf="offre.active == true" style=" color: #00b499;"><b>Dispo</b></span>
-                    <span class="pourvue" *ngIf="offre.active == false" style=" color: #e00000;"><b>Pourvue</b></span>
+                    <span class="dispo" *ngIf="offre.active == true" style="font-weight: bolder; color: #00b499;">Dispo</span>
+                    <span class="pourvue" *ngIf="offre.active == false" style="font-weight: bolder; color: #e00000;">Pourvue</span>
                 </td>
             </ng-container>
 

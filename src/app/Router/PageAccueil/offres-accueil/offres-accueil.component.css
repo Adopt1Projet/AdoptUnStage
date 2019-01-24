@@ -86,6 +86,10 @@ button:hover {
   background-color: #FF8E3A;
 }
 
+b {
+  color: #FB6F07;
+}
+
 @media(max-width: 600px) {
   .mobile-label {
     width: 80px;
