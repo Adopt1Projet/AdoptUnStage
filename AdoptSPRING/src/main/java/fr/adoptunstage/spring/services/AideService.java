@@ -46,7 +46,7 @@ public class AideService {
 
     public ResponseEntity<String> deleteAide(@PathVariable("id") long id) {
         repository.deleteById(id);
-        return new ResponseEntity<>("aide a été supprimée !", HttpStatus.OK);
+        return new ResponseEntity<>("Aide " + id + " a été supprimée !", HttpStatus.OK);
     }
 
     public ResponseEntity<?> postAide(String username, AideRequest requestAide) {
@@ -55,7 +55,7 @@ public class AideService {
 
         repository.save(_aide);
 
-        return new ResponseEntity<>(new ResponseMessage("Aide crée!"), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseMessage("Aide créée!"), HttpStatus.OK);
     }
 
     public ResponseEntity<Aide> updateAide(@PathVariable("id") long id, @RequestBody Aide aide) {
@@ -66,6 +66,7 @@ public class AideService {
             _aide.setTitre(aide.getTitre());
             _aide.setIntertitre(aide.getIntertitre());
             _aide.setTexte(aide.getTexte());
+            _aide.setLien(aide.getLien());
 
             return new ResponseEntity<>(repository.save(_aide), HttpStatus.OK);
         } else {
