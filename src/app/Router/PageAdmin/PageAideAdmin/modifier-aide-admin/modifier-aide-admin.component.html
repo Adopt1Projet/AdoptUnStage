@@ -1,8 +1,9 @@
 <div *ngIf="aide" class="container col-12 col-md-10 bodyModifierAide">
   <h1 class="titre">Modifier l'aide {{aide.titre}}</h1>
   <form class="col-md-8" [formGroup]="formAide" (ngSubmit)="onSubmit()">
-    <p style="font-style: italic">Remplissez les champs en fonction de vos besoin de mise en page. Aucun champ n'est obligatoire.</p>
-   
+    <p style="font-style: italic">Remplissez les champs en fonction de vos besoin de mise en page. Aucun champ n'est
+      obligatoire.</p>
+
     <div class="form-group">
       <label for="titre">Titre</label>
       <input type="text" formControlName="titre" class="form-control" id="titre" value="{{aide.titre}}">
@@ -15,15 +16,20 @@
 
     <div class="form-group">
       <label for="texte">Texte</label>
-      <textarea class="form-control" formControlName="texte" id="texte" rows="3" value="{{aide.texte}}">
+      <textarea class="form-control" formControlName="texte" id="texte" rows="5" value="{{aide.texte}}">
       </textarea>
     </div>
 
+    <div class="form-group">
+      <label for="lien">Lien vers un autre site</label>
+      <input class="form-control" formControlName="lien" id="lien" placeholder="https://...">
+    </div>
+
     <div class="text-center d-flex justify-content-around">
-        <button type="button" class="btn col-5 col-md-4 btnModifierAide" (click)="retourPage()">Retour</button>
-        <button class="btn d-none d-md-block btnModifierAide col-md-4" type="submit">Modifier l'Aide</button>
-        <button class="btn d-block d-md-none btnModifierAide col-5" type="submit">Modifier</button>
-      </div>
+      <button type="button" class="btn col-5 col-md-4 btnModifierAide" (click)="retourPage()">Retour</button>
+      <button class="btn d-none d-md-block btnModifierAide col-md-4" type="submit">Modifier l'Aide</button>
+      <button class="btn d-block d-md-none btnModifierAide col-5" type="submit">Modifier</button>
+    </div>
 
   </form>
 </div>

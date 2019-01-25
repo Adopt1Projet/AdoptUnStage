@@ -47,17 +47,17 @@ export class CreerAideAdminComponent implements OnInit {
     this.username = this.token.getUsername();
     this.formAide = this.fb.group({
       titre: [
-        '',
-        Validators.required
+        ''
       ],
       intertitre: [
-        '',
-        Validators.required
+        ''
       ],
       texte: [
-        '',
-        Validators.required
+        ''
       ],
+      lien: [
+        ''
+      ]
     })
   }
 

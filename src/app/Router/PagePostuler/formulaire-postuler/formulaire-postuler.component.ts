@@ -13,31 +13,35 @@ import { AlertService } from 'src/app/services/alert.service';
 })
 export class FormulairePostulerComponent implements OnInit {
 
-  id_offre : number;
-  username : String;
+  id_offre: number;
+  username: String;
   postuler: boolean = false;
 
   formPostuler = new FormGroup({
     motivation: new FormControl(),
   });
 
-  constructor(private token: TokenStorageService, 
-              private offreService: OffreService,
-              private alertService: AlertService, 
-              private route: ActivatedRoute,
-              private _location: Location) { }
+  constructor(private token: TokenStorageService,
+    private offreService: OffreService,
+    private alertService: AlertService,
+    private route: ActivatedRoute,
+    private _location: Location) { }
 
   onSubmit() {
     console.log(this.formPostuler.value);
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
-      .subscribe(data => { 
-                 this.postuler = true;
-                 this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pense à surveiller régulièrement ta boite mail pour la réponse !', true)
-                }, error => { 
-                  console.log(error);
-                  this.alertService.error('Tu dois d\'abord télécharger un CV pour pouvoir envoyer une postulation !', true)}
-                  );
+
+      .subscribe(data => {
+        this.postuler = true;
+        this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pense à surveiller régulièrement ta boite mail pour la réponse !', true)
+      }, error => {
+        console.log(error);
+        this.alertService.error('Tu dois d\'abord télécharger un CV pour pouvoir envoyer une candidature !', true)
+      }
+      );
   }
+
+
 
   retourPage() {
     this._location.back();

@@ -18,7 +18,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.adoptunstage.spring.message.request.ActuRequest;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
-import fr.adoptunstage.spring.models.Actor;
 import fr.adoptunstage.spring.models.Actu;
 import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.ActuRepository;

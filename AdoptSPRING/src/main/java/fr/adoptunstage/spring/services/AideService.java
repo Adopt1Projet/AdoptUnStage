@@ -20,57 +20,59 @@ import java.util.Optional;
 @Service
 public class AideService {
 
-    @Autowired
-    AideRepository repository;
+	@Autowired
+	AideRepository repository;
 
-    public List<Aide> getAllAides() {
-        System.out.println("Afficher toutes les aides...");
+	public List<Aide> getAllAides() {
+		System.out.println("Afficher toutes les aides...");
 
-        List<Aide> aides = new ArrayList<>();
-        repository.findAll().forEach(aides::add);
+		List<Aide> aides = new ArrayList<>();
+		repository.findAll().forEach(aides::add);
 
-        return aides;
-    }
+		return aides;
+	}
 
-    public Aide getAide(long id) {
+	public Aide getAide(long id) {
 
-        Aide aide = repository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException("Aide Not Found with -> id : " + id));
-        return aide;
-    }
+		Aide aide = repository.findById(id)
+				.orElseThrow(() -> new UsernameNotFoundException("Aide Not Found with -> id : " + id));
+		return aide;
+	}
 
-    public ResponseEntity<String> deleteAll() {
-        repository.deleteAll();
-        return new ResponseEntity<>("Toutes les aides ont été supprimées!", HttpStatus.OK);
-    }
+	public ResponseEntity<String> deleteAll() {
+		repository.deleteAll();
+		return new ResponseEntity<>("Toutes les aides ont été supprimées!", HttpStatus.OK);
+	}
 
-    public ResponseEntity<String> deleteAide(@PathVariable("id") long id) {
-        repository.deleteById(id);
-        return new ResponseEntity<>("aide a été supprimée !", HttpStatus.OK);
-    }
+	public ResponseEntity<String> deleteAide(@PathVariable("id") long id) {
+		repository.deleteById(id);
+		return new ResponseEntity<>("Aide " + id + " a été supprimée !", HttpStatus.OK);
+	}
 
-    public ResponseEntity<?> postAide(String username, AideRequest requestAide) {
+	public ResponseEntity<?> postAide(String username, AideRequest requestAide) {
 
-        Aide _aide = new Aide(requestAide.getTitre(), requestAide.getIntertitre(), requestAide.getTexte());
+		Aide _aide = new Aide(requestAide.getTitre(), requestAide.getIntertitre(), requestAide.getTexte(),
+				requestAide.getLien());
 
-        repository.save(_aide);
+		repository.save(_aide);
 
-        return new ResponseEntity<>(new ResponseMessage("Aide crée!"), HttpStatus.OK);
-    }
+		return new ResponseEntity<>(new ResponseMessage("Aide créée!"), HttpStatus.OK);
+	}
 
-    public ResponseEntity<Aide> updateAide(@PathVariable("id") long id, @RequestBody Aide aide) {
-        Optional<Aide> aideData = repository.findById(id);
+	public ResponseEntity<Aide> updateAide(@PathVariable("id") long id, @RequestBody Aide aide) {
+		Optional<Aide> aideData = repository.findById(id);
 
-        if (aideData.isPresent()) {
-            Aide _aide = aideData.get();
-            _aide.setTitre(aide.getTitre());
-            _aide.setIntertitre(aide.getIntertitre());
-            _aide.setTexte(aide.getTexte());
+		if (aideData.isPresent()) {
+			Aide _aide = aideData.get();
+			_aide.setTitre(aide.getTitre());
+			_aide.setIntertitre(aide.getIntertitre());
+			_aide.setTexte(aide.getTexte());
+			_aide.setLien(aide.getLien());
 
-            return new ResponseEntity<>(repository.save(_aide), HttpStatus.OK);
-        } else {
+			return new ResponseEntity<>(repository.save(_aide), HttpStatus.OK);
+		} else {
 
-            return new ResponseEntity<> (HttpStatus.NOT_FOUND);
-        }
-    }
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
