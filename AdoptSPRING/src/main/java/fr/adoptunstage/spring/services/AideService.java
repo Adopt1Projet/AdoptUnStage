@@ -51,7 +51,7 @@ public class AideService {
 
     public ResponseEntity<?> postAide(String username, AideRequest requestAide) {
 
-        Aide _aide = new Aide(requestAide.getTitre(), requestAide.getIntertitre(), requestAide.getTexte());
+        Aide _aide = new Aide(requestAide.getTitre(), requestAide.getIntertitre(), requestAide.getTexte(), "");
 
         repository.save(_aide);
 
