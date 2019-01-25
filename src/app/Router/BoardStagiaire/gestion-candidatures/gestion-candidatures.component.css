@@ -4,7 +4,7 @@
 }
 
 .titre {
-    color: #26a69a;
+    color: #FB6F07;
     text-align: center;
     font-weight: bolder;
     margin-bottom: 3vw;  
@@ -17,7 +17,8 @@ h1 {
 .btn {
     display: block;
     margin: auto;
-    background-color: #26a69a;
+    border: none;
+    background-color: #FB6F07;
     height: 8vh;
     color: white;
     font-weight: bold;
@@ -28,7 +29,7 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #2ed1bb;
+    background-color: #FF8E3A;
 }
 
 .headBG {

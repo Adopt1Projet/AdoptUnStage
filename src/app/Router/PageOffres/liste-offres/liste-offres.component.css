@@ -58,3 +58,7 @@ th.mat-header-cell {
 td.mat-cell {
     justify-content: flex-start;
 }
+
+b {
+    color: #FB6F07;
+}

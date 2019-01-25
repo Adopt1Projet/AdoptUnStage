@@ -154,6 +154,8 @@ public class OffreService {
 		
 		repository.save(offre);
 
+		repository.save(offre);
+
 		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
 	}
 

@@ -15,10 +15,12 @@
 .titres{
     margin-top: 3vw;
     margin-bottom: 3vw;
+    color: #FB6F07;
 }
 
 .titre{
-    margin-bottom: 3vw;  
+    margin-bottom: 3vw; 
+    color: #FB6F07; 
 }
 
 form {
