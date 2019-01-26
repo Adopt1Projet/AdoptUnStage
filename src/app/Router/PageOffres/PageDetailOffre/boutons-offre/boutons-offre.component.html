@@ -5,7 +5,7 @@
 <div>
   <h4 *ngIf="hasPostuled">Tu as déjà postulé à cette offre.</h4>
 </div>
-<div class="row btnPost d-flex justify-content-around">
+<div class="row  d-flex justify-content-around">
   <button type="button" class="btn btnRetour" (click)="retourPage()">Retour</button>
   <button *ngIf="role[0] == 'ROLE_STAGIAIRE' && offre.active == true && hasPostuled == false" [routerLink]="['/postuler', offre.id]"
     type="submit" class="btn btnValid">Postuler</button>
