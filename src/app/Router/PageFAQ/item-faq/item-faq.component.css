@@ -1,4 +1,24 @@
 .reponse {
     padding: 3vh;
     margin: 2vh;
+    text-align: justify;
+}
+
+h5 {
+    color: #26a69a;
+}
+
+.que {
+    font-weight: bolder;
+    font-size: 130%;
+}
+
+.rep {
+    color: #FB6F07;
+    font-weight: bolder;
+    font-size: 130%;
+}
+
+.text {
+    display: inline;
 }
