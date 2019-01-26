@@ -35,7 +35,7 @@ mat-row:hover mat-cell {
 .mat-header-row {
   position: sticky;
   top: 0;
-}
+} 
 
 img {
   width: 100px;
@@ -57,7 +57,7 @@ img {
 
 .mobile-label {
   display: none;
-}
+} 
 
 .titre {
   color: #26a69a;
@@ -71,7 +71,7 @@ h2 {
   color: #FB6F07;
   font-weight: bolder;
   margin-bottom: 2vh;
-}
+} 
 
 .btn {
   background-color: #FB6F07;
@@ -88,9 +88,9 @@ button:hover {
 
 b {
   color: #FB6F07;
-} 
+}  
 
-@media(max-width: 600px) {
+/* @media(max-width: 600px) {
   .mobile-label {
     width: 80px;
     display: inline-block;
@@ -106,7 +106,7 @@ b {
     align-items: start;
     padding: 8px 24px;
   }
-} 
+}  */
 
 /* .container {
   max-width:100%;

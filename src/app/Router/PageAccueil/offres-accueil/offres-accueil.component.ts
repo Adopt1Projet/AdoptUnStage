@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
+import { Entreprise } from 'src/app/modeles/entreprise';
+
 import { OffreService } from 'src/app/services/offre.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
@@ -15,6 +17,7 @@ export class OffresAccueilComponent implements OnInit {
   // displayedColumns = ['position', 'name', 'weight', 'symbol'];
   // offre = new MatTableDataSource<Offre[]>();
   // public offres2: any;
+
   public array: any;
   public offres: any;
   public pageSize = 5;
