@@ -20,10 +20,11 @@ form {
 .titres{
     margin-top: 3vw;
     margin-bottom: 3vw;
+    color: #FB6F07;
 }
 
 .titre {
-    color: #26a69a;
+    color: #FB6F07;
     text-align: center;
     font-weight: bolder;
     padding-top: 3vh;

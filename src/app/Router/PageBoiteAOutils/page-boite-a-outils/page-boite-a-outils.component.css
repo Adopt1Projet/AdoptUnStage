@@ -2,7 +2,7 @@
     background-color: white;
 }
 
-.btn {
+.btnnav {
     background-color: #00ac9a;
     height: 40px;
     color: white;
@@ -15,7 +15,9 @@
 .router-link-active {
     background-color: #FF8E3A;
 }
-
-.btn:hover {
+.router-link-active:hover {
+    background-color: rgb(255, 178, 118) !important;
+}
+.btnnav:hover {
     background-color: #2ed1bb;
 }
