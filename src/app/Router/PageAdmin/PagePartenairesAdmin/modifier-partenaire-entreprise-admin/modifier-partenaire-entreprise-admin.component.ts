@@ -13,7 +13,7 @@ export class ModifierPartenaireEntrepriseAdminComponent implements OnInit {
   public formUpdate: FormGroup;
   file: FileList;
   curentFile: File;
-  private entreprise: any;
+  public entreprise: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 

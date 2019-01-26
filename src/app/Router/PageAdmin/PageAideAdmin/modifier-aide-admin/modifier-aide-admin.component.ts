@@ -15,7 +15,7 @@ import { Aide } from '../../../../modeles/aide';
 export class ModifierAideAdminComponent implements OnInit {
   id: number;
   public formAide: FormGroup;
-  private aide: any;
+  public aide: any;
   private submitForm: boolean = false;
   loading = false;
   submitted = false;

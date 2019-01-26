@@ -15,7 +15,7 @@ export class BoutonsOffreComponent implements OnInit {
   info: any;
 
   @Input() offre: Offre;
-  private role: any;
+  public role: any;
   username: any;
   offresStagiaire: any;
   hasPostuled: boolean = false;
