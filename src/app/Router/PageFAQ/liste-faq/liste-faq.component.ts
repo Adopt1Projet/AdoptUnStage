@@ -15,7 +15,8 @@ export class ListeFaqComponent implements OnInit {
   constructor(private faqService: FaqService) { }
 
   ngOnInit() {
-    this.questions = this.faqService.getQuestionsList();
+    this.faqService.getQuestionsList()
+      .subscribe(data => this.questions = data);
   }
 
 }

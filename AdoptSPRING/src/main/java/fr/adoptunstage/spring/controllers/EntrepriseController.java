@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +44,7 @@ public class EntrepriseController {
 		return service.getAllEntreprises();
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@GetMapping("/getone/{username}")
 	public Entreprise getOneEntreprise(@PathVariable("username") String username) {
 		return service.getOneEntreprise(username);
@@ -58,16 +60,19 @@ public class EntrepriseController {
 		return service.postEntrepriseFile(username, file);
 	}
 
+	@PreAuthorize("#id == authentication.principal.id or hasRole('ROLE_ADMIN')")
 	@PutMapping("/{id}")
 	public ResponseEntity<?> updateEntreprise(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprise(id, updateRequest);
 	}
 	
+	@PreAuthorize("#id == authentication.principal.id or hasRole('ROLE_ADMIN')")
 	@PutMapping("/password/{id}")
 	public ResponseEntity<?> updateEntreprisePassword(@PathVariable("id") long id, @RequestBody SignUpForm updateRequest) {
 		return service.updateEntreprisePassword(id, updateRequest);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/deleteuser/{username}")
 	public ResponseEntity<?> deleteUser(@PathVariable("username") String username) {
 		return service.deleteUser(username);
