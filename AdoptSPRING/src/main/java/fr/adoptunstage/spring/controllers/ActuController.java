@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,11 +36,13 @@ public class ActuController {
 		return service.getAllActus();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creerfileactu/{titre}")
 	public ResponseEntity<?> postActuFile(@PathVariable("titre") String titre, @RequestParam("file") MultipartFile file) {
 		return service.postActuFile(titre, file);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creer/")
 	public ResponseEntity<?> postOffre(@Valid @RequestBody ActuRequest requestActu) {
 		return service.postActu(requestActu);
@@ -51,16 +54,19 @@ public class ActuController {
 		return service.getActu(id);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/{id}")
 	public ResponseEntity<Actu> updateActu(@PathVariable("id") long id, @RequestBody Actu actu) {
 		return service.updateActu(id, actu);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteActu(@PathVariable("id") long id) {
 		return service.deleteActu(id);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/supprimer")
 	public ResponseEntity<String> deleteAll() {
 		return service.deleteAll();

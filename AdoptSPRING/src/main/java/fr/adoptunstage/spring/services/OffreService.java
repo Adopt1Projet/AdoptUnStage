@@ -23,12 +23,16 @@ import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.models.StagiaireMail;
 import fr.adoptunstage.spring.repos.OffreRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
+import fr.adoptunstage.spring.security.services.AuthenticationUser;
 
 @Service
 public class OffreService {
 
 	@Autowired
 	MailService mailRepository;
+	
+	@Autowired
+	AuthenticationUser authenticationUser;
 
 	@Autowired
 	OffreRepository repository;
@@ -79,16 +83,25 @@ public class OffreService {
 
 		Offre offre = repository.findById(id)
 				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
-		;
+		
 		offre.getEntreprise().setPassword("");
-		;
+		
 		return offre;
 
 	}
 
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
-		repository.deleteById(id);
-		return new ResponseEntity<>("offre a été supprimée !", HttpStatus.OK);
+		Offre offre = repository.findById(id)
+				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
+		String usernameEntreprise = offre.getEntreprise().getUsername();
+		
+		if (authenticationUser.isValidate(usernameEntreprise)) {
+			repository.deleteById(id);
+			return new ResponseEntity<>("offre a été supprimée !", HttpStatus.OK);
+		}		
+		else {
+			return new ResponseEntity<>("Pas le bon utilisateur", HttpStatus.FORBIDDEN);
+		}	
 	}
 
 	public ResponseEntity<String> deleteAll() {
@@ -96,25 +109,27 @@ public class OffreService {
 		return new ResponseEntity<>("Toutes les offres ont été supprimé!", HttpStatus.OK);
 	}
 
-	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
-		Optional<Offre> offreData = repository.findById(id);
-
-		if (offreData.isPresent()) {
-			Offre _offre = offreData.get();
-			_offre.setTitre(offre.getTitre());
-			_offre.setDescription(offre.getDescription());
-			_offre.setDateDebut(offre.getDateDebut());
-			_offre.setDateFin(offre.getDateFin());
-			_offre.setRue(offre.getRue());
-			_offre.setVille(offre.getVille());
-			_offre.setCodePostal(offre.getCodePostal());
-			_offre.setActive(offre.isActive());
-
-			return new ResponseEntity<>(repository.save(_offre), HttpStatus.OK);
-		} else {
-
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<?> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
+		Offre _offre = repository.findById(id).orElseThrow(
+				() -> new UsernameNotFoundException("Offre avec l'id suivant introuvable : " + id));;
+		
+			String usernameEntreprise = _offre.getEntreprise().getUsername();
+			
+			if (authenticationUser.isValidate(usernameEntreprise)) {	
+				_offre.setTitre(offre.getTitre());
+				_offre.setDescription(offre.getDescription());
+				_offre.setDateDebut(offre.getDateDebut());
+				_offre.setDateFin(offre.getDateFin());
+				_offre.setRue(offre.getRue());
+				_offre.setVille(offre.getVille());
+				_offre.setCodePostal(offre.getCodePostal());
+				_offre.setActive(offre.isActive());
+	
+				return new ResponseEntity<>(repository.save(_offre), HttpStatus.OK);
+			}
+			
+			else {return new ResponseEntity<>(HttpStatus.FORBIDDEN);}
+		
 	}
 
 	public ResponseEntity<?> postOffre(String username, SignUpFormOffre requestOffre) {
@@ -159,14 +174,19 @@ public class OffreService {
 		return new ResponseEntity<>(new ResponseMessage("Vous avez bien postulé à cette offre!"), HttpStatus.OK);
 	}
 
-	public Set<Stagiaire> getPostulants(long id) {
+	public ResponseEntity<?> getPostulants(long id) {
 		
 		Offre offre = repository.findById(id)
 				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
+		String userEntreprise = offre.getEntreprise().getUsername();
 
-		Set<Stagiaire> postulants = offre.getStagiaires();
-		
-		return postulants;
+		if (authenticationUser.isValidate(userEntreprise)) {
+			Set<Stagiaire> postulants = offre.getStagiaires();		
+			return new ResponseEntity<>(postulants, HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(new ResponseMessage("Pas le bon utilisateur !"), HttpStatus.FORBIDDEN);
+		}
 
 	}
 }
