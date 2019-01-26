@@ -17,7 +17,7 @@ export class ModifierStagiaireAdminComponent implements OnInit {
 
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
-  private stagiaire: any;
+  public stagiaire: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
   colleges: Observable<any>;

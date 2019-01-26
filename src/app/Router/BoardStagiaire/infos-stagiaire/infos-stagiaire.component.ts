@@ -23,7 +23,7 @@ export class InfosStagiaireComponent implements OnInit {
   loading = false;
   submitted = false;
   private username;
-  private stagiaire: any;
+  public stagiaire: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
   colleges: Observable<any>;

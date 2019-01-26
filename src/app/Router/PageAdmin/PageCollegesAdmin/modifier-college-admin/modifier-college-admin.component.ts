@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ModifierCollegeAdminComponent implements OnInit {
   public formUpdate: FormGroup;
-  private college: any;
+  public college: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 
