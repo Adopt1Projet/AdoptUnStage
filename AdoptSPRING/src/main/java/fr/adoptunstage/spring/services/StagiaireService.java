@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,6 +30,7 @@ import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.StagiaireRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
+import fr.adoptunstage.spring.security.services.AuthenticationUser;
 
 
 
@@ -50,6 +50,9 @@ public class StagiaireService {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	AuthenticationUser authService;
 	
 	@Autowired
 	RoleRepository roleRepository;
@@ -77,11 +80,13 @@ public class StagiaireService {
 		return stagiaires;
 	}
 
-	public Stagiaire getOneStagiaire(String username) {
+	public ResponseEntity<?> getOneStagiaire(String username) {
 		Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
 		stagiaire.setPassword("");
-		return stagiaire;
+		
+		return new ResponseEntity<>(stagiaire, HttpStatus.OK);
+		
 	}
 
 	public Stagiaire getAdminStagiaire(@PathVariable("id") long id) {

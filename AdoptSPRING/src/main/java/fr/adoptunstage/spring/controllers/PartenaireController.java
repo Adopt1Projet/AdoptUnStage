@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,37 +33,43 @@ public class PartenaireController {
 	@Autowired
 	PartenaireService service;
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creerfileactor/{nom}")
 	public ResponseEntity<?> postActorFile(@PathVariable("nom") String nom, @RequestParam("file") MultipartFile file) {
 		return service.postActorFile(nom, file);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creerfilecreator/{nom}")
 	public ResponseEntity<?> postCreatorFile(@PathVariable("nom") String nom, @RequestParam("file") MultipartFile file) {
 		return service.postCreatorFile(nom, file);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creerfilepartenaireentreprise/{nom}")
 	public ResponseEntity<?> postPartenaireEntrepriseFile(@PathVariable("nom") String nom, @RequestParam("file") MultipartFile file) {
 		return service.postPartenaireEntrepriseFile(nom, file);
 	}
+
 
 	@GetMapping("actor")
 	public List<Actor> getAllActors() {
 		return service.getAllActors();
 	}
 	
-	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/createActor")
 	public ResponseEntity<?> postActor(@Valid @RequestBody PartenaireForm requestActor) {
 		return service.postActor(requestActor);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/updateActor/{id}")
 	public ResponseEntity<Actor> updateActor(@PathVariable("id") long id, @RequestBody Actor actor) {
 		return service.updateActor(id, actor);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/deleteActor/{id}")
 	public ResponseEntity<String> deleteActor(@PathVariable("id") long id) {
 		return service.deleteActor(id);
@@ -80,16 +87,19 @@ public class PartenaireController {
 		return service.getAllCreators();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/createCreator")
 	public ResponseEntity<?> postCreator(@Valid @RequestBody PartenaireForm requestCreator) {
 		return service.postCreator(requestCreator);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/updateCreator/{id}")
 	public ResponseEntity<Creator> updateCreator(@PathVariable("id") long id, @RequestBody Creator creator) {
 		return service.updateCreator(id, creator);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/deleteCreator/{id}")
 	public ResponseEntity<String> deleteCreator(@PathVariable("id") long id) {
 		return service.deleteCreator(id);
@@ -107,16 +117,19 @@ public class PartenaireController {
 		return service.getAllEntreprises();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/createEntreprise/")
 	public ResponseEntity<?> postEntreprise(@Valid @RequestBody PartenaireForm requestEntreprise) {
 		return service.postEntreprise(requestEntreprise);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/updateEntreprise/{id}")
 	public ResponseEntity<PartenaireEntreprise> updateEntreprise(@PathVariable("id") long id, @RequestBody PartenaireEntreprise entreprise) {
 		return service.updateEntreprise(id, entreprise);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/deleteEntreprise/{id}")
 	public ResponseEntity<String> deleteEntreprise(@PathVariable("id") long id) {
 		return service.deleteEntreprise(id);
