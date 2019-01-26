@@ -1,4 +1,4 @@
-mat-paginator {
+ mat-paginator {
   display: none;
 }
 
@@ -88,7 +88,7 @@ button:hover {
 
 b {
   color: #FB6F07;
-}
+} 
 
 @media(max-width: 600px) {
   .mobile-label {
@@ -106,4 +106,27 @@ b {
     align-items: start;
     padding: 8px 24px;
   }
+} 
+
+/* .container {
+  max-width:100%;
+  margin: 0 auto;
 }
+.card {
+  background: cornsilk;
+  border: 1px solid mediumvioletred;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+.btn-block {
+  text-align: center;
+  margin-top: 20px;
+}
+.btn-block > button {
+  margin: 0 4px;
+} */

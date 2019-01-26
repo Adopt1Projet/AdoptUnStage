@@ -9,6 +9,9 @@ import { AuthGuardEntreprise } from './auth/auth.guardentreprise';
 import { AuthGuardAdmin } from './auth/auth.guardadmin'
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { UiSwitchModule } from 'ngx-toggle-switch';
+import { SwipeCardLibModule } from 'ng-swipe-card';
+
+
 
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
@@ -345,7 +348,7 @@ import { ConfirmDeleteUserComponent } from './Router/ConfirmsModals/confirm-dele
     ModifierCollegeAdminComponent,
     PageCollegesAdminComponent,
     PageAccueilCollegesAdminComponent,
-    ConfirmDeleteUserComponent
+    ConfirmDeleteUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -396,6 +399,8 @@ import { ConfirmDeleteUserComponent } from './Router/ConfirmsModals/confirm-dele
     MatTreeModule,
     ScrollingModule,
     ClickOutsideModule,
+    SwipeCardLibModule
+
   ],
 
   exports: [
