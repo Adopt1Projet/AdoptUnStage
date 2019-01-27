@@ -193,7 +193,7 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
             this.loading = false;
             this.router.navigate(['../connexion']);
             setTimeout(() => {
-              this.alertService.success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. Pense à télécharger ton CV, maintenant connecte toi !', true);
+              this.alertService.success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. Pense à télécharger ton CV à ta première connecxion !', true);
             });        
           }
 

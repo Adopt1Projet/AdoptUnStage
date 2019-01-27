@@ -30,6 +30,17 @@ export class EntrepriseService {
     return this.http.request(req);
   }
 
+  changeFileEntreprise(username: string, file : File): Observable<HttpEvent<{}>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/changefile/${username}`, formData, {
+      responseType: 'text'
+    });
+ 
+    return this.http.request(req);
+  }
+
   updateEntreprise(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }

@@ -195,10 +195,11 @@ export class InfosEntrepriseComponent implements OnInit {
         data => {
           if (this.file != undefined) {
             this.curentFile = this.file.item(0);
-            this.entrepriseService.createFileEntreprise(this.formUpdate.value.username, this.curentFile)
+            this.entrepriseService.changeFileEntreprise(this.formUpdate.value.username, this.curentFile)
               .subscribe(
                 data2 => {
                   this.alertService.success('Votre logo et vos autres modifications ont bien été prises en compte !', true);
+                  this.reloadData();      
                 },
                 error => {
                   this.alertService.error('Votre logo n\'a pas le bon format mais vos autres modifications ont bien été prises en compte !', true);
