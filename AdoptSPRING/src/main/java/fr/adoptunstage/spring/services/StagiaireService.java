@@ -154,7 +154,7 @@ public class StagiaireService {
 	}
 	
 	
-	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {	 
+	 public ResponseEntity<?> changeStagiaireFile(String username, MultipartFile file) {	 
 		    	
 		 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
 				
@@ -181,6 +181,41 @@ public class StagiaireService {
 			     return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
 	                
 		    }
+	 
+	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {	 
+	    	
+	 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
+			
+				Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
+						() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+				
+				String verifFileName = stagiaire.getCV().getFileName();
+				
+				if (verifFileName == null) {
+				
+			        String fileName = fileStorageService.storeFile(file, stagiaire.getUsername());
+			
+			        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+			                .path("/api/downloadFile/")
+			                .path(fileName)
+			                .toUriString();      
+			
+			        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+			                file.getContentType(), file.getSize());
+			        
+			        
+			        stagiaire.setCV(uploadFileResponse);
+			        userRepository.save(stagiaire);
+			        
+			        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			 		}
+				return new ResponseEntity<>(new ResponseMessage("Non autorisé!"), HttpStatus.FORBIDDEN);
+	 			}
+		        
+		     return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+             
+	    }
+
 	
 
 	
