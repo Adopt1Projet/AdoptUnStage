@@ -17,6 +17,7 @@ export class FormulairePostulerComponent implements OnInit {
   username: String;
   postuler: boolean = false;
   lienCV : boolean = false;
+  loading : boolean = false;
 
   formPostuler = new FormGroup({
     motivation: new FormControl(),
@@ -29,11 +30,11 @@ export class FormulairePostulerComponent implements OnInit {
     private _location: Location) { }
 
   onSubmit() {
-    console.log(this.formPostuler.value);
+    this.loading = true;
     this.offreService.postuler(this.id_offre, this.username, this.formPostuler.value)
-
       .subscribe(data => {
         this.postuler = true;
+        this.loading = false;
         this.alertService.success('Merci d\'avoir postulé à l\'offre ! Pense à surveiller régulièrement ta boite mail pour la réponse !', true)
       }, error => {
         console.log(error);

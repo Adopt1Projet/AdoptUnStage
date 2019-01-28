@@ -5,16 +5,15 @@
             tableau de bord !</h2>
     </div>
     <hr>
-    <div class="d-flex justify-content-around">
+    <div class="row d-flex justify-content-around">
 
-        <button mat-raised-button type="submit" class="btn col-md-3 col-sm-3" routerLink="/boardstagiaire/listeoffres"
+        <button mat-raised-button type="submit" class="btn col-md-3" routerLink="/boardstagiaire/listeoffres"
             routerLinkActive="router-link-active">Liste d'offres</button>
-        <button mat-raised-button type="submit" class="btn col-md-3 col-sm-3" routerLink="/boardstagiaire/gestionstagiaire"
+        <button mat-raised-button type="submit" class="btn col-md-3" routerLink="/boardstagiaire/gestionstagiaire"
             routerLinkActive="router-link-active">Mes
-            candidatures en cours</button>
-        <button mat-raised-button type="button" class="btn col-md-3 col-sm-3" routerLink="/boardstagiaire/infosstagiaire"
-            routerLinkActive="router-link-active">Mes infos
-            de profil</button>
+            candidatures</button>
+        <button mat-raised-button type="button" class="btn col-md-3" routerLink="/boardstagiaire/infosstagiaire"
+            routerLinkActive="router-link-active">Mes infos</button>
     </div>
     <router-outlet></router-outlet>
 </div>

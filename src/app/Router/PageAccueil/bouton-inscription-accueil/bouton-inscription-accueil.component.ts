@@ -32,14 +32,14 @@ export class BoutonInscriptionAccueilComponent implements OnInit {
     if (this.info.username != "" && this.info.username != null) { this.isInfo = true; }
     else { this.isInfo = false; }
 
-    if (this.info.authorities == "ROLE_STAGIAIRE") {
+    if (this.info.authorities[0] == "ROLE_STAGIAIRE") {
       this.isStagiaire = true;
       this.stagiaireService.getStagiaire(this.info.username)
         .subscribe(data => { this.stagiaire = data })
     }
     else { this.isStagiaire = false; }
 
-    if (this.info.authorities == "ROLE_ENTREPRISE") {
+    if (this.info.authorities[0] == "ROLE_ENTREPRISE") {
       this.isEntreprise = true;
       this.entrepriseService.getEntreprise(this.info.username)
         .subscribe(data => { this.entreprise = data })
@@ -50,6 +50,7 @@ export class BoutonInscriptionAccueilComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged()
+    console.log(this.isEntreprise)
   }
 
 }

@@ -61,6 +61,11 @@
     color: white;
 }
 
+.inscriptionEntreprise {
+    background-color: #00ac9a;
+    color: white;
+}
+
 .ordonnedList {
     list-style-position: inside;
     margin-left: -45px;
