@@ -55,7 +55,8 @@
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
                     <span class="mobile-label"></span>
-                    <img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
+                    <img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
+                    <img *ngIf="offre.entreprise.logo.fileDownloadUri==null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
                 </mat-cell>
             </ng-container>
 
