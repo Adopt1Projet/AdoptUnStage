@@ -1,14 +1,14 @@
 <div class="container bodyActeurs">
   <div class="row" *ngFor="let acteur of acteurs">
       <div class="col-md-3 col-sm-2">
-          <img *ngIf="acteur.logo" src="{{acteur.logo.fileDownloadUri}}" alt="Logo acteur">
-          <img *ngIf="acteur.logo==0" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
+          <img *ngIf="acteur.logo.fileDownloadUri" src="{{acteur.logo.fileDownloadUri}}" alt="Logo acteur">
+          <img *ngIf="acteur.logo.fileDownloadUri == null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
       </div>
       <div class="col-md-9 col-sm-10 partenaire">
           <div>
               <h3>{{acteur.nom}}</h3>
               <p *ngIf="acteur.description">{{acteur.description}}</p>
-              <p *ngIf="acteur.description==0">Cet acteur n'a pas décrit son activité.</p>
+              <p *ngIf="acteur.description == null">Cet acteur n'a pas décrit son activité.</p>
               <a *ngIf="acteur.siteWeb" href="{{acteur.siteWeb}}" target="_blank">Visiter leur site web</a>
           </div>
       </div>

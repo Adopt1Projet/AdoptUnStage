@@ -17,6 +17,7 @@
 
     </div>
     <app-alert></app-alert>
+      <a class="lienCV" *ngIf="lienCV == true" routerLink="/boardstagiaire/infosstagiaire">Ajoute un CV sur ton profil !</a>
     <div *ngIf="postuler == true" class="row btnPost d-flex justify-content-center">
       <button type="button" class="col-md-6 btn btnRetour" routerLink="/offres">Revenir à la liste d'offres</button>
     </div>

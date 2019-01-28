@@ -4,6 +4,7 @@
     border: 2px solid;
     border-color: rgb(235, 235, 235);
     padding: 3vh;
+    word-wrap: break-word;
 }
 
 .material-icons.md-36 {

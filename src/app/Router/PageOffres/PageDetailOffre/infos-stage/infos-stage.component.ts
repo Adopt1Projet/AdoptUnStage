@@ -14,6 +14,8 @@ export class InfosStageComponent implements OnInit {
   constructor( private offreService: OffreService) { }
 
   ngOnInit() {
+      this.offre.dateDebut = moment(this.offre.dateDebut).format("DD/MM/YYYY");
+      this.offre.dateFin = moment(this.offre.dateFin).format("DD/MM/YYYY");
   }
 
 }

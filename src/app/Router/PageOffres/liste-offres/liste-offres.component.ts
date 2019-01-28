@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { OffreService } from 'src/app/services/offre.service';
 import { Offre } from 'src/app/modeles/offre';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-liste-offres',
@@ -46,12 +47,16 @@ export class ListeOffresComponent implements OnInit {
     setTimeout(() => {
       this.offreService.getAllOffres().subscribe
         (data => {
-          data.map(offre => {
+          this.offres = data;
+          for (let i = 0; i < this.offres.length; i++) {
+            this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
+            this.offres[i].dateFin = moment(this.offres[i].dateFin).format("DD/MM/YYYY");
+          }
+          this.offres.map(offre => {
             offre.raisonSociale = offre.entreprise.raisonSociale;
-            offre.period = offre.dateDebut + ` <br/>au <br/>` +  offre.dateFin;
+            offre.period = offre.dateDebut + ` <br/> au <br/>` +  offre.dateFin;
             offre.secteur = offre.entreprise.secteur;
           })
-
           this.offres = new MatTableDataSource<Offre[]>(data);
           setTimeout(() => {
             this.offres.paginator = this.paginator;
