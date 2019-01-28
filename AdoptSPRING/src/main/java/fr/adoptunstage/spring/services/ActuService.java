@@ -42,7 +42,6 @@ public class ActuService {
 	}
 
 	public List<Actu> getAllActus() {
-		System.out.println("Affiche toutes les actus...");
 
 		List<Actu> actus = new ArrayList<>();
 		repository.findAll().forEach(actus::add);

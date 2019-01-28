@@ -58,7 +58,6 @@ public class PartenaireService {
 	 */
 
 	public List<Actor> getAllActors() {
-		System.out.println("Affiche tout les acteurs...");
 		List<Actor> actors = new ArrayList<>();
 		actorRepository.findAll().forEach(actors::add);
 

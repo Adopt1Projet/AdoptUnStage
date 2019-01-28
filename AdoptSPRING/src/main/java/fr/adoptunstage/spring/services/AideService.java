@@ -24,8 +24,6 @@ public class AideService {
 	AideRepository repository;
 
 	public List<Aide> getAllAides() {
-		System.out.println("Afficher toutes les aides...");
-
 		List<Aide> aides = new ArrayList<>();
 		repository.findAll().forEach(aides::add);
 
