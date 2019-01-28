@@ -1,18 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { Entreprise } from 'src/app/modeles/entreprise';
 
 import { OffreService } from 'src/app/services/offre.service';
-import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort, } from '@angular/material';
+
 
 @Component({
   selector: 'app-offres-accueil',
   templateUrl: './offres-accueil.component.html',
-  styleUrls: ['./offres-accueil.component.css']
+  styleUrls: ['./offres-accueil.component.css'],
+
 })
 
 export class OffresAccueilComponent implements OnInit {
+
   displayedColumns: string[] = ['logo', 'titre', 'entreprise', 'secteur', 'ville', 'codePostal', 'detail'];
+
 
   // displayedColumns = ['position', 'name', 'weight', 'symbol'];
   // offre = new MatTableDataSource<Offre[]>();
@@ -30,6 +34,9 @@ export class OffresAccueilComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+
+
 
   constructor(private offreService: OffreService) {
     this.offres2 = [...this.LIST];

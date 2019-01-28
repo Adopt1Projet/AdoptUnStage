@@ -5,55 +5,64 @@
 
 
 
+
+
+    <!-- <div class=" ">
+        <div class="carousel">
+            <div class="carousel-item">
+                <mat-card class="card" *ngFor="let offre of  offres2, let index = index">
+                    <mat-card-header>
+                        <img mat-card-avatar src="">
+                        <mat-card-title> {{offre.titre}}
+                        </mat-card-title>
+                        <mat-card-subtitle>{{offre.ville}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <div class="btn-block">
+                        <button (click)="cardWrapper.dislike()">dislike</button>
+                        <button (click)="cardWrapper.like()">like</button>
+                    </div>
+                    <img mat-card-image src="">
+                    <mat-card-content>
+                        <p>{{offre.dateDebut}}</p>
+                        <p>{{offre.description}}</p>
+                        <p>{{offre.ville}}</p>
+                        <p>{{offre.codePostal}}</p>
+                        <p>{{offre.active}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div> -->
+
+
+
     <div class="container d-block d-sm-none">
         <sw-card-wrapper #cardWrapper>
             <mat-card class="card" *ngFor="let offre of offres2, let index = index" swSwipeable [width]="300" [height]="400"
                 [orientation]="'x'" (swiped)="removeBy(index)">
-                {{offre.titre}}
                 <mat-card-header>
-                    <img mat-card-avatar src="{{offre.entreprise.logo.fileDownloadUri}}">
+                    <img mat-card-avatar src="">
                     <mat-card-title>{{offre.entreprise.raisonSociale}}</mat-card-title>
                     <mat-card-subtitle>{{offre.entreprise.secteur}}</mat-card-subtitle>
                 </mat-card-header>
-                <!-- <div class="btn-block">
-                <button (click)="cardWrapper.dislike()">dislike</button>
-                <button (click)="cardWrapper.like()">like</button>
-            </div> -->
-                <!-- <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}"> -->
-
+                <div class="btn-block">
+                    <button (click)="cardWrapper.dislike()">dislike</button>
+                    <button (click)="cardWrapper.like()">like</button>
+                </div>
+                <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}">
                 <mat-card-content>
                     <p>{{offre.dateDebut}}</p>
                     <p>{{offre.description}}</p>
                     <p>{{offre.ville}}</p>
                     <p>{{offre.codePostal}}</p>
-                    <p>{{offre.active}}</p>
-
-
-
-
                 </mat-card-content>
 
+                <mat-card-footer>
+
+                </mat-card-footer>
             </mat-card>
         </sw-card-wrapper>
     </div>
-
-
-
-    <!-- <sw-card-wrapper #cardWrapper>
-
-        <mat-card *ngFor="let offre of offres2, let index = index" swSwipeable [orientation]="'x'" (swiped)="removeBy(index)">
-            <mat-card-header>
-                <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
-                <mat-card-title>{{offre.titre}}</mat-card-title>
-                <mat-card-subtitle>Really, they are!</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://source.unsplash.com/random/800x600">
-            <mat-card-content>
-                <p>Something pretty...</p>
-            </mat-card-content>
-        </mat-card>
-
-    </sw-card-wrapper> -->
 
 
 
@@ -67,6 +76,7 @@
                     <span class="mobile-label"></span>
                     <img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
                 </mat-cell>
+
             </ng-container>
 
             <ng-container matColumnDef="titre">
