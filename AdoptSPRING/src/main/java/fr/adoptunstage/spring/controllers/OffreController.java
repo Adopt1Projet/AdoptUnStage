@@ -66,6 +66,13 @@ public class OffreController{
 		return service.getOffre(id);
 	}
 	
+	// secure dans le service
+	@GetMapping(value = "/modifieruneoffre/{id}")
+	public ResponseEntity<?> getModifierOffre(@PathVariable("id") long id  ) {
+		
+		return service.getModifierOffre(id);
+	}
+	
 	// secure dans service
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {

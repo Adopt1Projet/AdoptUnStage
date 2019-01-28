@@ -73,7 +73,7 @@ export class ModifierOffreComponent implements OnInit {
 
     })
     this.offreService
-      .getOffre(this.id)
+      .getOffreModifier(this.id)
       .subscribe(data => {
         this.offre = data;
         this.formOffre.setValue({

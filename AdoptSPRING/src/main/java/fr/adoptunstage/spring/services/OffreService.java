@@ -1,7 +1,6 @@
 package fr.adoptunstage.spring.services;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import fr.adoptunstage.spring.message.request.SignUpPostuler;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.EntrepriseMail;
-import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.models.StagiaireMail;
@@ -87,6 +85,20 @@ public class OffreService {
 		offre.getEntreprise().setPassword("");
 		
 		return offre;
+
+	}
+	
+	public ResponseEntity<?> getModifierOffre(long id) {
+
+		Offre offre = repository.findById(id)
+				.orElseThrow(() -> new UsernameNotFoundException("Offre Not Found with -> id : " + id));
+		String usernameEntreprise = offre.getEntreprise().getUsername();
+		
+		if (authenticationUser.isValidate(usernameEntreprise)) {
+			offre.getEntreprise().setPassword("");		
+			return new ResponseEntity<>(offre, HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Pas le bon utilisateur", HttpStatus.FORBIDDEN);
 
 	}
 
