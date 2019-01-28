@@ -19,6 +19,7 @@ hr {
     font-size: 3vh;
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    white-space: normal;
 }
 
 .router-link-active {

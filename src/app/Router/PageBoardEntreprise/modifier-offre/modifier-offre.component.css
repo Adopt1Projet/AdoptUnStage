@@ -1,6 +1,5 @@
 .btnModifierOffre {
     background-color: #26a69a;
-    height: 5vh;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
@@ -16,11 +15,11 @@
 .bodyModifierOffre {
     padding-bottom: 5%;
     background-color: #ffffff;
+    white-space: normal;
 }
 
 .btnRetour {
     background-color: rgb(139, 139, 139);
-    height: 5vh;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
