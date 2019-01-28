@@ -1,12 +1,15 @@
 <div class="row" *ngIf="partenaire">
-  <div class="col-md-3 col-sm-2">
-    <img src="{{partenaire.logo}}" alt="Logo partenaire">
+  <div *ngIf="partenaire.logo" class="col-md-3 col-sm-2">
+    <img src="{{partenaire.logo.fileDowloadUri}}" alt="Logo partenaire">
+  </div>
+  <div *ngIf="partenaire.logo == null" class="col-md-3 col-sm-2">
+    <img src="assets/img/LogoAdopt.png" alt="Logo partenaire">
   </div>
   <div class="col-md-9 col-sm-10 partenaire">
     <div>
       <h3>{{partenaire.nom}}</h3>
       <p>{{partenaire.description}}</p>
-      <a href="{{partenaire.siteWeb}}" target="_blank">Visitez leur site web</a>
+      <a *ngIf="partenaire.siteWeb" href="{{partenaire.siteWeb}}" target="_blank">Visitez leur site web</a>
     </div>
   </div>
 </div>
