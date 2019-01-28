@@ -14,7 +14,7 @@ export class ModifierActeurAdminComponent implements OnInit {
   public formUpdate: FormGroup;
   file: FileList;
   curentFile: File;
-  private acteur: any;
+  public acteur: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 

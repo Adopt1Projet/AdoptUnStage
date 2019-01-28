@@ -17,7 +17,7 @@ export class ModifierEntrepriseAdminComponent implements OnInit {
   file : FileList;
   private username;
   curentFile : File;
-  private entreprise: any;
+  public entreprise: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 

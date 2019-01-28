@@ -15,6 +15,8 @@ export class ActuDashboardComponent implements OnInit {
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
+  isMobile;
+  pageEvent;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

@@ -137,6 +137,38 @@ public class EntrepriseService {
 			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
 			
+			String verifFileName = entreprise.getLogo().getFileName();
+			
+			if (verifFileName == null) {
+			
+		        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
+		
+		        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+		                .path("/api/downloadFile/")
+		                .path(fileName)
+		                .toUriString();      
+		
+		        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+		                file.getContentType(), file.getSize());
+		        
+		        
+		        entreprise.setLogo(uploadFileResponse);
+		        userRepository.save(entreprise);
+		        
+		        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			}
+			return new ResponseEntity<>(new ResponseMessage("Non autorisé!"), HttpStatus.FORBIDDEN);
+		}
+		return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+    }
+	
+	public ResponseEntity<?> changeEntrepriseFile(String username, MultipartFile file) {
+		
+		if (validateFileExtn(file.getOriginalFilename())) {	 
+		
+			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+			
 	        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
 	
 	        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()

@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 export class ModifierActuAdminComponent implements OnInit {
   id: number;
   public formActu: FormGroup;
-  private actu: any;
+  public actu: any;
   file: FileList;
   curentFile: File;
   private submitForm: boolean = false;

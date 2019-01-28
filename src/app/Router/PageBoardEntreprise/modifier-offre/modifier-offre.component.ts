@@ -16,7 +16,7 @@ export class ModifierOffreComponent implements OnInit {
 
   id: number;
   public formOffre: FormGroup;
-  private offre: any;
+  public offre: any;
   private submitForm: boolean = false;
   loading = false;
   submitted = false;

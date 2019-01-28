@@ -58,6 +58,12 @@ public class StagiaireController {
 		return service.postStagiaire(signUpRequest);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
+	@PostMapping(value = "/changefile/{username}")
+	public ResponseEntity<?> changeStagiaireFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.changeStagiaireFile(username, file);
+	}
+	
 	@PostMapping(value = "/creerfile/{username}")
 	public ResponseEntity<?> postStagiaireFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
 		return service.postStagiaireFile(username, file);

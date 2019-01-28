@@ -59,6 +59,12 @@ public class EntrepriseController {
 	public ResponseEntity<?> postEntrepriseFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
 		return service.postEntrepriseFile(username, file);
 	}
+	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
+	@PostMapping(value = "/changefile/{username}")
+	public ResponseEntity<?> changeEntrepriseFile(@PathVariable("username") String username, @RequestParam("file") MultipartFile file) {
+		return service.changeEntrepriseFile(username, file);
+	}
 
 	@PreAuthorize("#id == authentication.principal.id or hasRole('ROLE_ADMIN')")
 	@PutMapping("/{id}")

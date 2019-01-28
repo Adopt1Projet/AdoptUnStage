@@ -23,7 +23,7 @@ export class InfosStagiaireComponent implements OnInit {
   loading = false;
   submitted = false;
   private username;
-  private stagiaire: any;
+  public stagiaire: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
   colleges: Observable<any>;
@@ -166,10 +166,11 @@ export class InfosStagiaireComponent implements OnInit {
         data => {
           if (this.file != undefined){
             this.curentFile = this.file.item(0);
-            this.stagiaireService.createFileStagiaire(this.formUpdate.value.username, this.curentFile)
+            this.stagiaireService.changeFileStagiaire(this.formUpdate.value.username, this.curentFile)
               .subscribe(
                   data2 => {
                     this.alertService.success('Ton CV et tes autres modifications ont bien été prises en compte !', true);
+                    this.reloadData();
                   },
                   error => {
                     this.alertService.error('Ton cv n\'a pas le bon format mais tes autres modifications ont bien été prises en compte !', true);

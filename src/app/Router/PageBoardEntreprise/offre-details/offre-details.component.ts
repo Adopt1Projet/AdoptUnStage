@@ -12,7 +12,7 @@ import { GestionDesOffresComponent } from 'src/app/Router/PageBoardEntreprise/ge
 export class OffreDetailsComponent implements OnInit {
 
   @Input() offre: Offre;
-
+  offres;
   constructor(private offreService: OffreService, private listComponent: GestionDesOffresComponent) { }
 
   updateActive(isActive: boolean) {

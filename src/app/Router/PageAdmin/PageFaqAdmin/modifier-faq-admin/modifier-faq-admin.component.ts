@@ -14,7 +14,7 @@ import { Faq } from 'src/app/modeles/faq';
 export class ModifierFaqAdminComponent implements OnInit {
   id: number;
   public formFaq: FormGroup;
-  private question: any;
+  public question: any;
   private submitForm: boolean = false;
   loading = false;
   submitted = false;
