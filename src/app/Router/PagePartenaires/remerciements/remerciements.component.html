@@ -2,13 +2,13 @@
     <div class="row" *ngFor="let createur of createurs">
         <div class="col-md-3 col-sm-2">
             <img *ngIf="createur.logo" src="{{createur.logo.fileDownloadUri}}" alt="Logo createur">
-            <img *ngIf="createur.logo==0" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
+            <img *ngIf="createur.logo == null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
         </div>
         <div class="col-md-9 col-sm-10 partenaire">
             <div>
                 <h3>{{createur.nom}}</h3>
                 <p *ngIf="createur.description">{{createur.description}}</p>
-                <p *ngIf="createur.description==0">Ce n'a pas décrit son activité.</p>
+                <p *ngIf="createur.description == null">Ce n'a pas décrit son activité.</p>
                 <a *ngIf="createur.siteWeb" href="{{createur.siteWeb}}" target="_blank">Visiter leur site web</a>
             </div>
         </div>

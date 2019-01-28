@@ -25,6 +25,9 @@ hr {
 .router-link-active {
     background-color: #FF8E3A;
 }
+.router-link-active:hover {
+    background-color: rgb(255, 178, 118) !important;
+}
 
 .btn:hover {
     background-color: #2ed1bb;
