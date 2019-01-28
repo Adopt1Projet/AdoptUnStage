@@ -5,8 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,17 +57,15 @@ public class StagiaireService {
 	
 	@Autowired
 	PasswordEncoder encoder;
-	
-	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(txt|doc|docx|odt|pdf))$)");
 
 	
-	public static boolean validateFileExtn(String ext){
-		Matcher mtch = fileExtnPtrn.matcher(ext);
-		if(mtch.matches()){
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("application/pdf") || type.equals("application/vnd.oasis.opendocument.text") || type.equals("text/plain") || type.equals("application/msword") || type.equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 		return true;
 		}
 		return false;
-		}
+	}
 	
 	public List<Stagiaire> getAllStagiaire() {
 		List<Stagiaire> stagiaires = new ArrayList<>();
@@ -156,7 +152,7 @@ public class StagiaireService {
 	
 	 public ResponseEntity<?> changeStagiaireFile(String username, MultipartFile file) {	 
 		    	
-		 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
+		 		if (validateFileExtn(file)) {	 				 		
 				
 					Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 							() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
@@ -184,7 +180,7 @@ public class StagiaireService {
 	 
 	 public ResponseEntity<?> postStagiaireFile(String username, MultipartFile file) {	 
 	    	
-	 		if (validateFileExtn(file.getOriginalFilename())) {	 				 		
+	 		if (validateFileExtn(file)) {	 				 		
 			
 				Stagiaire stagiaire = (Stagiaire) userRepository.findByUsername(username).orElseThrow(
 						() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));

@@ -49,7 +49,7 @@
 
             <ng-container matColumnDef="logo">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre"><img src="{{offre.entreprise.logo.fileDownloadUri}}" style="margin: 10px;" alt="Logo entreprise"></td>
+                <td mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre"><img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}" style="margin: 10px;" alt="Logo entreprise"><img *ngIf="offre.entreprise.logo.fileDownloadUri == null" id="image" src="assets/img/LogoAdopt.png" alt="logo par default"></td>
             </ng-container>
 
             <ng-container matColumnDef="titre">

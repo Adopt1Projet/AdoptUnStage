@@ -3,8 +3,7 @@ package fr.adoptunstage.spring.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,12 +30,10 @@ public class ActuService {
 	@Autowired
 	ActuRepository repository;
 	
-	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
-
-	public static boolean validateFileExtn(String ext) {
-		Matcher mtch = fileExtnPtrn.matcher(ext);
-		if (mtch.matches()) {
-			return true;
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("image/png") || type.equals("image/jpeg") || type.equals("image/gif")){
+		return true;
 		}
 		return false;
 	}
@@ -100,7 +97,7 @@ public class ActuService {
 	
 	public ResponseEntity<?> postActuFile(@PathVariable("titre") String titre, MultipartFile file) {
 
-		if (validateFileExtn(file.getOriginalFilename())) {
+		if (validateFileExtn(file)) {
 
 			Actu actu = (Actu) repository.findByTitre(titre).orElseThrow(
 					() -> new UsernameNotFoundException("actu Not Found with -> username or email : " + titre));

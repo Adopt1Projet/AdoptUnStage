@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,17 +51,15 @@ public class EntrepriseService {
 	
 	@Autowired
 	PasswordEncoder encoder;
-	
-	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
 
 	
-	public static boolean validateFileExtn(String ext){
-		Matcher mtch = fileExtnPtrn.matcher(ext);
-		if(mtch.matches()){
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("image/png") || type.equals("image/jpeg") || type.equals("image/gif")){
 		return true;
 		}
 		return false;
-		}
+	}
 
 	
 	public List<Entreprise> getAllEntreprises() {
@@ -132,7 +129,7 @@ public class EntrepriseService {
 	
 	public ResponseEntity<?> postEntrepriseFile(String username, MultipartFile file) {
 		
-		if (validateFileExtn(file.getOriginalFilename())) {	 
+		if (validateFileExtn(file)) {	 
 		
 			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
@@ -164,7 +161,7 @@ public class EntrepriseService {
 	
 	public ResponseEntity<?> changeEntrepriseFile(String username, MultipartFile file) {
 		
-		if (validateFileExtn(file.getOriginalFilename())) {	 
+		if (validateFileExtn(file)) {	 
 		
 			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
