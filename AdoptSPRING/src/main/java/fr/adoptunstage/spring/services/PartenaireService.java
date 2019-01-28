@@ -20,13 +20,12 @@ import fr.adoptunstage.spring.message.request.PartenaireForm;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Actor;
 import fr.adoptunstage.spring.models.Creator;
-import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.PartenaireEntreprise;
 import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.ActorRepository;
 import fr.adoptunstage.spring.repos.CreatorRepository;
 import fr.adoptunstage.spring.repos.PartenaireEntrepriseRepository;
-import fr.adoptunstage.spring.payload.UploadFileResponse;
+
 
 @Service
 public class PartenaireService {

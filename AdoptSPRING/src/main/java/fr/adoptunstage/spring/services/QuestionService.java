@@ -24,7 +24,6 @@ public class QuestionService {
 	QuestionRepository repository;
 	
 	public List<Question> getAllQuestions() {
-		System.out.println("Affiche toutes les Faq...");
 
 		List<Question> questions = new ArrayList<>();
 		repository.findAll().forEach(questions::add);
