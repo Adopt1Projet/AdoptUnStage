@@ -1,6 +1,7 @@
 /* @import '~bootstrap/dist/css/bootstrap.css'; */
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@ngx-share/button/themes/modern/modern-light-theme';
 body {
     background-color: #efeded;
 }

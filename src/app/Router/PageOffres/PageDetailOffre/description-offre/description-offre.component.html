@@ -6,4 +6,19 @@
   <div class="row textDescOffre">
     <p>{{ offre.description }}</p>
   </div>
+  <share-buttons class="text-right mb-1 d-none d-lg-block" 
+    [theme]="'modern-light'" 
+    [include]="['facebook','twitter','linkedin']" 
+    [show]="3" 
+    [url]="[route]"
+  ></share-buttons>
+            
+  <share-buttons class="text-right mb-1 d-block d-lg-none" [theme]="'modern-light'"
+    [include]="['whatsapp','sms', 'email', 'messenger', 'facebook','twitter','linkedin']"
+    [show]="2"
+    [size]="-3"
+    [url]="[route]"
+  ></share-buttons>
+
+       
 </div>
