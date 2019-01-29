@@ -7,22 +7,22 @@
             <mat-card class="example-card card border-success mb-3 text-center" swSwipeable [width]="300" [height]="400"
                 [orientation]="'x'" (swiped)="removeBy(index)" *ngFor="let offre of offres2, let index = index">
                 <mat-card-header>
+                    <div mat-card-avatar class="{{offre.entreprise.logo.fileDownloadUri}}"></div>
                     <mat-card-title>{{offre.titre}}</mat-card-title>
                     <mat-card-subtitle>{{offre.entreprise.secteur}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Photo of a Shiba Inu">
                 <mat-card-content>
+                    <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Photo of a Shiba Inu">
                     <p>
                         {{offre.description}}
                     </p>
                 </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button style="justify-content: center"> <i [routerLink]="['/detailoffre', offre.id]"
-                            class="material-icons">remove_red_eye</i></button>
-                </mat-card-actions>
+                <mat-card-footer>
+                </mat-card-footer>
             </mat-card>
         </sw-card-wrapper>
     </div>
+
 
     <div class=" d-none d-sm-block example-container mat-elevation-z8">
         <mat-table #table [dataSource]="offres" [class.isMobile]="isMobile" matSort>
@@ -30,7 +30,8 @@
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
                     <span class="mobile-label"></span>
-                    <img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
+                    <img *ngIf="offre.entreprise.logo.fileDownloadUri" src="{{offre.entreprise.logo.fileDownloadUri}}"
+                        alt="logo entreprise">
                     <img *ngIf="offre.entreprise.logo.fileDownloadUri==null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
                 </mat-cell>
             </ng-container>
