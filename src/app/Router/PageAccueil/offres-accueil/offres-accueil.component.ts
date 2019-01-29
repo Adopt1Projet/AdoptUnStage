@@ -12,29 +12,40 @@ import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 export class OffresAccueilComponent implements OnInit {
   displayedColumns: string[] = ['logo', 'titre', 'entreprise', 'secteur', 'ville', 'codePostal', 'detail'];
 
-  // displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  // offre = new MatTableDataSource<Offre[]>();
 
+  public offres2: any;
   public array: any;
   public offres: any;
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
+  private readonly LIST = Array.from(new Array(10)).map((_, i) => i + 1);
   isMobile;
   pageEvent;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private offreService: OffreService) { }
+  constructor(private offreService: OffreService) {
+    this.offres2 = [...this.LIST];
+  }
 
   applyFilter(filterValue: string) {
     this.offres.filter = filterValue.trim().toLowerCase();
   }
 
+  public reset(): void {
+    this.offres2 = [...this.LIST];
+  }
+
+  public removeBy(index: number): void {
+    this.offres2.splice(index, 1);
+  }
+
   ngOnInit() {
     this.offreService.getAllOffres().subscribe
       (data => {
+        this.offres2 = <Offre[]>(data);
         this.offres = new MatTableDataSource<Offre[]>(data);
         setTimeout(() => {
           this.offres.paginator = this.paginator;
@@ -60,4 +71,8 @@ export class OffresAccueilComponent implements OnInit {
     const part = this.array.slice(start, end);
     this.array = part;
   }
+
+
+
+
 }
