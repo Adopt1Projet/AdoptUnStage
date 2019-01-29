@@ -49,7 +49,7 @@ tr.mat-row:hover {
 
 th.mat-header-cell {
     justify-content: flex-start;
-    background-color: #26a69a;
+    background-color: #7eccc1;
     font-size: 1.4em;
     font-weight: bold;
     color: white;
@@ -61,4 +61,21 @@ td.mat-cell {
 
 b {
     color: #FB6F07;
+}
+
+.titre {
+    background-color: #83c6bf;
+    margin-bottom: 2vh;
+    border-radius: 5px;
+}
+
+.borderCard {
+    border-style: solid;
+    border-color: #00ac9a;
+    box-shadow: 7px 7px #e1e8e7;
+    border-radius: 5px;
+}
+
+.motRelief {
+    font-weight: bold;
 }
