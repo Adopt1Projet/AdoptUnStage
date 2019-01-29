@@ -13,6 +13,7 @@ import { SwipeCardLibModule } from 'ng-swipe-card';
 
 
 
+
 // Elements fixes sur pages et accueil site: Accueil, Navbar, Footer, boutons accueil et connexion
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';

@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
-import { Entreprise } from 'src/app/modeles/entreprise';
-
 import { OffreService } from 'src/app/services/offre.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
@@ -14,20 +12,14 @@ import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 export class OffresAccueilComponent implements OnInit {
   displayedColumns: string[] = ['logo', 'titre', 'entreprise', 'secteur', 'ville', 'codePostal', 'detail'];
 
-  // displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  // offre = new MatTableDataSource<Offre[]>();
-  // public offres2: any;
 
+  public offres2: any;
   public array: any;
   public offres: any;
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
-
   private readonly LIST = Array.from(new Array(10)).map((_, i) => i + 1);
-
-  public offres2: any;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 

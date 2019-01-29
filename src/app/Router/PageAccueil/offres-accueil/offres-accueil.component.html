@@ -2,65 +2,30 @@
     <div class="titre">
         <h2>DERNIÈRES OFFRES</h2>
     </div>
-
-
-
     <div class="container d-block d-sm-none">
         <sw-card-wrapper #cardWrapper>
-            <mat-card class="card" *ngFor="let offre of offres2, let index = index" swSwipeable [width]="300" [height]="400"
-                [orientation]="'x'" (swiped)="removeBy(index)">
-                {{offre.titre}}
+            <mat-card class="example-card card border-success mb-3 text-center" swSwipeable [width]="300" [height]="400"
+                [orientation]="'x'" (swiped)="removeBy(index)" *ngFor="let offre of offres2, let index = index">
                 <mat-card-header>
-                    <img mat-card-avatar src="{{offre.entreprise.logo.fileDownloadUri}}">
-                    <mat-card-title>{{offre.entreprise.raisonSociale}}</mat-card-title>
+                    <mat-card-title>{{offre.titre}}</mat-card-title>
                     <mat-card-subtitle>{{offre.entreprise.secteur}}</mat-card-subtitle>
                 </mat-card-header>
-                <!-- <div class="btn-block">
-                <button (click)="cardWrapper.dislike()">dislike</button>
-                <button (click)="cardWrapper.like()">like</button>
-            </div> -->
-                <!-- <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}"> -->
-
+                <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Photo of a Shiba Inu">
                 <mat-card-content>
-                    <p>{{offre.dateDebut}}</p>
-                    <p>{{offre.description}}</p>
-                    <p>{{offre.ville}}</p>
-                    <p>{{offre.codePostal}}</p>
-                    <p>{{offre.active}}</p>
-
-
-
-
+                    <p>
+                        {{offre.description}}
+                    </p>
                 </mat-card-content>
-
+                <mat-card-actions>
+                    <button mat-button style="justify-content: center"> <i [routerLink]="['/detailoffre', offre.id]"
+                            class="material-icons">remove_red_eye</i></button>
+                </mat-card-actions>
             </mat-card>
         </sw-card-wrapper>
     </div>
 
-
-
-    <!-- <sw-card-wrapper #cardWrapper>
-
-        <mat-card *ngFor="let offre of offres2, let index = index" swSwipeable [orientation]="'x'" (swiped)="removeBy(index)">
-            <mat-card-header>
-                <img mat-card-avatar src="https://source.unsplash.com/random/200x200">
-                <mat-card-title>{{offre.titre}}</mat-card-title>
-                <mat-card-subtitle>Really, they are!</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://source.unsplash.com/random/800x600">
-            <mat-card-content>
-                <p>Something pretty...</p>
-            </mat-card-content>
-        </mat-card>
-
-    </sw-card-wrapper> -->
-
-
-
-
     <div class=" d-none d-sm-block example-container mat-elevation-z8">
         <mat-table #table [dataSource]="offres" [class.isMobile]="isMobile" matSort>
-
             <ng-container matColumnDef="logo">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -68,7 +33,6 @@
                     <img src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="titre">
                 <mat-header-cell *matHeaderCellDef> Offre </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -76,7 +40,6 @@
                     <b>{{offre.titre}}</b>
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="entreprise">
                 <mat-header-cell *matHeaderCellDef> Entreprise </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -84,7 +47,6 @@
                     {{offre.entreprise.raisonSociale}} <br>
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="secteur">
                 <mat-header-cell *matHeaderCellDef> Secteur </mat-header-cell>
                 <mat-cell [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -92,7 +54,6 @@
                     {{offre.entreprise.secteur}}
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="codePostal">
                 <mat-header-cell style="justify-content: center" *matHeaderCellDef> CP </mat-header-cell>
                 <mat-cell style="justify-content: center" [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -100,7 +61,6 @@
                     {{offre.codePostal}}
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="ville">
                 <mat-header-cell style="justify-content: center" *matHeaderCellDef> Ville </mat-header-cell>
                 <mat-cell style="justify-content: center" [routerLink]="['/detailoffre', offre.id]" *matCellDef="let offre">
@@ -108,13 +68,11 @@
                     <b>{{offre.ville}}</b>
                 </mat-cell>
             </ng-container>
-
             <ng-container matColumnDef="detail">
                 <mat-header-cell style="justify-content: center" *matHeaderCellDef>Détails</mat-header-cell>
                 <mat-cell style="justify-content: center" *matCellDef="let offre"> <i [routerLink]="['/detailoffre', offre.id]"
                         class="material-icons">remove_red_eye</i> </mat-cell>
             </ng-container>
-
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
@@ -125,6 +83,4 @@
             toutes les offres</button>
     </div>
     <br>
-
-
 </div>
