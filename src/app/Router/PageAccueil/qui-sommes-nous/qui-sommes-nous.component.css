@@ -11,9 +11,24 @@
 h2 {
     color: #FB6F07;
     font-weight: bolder;
+    padding-top: 2vw;
+    padding-bottom: 2vh;
 }
 
 .videoQsn {
     display: flex;
     align-items: center;
+    background-color:  #26a69a;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+a {
+    color: #26a69a;
+}
+
+a:hover {
+    color: #008472;
 }

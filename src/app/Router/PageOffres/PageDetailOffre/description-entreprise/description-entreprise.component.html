@@ -19,9 +19,12 @@
     <div class="col-6">
       <p>{{offre.entreprise.description}}</p>
     </div>
-    <div class="col-6">
+    <div *ngIf="offre.entreprise.siteWeb" class="col-6">
       <p><b>Site web :</b></p>
       <a href="{{ offre.entreprise.siteWeb }}" target="_blank"><b>{{ offre.entreprise.siteWeb }}</b></a>
     </div>
   </div>
 </div>
+
+
+        

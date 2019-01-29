@@ -1,6 +1,6 @@
 <div *ngIf="offres || offresPourvues" class="container bodyGestionCandidatures">
   <h2 class="titre text-center">GESTION DES CANDIDATURES</h2>
-  <div *ngIf="offres.length; else noTableResults">
+  <div *ngIf="offres.length != 0; else noTableResults">
     <h4>Mes candidatures en cours <img src="/assets/img/happy.png" alt=""> </h4>
     <br>
     <table *ngIf="offres.length; else noTableResults" class="table table-striped thead-light table-hover" id="content"
@@ -14,13 +14,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let offre of offres" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
-          <td> {{offre.titre}} </td>
-          <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
+          <td> <b>{{offre.titre}}</b> </td>
+          <td> du {{offre.dateDebut}} au {{offre.dateFin}} </td>
           <td> {{offre.rue}} , {{offre.codePostal}} {{offre.ville}}</td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-primary" (click)="downloadPDF()">Enregistre et imprime tes candidatures</button>
+    <button class="btn btn-primary" (click)="downloadPDF()">Enregistre/Imprime tes candidatures</button>
   </div>
   <ng-template #noTableResults>
     <h3 class="text-center">
@@ -40,8 +40,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let offrePourvue of offresPourvues" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offrePourvue.id]">
-        <td> {{offrePourvue.titre}} </td>
-        <td> {{offrePourvue.dateDebut}} à {{offrePourvue.dateFin}} </td>
+        <td> <b>{{offrePourvue.titre}}</b> </td>
+        <td> du {{offrePourvue.dateDebut}} au {{offrePourvue.dateFin}} </td>
         <td> {{offrePourvue.rue}}, {{offrePourvue.codePostal}} {{offrePourvue.ville}}</td>
       </tr>
     </tbody>

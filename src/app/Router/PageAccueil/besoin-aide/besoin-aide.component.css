@@ -18,3 +18,11 @@ img {
 p {
     font-size: 1.2em;
 }
+
+a {
+    color: #26a69a;
+}
+
+a:hover {
+    color: #008472;
+}

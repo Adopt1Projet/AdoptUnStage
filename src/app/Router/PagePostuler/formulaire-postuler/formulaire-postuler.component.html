@@ -17,14 +17,19 @@
 
     </div>
     <app-alert></app-alert>
+    <a class="lienCV" *ngIf="lienCV == true" routerLink="/boardstagiaire/infosstagiaire">Ajoute un CV sur ton profil !</a>
     <div *ngIf="postuler == true" class="row btnPost d-flex justify-content-center">
       <button type="button" class="col-md-6 btn btnRetour" routerLink="/offres">Revenir à la liste d'offres</button>
     </div>
+
+    <div class="text-center">
+      <img *ngIf="loading == true" src="assets/img/loading.gif" />
+    </div>
+
     <div *ngIf="postuler == false" class="row btnPost d-flex justify-content-around">
-
       <button type="button" class="col-md-4 col-sm-5 btn btnRetour mb-2" (click)="retourPage()">Retour</button>
-
       <button type="submit" class="col-md-4 col-sm-5 btn btnValid mb-2">Valider la <br>candidature</button>
     </div>
+
   </form>
 </div>

@@ -20,7 +20,6 @@ export class InfosStagiaireComponent implements OnInit {
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
   confirmResult = null;
-  loading = false;
   submitted = false;
   private username;
   public stagiaire: any;
@@ -192,7 +191,6 @@ export class InfosStagiaireComponent implements OnInit {
   onSubmitPassword() {
     this.submitted = true;
     this.submitForm = false;
-    this.loading = true;
     this.submitFormPassword = true;
     if (this.formUpdatePassword.invalid) {
       return;

@@ -95,151 +95,299 @@ import { PageAccueilCollegesAdminComponent } from './Router/PageAdmin/PageColleg
 import { CreerCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/creer-college-admin/creer-college-admin.component';
 import { ModifierCollegeAdminComponent } from './Router/PageAdmin/PageCollegesAdmin/modifier-college-admin/modifier-college-admin.component';
 
-
-
 const routes: Routes = [
   { path: 'connexion', component: PageConnexionComponent },
   { path: 'accueil', component: PageAccueilComponent },
-  { path: 'postuler/:id', canActivate: [AuthGuardStagiaire], component: PagePostulerComponent },
-  { path: 'inscriptionstagiaire', component: PageInscriptionStagiaireComponent },
+  {
+    path: 'postuler/:id',
+    canActivate: [AuthGuardStagiaire],
+    component: PagePostulerComponent
+  },
+  {
+    path: 'inscriptionstagiaire',
+    component: PageInscriptionStagiaireComponent
+  },
   { path: 'offres', component: PageOffresComponent },
-  { path: 'inscriptionentreprise', component: PageInscriptionEntrepriseComponent },
+  {
+    path: 'inscriptionentreprise',
+    component: PageInscriptionEntrepriseComponent
+  },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 
   {
-    path: 'admin', canActivate: [AuthGuardAdmin], component: PageAdminComponent, children: [
+    path: 'admin',
+    canActivate: [AuthGuardAdmin],
+    component: PageAdminComponent,
+    children: [
       { path: 'dashboard', component: DashboardAdminComponent },
       {
-        path: 'actus', component: PageActuAdminComponent, children: [
+        path: 'actus',
+        component: PageActuAdminComponent,
+        children: [
           { path: 'listeactus', component: ActuAdminComponent },
           { path: 'creeractu', component: CreateActuAdminComponent },
           { path: 'accueilactu', component: PageAccueilActuAdminComponent },
           { path: 'modifieractu/:id', component: ModifierActuAdminComponent },
-          { path: '', redirectTo: '/admin/actus/accueilactu', pathMatch: 'full' },
-        ]
-      },
-      {path: 'aide', component: PageAideAdminComponent, children: [
-          { path: 'accueilaide', component: PageAccueilAideAdminComponent},
-          { path: 'listeaide', component: ListeAideAdminComponent},
-          { path: 'creeraide', component: CreerAideAdminComponent},
-          { path: 'modifieraide/:id', component: ModifierAideAdminComponent},
-          { path: '', redirectTo: '/admin/aide/accueilaide', pathMatch: 'full'},
+          {
+            path: '',
+            redirectTo: '/admin/actus/accueilactu',
+            pathMatch: 'full'
+          }
         ]
       },
       {
-        path: 'faq', component: PageFaqAdminComponent, children: [
+        path: 'aide',
+        component: PageAideAdminComponent,
+        children: [
+          { path: 'accueilaide', component: PageAccueilAideAdminComponent },
+          { path: 'listeaide', component: ListeAideAdminComponent },
+          { path: 'creeraide', component: CreerAideAdminComponent },
+          { path: 'modifieraide/:id', component: ModifierAideAdminComponent },
+          { path: '', redirectTo: '/admin/aide/accueilaide', pathMatch: 'full' }
+        ]
+      },
+      {
+        path: 'faq',
+        component: PageFaqAdminComponent,
+        children: [
           { path: 'accueilfaq', component: PageAccueilFaqAdminComponent },
           { path: 'listefaq', component: FaqAdminComponent },
           { path: 'creerfaq', component: CreerFaqAdminComponent },
           { path: 'modifierfaq/:id', component: ModifierFaqAdminComponent },
-          { path: '', redirectTo: '/admin/faq/accueilfaq', pathMatch: 'full' },
+          { path: '', redirectTo: '/admin/faq/accueilfaq', pathMatch: 'full' }
         ]
       },
       {
-        path: 'partenaires', component: PagePartenairesAdminComponent, children: [
-          { path: 'accueilpartenaires', component: PageAccueilPartenairesAdminComponent },
-          { path: 'acteurs', component: BtnActeursAdminComponent, children: [
-            { path: 'listeacteurs', component: ActeursPartenairesAdminComponent},
-            { path: 'creeracteur', component: CreerActeurAdminComponent },
-            { path: 'modifieracteur/:id', component: ModifierActeurAdminComponent}
-          ] },
-          { path: 'createurs', component: BtnCreateursAdminComponent, children: [
-            { path: 'listecreateurs', component: CreateursPartenairesAdminComponent},
-            { path: 'creercreateur', component: CreerCreateurAdminComponent },
-            { path: 'modifiercreateur/:id', component: ModifierCreateurAdminComponent},
-          ] },
-          { path: 'entreprises', component: BtnEntreprisesAdminComponent, children: [
-            { path: 'listeentreprises', component: EntreprisesPartenairesAdminComponent},
-            { path: 'listeentreprisesparticipantes', component: EntreprisesActiveAdminComponent},
-            { path: 'creerentreprise', component: CreerPartenaireEntrepriseAdminComponent },
-            { path: 'modifierentreprise/:id', component: ModifierPartenaireEntrepriseAdminComponent},
-          ] },          
-          { path: '', redirectTo: '/admin/partenaires/accueilpartenaires', pathMatch: 'full' },
+        path: 'partenaires',
+        component: PagePartenairesAdminComponent,
+        children: [
+          {
+            path: 'accueilpartenaires',
+            component: PageAccueilPartenairesAdminComponent
+          },
+          {
+            path: 'acteurs',
+            component: BtnActeursAdminComponent,
+            children: [
+              {
+                path: 'listeacteurs',
+                component: ActeursPartenairesAdminComponent
+              },
+              { path: 'creeracteur', component: CreerActeurAdminComponent },
+              {
+                path: 'modifieracteur/:id',
+                component: ModifierActeurAdminComponent
+              }
+            ]
+          },
+          {
+            path: 'createurs',
+            component: BtnCreateursAdminComponent,
+            children: [
+              {
+                path: 'listecreateurs',
+                component: CreateursPartenairesAdminComponent
+              },
+              { path: 'creercreateur', component: CreerCreateurAdminComponent },
+              {
+                path: 'modifiercreateur/:id',
+                component: ModifierCreateurAdminComponent
+              }
+            ]
+          },
+          {
+            path: 'entreprises',
+            component: BtnEntreprisesAdminComponent,
+            children: [
+              {
+                path: 'listeentreprises',
+                component: EntreprisesPartenairesAdminComponent
+              },
+              {
+                path: 'listeentreprisesparticipantes',
+                component: EntreprisesActiveAdminComponent
+              },
+              {
+                path: 'creerentreprise',
+                component: CreerPartenaireEntrepriseAdminComponent
+              },
+              {
+                path: 'modifierentreprise/:id',
+                component: ModifierPartenaireEntrepriseAdminComponent
+              }
+            ]
+          },
+          {
+            path: '',
+            redirectTo: '/admin/partenaires/accueilpartenaires',
+            pathMatch: 'full'
+          }
         ]
       },
       {
-        path: 'offres', component: PageOffresAdminComponent, children: [
+        path: 'offres',
+        component: PageOffresAdminComponent,
+        children: [
           { path: 'accueiloffres', component: PageAccueilOffresAdminComponent },
           { path: 'listeoffres', component: OffresAdminComponent },
-          { path: 'postulantsoffre/:id', component: PostulantsOffreAdminComponent },
-          { path: 'modifieroffre/:id', component: PageModifierOffreAdminComponent },
-          { path: '', redirectTo: '/admin/offres/accueiloffres', pathMatch: 'full' },
+          {
+            path: 'postulantsoffre/:id',
+            component: PostulantsOffreAdminComponent
+          },
+          {
+            path: 'modifieroffre/:id',
+            component: PageModifierOffreAdminComponent
+          },
+          {
+            path: '',
+            redirectTo: '/admin/offres/accueiloffres',
+            pathMatch: 'full'
+          }
         ]
       },
       {
-        path: 'stagiaires', component: PageStagiaireAdminComponent, children: [
-          { path: 'accueilstagiaires', component: PageAccueilStagiairesAdminComponent },
+        path: 'stagiaires',
+        component: PageStagiaireAdminComponent,
+        children: [
+          {
+            path: 'accueilstagiaires',
+            component: PageAccueilStagiairesAdminComponent
+          },
           { path: 'listestagiaires', component: StagiairesAdminComponent },
-          { path: 'modifierstagiaire/:id', component: ModifierStagiaireAdminComponent },
+          {
+            path: 'modifierstagiaire/:id',
+            component: ModifierStagiaireAdminComponent
+          },
           { path: 'creerstagiaire', component: CreerStagiaireAdminComponent },
-          { path: 'candidaturesstagiaire/:username', component: CandidaturesStagiaireAdminComponent },
-          { path: '', redirectTo: '/admin/stagiaires/accueilstagiaires', pathMatch: 'full' },
+          {
+            path: 'candidaturesstagiaire/:username',
+            component: CandidaturesStagiaireAdminComponent
+          },
+          {
+            path: '',
+            redirectTo: '/admin/stagiaires/accueilstagiaires',
+            pathMatch: 'full'
+          }
         ]
       },
       {
-        path: 'entreprises', component: PageEntrepriseAdminComponent, children: [
-          { path: 'accueilentreprises', component: PageAccueilEntreprisesAdminComponent },
+        path: 'entreprises',
+        component: PageEntrepriseAdminComponent,
+        children: [
+          {
+            path: 'accueilentreprises',
+            component: PageAccueilEntreprisesAdminComponent
+          },
           { path: 'listeentreprises', component: EntreprisesAdminComponent },
-          { path: 'modifierentreprise/:username', component: ModifierEntrepriseAdminComponent },
+          {
+            path: 'modifierentreprise/:username',
+            component: ModifierEntrepriseAdminComponent
+          },
           { path: 'creerentreprise', component: CreerEntrepriseAdminComponent },
-          { path: 'offresentreprise/:username', component: OffresEntrepriseAdminComponent },
-          { path: '', redirectTo: '/admin/entreprises/accueilentreprises', pathMatch: 'full' },
+          {
+            path: 'offresentreprise/:username',
+            component: OffresEntrepriseAdminComponent
+          },
+          {
+            path: '',
+            redirectTo: '/admin/entreprises/accueilentreprises',
+            pathMatch: 'full'
+          }
         ]
       },
-      { path: 'colleges', component: PageCollegesAdminComponent, children: [
-        { path: 'accueilcolleges', component: PageAccueilCollegesAdminComponent },
-        { path: 'listecolleges', component: CollegesAdminComponent },
-        { path: 'ajoutercollege', component: CreerCollegeAdminComponent },
-        { path: 'modifiercollege/:id', component: ModifierCollegeAdminComponent },
-        { path: '', redirectTo: '/admin/colleges/accueilcolleges', pathMatch: 'full' },
-      ] },
+      {
+        path: 'colleges',
+        component: PageCollegesAdminComponent,
+        children: [
+          {
+            path: 'accueilcolleges',
+            component: PageAccueilCollegesAdminComponent
+          },
+          { path: 'listecolleges', component: CollegesAdminComponent },
+          { path: 'ajoutercollege', component: CreerCollegeAdminComponent },
+          {
+            path: 'modifiercollege/:id',
+            component: ModifierCollegeAdminComponent
+          },
+          {
+            path: '',
+            redirectTo: '/admin/colleges/accueilcolleges',
+            pathMatch: 'full'
+          }
+        ]
+      },
 
-
-      { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }
     ]
   },
 
   { path: 'partenaires', component: PagePartenairesComponent },
-  { path: 'detailoffre/:id', canActivate: [AuthGuard], component: PageDetailOffreComponent },
+  {
+    path: 'detailoffre/:id',
+    canActivate: [AuthGuard],
+    component: PageDetailOffreComponent
+  },
   { path: 'quisommesnous', component: PageQuiSommesNousComponent },
   {
-    path: 'boardstagiaire', canActivate: [AuthGuardStagiaire], component: PageBoardStagiaireComponent, children: [
+    path: 'boardstagiaire',
+    canActivate: [AuthGuardStagiaire],
+    component: PageBoardStagiaireComponent,
+    children: [
       { path: 'gestionstagiaire', component: GestionCandidaturesComponent },
       { path: 'infosstagiaire', component: InfosStagiaireComponent },
       { path: 'listeoffres', component: PageOffresComponent },
-      { path: '', redirectTo: '/boardstagiaire/gestionstagiaire', pathMatch: 'full' },
+      {
+        path: '',
+        redirectTo: '/boardstagiaire/gestionstagiaire',
+        pathMatch: 'full'
+      }
     ]
   },
   { path: 'actus', component: PageActusComponent },
   { path: 'article/:id', component: ActuDetailComponent },
   {
-    path: 'boardentreprise', canActivate: [AuthGuardEntreprise], component: PageBoardEntrepriseComponent, children: [
+    path: 'boardentreprise',
+    canActivate: [AuthGuardEntreprise],
+    component: PageBoardEntrepriseComponent,
+    children: [
       { path: 'creeroffre', component: FormulaireCreerOffreComponent },
       { path: 'gestionoffres', component: GestionDesOffresComponent },
       { path: 'infosentreprise', component: InfosEntrepriseComponent },
-      { path: 'gestionoffres/modifieroffre/:id', component: ModifierOffreComponent },
-      { path: 'gestionoffres/postulants/:id', component: ListePostulantsComponent },
+      {
+        path: 'gestionoffres/modifieroffre/:id',
+        component: ModifierOffreComponent
+      },
+      {
+        path: 'gestionoffres/postulants/:id',
+        component: ListePostulantsComponent
+      },
       { path: 'offre-item', component: OffreItemComponent },
-      { path: '', redirectTo: '/boardentreprise/gestionoffres', pathMatch: 'full' },
+      {
+        path: '',
+        redirectTo: '/boardentreprise/gestionoffres',
+        pathMatch: 'full'
+      }
     ]
   },
   {
-    path: 'boiteaoutils', component: PageBoiteAOutilsComponent, children: [
+    path: 'boiteaoutils',
+    component: PageBoiteAOutilsComponent,
+    children: [
       { path: 'faq', component: PageFaqComponent },
       { path: 'aide', component: PageAideComponent },
       { path: 'contact', component: PageContactezNousComponent },
-      { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' },
+      { path: '', redirectTo: '/boiteaoutils/aide', pathMatch: 'full' }
     ]
   },
 
   { path: 'non-connecte', component: PageNonConnecteComponent },
   { path: 'detail-non-connecte', component: PageDetailNonConnecteComponent },
   { path: 'erreur404', component: PageErrorComponent },
-  { path: '**', redirectTo: 'erreur404' },
+  { path: '**', redirectTo: 'erreur404' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

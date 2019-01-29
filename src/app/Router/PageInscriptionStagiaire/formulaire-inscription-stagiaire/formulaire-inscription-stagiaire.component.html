@@ -139,12 +139,6 @@
                     'check_circle' }}</i>
                 Doit contenir au minimum une lettre minuscule!
             </label>
-            <!-- <label class="col" [ngClass]="formCreate.controls['password'].hasError('required') || formCreate.controls['password'].hasError('hasSpecialCharacters') ? 'text-danger' : 'text-success'">
-              <i class="material-icons">{{ formCreate.controls['password'].hasError('required') ||
-                formCreate.controls['password'].hasError('hasSpecialCharacters') ? 'cancel' :
-                'check_circle' }}</i>
-              Must contain at least 1 Special Character!
-            </label> -->
         </div>
 
         <div class="form-group">
@@ -173,9 +167,11 @@
 
         <div class="form-group d-flex justify-content-around">
             <button (click)="retourPage()" type="button" class="btn btnRetour col-4 col-sm-5">Retour</button>
-
             <button type="submit" class="btn btnValider col-4 col-sm-5">Valider</button>
-            <img *ngIf="loading" src="../../../../assets/img/loading.gif" />
+        </div>
+
+        <div class="form-group d-flex justify-content-around">  
+            <img *ngIf="loading" src="assets/img/loading.gif" />
         </div>
 
     </form>

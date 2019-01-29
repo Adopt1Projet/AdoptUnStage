@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from 'src/app/services/partenaire.service';
+import { Observable } from 'rxjs';
+import { Partenaire } from 'src/app/modeles/partenaire';
 
 @Component({
   selector: 'app-remerciements',
@@ -8,14 +10,13 @@ import { PartenaireService } from 'src/app/services/partenaire.service';
 })
 export class RemerciementsComponent implements OnInit {
 
-  public createurs : any;
+  public createurs : Observable<Partenaire>;
 
   constructor(private partenaireService : PartenaireService) { }
 
   ngOnInit() {
-    this.createurs = this.partenaireService.getAllCreators()
-      .subscribe(data => {this.createurs = data;
-                          console.log(this.createurs)});
+    this.partenaireService.getAllCreators()
+      .subscribe(data => this.createurs = data);
   }
 
 }

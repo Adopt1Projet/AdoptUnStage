@@ -129,7 +129,7 @@
     <form class="col-md-8" (ngSubmit)="onSubmitPassword()" [formGroup]="formUpdatePassword">
 
         <div class="col-sm-12 titres">
-            <h2>MODIFIER MON MOT-DE-PASSE</h2>
+            <h2>MODIFIER MON MOT DE PASSE</h2>
         </div>
 
         <div class="form-group">
@@ -186,9 +186,9 @@
             <button type="submit" class="btn btnValider col-4 col-sm-5">Modifier le mot
                 de passe</button>
         </div>
+        <div class="form-group d-flex justify-content-around">
+            <button (click)=onClickDeleteUser() class="btn btnSupprimer col-4 col-sm-5">Supprimer
+                définitivement mon compte</button>
+        </div>
     </form>
-    <div class="form-group d-flex justify-content-around">
-        <button (click)=onClickDeleteUser() class="btn btnSupprimer col-4 col-sm-5">Supprimer
-            définitivement mon compte</button>
-    </div>
 </div>

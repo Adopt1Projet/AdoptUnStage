@@ -1,52 +1,54 @@
 <div *ngIf="isInfo==false" class="row mt-5 mb-5 justify-content-center">
-    <div id="lol">
+  <div id="lol">
 
-          <div class=" pt-5 pb-5 inscriptionStagiaire text-center" id="leftSide">
-            <h5 class="ml-5 mr-5">Tu es un <span style="font-weight: bolder">COLLEGIEN</span> et tu cherches un stage de 3ème ?</h5>
-            <ol class="ordonnedList">
-              <li>Inscris-toi.</li>
-              <li>Consulte les offres.</li>
-              <li>Postule !</li>
-            </ol>
-            <button type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire">
-              <h4>C'est parti !</h4>
-            </button>
-          </div>
+    <div class=" pt-5 pb-5 inscriptionStagiaire text-center" id="leftSide">
+      <h5 class="ml-5 mr-5">Tu es un <span style="font-weight: bolder">COLLEGIEN</span> et tu cherches un stage de 3ème
+        ?</h5>
+      <ol class="ordonnedList">
+        <li>Inscris-toi.</li>
+        <li>Consulte les offres.</li>
+        <li>Postule !</li>
+      </ol>
+      <button type="button" class="btn btnStagiaire" routerLink="/inscriptionstagiaire">
+        <h4>C'est parti !</h4>
+      </button>
+    </div>
 
-          <div class="pt-5 pb-5 inscriptionEntreprise text-center" id="rightSide">
-            <img src="../../../../assets/img/Logoapp.png" alt="">
-            <h5 class="mr-5 ml-5">Vous êtes une <span style="font-weight: bolder">ENTREPRISE </span>et vous cherchez à recruter un stagiaire de 3ème?</h5>
-            <ol class="ordonnedList">
-              <li>Inscrivez-vous.</li>
-              <li>Déposez vos offres.</li>
-              <li>Recrutez.</li>
-            </ol>
-            <button type="button" class="btn btnEntreprise" routerLink="/inscriptionentreprise">
-              <h4>Allons y !</h4>
-            </button>
-          </div>
+    <div class="pt-5 pb-5 text-center" id="rightSide">
+      <img src="../../../../assets/img/Logoapp.png" alt="">
+      <h5 class="mr-5 ml-5">Vous êtes une <span style="font-weight: bolder">ENTREPRISE </span>et vous cherchez à
+        recruter un stagiaire de 3ème?</h5>
+      <ol class="ordonnedList">
+        <li>Inscrivez-vous.</li>
+        <li>Déposez vos offres.</li>
+        <li>Recrutez.</li>
+      </ol>
+      <button type="button" class="btn btnEntreprise" routerLink="/inscriptionentreprise">
+        <h4>Allons y !</h4>
+      </button>
+    </div>
 
-      </div>
-
-<div *ngIf="isStagiaire==true" class="row mt-5 mb-5 justify-content-center">
-  <div class="col-12 pt-5 pb-5 inscriptionStagiaire text-center">
-    <h4 *ngIf="stagiaire" class="ml-5 mr-5">Bonjour {{stagiaire.prenom}} !</h4>
-    <h5>Tu peux dès maintenant consulter la liste des offres disponibles et postuler !</h5>
-    <br>
-    <button type="button" class="btn btnStagiaire" routerLink="/offres">
-      <h4>Voir les offres !</h4>
-    </button>
   </div>
 </div>
 
-<div *ngIf="isEntreprise==true" class="row mt-5 mb-5 justify-content-center">
-  <div class="col-12 pt-5 pb-5 inscriptionEntreprise text-center">
-    <h4 *ngIf="entreprise" class="mr-5 ml-5">Bonjour {{entreprise.raisonSociale}} !</h4>
-    <h5>Vous pouvez désormais déposer vos offres pour recruter des stagiaires.</h5>
-    <br>
-    <button type="button" class="btn btnEntreprise" routerLink="/boardentreprise/creeroffre">
-      <h4>Déposez des offres</h4>
-    </button>
+  <div *ngIf="isStagiaire==true" class="row mt-5 mb-5 justify-content-center">
+    <div class="col-12 pt-5 pb-5 inscriptionStagiaire text-center">
+      <h4 *ngIf="stagiaire" class="ml-5 mr-5">Bonjour {{stagiaire.prenom}} !</h4>
+      <h5>Tu peux dès maintenant consulter la liste des offres disponibles et postuler !</h5>
+      <br>
+      <button type="button" class="btn btnStagiaire" routerLink="/offres">
+        <h4>Voir les offres !</h4>
+      </button>
+    </div>
   </div>
-</div>
 
+  <div *ngIf="isEntreprise==true" class="row mt-5 mb-5 justify-content-center">
+    <div class="col-12 pt-5 pb-5 inscriptionEntreprise text-center">
+      <h4 *ngIf="entreprise" class="mr-5 ml-5">Bonjour {{entreprise.raisonSociale}} !</h4>
+      <h5>Vous pouvez désormais déposer vos offres pour recruter des stagiaires.</h5>
+      <br>
+      <button type="button" class="btn btnEntreprise" routerLink="/boardentreprise/creeroffre">
+        <h4>Déposez des offres</h4>
+      </button>
+    </div>
+  </div>
