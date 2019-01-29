@@ -16,7 +16,7 @@ Il a été réalisé par 5 développeurs juniors, dans le cadre de leur formatio
 
 ### Installing
 
-To install this example application, run the following commands:
+To install this application, run the following commands:
 
 ```bash
 git clone https://github.com/Adopt1Projet/AdoptUnStage.git
