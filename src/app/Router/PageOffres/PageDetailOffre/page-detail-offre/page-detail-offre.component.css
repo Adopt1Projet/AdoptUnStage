@@ -2,6 +2,14 @@
     background-color: #fff;
 
 }
+h2 {
+    color: #FB6F07 !important;
+}
+
+h3 {
+    color: #26a69a;
+    text-transform: uppercase;
+}
 
 .headerDetailOffre {
     padding-top: 3%;

@@ -1,27 +1,27 @@
 <div class="container descEntrepriseBody">
   <h2><i class="material-icons md-36">location_city</i>Employeur</h2>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <img *ngIf="offre.entreprise.logo.fileDownloadUri" class="imgDescEntreprise" src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo entreprise">    
       <img *ngIf="offre.entreprise.logo.fileDownloadUri == null" class="imgDescEntreprise" src="assets/img/LogoAdopt.png"
         alt="logo par default">
       
     </div>
-    <div class="col-6">
-      <h4><b>{{ offre.entreprise.raisonSociale }}</b></h4>
-      <p><b>Secteur d'activité :</b></p>
-      <p>{{ offre.entreprise.secteur }}</p>
-      <p><b>Statut :</b></p>
-      <p>{{ offre.entreprise.statut }}</p>
+    <div class="row col-12 col-md-6">
+      <h4 class="col-12"><b>{{ offre.entreprise.raisonSociale }}</b></h4>
+      <p class="col-6 col-md-12"><b>Secteur d'activité :</b></p>
+      <p class="col-6 col-md-12">{{ offre.entreprise.secteur }}</p>
+      <p class="col-6 col-md-12"><b>Statut :</b></p>
+      <p class="col-6 col-md-12">{{ offre.entreprise.statut }}</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <p>{{offre.entreprise.description}}</p>
     </div>
-    <div *ngIf="offre.entreprise.siteWeb" class="col-6">
-      <p><b>Site web :</b></p>
-      <a href="{{ offre.entreprise.siteWeb }}" target="_blank"><b>{{ offre.entreprise.siteWeb }}</b></a>
+    <div *ngIf="offre.entreprise.siteWeb" class="row col-12 col-md-6">
+      <p class="col-6 col-md-12"><b>Site web :</b></p>
+      <a class="col-6 col-md-12" href="{{ offre.entreprise.siteWeb }}" target="_blank"><b>{{ offre.entreprise.siteWeb }}</b></a>
     </div>
   </div>
 </div>
