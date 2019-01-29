@@ -46,6 +46,6 @@ To run the server, cd into the `AdoptSPRING` folder and run:
 * [Julien Chevrot](https://github.com/juliendcode)
 * [Ioannis Nikas](https://github.com/Alvardh)
 
-### Implementation period :
+## Implementation period :
 
 Novembre 2018 à Janvier 2019
