@@ -11,6 +11,7 @@ import * as moment from 'moment';
 })
 export class ListeOffresComponent implements OnInit {
   displayedColumns: string[] = ['logo', 'titre', 'secteur', 'ville', 'period', 'detail', 'etat'];
+  public offres2: any;
   public array: any;
   public offres: any;
   public pageSize = 5;
@@ -23,7 +24,7 @@ export class ListeOffresComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private offreService: OffreService,) { }
+    private offreService: OffreService, ) { }
 
 
   applyFilter(filterValue: string) {
@@ -47,6 +48,7 @@ export class ListeOffresComponent implements OnInit {
     setTimeout(() => {
       this.offreService.getAllOffres().subscribe
         (data => {
+          this.offres2 = data;
           this.offres = data;
           for (let i = 0; i < this.offres.length; i++) {
             this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
@@ -54,7 +56,7 @@ export class ListeOffresComponent implements OnInit {
           }
           this.offres.map(offre => {
             offre.raisonSociale = offre.entreprise.raisonSociale;
-            offre.period = offre.dateDebut + ` <br/> au <br/>` +  offre.dateFin;
+            offre.period = offre.dateDebut + ` <br/> au <br/>` + offre.dateFin;
             offre.secteur = offre.entreprise.secteur;
           })
           this.offres = new MatTableDataSource<Offre[]>(data);
