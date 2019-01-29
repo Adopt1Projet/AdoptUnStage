@@ -26,8 +26,8 @@ export class ListeEntreprisesComponent implements OnInit {
       })
 
     this.partenaireService.getAllEntreprises()
-      .subscribe(data2 => {
-      this.entreprisesPartenaires = data2;
+      .subscribe(data => {
+      this.entreprisesPartenaires = data;
       })
   }
 }
