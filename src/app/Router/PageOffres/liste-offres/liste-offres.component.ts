@@ -10,7 +10,15 @@ import * as moment from 'moment';
   styleUrls: ['./liste-offres.component.css']
 })
 export class ListeOffresComponent implements OnInit {
-  displayedColumns: string[] = ['logo', 'titre', 'secteur', 'ville', 'period', 'detail', 'etat'];
+  displayedColumns: string[] = [
+    'logo',
+    'titre',
+    'secteur',
+    'ville',
+    'period',
+    'detail',
+    'etat'
+  ];
   public offres2: any;
   public array: any;
   public offres: any;
@@ -20,12 +28,12 @@ export class ListeOffresComponent implements OnInit {
   confirmResult = null;
   pageEvent;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
-  constructor(
-    private offreService: OffreService, ) { }
-
+  constructor(private offreService: OffreService) {}
 
   applyFilter(filterValue: string) {
     this.offres.filter = filterValue.trim().toLowerCase();
@@ -46,29 +54,32 @@ export class ListeOffresComponent implements OnInit {
 
   reloadData() {
     setTimeout(() => {
-      this.offreService.getAllOffres().subscribe
-        (data => {
-          this.offres2 = data;
-          this.offres = data;
-          for (let i = 0; i < this.offres.length; i++) {
-            this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format("DD/MM/YYYY");
-            this.offres[i].dateFin = moment(this.offres[i].dateFin).format("DD/MM/YYYY");
-          }
-          this.offres.map(offre => {
-            offre.raisonSociale = offre.entreprise.raisonSociale;
-            offre.period = offre.dateDebut + ` <br/> au <br/>` + offre.dateFin;
-            offre.secteur = offre.entreprise.secteur;
-          })
-          this.offres = new MatTableDataSource<Offre[]>(data);
-          setTimeout(() => {
-            this.offres.paginator = this.paginator;
-            this.offres.sort = this.sort;
-          });
-
-          this.array = data;
-          this.totalSize = this.offres.length;
-          this.iterator();
+      this.offreService.getAllOffres().subscribe(data => {
+        this.offres2 = data;
+        this.offres = data;
+        for (let i = 0; i < this.offres.length; i++) {
+          this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format(
+            'DD/MM/YYYY'
+          );
+          this.offres[i].dateFin = moment(this.offres[i].dateFin).format(
+            'DD/MM/YYYY'
+          );
+        }
+        this.offres.map(offre => {
+          offre.raisonSociale = offre.entreprise.raisonSociale;
+          offre.period = offre.dateDebut + ` <br/> au <br/>` + offre.dateFin;
+          offre.secteur = offre.entreprise.secteur;
         });
+        this.offres = new MatTableDataSource<Offre[]>(data);
+        setTimeout(() => {
+          this.offres.paginator = this.paginator;
+          this.offres.sort = this.sort;
+        });
+
+        this.array = data;
+        this.totalSize = this.offres.length;
+        this.iterator();
+      });
     }, 100);
   }
 
@@ -79,5 +90,4 @@ export class ListeOffresComponent implements OnInit {
   ngOnChanges() {
     this.reloadData();
   }
-
 }
