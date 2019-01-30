@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
 import { OffreService } from 'src/app/services/offre.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-offres-accueil',

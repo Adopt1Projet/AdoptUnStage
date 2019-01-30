@@ -19,11 +19,8 @@
           alt="Logo de l'entreprise" />
         <img *ngIf="offre.entreprise.logo.fileDownloadUri == null" mat-card-image src="assets/img/LogoAdopt.png" alt="Logo placeholder" />
         <mat-card-content>
-
-          <h4>{{offre.raisonSociale}}</h4>
+          <h4>{{offre.entreprise.raisonSociale}}</h4>
           <p><span class="motRelief">Ville:</span> {{offre.ville}}</p>
-          <!-- <h5><span class="mobile-label"></span>
-            {{offre.entreprise.secteur}}</h5> -->
           <p><span class="motRelief">Période:</span> {{offre.dateDebut}} au {{offre.dateFin}}</p>
         </mat-card-content>
         <mat-card-actions>
