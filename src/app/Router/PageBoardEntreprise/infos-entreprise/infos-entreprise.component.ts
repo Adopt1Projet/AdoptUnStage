@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/services/custom-validators';
 import { AlertService } from '../../../services/alert.service';
 import { Router } from '@angular/router';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { ConfirmDeleteUserComponent } from '../../ConfirmsModals/confirm-delete-user/confirm-delete-user.component';
 
 @Component({
   selector: 'app-infos-entreprise',
@@ -16,9 +18,12 @@ export class InfosEntrepriseComponent implements OnInit {
   public formUpdate: FormGroup;
   public formUpdatePassword: FormGroup;
   private username;
-  file : FileList;
-  curentFile : File;
-  private entreprise: any;
+  confirmResult = null;
+  loading = false;
+  submitted = false;
+  file: FileList;
+  curentFile: File;
+  public entreprise: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 
@@ -27,20 +32,19 @@ export class InfosEntrepriseComponent implements OnInit {
     private token: TokenStorageService,
     private alertService: AlertService,
     private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private SimpleModalService: SimpleModalService) {
     this.formUpdate = this.updateSignupForm();
     this.formUpdatePassword = this.updateSignupFormPassword();
 
   }
 
-
-  ngOnInit() {
+  reloadData() {
     this.username = this.token.getUsername();
     this.entrepriseService
       .getEntreprise(this.username)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,
@@ -61,8 +65,14 @@ export class InfosEntrepriseComponent implements OnInit {
         });
       },
         error => console.log("Une erreur est survenue."));
+  }
 
+  ngOnInit() {
+    this.reloadData();
+  }
 
+  ngOnChanges() {
+    this.reloadData();
   }
 
 
@@ -177,22 +187,24 @@ export class InfosEntrepriseComponent implements OnInit {
   onSubmit() {
     this.submitFormPassword = false;
     this.submitForm = true;
+    this.loading = true;
     if (this.formUpdate.value.email == null) { this.formUpdate.value.email = this.entreprise.email };
     this.formUpdate.value.username = this.formUpdate.value.email;
     this.entrepriseService.updateEntreprise(this.entreprise.id, this.formUpdate.value)
       .subscribe(
         data => {
-          if (this.file != undefined){
+          if (this.file != undefined) {
             this.curentFile = this.file.item(0);
-            this.entrepriseService.createFileEntreprise(this.formUpdate.value.username, this.curentFile)
+            this.entrepriseService.changeFileEntreprise(this.formUpdate.value.username, this.curentFile)
               .subscribe(
-                  data2 => {
-                    this.alertService.success('Votre logo et vos autres modifications ont bien été prises en compte !', true);
-                  },
-                  error => {
-                    this.alertService.error('Votre logo n\'a pas le bon format mais vos autres modifications ont bien été prises en compte !', true);
-                  });;
-            }
+                data2 => {
+                  this.alertService.success('Votre logo et vos autres modifications ont bien été prises en compte !', true);
+                  this.reloadData();      
+                },
+                error => {
+                  this.alertService.error('Votre logo n\'a pas le bon format mais vos autres modifications ont bien été prises en compte !', true);
+                });;
+          }
           this.alertService.success('Vos modifications ont bien été prises en compte !', true);
         },
         error => {
@@ -204,9 +216,17 @@ export class InfosEntrepriseComponent implements OnInit {
 
   }
 
+  get f() { return this.formUpdatePassword.controls; }
+
+
   onSubmitPassword() {
+    this.submitted = true;
     this.submitForm = false;
+    this.loading = true;
     this.submitFormPassword = true;
+    if (this.formUpdatePassword.invalid) {
+      return;
+    }
     this.entrepriseService.updateEntreprisePassword(this.entreprise.id, this.formUpdatePassword.value)
       .subscribe(
         data => {
@@ -221,16 +241,30 @@ export class InfosEntrepriseComponent implements OnInit {
     document.documentElement.scrollTop = 230; // For Chrome, Firefox, IE and Opera
   }
 
-  onClickDeleteUser() {
+  deleteUser() {
     this.username = this.token.getUsername();
     this.entrepriseService.deleteUser(this.username)
       .subscribe(
         data => {
           this.token.signOut();
+          this.alertService.success('Votre compte a été supprimé.', true);
           this.router.navigate(['../../accueil']);
         },
         error => {
         })
 
+  }
+
+  onClickDeleteUser() {
+    this.SimpleModalService.addModal(ConfirmDeleteUserComponent)
+      .subscribe((isConfirmed) => {
+
+        // Get modal result
+        this.confirmResult = isConfirmed;
+        if (isConfirmed) {
+          this.deleteUser();
+          this.reloadData();
+        }
+      });
   }
 }

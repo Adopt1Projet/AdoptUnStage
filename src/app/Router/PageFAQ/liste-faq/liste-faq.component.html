@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row" *ngFor="let question of questions | async">
+  <div class="row" *ngFor="let question of questions">
     <app-item-faq [question]="question"></app-item-faq>
   </div>
 </div>

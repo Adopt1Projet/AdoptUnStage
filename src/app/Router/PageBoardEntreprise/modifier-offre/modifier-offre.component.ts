@@ -16,7 +16,7 @@ export class ModifierOffreComponent implements OnInit {
 
   id: number;
   public formOffre: FormGroup;
-  private offre: any;
+  public offre: any;
   private submitForm: boolean = false;
   loading = false;
   submitted = false;
@@ -73,7 +73,7 @@ export class ModifierOffreComponent implements OnInit {
 
     })
     this.offreService
-      .getOffre(this.id)
+      .getOffreModifier(this.id)
       .subscribe(data => {
         this.offre = data;
         this.formOffre.setValue({

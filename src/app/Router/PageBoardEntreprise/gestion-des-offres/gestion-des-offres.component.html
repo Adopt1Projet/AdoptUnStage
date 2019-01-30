@@ -1,5 +1,5 @@
 <div class="container bodyGestionOffres">
-  <h1 class="titre">Gestion des offres</h1>
+  <h1 class="titre">GESTION DES OFFRES</h1>
   <app-alert></app-alert>
   <table class="table table-striped thead-light table-hover">
     <thead>
@@ -8,8 +8,8 @@
         <th>Début</th>
         <th>Fin</th>
         <th>Ville</th>
-        <th>Postulants</th>
         <th>Pourvue</th>
+        <th>Postulants</th>
         <th>Détail</th>
         <th>Modifier</th>
         <th>Supprimer</th>
@@ -21,11 +21,11 @@
         <td> {{offre.dateDebut}} </td>
         <td> {{offre.dateFin}} </td>
         <td> {{offre.ville}} </td>
-        <td><i [routerLink]="['/boardentreprise/postulants', offre.id]" class="material-icons" style="color:#ff9900; cursor: pointer;">people</i></td>
         <td *ngIf="offre.active == true"><i class="material-icons" style="color: green">lock_open</i></td>
         <td *ngIf="offre.active == false"><i class="material-icons" style="color: red">lock</i></td>
+        <td><i [routerLink]="['/boardentreprise/gestionoffres/postulants', offre.id]" class="material-icons" style="color:#ff9900; cursor: pointer;">people</i></td>
         <td><i [routerLink]="['/detailoffre', offre.id]" class="material-icons" style="color:#00b499; cursor: pointer;">remove_red_eye</i></td>
-        <td><i [routerLink]="['/boardentreprise/modifieroffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">edit</i></td>
+        <td><i [routerLink]="['/boardentreprise/gestionoffres/modifieroffre', offre.id]" class="material-icons" style="color:blue; cursor: pointer;">edit</i></td>
         <td><i class="material-icons" style="color:red; cursor: pointer;" (click)=showConfirm(offre.id)>delete</i></td>
       </tr>
     </tbody>

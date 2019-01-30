@@ -11,6 +11,8 @@ public class HTMLMail{
 	private String name;
 	private String email;
 	
+	
+	
 	public String getTitle() {
 		return title;
 	}
@@ -107,6 +109,19 @@ public HTMLMail() {};
 			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Prénom:</span> " + this.prenom + "</p>" +
 			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
 			                    "<img src=\"../../../../../../../../src/assets/img/banner.png\" class=\"img-fluid w-100\" alt=\"\">" +
+			                "</body>" +
+		              "</html>";
+		
+//					String.format("Mail : %s , \n Prenom %s , Nom %s \n Message : \n %s" , this.email , this.prenom , this.name , this.message);
+		return str;
+	}
+	
+	public String buildMyCopie() {
+		String str = "<html>" +
+			                "<body>" +
+			                	"<p>Bonjour " + this.prenom + " " + this.name + ",</p>" +
+								"<p>Votre message a bien été envoyé à l'équipe d'Adopt'Un Stage.</p>" +
+			                    "<p><span style=\"color: #2ed1bb; font-weight: bolder;\">Message :</span></p>" + this.message +
 			                "</body>" +
 		              "</html>";
 		

@@ -21,12 +21,19 @@
 }
 
 .btnRetour {
-    background-color: #00ac9a;
-    border: none;
+    background-color: rgb(139, 139, 139);
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
-    color: #ffffff;
-    font-size: 1.5em;
-    padding: 5px 25px 5px 25px;
-    font-weight: bolder;
-    margin: 2%;
+}
+  
+.btnRetour:hover {
+    background-color: #C2BFCA;;
+}
+
+table {
+    width: 100%;
 }

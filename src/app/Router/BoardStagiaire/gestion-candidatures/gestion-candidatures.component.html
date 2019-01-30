@@ -1,6 +1,6 @@
 <div *ngIf="offres || offresPourvues" class="container bodyGestionCandidatures">
-  <h2 class="titre text-center">Gestion des candidatures</h2>
-  <div *ngIf="offres.length; else noTableResults">
+  <h2 class="titre text-center">GESTION DES CANDIDATURES</h2>
+  <div *ngIf="offres.length != 0; else noTableResults">
     <h4>Mes candidatures en cours <img src="/assets/img/happy.png" alt=""> </h4>
     <br>
     <table *ngIf="offres.length; else noTableResults" class="table table-striped thead-light table-hover" id="content"
@@ -9,22 +9,18 @@
         <tr>
           <th>Offre</th>
           <th>Période</th>
-          <th>Rue</th>
-          <th>Ville</th>
-          <th>CP</th>
+          <th>Lieu du stage</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let offre of offres" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offre.id]">
-          <td> {{offre.titre}} </td>
-          <td> {{offre.dateDebut}} à {{offre.dateFin}} </td>
-          <td> {{offre.rue}} </td>
-          <td> {{offre.ville}} </td>
-          <td> {{offre.codePostal}} </td>
+          <td> <b>{{offre.titre}}</b> </td>
+          <td> du {{offre.dateDebut}} au {{offre.dateFin}} </td>
+          <td> {{offre.rue}} , {{offre.codePostal}} {{offre.ville}}</td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-primary" (click)="downloadPDF()">Enregistre et imprime tes candidatures</button>
+    <button class="btn btn-primary" (click)="downloadPDF()">Enregistre/Imprime tes candidatures</button>
   </div>
   <ng-template #noTableResults>
     <h3 class="text-center">
@@ -32,26 +28,21 @@
     </h3>
   </ng-template>
   <h5 *ngIf="!offres && offres.length == 0">Tu n'as pas encore déposé de candidature.</h5>
-  <button [routerLink]="'/offres'" type="button" class="btn col-6 center-block">Voir la liste des offres de
-    stage</button>
-  <h4>Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
+  <br>
+  <h4 *ngIf="offresPourvues && offresPourvues == true" >Offres déjà pourvues <img src="/assets/img/sad.png" alt=""> </h4>
   <table *ngIf="offresPourvues && offresPourvues == true" class="table table-striped thead-light table-hover">
     <thead class="headBG">
       <tr>
         <th>Offre</th>
         <th>Période</th>
-        <th>Rue</th>
-        <th>Ville</th>
-        <th>CP</th>
+        <th>Lieu du stage</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let offrePourvue of offresPourvues" style="width: 300px; cursor: pointer;" [routerLink]="['/detailoffre', offrePourvue.id]">
-        <td> {{offrePourvue.titre}} </td>
-        <td> {{offrePourvue.dateDebut}} à {{offrePourvue.dateFin}} </td>
-        <td> {{offrePourvue.rue}} </td>
-        <td> {{offrePourvue.ville}} </td>
-        <td> {{offrePourvue.codePostal}} </td>
+        <td> <b>{{offrePourvue.titre}}</b> </td>
+        <td> du {{offrePourvue.dateDebut}} au {{offrePourvue.dateFin}} </td>
+        <td> {{offrePourvue.rue}}, {{offrePourvue.codePostal}} {{offrePourvue.ville}}</td>
       </tr>
     </tbody>
   </table>

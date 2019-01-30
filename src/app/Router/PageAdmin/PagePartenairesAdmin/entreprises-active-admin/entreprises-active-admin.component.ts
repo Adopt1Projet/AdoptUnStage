@@ -16,6 +16,7 @@ export class EntreprisesActiveAdminComponent implements OnInit {
   public currentPage = 0;
   public totalSize = 0;
   confirmResult = null;
+  pageEvent;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

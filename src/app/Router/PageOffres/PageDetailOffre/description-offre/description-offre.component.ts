@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-description-offre',
@@ -9,10 +10,12 @@ import { Offre } from 'src/app/modeles/offre';
 export class DescriptionOffreComponent implements OnInit {
 
   @Input() offre: Offre;
+  route : String;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
+    this.route = location.origin + this.location.path();
   }
 
 }

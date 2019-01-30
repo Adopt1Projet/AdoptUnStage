@@ -6,6 +6,7 @@
 
 .bgHead {
     background-color: #00B499;
+    font-size: 1.2em;
 }
 
 .bodyOffres {
@@ -14,6 +15,8 @@
 
 img {
     width: 100px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .btn {
@@ -30,6 +33,63 @@ img {
     margin: 0 auto;
 }
 
+table {
+    width: 100%;
+}
+
+tr.mat-row {
+    height: 100px;
+
+}
+
 td {
-    vertical-align: middle;
+    cursor: pointer;
+}
+
+tr.mat-row:hover {
+    background-color: #f8f9fa;
+}
+
+th.mat-header-cell {
+    justify-content: flex-start;
+    background-color: #7eccc1;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+}
+
+td.mat-cell {
+    justify-content: flex-start;
+}
+
+b {
+    color: #FB6F07;
+}
+
+#titre {
+    color: #26a69a;
+    margin-bottom: 2vh;
+
+}
+
+/* 
+.titre {
+    background-color: #83c6bf;
+    margin-bottom: 2vh;
+    border-radius: 5px;
+} */
+
+.borderCard {
+    border: 2px solid #545454;
+    box-shadow: 7px 7px #e1e8e7;
+    border-radius: 5px;
+}
+
+.motRelief {
+    font-weight: bold;
+}
+
+h4 {
+    color: #FB6F07;
+
 }

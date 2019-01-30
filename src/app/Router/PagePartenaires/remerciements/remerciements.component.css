@@ -1,13 +1,21 @@
-.bodyRemerciements {
+.bodyCreateurs {
     margin-bottom: 5vh;
+
 }
 
 hr {
     margin-right: 60%;
 }
 
+
 img {
     width: 20vh;
+    margin: auto;
+}
+
+.row {
+    margin-top: 2vh;
+    align-items: center;
 }
 
 .partenaire {

@@ -15,6 +15,10 @@ export class OffreService {
     return this.http.get(`${this.baseUrl}/uneoffre/${id}`);
   }
 
+  getOffreModifier(id: number): Observable<Object> {
+    return this.http.get(`${this.baseUrl}/modifieruneoffre/${id}`);
+  }
+
   // createOffre(offre: Object): Observable<Object> {
   //   return this.http.post(`${this.baseUrl}` + `/creer`, offre);
   // username: String, }

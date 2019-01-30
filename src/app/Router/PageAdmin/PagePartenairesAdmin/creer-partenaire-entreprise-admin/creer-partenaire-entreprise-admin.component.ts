@@ -72,7 +72,6 @@ export class CreerPartenaireEntrepriseAdminComponent implements OnInit {
             this.partenaireService.createFilePartenaireEntreprise(entreprise.nom, this.curentFile)
               .subscribe(
                 data2 => {
-                  console.log(data2)
                 },
                 error => {
                   this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);

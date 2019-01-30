@@ -11,7 +11,6 @@ import { College } from '../../../modeles/college';
 export class PageAideComponent implements OnInit {
 
   colleges: any;
-  
 
   constructor(private collegeService: CollegeService) { }
 
@@ -20,13 +19,11 @@ export class PageAideComponent implements OnInit {
           .subscribe(
             data => {
               this.colleges = data;
-              console.log(data);
             
             },
             error => console.log("Une erreur est survenue.")
             );
-            
-     }
+  }
   
 
 }

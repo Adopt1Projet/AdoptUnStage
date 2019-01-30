@@ -1,0 +1,39 @@
+.bodyAide {
+    background-color: white;
+    padding-bottom: 3vh;
+}
+
+a {
+    color: #00AC9A;
+}
+
+a:hover {
+    color: #008472;
+}
+
+.titre {
+    color: #26a69a;
+    text-align: center;
+    font-weight: bolder;
+    margin: 0 auto;
+    padding-top: 3vw;
+    padding-bottom: 3vh;
+}
+
+p {
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.blocTexte {
+    background-color: #E8E8E8;
+    padding: 2vh;
+}
+
+h2 {
+    color: #26a69a;
+}
+
+.blocInfo {
+    padding: 2vh;
+}

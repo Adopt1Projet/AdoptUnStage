@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Offre } from 'src/app/modeles/offre';
+import '../../../../../icons';
 
 @Component({
   selector: 'app-description-entreprise',
@@ -13,7 +14,6 @@ export class DescriptionEntrepriseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.offre);
   }
 
 }

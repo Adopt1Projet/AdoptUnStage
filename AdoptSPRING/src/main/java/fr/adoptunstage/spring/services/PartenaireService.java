@@ -20,13 +20,12 @@ import fr.adoptunstage.spring.message.request.PartenaireForm;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Actor;
 import fr.adoptunstage.spring.models.Creator;
-import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.models.PartenaireEntreprise;
 import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.ActorRepository;
 import fr.adoptunstage.spring.repos.CreatorRepository;
 import fr.adoptunstage.spring.repos.PartenaireEntrepriseRepository;
-import fr.adoptunstage.spring.payload.UploadFileResponse;
+
 
 @Service
 public class PartenaireService {
@@ -43,12 +42,11 @@ public class PartenaireService {
 	@Autowired
 	PartenaireEntrepriseRepository partenaireEntrepriseRepository;
 
-	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
-
-	public static boolean validateFileExtn(String ext) {
-		Matcher mtch = fileExtnPtrn.matcher(ext);
-		if (mtch.matches()) {
-			return true;
+	
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("image/png") || type.equals("image/jpeg") || type.equals("image/gif")){
+		return true;
 		}
 		return false;
 	}
@@ -58,7 +56,6 @@ public class PartenaireService {
 	 */
 
 	public List<Actor> getAllActors() {
-		System.out.println("Affiche tout les acteurs...");
 		List<Actor> actors = new ArrayList<>();
 		actorRepository.findAll().forEach(actors::add);
 
@@ -106,7 +103,7 @@ public class PartenaireService {
 
 	public ResponseEntity<?> postActorFile(@PathVariable("nom") String nom, MultipartFile file) {
 
-		if (validateFileExtn(file.getOriginalFilename())) {
+		if (validateFileExtn(file)) {
 
 			Actor actor = (Actor) actorRepository.findByNom(nom).orElseThrow(
 					() -> new UsernameNotFoundException("actor Not Found with -> username or email : " + nom));
@@ -183,7 +180,7 @@ public class PartenaireService {
 	
 	public ResponseEntity<?> postCreatorFile(@PathVariable("nom") String nom, MultipartFile file) {
 
-		if (validateFileExtn(file.getOriginalFilename())) {
+		if (validateFileExtn(file)) {
 
 			Creator creator = (Creator) creatorRepository.findByNom(nom).orElseThrow(
 					() -> new UsernameNotFoundException("creator Not Found with -> username or email : " + nom));
@@ -259,7 +256,7 @@ public class PartenaireService {
 	
 	public ResponseEntity<?> postPartenaireEntrepriseFile(@PathVariable("nom") String nom, MultipartFile file) {
 
-		if (validateFileExtn(file.getOriginalFilename())) {
+		if (validateFileExtn(file)) {
 
 			PartenaireEntreprise partenaireEntreprise = (PartenaireEntreprise) partenaireEntrepriseRepository.findByNom(nom).orElseThrow(
 					() -> new UsernameNotFoundException("Partenaire entreprise Not Found with -> username or email : " + nom));

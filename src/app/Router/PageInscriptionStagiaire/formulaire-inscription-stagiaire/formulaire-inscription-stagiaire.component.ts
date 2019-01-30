@@ -60,12 +60,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
       .subscribe(
         data => {
           this.colleges = data;
-          console.log(this.colleges);
         });
   }
 
   showCgu() {
-    console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
       .subscribe((isConfirmed) => {
 
@@ -166,13 +164,10 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formCreate.invalid) {
-      return console.log(this.formCreate)
-        ;
+      return;
     }
     this.loading = true;
-
     const stagiaire: Stagiaire = this.formCreate.value;
-    this.loading = true;
     stagiaire.username = stagiaire.email;
     this.stagiaireService.createStagiaire(stagiaire)
       .pipe(first())
@@ -183,30 +178,29 @@ export class FormulaireInscriptionStagiaireComponent implements OnInit {
             this.stagiaireService.createFileStagiaire(stagiaire.username, this.curentFile)
               .subscribe(
                 data2 => {
+                  this.loading = false;
+                  this.router.navigate(['../connexion']);
+                  this.alertService
+                    .success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. Maintenant connecte toi !', true);
                 },
                 error => {
+                  this.loading = false;
+                  this.router.navigate(['../connexion']);
                   this.alertService.success('Ton cv n\'a pas le bon format mais ton compte a bien été créé, tu viens de recevoir un mail de confirmation. Maintenant connecte toi !', true);
-                });;
+                });
           }
-          console.log(data);
-          if (this.info.authorities == "ROLE_ADMIN") {
-            this.alertService
-              .success('Vous avez bien créé le compte stagiaire ' + stagiaire.prenom + " " + stagiaire.name, true);
-          }
-          else {
-            this.alertService
-            .success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. maintenant connecte toi !', true);
+          else {        
+            this.loading = false;
+            this.router.navigate(['../connexion']);
+            setTimeout(() => {
+              this.alertService.success('Merci de t\'être enregistré ' + stagiaire.prenom + ', tu viens de recevoir un mail de confirmation. Pense à télécharger ton CV à ta première connecxion !', true);
+            });        
           }
 
-          if (this.info.authorities == "ROLE_ADMIN") {
-            this.router.navigate(['../admin/stagiaires/listestagiaires']);
-          }
-          else { this.router.navigate(['../connexion']); }
         },
         error => {
           this.loading = false;
         });
-
 
 
   }

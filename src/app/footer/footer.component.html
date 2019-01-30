@@ -1,39 +1,94 @@
-<footer class="container footer sticky-bottom">
+ 
+<footer class="page-footer container sticky-bottom footer font-small mdb-color pt-4">
 
-  <div class="row p-0 logoSite">
-    <div class="col-md-2 text-center">
-      <img src="../../assets/img/LogoAdoptFullBlack.png" alt="placeholder">
-    </div>
+  
+  <div class="container text-center text-md-left">
 
-    <div class="row p-0 col-md-3 d-flex justify-content-center">
-      <h4>Adopt'Un Stage</h4>
-      <ul class="liste">
-        <li><a routerLink="/boiteaoutils/faq">F.A.Q</a></li>
-        <li><a routerLink="/contact">Contactez-nous</a></li>
-        <li><button (click)=showCgu() type="button" class="cguButton">Informations légales</button></li>
-      </ul>
-    </div>
+  <!--Row 1-->
+  <div class="row">
 
-    <div class="row p-0 col-md-3 d-flex justify-content-center logoPartenaires">
-      <h4>Nos partenaires</h4>
-      <ul class="liste">
-        <li><img src="../../assets/img/proBTP.png" alt=""><a href="https://www.probtp.com/" target="_blank"></a></li>
-        <li><img src="../../assets/img/Souffle9.png" alt=""><a href="https://www.souffle9.com/" target="_blank"></a></li>
-        <li><img src="../../assets/img/wcs.png" alt=""><a href="https://wildcodeschool.fr/" target="_blank"></a></li>
-        <!-- <li><a routerLink="/partenaires">Voir nos autres partenaires</a></li> -->
-      </ul>
-    </div>
+     <div class="col-md-4 mx-auto">
 
-    <div class="row p-0 col-md-4 logoSociaux d-flex justify-content-center align-content-center">
-      <div class="footerImg ">
-      <h4>Nous suivre</h4>
-        <a href="https://fr-fr.facebook.com/souffle9dotation/" target="_blank"><img src="/assets/img/FacebookLogo.png"></a>
-        <a href="https://twitter.com/Souffle9lyon" target="_blank"><img src="/assets/img/TwitterLogo.png"></a>
+      <!-- Social buttons -->
+      <div class="text-center text-md-left">
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="https://fr-fr.facebook.com/souffle9dotation/" target="_blank">
+              <img class="logoSociaux" src="/assets/img/FacebookLogo.png">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="https://twitter.com/Souffle9lyon" target="_blank">
+             <img class="logoSociaux" src="/assets/img/TwitterLogo.png"></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm rgba-white-slight mx-1" routerLink="/boiteaoutils/contact" target="_blank">
+              <img class="logoSociaux" src="/assets/img/ContactLogo.png"></a>
+          </li>
+        </ul>
       </div>
-      <div class="col-12 text-center copyright">
-        <p>Copyright 2019 © Wild Code School</p>
-      </div>
     </div>
+    
+    <!-- Liens FAQ et CGU -->
+    <div class="col-md-4 mx-auto">
+      <p class="list-unstyled list-inline text-md-center py-2 font-weight-bold">
+        <a routerLink="/boiteaoutils/faq">FAQ </a>
+        - <button (click)=showCgu() type="button" class="cguButton"> CGU </button>
+      </p>
+    </div>
+
+    <div class="col-md-4 mx-auto">
+
+      <!-- Logos entreprises -->
+      <div class="text-center text-md-right">
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.probtp.com/" target="_blank">
+              <img class="logoPartenaires" src="../../assets/img/proBTP.png" alt="logoProBTP">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.souffle9.com/" target="_blank">
+              <img class="logoPartenaires" src="../../assets/img/Souffle9.png" alt="logoSouffle9">
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://wildcodeschool.fr/" target="_blank">
+              <img class="logoPartenaires" src="../../assets/img/WCS.png" alt="logoWCS">
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      </div>
+     
   </div>
+  
+</div>
 
+
+
+<!--Copyright-->
+<div class="footer-copyright text-center pt-2 pb-4">Copyright 2019 ©
+  <a href="https://wildcodeschool.fr/"> Wild Code School</a>
+</div>
+
+<div class= "text-center pb-4">Site développé par : 
+    <a href="https://www.linkedin.com/in/hugo-hontans-34b798170/" target="_blank">Hugo</a>, 
+    <a href="https://www.linkedin.com/in/yohann-nikas-5773b318/" target="_blank">Yohann</a>, 
+    <a href="https://www.linkedin.com/in/kevin-radlowski-83186a170/" target="_blank">Kevin</a>, 
+    <a href="https://www.linkedin.com/in/julien-chevrot-845399175/" target="_blank">Julien</a> et 
+    <a href="https://www.linkedin.com/in/klein-magali/" target="_blank">Magali</a>.
+</div>
+   
 </footer>

@@ -11,8 +11,12 @@ h4 {
     font-weight: bolder;
 }
 
+.lienCV {
+    font-weight : bold;
+}
+
 .btnRetour {
-    background-color: #00ac9a;
+    background-color: rgb(139, 139, 139);;
     border: none;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
     color: #ffffff;
@@ -22,6 +26,10 @@ h4 {
     margin: 2%;
 }
 
+.btnRetour:hover {
+    background-color: #C2BFCA;
+
+}
 
 .btnPost {
     padding-bottom: 5%;
@@ -38,7 +46,7 @@ h4 {
     margin: 2%;
 }
 
-.btn:hover {
+.btnValid:hover {
     background-color: #2ed1bb;
 }
 

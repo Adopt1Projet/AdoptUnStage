@@ -154,7 +154,6 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
 
 
   showCgu() {
-    console.log();
     this.SimpleModalService.addModal(ConditionUtilisationComponent, { closeOnClickOutside: true }, { closeOnEscape: true })
       .subscribe((isConfirmed) => {
 
@@ -181,9 +180,7 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    console.log(this.formCreate)
     const entreprise: Entreprise = this.formCreate.value;
-    this.loading = true;
     entreprise.username = entreprise.email;
     this.entrepriseService.createEntreprise(entreprise)
       .pipe(first())
@@ -194,30 +191,28 @@ export class FormulaireIncriptionEntrepriseComponent implements OnInit {
             this.entrepriseService.createFileEntreprise(entreprise.username, this.curentFile)
               .subscribe(
                 data2 => {
-                  console.log(data2)
+                  this.loading = false;
+                  this.router.navigate(['../connexion']);
+                  this.alertService
+                    .success('Merci de vous être enregistré ' + entreprise.raisonSociale + ', vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
                 },
                 error => {
+                  this.loading = false;
+                  this.router.navigate(['../connexion']);
                   this.alertService.success('Votre logo n\'a pas le bon format mais votre compte a bien été créé, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
                 });;
           }
-          if (this.info.authorities == "ROLE_ADMIN") {
-            this.alertService
-              .success('Vous avez bien créé le compte entreprise ' + entreprise.email, true);
-          }
           else {
-          this.alertService.success('Merci de vous être enregistré, vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
-          }
-          if (this.info.authorities == "ROLE_ADMIN") {
-            this.router.navigate(['../admin/entreprises/listeentreprises']);
-          }
-          else { this.router.navigate(['../connexion']); }
+            this.loading = false;
+            this.router.navigate(['../connexion']);
+            setTimeout(() => {
+              this.alertService.success('Merci de vous être enregistré ' + entreprise.raisonSociale + ', vous venez de recevoir un mail de confirmation. Vous pouvez vous connecter.', true);
+          });
+        }
         },
         error => {
-          console.log(error);
           this.loading = false;
         });
-
-    this.router.navigate(['../connexion']);
   }
 
 }

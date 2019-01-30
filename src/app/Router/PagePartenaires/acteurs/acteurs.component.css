@@ -7,12 +7,18 @@ hr {
 }
 
 img {
-    width: 15vh;
+    width: 20vh;
+    margin: auto;
 }
 
 .partenaire {
     background-color: #E9E9E9;
     padding: 2vh;
+}
+
+.row {
+    margin-top: 2vh;
+    align-items: center;
 }
 
 a {

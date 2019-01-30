@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,20 +12,33 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import fr.adoptunstage.spring.message.request.ActuRequest;
 import fr.adoptunstage.spring.message.response.ResponseMessage;
 import fr.adoptunstage.spring.models.Actu;
+import fr.adoptunstage.spring.payload.UploadFileResponse;
 import fr.adoptunstage.spring.repos.ActuRepository;
 
 @Service
 public class ActuService {
+	
+	@Autowired
+	FileStorageService fileStorageService;
 
 	@Autowired
 	ActuRepository repository;
+	
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("image/png") || type.equals("image/jpeg") || type.equals("image/gif")){
+		return true;
+		}
+		return false;
+	}
 
 	public List<Actu> getAllActus() {
-		System.out.println("Affiche toutes les actus...");
 
 		List<Actu> actus = new ArrayList<>();
 		repository.findAll().forEach(actus::add);
@@ -49,9 +63,9 @@ public class ActuService {
 		return new ResponseEntity<>("offre a été supprimée !", HttpStatus.OK);
 	}
 
-	public ResponseEntity<?> postActu(String username, ActuRequest requestActu) {
+	public ResponseEntity<?> postActu(ActuRequest requestActu) {
 
-		Actu _actu = new Actu(requestActu.getTitre(), requestActu.getExergue(), requestActu.getImage(),
+		Actu _actu = new Actu(requestActu.getTitre(), requestActu.getExergue(),
 				requestActu.getLegendeImage(), requestActu.getParagraphe1(), requestActu.getIntertitre1(),
 				requestActu.getParagraphe2(), requestActu.getIntertitre2(), requestActu.getParagraphe3());
 
@@ -67,7 +81,6 @@ public class ActuService {
 			Actu _actu = actuData.get();
 			_actu.setTitre(actu.getTitre());
 			_actu.setExergue(actu.getExergue());
-			_actu.setImage(actu.getImage());
 			_actu.setLegendeImage(actu.getLegendeImage());
 			_actu.setParagraphe1(actu.getParagraphe1());
 			_actu.setIntertitre1(actu.getIntertitre1());
@@ -80,5 +93,28 @@ public class ActuService {
 
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	public ResponseEntity<?> postActuFile(@PathVariable("titre") String titre, MultipartFile file) {
+
+		if (validateFileExtn(file)) {
+
+			Actu actu = (Actu) repository.findByTitre(titre).orElseThrow(
+					() -> new UsernameNotFoundException("actu Not Found with -> username or email : " + titre));
+
+			String fileName = fileStorageService.storeFile(file, actu.getTitre());
+
+			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/downloadFile/")
+					.path(fileName).toUriString();
+
+			UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+					file.getContentType(), file.getSize());
+
+			actu.setLogo(uploadFileResponse);
+			repository.save(actu);
+
+			return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
 	}
 }

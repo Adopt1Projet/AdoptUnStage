@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-md-3">
-    <img *ngIf="actu.image" src="{{actu.image}}" alt="picto article">
-    <img *ngIf="!actu.image" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
+  <div class="col-md-3  image">
+    <img *ngIf="actu.logo.fileDownloadUri" src="{{actu.logo.fileDownloadUri}}" alt="picto article">
+    <img *ngIf="actu.logo.fileDownloadUri == null" src="https://www.bristolgate.com/wp-content/uploads/2018/09/orionthemes-placeholder-image.png"
       alt="picto article">
   </div>
   <div class="col-md-9">
-    <h5 class="mb-1">{{actu.titre}}</h5>
+    <h5 class="mb-1 mt-2 ">{{actu.titre}}</h5>
     <p class="mb-1">{{actu.exergue}}</p>
   </div>
 </div>

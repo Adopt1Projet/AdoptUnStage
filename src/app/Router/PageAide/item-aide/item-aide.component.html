@@ -1,0 +1,11 @@
+<div class="blocInfo">
+    <h4>{{aide.titre}}</h4>
+</div>
+<div class="blocInfo">
+  <h5>{{aide.intertitre}}</h5>
+    <p class=blocTexte>{{aide.texte}}</p>
+</div>
+<div *ngIf="aide.lien" class="blocInfo">
+  <span><b>Pour plus d'infos : <a href="{{aide.lien}}">{{aide.lien}}</a></b></span>
+</div>
+<hr>

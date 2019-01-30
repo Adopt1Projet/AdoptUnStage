@@ -23,9 +23,7 @@ export class GestionCandidaturesComponent implements OnInit {
 
   @ViewChild('content') content: ElementRef;
 
-  public downloadPDF() {
-    console.log(this.offres);
-    
+  public downloadPDF() {    
     var docDefinition = {
       content: [
         {

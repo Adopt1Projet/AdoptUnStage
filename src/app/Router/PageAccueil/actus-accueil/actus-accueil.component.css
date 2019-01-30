@@ -1,13 +1,6 @@
 .card-group {
-    max-height: 35vh;
     overflow: auto;
     padding: 3vh;
-}
-
-img {
-    display: block;
-    margin: auto;
-    overflow: auto;
 }
 
 .card {
@@ -15,10 +8,15 @@ img {
     cursor: pointer;
     background-color: #efeded;
     border: none;
+    border-radius: 10px;
+}
+
+.card:hover {
+    opacity: 0.5;
 }
 
 .titre {
-    color: #26a69a;
+    color: #FB6F07;
     text-align: center;
     font-weight: bolder;
     margin: 0 auto;
@@ -26,6 +24,16 @@ img {
 }
 
 h2 {
-    color: #26a69a;
+    color: #FB6F07;
     font-weight: bolder;
+}
+
+.card-title {
+    color: #26a69a;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
 }

@@ -17,7 +17,7 @@ export class ModifierEntrepriseAdminComponent implements OnInit {
   file : FileList;
   private username;
   curentFile : File;
-  private entreprise: any;
+  public entreprise: any;
   private submitForm: boolean = false;
   private submitFormPassword: boolean = false;
 
@@ -36,12 +36,10 @@ export class ModifierEntrepriseAdminComponent implements OnInit {
 
   ngOnInit() {
     const username = this.route.snapshot.params['username'];
-    console.log(username);
     this.entrepriseService
       .getEntreprise(username)
       .subscribe(data => {
         this.entreprise = data;
-        console.log(this.entreprise);
         this.formUpdate.setValue({
           name: this.entreprise.name,
           prenom: this.entreprise.prenom,

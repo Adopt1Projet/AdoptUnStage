@@ -19,6 +19,7 @@ export class EntreprisesPartenairesAdminComponent implements OnInit {
   public currentPage = 0;
   public totalSize = 0;
   confirmResult = null;
+  pageEvent;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -53,14 +54,12 @@ export class EntreprisesPartenairesAdminComponent implements OnInit {
     this.partenaireService.deleteCreator(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('L\'entreprise a bien été supprimée.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 

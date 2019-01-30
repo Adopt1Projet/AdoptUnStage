@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,22 +35,26 @@ public class OffreController{
 		return service.getAllOffres();
 	}
 
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/creer/{username}")
 	public ResponseEntity<?> postOffre(@PathVariable("username") String username, 
 			@RequestBody SignUpFormOffre requestOffre) {
 		return service.postOffre(username, requestOffre);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@GetMapping(value = "/mesoffres/{username}")
 	public Set<Offre> getMesOffres(@PathVariable("username") String username ) {
 		return service.getMesOffres(username);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@GetMapping(value = "/mesoffresstagiaire/{username}")
 	public Set<Offre> getMesOffresStagiaire(@PathVariable("username") String username ) {
 		return service.getMesOffresStagiaire(username);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@GetMapping(value = "/mesoffresstagiairepourvues/{username}")
 	public Set<Offre> getMesOffresStagiairePourvues(@PathVariable("username") String username ) {
 		return service.getMesOffresStagiairePourvues(username);
@@ -61,29 +66,41 @@ public class OffreController{
 		return service.getOffre(id);
 	}
 	
+	// secure dans le service
+	@GetMapping(value = "/modifieruneoffre/{id}")
+	public ResponseEntity<?> getModifierOffre(@PathVariable("id") long id  ) {
+		
+		return service.getModifierOffre(id);
+	}
+	
+	// secure dans service
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteOffre(@PathVariable("id") long id) {
 		return service.deleteOffre(id);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping("/supprimer")
 	public ResponseEntity<String> deleteAll() {
 		return service.deleteAll();
 	}
 
+	// secure dans service
 	@PutMapping("/{id}")
-	public ResponseEntity<Offre> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
+	public ResponseEntity<?> updateOffre(@PathVariable("id") long id, @RequestBody Offre offre) {
 		return service.updateOffre(id, offre);
 	}
 	
+	@PreAuthorize("#username == authentication.principal.username or hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/postuler/{id_offre}/{username}")
 	public ResponseEntity<?> postuler(@PathVariable("id_offre") long id_offre, @PathVariable("username") String username, 
 			@RequestBody SignUpPostuler requestPostuler) {
 		return service.postuler(id_offre, username, requestPostuler);
 	}
 	
+	// secure dans service
 	@GetMapping(value = "/postulants/{id}")
-	public Set<Stagiaire> getPostulants(@PathVariable("id") long id  ) {
+	public ResponseEntity<?> getPostulants(@PathVariable("id") long id  ) {
 		return service.getPostulants(id);
 	}
 	

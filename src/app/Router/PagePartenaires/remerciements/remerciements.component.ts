@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PartenaireService } from 'src/app/services/partenaire.service';
+import { Observable } from 'rxjs';
+import { Partenaire } from 'src/app/modeles/partenaire';
 
 @Component({
   selector: 'app-remerciements',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemerciementsComponent implements OnInit {
 
-  constructor() { }
+  public createurs : Observable<Partenaire>;
+
+  constructor(private partenaireService : PartenaireService) { }
 
   ngOnInit() {
+    this.partenaireService.getAllCreators()
+      .subscribe(data => this.createurs = data);
   }
 
 }

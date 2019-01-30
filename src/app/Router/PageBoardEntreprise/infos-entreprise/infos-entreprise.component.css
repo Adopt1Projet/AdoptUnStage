@@ -20,10 +20,11 @@ form {
 .titres{
     margin-top: 3vw;
     margin-bottom: 3vw;
+    color: #FB6F07;
 }
 
 .titre {
-    color: #26a69a;
+    color: #FB6F07;
     text-align: center;
     font-weight: bolder;
     padding-top: 3vh;
@@ -45,21 +46,32 @@ input, select, textarea{
 }
   
   
-.btn{
+.btnValider{
     background-color: #00ac9a;
-    height: 8vh;
-    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    white-space: normal;
 }
 
-  
-  
-.btn:hover {
+.btnValider:hover {
     background-color: #2ed1bb;
+}
+
+.btnSupprimer {
+    background-color: #ED0000;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 3vh;
+    box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    white-space: normal;
+}
+
+.btnSupprimer:hover {
+    background-color: rgb(221, 107, 107);
 }
   
 ::placeholder { 
@@ -72,4 +84,8 @@ input, select, textarea{
 
 .deleteCompte {
     padding-bottom: 5vh;
+}
+
+.passconfirm {
+    color: grey;
 }

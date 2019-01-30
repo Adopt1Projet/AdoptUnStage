@@ -19,6 +19,7 @@ export class StagiairesAdminComponent implements OnInit {
   public currentPage = 0;
   public totalSize = 0;
   confirmResult = null;
+  pageEvent;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -53,14 +54,12 @@ export class StagiairesAdminComponent implements OnInit {
     this.stagiaireService.deleteUser(i)
       .subscribe(
         data => {
-          console.log(data)
           this.alertService.success('Le compte a bien été supprimé.', true);
         },
         error => console.log(error));
   }
 
   showConfirm(i) {
-    console.log(i);
     this.SimpleModalService.addModal(ConfirmComponent)
       .subscribe((isConfirmed) => {
 
@@ -76,16 +75,16 @@ export class StagiairesAdminComponent implements OnInit {
   reloadData() {
     setTimeout(() => {
       this.stagiaireService.getStagiaireList().subscribe
-      (data => {
-        this.stagiaires = new MatTableDataSource<Stagiaire[]>(data);
-        setTimeout(() => {
-          this.stagiaires.paginator = this.paginator;
-          this.stagiaires.sort = this.sort;
+        (data => {
+          this.stagiaires = new MatTableDataSource<Stagiaire[]>(data);
+          setTimeout(() => {
+            this.stagiaires.paginator = this.paginator;
+            this.stagiaires.sort = this.sort;
+          });
+          this.array = data;
+          this.totalSize = this.stagiaires.length;
+          this.iterator();
         });
-        this.array = data;
-        this.totalSize = this.stagiaires.length;
-        this.iterator();
-      });
     }, 100);
   }
 

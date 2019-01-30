@@ -12,7 +12,7 @@ import { GestionDesOffresComponent } from 'src/app/Router/PageBoardEntreprise/ge
 export class OffreDetailsComponent implements OnInit {
 
   @Input() offre: Offre;
-
+  offres;
   constructor(private offreService: OffreService, private listComponent: GestionDesOffresComponent) { }
 
   updateActive(isActive: boolean) {
@@ -20,7 +20,6 @@ export class OffreDetailsComponent implements OnInit {
       { titre: this.offre.titre, description: this.offre.description, active: isActive })
       .subscribe(
         data => {
-          console.log(data);
           this.offre = data as Offre;
         },
         error => console.log(error));
@@ -30,7 +29,6 @@ export class OffreDetailsComponent implements OnInit {
     this.offreService.deleteOffre(this.offre.id)
       .subscribe(
         data => {
-          console.log(data);
           this.listComponent.reloadData();
         },
         error => console.log(error));

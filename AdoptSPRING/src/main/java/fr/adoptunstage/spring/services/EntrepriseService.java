@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,17 +51,15 @@ public class EntrepriseService {
 	
 	@Autowired
 	PasswordEncoder encoder;
-	
-	private static Pattern fileExtnPtrn = Pattern.compile("([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)");
 
 	
-	public static boolean validateFileExtn(String ext){
-		Matcher mtch = fileExtnPtrn.matcher(ext);
-		if(mtch.matches()){
+	public static boolean validateFileExtn(MultipartFile file){
+		String type = file.getContentType();
+		if(type.equals("image/png") || type.equals("image/jpeg") || type.equals("image/gif")){
 		return true;
 		}
 		return false;
-		}
+	}
 
 	
 	public List<Entreprise> getAllEntreprises() {
@@ -124,7 +121,7 @@ public class EntrepriseService {
 		user.setRoles(roles);
 		userRepository.save(user);
 		
-		SignupMail signupEntreprise = new SignupMail(signUpRequest.getEmail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
+		SignupMail signupEntreprise = new SignupMail(signUpRequest.getContactMail(), signUpRequest.getPrenom(),signUpRequest.getEmail());
 		mailRepository.signupEntrepriseMail(signupEntreprise);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
@@ -132,7 +129,39 @@ public class EntrepriseService {
 	
 	public ResponseEntity<?> postEntrepriseFile(String username, MultipartFile file) {
 		
-		if (validateFileExtn(file.getOriginalFilename())) {	 
+		if (validateFileExtn(file)) {	 
+		
+			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
+					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
+			
+			String verifFileName = entreprise.getLogo().getFileName();
+			
+			if (verifFileName == null) {
+			
+		        String fileName = fileStorageService.storeFile(file, entreprise.getUsername());
+		
+		        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+		                .path("/api/downloadFile/")
+		                .path(fileName)
+		                .toUriString();      
+		
+		        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+		                file.getContentType(), file.getSize());
+		        
+		        
+		        entreprise.setLogo(uploadFileResponse);
+		        userRepository.save(entreprise);
+		        
+		        return new ResponseEntity<>(new ResponseMessage("File registered successfully!"), HttpStatus.OK);
+			}
+			return new ResponseEntity<>(new ResponseMessage("Non autorisé!"), HttpStatus.FORBIDDEN);
+		}
+		return new ResponseEntity<>(new ResponseMessage("Le fichier n'a pas le bon format !"), HttpStatus.FORBIDDEN);
+    }
+	
+	public ResponseEntity<?> changeEntrepriseFile(String username, MultipartFile file) {
+		
+		if (validateFileExtn(file)) {	 
 		
 			Entreprise entreprise = (Entreprise) userRepository.findByUsername(username).orElseThrow(
 					() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));

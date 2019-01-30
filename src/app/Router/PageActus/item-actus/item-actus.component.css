@@ -2,4 +2,12 @@ img {
     width: 25vh;
     display: block;
     margin: auto;
+    border: solid 3px #26a69a;
+    border-radius: 15px;
+}
+
+h5 {
+    color: #26a69a;
+    font-weight: bold;
+    justify-content: center
 }

@@ -1,11 +1,44 @@
 # [Adopt'Un Stage]
 
-Un site responsive qui permet aux élèves de 3ème du 9ème arrondissement de Lyon de trouver leur stage auprès d'entreprises désireuses de faire découvrir leur secteur. Il s'agit d'un projet pour le compte de l'association Souffle 9.
+Site de mise en relation d'élèves de 3ème du 9ème arrondissement de Lyon, avec des entreprises, pour les aider à trouver leur stage obligatoire d'immersion professionnelle.
+Ce projet répond à une commande du fonds de dotation [Souffle 9](https://www.souffle9.com/) et de l'entreprise [Pro BTP](https://www.probtp.com/part/salarie-accueil.html).
+Il a été réalisé par 5 développeurs juniors, dans le cadre de leur formation à la [Wild Code School](https://github.com/WildCodeSchool).
 
-@[Souffle 9](https://www.souffle9.com/)
-@[Wild Code School](https://github.com/WildCodeSchool)
 
-## Équipe : 
+## Getting Started
+
+### Prerequisites
+
+* [Angular 7](https://angular.io/guide/quickstart)
+* [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* [Node.js](https://nodejs.org/)
+* [MySQL](https://dev.mysql.com/downloads/installer/)
+
+### Installing
+
+To install this application, run the following commands:
+
+```bash
+git clone https://github.com/Adopt1Projet/AdoptUnStage.git
+cd AdoptUnStage
+```
+
+This will get a copy of the project installed locally. To install all of its dependencies and start each app, follow the instructions below.
+
+To run the client:
+ 
+```bash
+npm install
+ng serve -o
+```
+
+To run the server, cd into the `AdoptSPRING` folder and run:
+ 
+```bash
+./mvnw spring-boot:run
+```
+
+## Authors
 
 * [Magali Klein](https://github.com/Pelican07)
 * [Hugo Hontans](https://github.com/Hugo-Hontans)
@@ -13,17 +46,6 @@ Un site responsive qui permet aux élèves de 3ème du 9ème arrondissement de L
 * [Julien Chevrot](https://github.com/juliendcode)
 * [Ioannis Nikas](https://github.com/Alvardh)
 
-## Objectif :
-
-Créer un site afin de faciliter la mise en relation de stagiaires avec des entreprises proches de leurs domiciles/etablissements scolaires. Il est possible de créer des compte, créer et poster des offres de stage, y postuler, mais également de recourir à des rubriques d'aide, une FAQ et des articles régulièrement mis à jour.
-
-## Données techniques :
-
-Le site utilise :
-* Angular 7
-* MySQL
-* Spring
-
-### Période de réalisation :
+## Implementation period :
 
 Novembre 2018 à Janvier 2019

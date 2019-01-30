@@ -1,6 +1,9 @@
 .is-invalid {
   border-left: solid 6px red;
 }
+.passconfirm {
+  color: grey;
+}
 
 .material-icons {
   display: inline-flex;
@@ -9,13 +12,11 @@
 
 .bodyFormulaire {
   background-color: #ffffff;
-  margin-top: 30px;
 }
 
 form {
   color: #26a69a;
   margin: 0 auto;
-  padding-top: 5vw;
   padding-bottom: 5vh;
 }
 
@@ -57,9 +58,8 @@ textarea {
   vertical-align: middle;
 }
 
-.btn {
+.btnValider {
   background-color: #26a69a;
-  height: 8vh;
   color: white;
   font-weight: bold;
   font-size: 1.25rem;
@@ -67,8 +67,21 @@ textarea {
   box-shadow: 3px 3px 8px rgb(105, 105, 105);
 }
 
-.btn:hover {
+.btnValider:hover {
   background-color: #2ed1bb;
+}
+
+.btnRetour {
+  background-color: rgb(139, 139, 139);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 3vh;
+  box-shadow: 3px 3px 8px rgb(105, 105, 105);
+}
+
+.btnRetour:hover {
+  background-color: #C2BFCA;;
 }
 
 ::placeholder {

@@ -1,0 +1,33 @@
+<div class="container col-12 col-md-10 bodyCreerAide">
+  <h1 class="titre">Créer une nouvelle Aide</h1>
+  <form class="col-md-8" [formGroup]="formAide" (ngSubmit)="onSubmit()">
+    <p style="font-style: italic">Remplissez les champs en fonction de vos besoin de mise en page. Aucun champ n'est
+      obligatoire.</p>
+
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input type="text" formControlName="titre" class="form-control" id="titre" placeholder="Titre de l'aide">
+    </div>
+
+    <div class="form-group">
+      <label for="intertitre">Intertitre</label>
+      <input class="form-control" formControlName="intertitre" id="intertitre" placeholder="Intertitre de l'aide">
+    </div>
+
+    <div class="form-group">
+      <label for="texte">Texte</label>
+      <textarea class="form-control" formControlName="texte" id="texte" rows="5" placeholder="Texte de l'aide">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="lien">Lien vers un autre site</label>
+      <input class="form-control" formControlName="lien" id="lien" placeholder="https://...">
+    </div>
+
+    <div class="text-center">
+      <button class="btn btnPosterAide" type="submit">Poster une Aide</button>
+    </div>
+
+  </form>
+</div>

@@ -12,21 +12,32 @@ import { Partenaire } from 'src/app/modeles/partenaire';
   styleUrls: ['./acteurs-partenaires-admin.component.css']
 })
 export class ActeursPartenairesAdminComponent implements OnInit {
-  displayedColumns: string[] = ['logo', 'nom', 'description', 'siteWeb', 'modifier', 'supprimer'];
+  displayedColumns: string[] = [
+    'logo',
+    'nom',
+    'description',
+    'siteWeb',
+    'modifier',
+    'supprimer'
+  ];
   public array: any;
   public acteurs: any;
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
   confirmResult = null;
+  pageEvent;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   constructor(
     private alertService: AlertService,
     private partenaireService: PartenaireService,
-    private SimpleModalService: SimpleModalService) { }
+    private SimpleModalService: SimpleModalService
+  ) {}
 
   // Fonctions pagination & filtre du tableau
 
@@ -50,33 +61,30 @@ export class ActeursPartenairesAdminComponent implements OnInit {
   // Fonctions supprimer & modifier du tableau
 
   deleteStagiaire(i) {
-    this.partenaireService.deleteActor(i)
-      .subscribe(
-        data => {
-          console.log(data)
-          this.alertService.success('L\'acteur a bien été supprimé.', true);
-        },
-        error => console.log(error));
+    this.partenaireService.deleteActor(i).subscribe(
+      data => {
+        this.alertService.success("L'acteur a bien été supprimé.", true);
+      },
+      error => console.log(error)
+    );
   }
 
   showConfirm(i) {
-    console.log(i);
-    this.SimpleModalService.addModal(ConfirmComponent)
-      .subscribe((isConfirmed) => {
-
+    this.SimpleModalService.addModal(ConfirmComponent).subscribe(
+      isConfirmed => {
         // Get modal result
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
           this.deleteStagiaire(i);
           this.reloadData();
         }
-      });
+      }
+    );
   }
 
   reloadData() {
     setTimeout(() => {
-      this.partenaireService.getAllActors().subscribe
-      (data => {
+      this.partenaireService.getAllActors().subscribe(data => {
         this.acteurs = new MatTableDataSource<Partenaire[]>(data);
         setTimeout(() => {
           this.acteurs.paginator = this.paginator;
@@ -89,7 +97,6 @@ export class ActeursPartenairesAdminComponent implements OnInit {
     }, 100);
   }
 
-
   ngOnInit() {
     this.reloadData();
   }
@@ -97,6 +104,4 @@ export class ActeursPartenairesAdminComponent implements OnInit {
   ngOnChanges() {
     this.reloadData();
   }
-
-
 }
