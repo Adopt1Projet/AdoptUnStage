@@ -44,13 +44,17 @@ export class OffresAccueilComponent implements OnInit {
   ngOnInit() {
     this.offreService.getAllOffres().subscribe(data => {
       this.offres2 = data;
-      this.offres2.sort(function(a, b){return a - b});
       for (let i = 0; i < this.offres2.length; i++) {
-        if (i > (this.offres2.length - 6)) {
+        this.offres2[i].dateDebut = moment(this.offres2[i].dateDebut).format('DD/MM/YYYY');
+        this.offres2[i].dateFin = moment(this.offres2[i].dateFin).format('DD/MM/YYYY');
+      }
+      this.offres2.sort((offre, offre2) => offre2.id - offre.id);
+      for (let i = 0; i < this.offres2.length; i++) {
+        if (i < 3) {
           this.offresMobile.push(this.offres2[i]);
         }
       }
-      this.offres = new MatTableDataSource<Offre[]>(data);
+      this.offres = new MatTableDataSource<Offre[]>(this.offres2);
       setTimeout(() => {
         this.offres.paginator = this.paginator;
         this.offres.sort = this.sort;

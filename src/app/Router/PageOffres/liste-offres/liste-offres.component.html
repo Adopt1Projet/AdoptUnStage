@@ -47,7 +47,7 @@
             <ng-container matColumnDef="etat">
                 <th mat-header-cell *matHeaderCellDef class="text-center">Etat</th>
                 <td mat-cell [routerLink]="['/detailoffre', offre.id]" class="text-center" *matCellDef="let offre">
-                    <span class="dispo" *ngIf="offre.active == true" style="font-weight: bolder; color: #00b499;">Dispo</span>
+                    <span class="dispo" *ngIf="offre.active == true" style="font-weight: bolder; color: #00B499;">Dispo</span>
                     <span class="pourvue" *ngIf="offre.active == false" style="font-weight: bolder; color: #e00000;">Pourvue</span>
                 </td>
             </ng-container>
@@ -71,10 +71,10 @@
             <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo">
             <mat-card-content>
                 <h4>{{offre.raisonSociale}}</h4>
-                <p><span class="motRelief">Ville:</span> {{offre.ville}}</p>
+                <p><span class="motRelief">Ville :</span> {{offre.ville}}</p>
                 <!-- <h5><span class="mobile-label"></span>
                     {{offre.entreprise.secteur}}</h5> -->
-                <p><span class="motRelief">Période:</span> {{offre.dateDebut}} au {{offre.dateFin}}</p>
+                <p><span class="motRelief">Période :</span> du {{offre.dateDebut}} au {{offre.dateFin}}</p>
             </mat-card-content>
             <mat-card-actions>
 
