@@ -62,11 +62,13 @@
 
     <div class="container d-block d-sm-none">
         <mat-card class="example-card card borderCard mb-3 text-center" *ngFor="let offre of offres2, let index = index">
-            <mat-card-header class="titre text-center">
-                <mat-card-title>{{offre.titre}}</mat-card-title>
+            <mat-card-header class="justify-content-center">
+                <mat-card-title>
+                    <h4 id="titre">{{offre.titre}}</h4>
+                </mat-card-title>
                 <mat-card-subtitle>{{offre.entreprise.secteur}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="logo">
             <mat-card-content>
                 <h4>{{offre.raisonSociale}}</h4>
                 <p><span class="motRelief">Ville:</span> {{offre.ville}}</p>
@@ -80,7 +82,7 @@
                         style="color:#FB6F07; cursor: pointer; font-size: 2.5em;">visibility</i></button>
                 <a [routerLink]="['/detailoffre', offre.id]">
                     <p class="justify-content-center" style="color:#FB6F07">Voir
-                        détails...</p>
+                        détail</p>
                 </a>
             </mat-card-actions>
         </mat-card>
