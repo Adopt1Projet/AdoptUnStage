@@ -23,5 +23,5 @@ h3 {
 .line {
     border: 1px solid black;
     width: 70%;
-    margin: 50px;
+    margin: 50px auto;
 }
