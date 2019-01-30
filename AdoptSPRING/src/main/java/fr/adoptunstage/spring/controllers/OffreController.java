@@ -22,7 +22,7 @@ import fr.adoptunstage.spring.models.Offre;
 import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.services.OffreService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/offre")
 public class OffreController{

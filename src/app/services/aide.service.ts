@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AideService {
 
-  private baseUrl = 'http://localhost:8080/api/aide';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/aide';
 
   constructor(private http: HttpClient) { }
 

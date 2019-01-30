@@ -19,7 +19,7 @@ import fr.adoptunstage.spring.message.request.QuestionsRequest;
 import fr.adoptunstage.spring.models.Question;
 import fr.adoptunstage.spring.services.QuestionService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/question")
 public class QuestionController {

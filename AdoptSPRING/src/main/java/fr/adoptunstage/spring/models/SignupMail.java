@@ -65,7 +65,7 @@ public SignupMail() {};
 					"<h4><b>Merci pour votre inscription " + this.prenom +"!</b></h4>" +
 					"<hr>" +
 					"<p>Bienvenue sur Adopt'un stage. Pour vous identifier lors de vos visites sur notre site, cliquez sur " +
-					"<a href=\"http://localhost:4200/connexion\">Connexion</a>," +
+					"<a href=\"http://vps641460.ovh.net/connexion\">Connexion</a>," +
 					"<br>puis saisissez le mail et le mot de passe renseignés lors de votre inscription.</p>" +
 					"<br><br>" +
 					"<p>Identifiant d'inscription : " + this.email +
@@ -79,7 +79,7 @@ public SignupMail() {};
 					+ "<li>Modifier les identifiants et mot de passe de votre compte.</li>"
 					+ "</ol>" +
 					"<p>Si vous avez des questions au sujet de votre compte ou autre, n'hésitez pas à nous contacter"
-					+ "<br>par notre formulaire de contact disponible <a href=\"http://localhost:4200/contact\">ici</a>."
+					+ "<br>par notre formulaire de contact disponible <a href=\"http://vps641460.ovh.net/contact\">ici</a>."
 					+ "<br><p>Merci,</p><p>l'équipe Adopt'un stage.</p>" + 
                 "</body>" +
           "</html>";
@@ -93,7 +93,7 @@ public SignupMail() {};
 					"<h4><b>Merci pour ton inscription " + this.prenom +"!</b></h4>" +
 					"<hr>" +
 					"<p>Bienvenue sur Adopt'un stage. Pour t'identifier lors de tes visites sur notre site, clique sur " +
-					"<a href=\"http://localhost:4200/connexion\">Connexion</a>," +
+					"<a href=\"http://vps641460.ovh.net/connexion\">Connexion</a>," +
 					"<br>puis saisis le mail et le mot de passe renseignés lors de ton inscription.</p>" +
 					"<br><br>" +
 					"<p>Identifiant d'inscription : " + this.email +
@@ -107,7 +107,7 @@ public SignupMail() {};
 					+ "<li>Modifier tes identifiants et le mot de passe de ton compte.</li>"
 					+ "</ol>" +
 					"<p>Si tu as des questions au sujet de ton compte ou autre, n'hésite pas à nous contacter"
-					+ "<br>par notre formulaire de contact disponible <a href=\"http://localhost:4200/contact\">ici</a>."
+					+ "<br>par notre formulaire de contact disponible <a href=\"http://vps641460.ovh.net/contact\">ici</a>."
 					+ "<br><p>Merci,</p><p>l'équipe Adopt'un stage.</p>" + 
                 "</body>" +
           "</html>";

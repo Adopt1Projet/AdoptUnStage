@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/aide")
 public class AideController {

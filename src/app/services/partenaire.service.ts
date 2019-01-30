@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PartenaireService {
 
-  private baseUrl = 'http://localhost:8080/api/partenaires';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/partenaires';
 
   constructor(private http: HttpClient) { }
 

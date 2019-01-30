@@ -27,7 +27,7 @@ import fr.adoptunstage.spring.models.Entreprise;
 import fr.adoptunstage.spring.security.services.UserDetailsServiceImpl;
 import fr.adoptunstage.spring.services.EntrepriseService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/entreprise")
 public class EntrepriseController {

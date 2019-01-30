@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FaqService {
 
-  private baseUrl = 'http://localhost:8080/api/question';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/question';
 
   constructor(private http: HttpClient) { }
 

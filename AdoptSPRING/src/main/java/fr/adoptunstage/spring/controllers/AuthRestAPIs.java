@@ -23,7 +23,7 @@ import fr.adoptunstage.spring.repos.RoleRepository;
 import fr.adoptunstage.spring.repos.UserRepository;
 import fr.adoptunstage.spring.security.jwt.JwtProvider;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://vps641460.ovh.net", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthRestAPIs {

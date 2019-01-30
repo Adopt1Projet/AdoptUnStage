@@ -25,7 +25,7 @@ import fr.adoptunstage.spring.models.Creator;
 import fr.adoptunstage.spring.models.PartenaireEntreprise;
 import fr.adoptunstage.spring.services.PartenaireService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/partenaires")
 public class PartenaireController {

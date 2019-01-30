@@ -23,7 +23,7 @@ import fr.adoptunstage.spring.message.request.ActuRequest;
 import fr.adoptunstage.spring.models.Actu;
 import fr.adoptunstage.spring.services.ActuService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/actus")
 public class ActuController {

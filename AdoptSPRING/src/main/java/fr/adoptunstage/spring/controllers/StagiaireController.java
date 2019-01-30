@@ -24,7 +24,7 @@ import fr.adoptunstage.spring.models.Stagiaire;
 import fr.adoptunstage.spring.security.services.AuthenticationUser;
 import fr.adoptunstage.spring.services.StagiaireService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/stagiaire")
 public class StagiaireController {

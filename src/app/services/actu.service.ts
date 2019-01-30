@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ActuService {
 
-  private baseUrl = 'http://localhost:8080/api/actus';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/actus';
 
   constructor(private http: HttpClient) { }
 

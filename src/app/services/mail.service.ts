@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SendEmailService {
 
-  private baseUrl = 'http://localhost:8080/api/contact';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/contact';
 
   constructor(private http: HttpClient) { }
 

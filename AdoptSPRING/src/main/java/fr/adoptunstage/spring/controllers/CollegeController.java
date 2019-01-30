@@ -20,7 +20,7 @@ import fr.adoptunstage.spring.message.request.SignUpFormCollege;
 import fr.adoptunstage.spring.models.College;
 import fr.adoptunstage.spring.services.CollegeService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://vps641460.ovh.net")
 @RestController
 @RequestMapping("/api/colleges")
 public class CollegeController {

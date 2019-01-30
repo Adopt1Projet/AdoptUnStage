@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CollegeService {
 
-  private baseUrl = 'http://localhost:8080/api/colleges';
+  private baseUrl = 'http://vps641460.ovh.net:8080/api/colleges';
 
   constructor(private http: HttpClient) { }
 

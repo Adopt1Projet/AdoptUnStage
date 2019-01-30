@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adoptunstage.spring.models.HTMLMail;
 import fr.adoptunstage.spring.services.MailService;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders= "*", methods= {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
+@CrossOrigin(origins = "http://vps641460.ovh.net", allowedHeaders= "*", methods= {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api")
 public class EmailController {
