@@ -1,99 +1,96 @@
  mat-paginator {
-  display: none;
-}
+   display: none;
+ }
 
-mat-header-cell {
-  display: flex;
-  justify-content: flex-start;
-  background-color: #26a69a;
-  font-size: 1.4em;
-  font-weight: bold;
-  color: white;
-}
+ mat-header-cell {
+   display: flex;
+   justify-content: flex-start;
+   background-color: #26a69a;
+   font-size: 1.4em;
+   font-weight: bold;
+   color: white;
+ }
 
-mat-cell {
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-  height: 100px;
-}
+ mat-cell {
+   display: flex;
+   justify-content: flex-start;
+   cursor: pointer;
+   height: 100px;
+ }
 
-.material-icons {
-  color: #FB6F07;
-  cursor: pointer;
-  font-size: 2.5em;
-}
+ .material-icons {
+   color: #FB6F07;
+   cursor: pointer;
+   font-size: 2.5em;
+ }
 
-mat-row:hover mat-cell {
-  display: flex;
-  justify-content: flex-start;
-  cursor: pointer;
-  background-color: #f8f9fa;
-  height: 100px;
-}
+ mat-row:hover mat-cell {
+   display: flex;
+   justify-content: flex-start;
+   cursor: pointer;
+   background-color: #f8f9fa;
+   height: 100px;
+ }
 
-.mat-header-row {
-  position: sticky;
-  top: 0;
-} 
+ .mat-header-row {
+   position: sticky;
+   top: 0;
+ }
 
-img {
-  width: 100px;
-  ;
-}
+ img {
+   width: 100px;
+   ;
+ }
 
-.example-container {
-  display: flex;
-  flex-direction: column;
-  max-height: 500px;
-  min-width: 300px;
-  padding-bottom: 3vh;
-}
+ .example-container {
+   display: flex;
+   flex-direction: column;
+   max-height: 500px;
+   min-width: 300px;
+   padding-bottom: 3vh;
+ }
 
-.mat-table {
-  overflow: auto;
-  max-height: 500px;
-}
+ .mat-table {
+   overflow: auto;
+   max-height: 500px;
+ }
 
-.mobile-label {
-  display: none;
-} 
+ .mobile-label {
+   display: none;
+ }
 
-.titre {
-  color: #26a69a;
-  text-align: center;
-  font-weight: bolder;
-  margin: 0 auto;
-  padding-top: 2vw;
-}
+ .titre {
+   color: #26a69a;
+   text-align: center;
+   font-weight: bolder;
+   margin: 0 auto;
+   padding-top: 2vw;
+ }
 
-h2 {
-  color: #FB6F07;
-  font-weight: bolder;
-  margin-bottom: 2vh;
-} 
+ h2 {
+   color: #FB6F07;
+   font-weight: bolder;
+   margin-bottom: 2vh;
+ }
 
-.btn {
-  background-color: #FB6F07;
-  color: white;
-  font-weight: bold;
-  font-size: 3vh;
-  margin-top: 3vh;
-  box-shadow: 3px 3px 8px rgb(105, 105, 105);
-}
+ .btn {
+   background-color: #FB6F07;
+   color: white;
+   font-weight: bold;
+   font-size: 3vh;
+   margin-top: 3vh;
+   box-shadow: 3px 3px 8px rgb(105, 105, 105);
+ }
 
-button:hover {
-  background-color: #FF8E3A;
-}
+ button:hover {
+   background-color: #FF8E3A;
+ }
 
-b {
-  color: #FB6F07;
-}  
-
-
-.example-card {
-  max-width: 400px;
-}
+ b {
+   color: #FB6F07;
+ }
 
 
-
+ .example-card {
+   max-width: 400px;
+ }

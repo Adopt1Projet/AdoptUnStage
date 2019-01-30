@@ -1,5 +1,6 @@
 img {
     width: 20vh;
+    justify-content: center;
 }
 
 .entreprise {
@@ -11,7 +12,8 @@ img {
     margin-top: 2vh;
 }
 
-a, h3 {
+a,
+h3 {
     color: #00AC9A;
 }
 
