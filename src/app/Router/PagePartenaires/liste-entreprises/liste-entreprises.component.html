@@ -19,7 +19,7 @@
     <!-- Entreprises ajoutées par l'admin -->
     <div *ngIf="entreprisesPartenaires">
         <div class="row" *ngFor="let entreprisePartenaire of entreprisesPartenaires">
-            <div class="col-md-3 col-sm-2">
+            <div class="col-md-3 col-12 text-center offset-md-0">
                 <img *ngIf="entreprisePartenaire.logo.fileDownloadUri" src="{{entreprisePartenaire.logo.fileDownloadUri}}"
                     alt="Logo entreprise">
                 <img *ngIf="entreprisePartenaire.logo.fileDownloadUri == null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
