@@ -1,10 +1,10 @@
 <div class="container bodyCreateurs">
     <div class="row" *ngFor="let createur of createurs">
-        <div class="col-md-3 col-sm-2">
+        <div class="col-md-3 col-12 text-center mb-1">
             <img *ngIf="createur.logo" src="{{createur.logo.fileDownloadUri}}" alt="Logo createur">
             <img *ngIf="createur.logo == null" src="assets/img/LogoAdopt.png" alt="Logo placeholder">
         </div>
-        <div class="col-md-9 col-sm-10 partenaire">
+        <div class="col-md-9 col-12 partenaire">
             <div>
                 <h3>{{createur.nom}}</h3>
                 <p *ngIf="createur.description">{{createur.description}}</p>
@@ -14,4 +14,4 @@
         </div>
     </div>
     <br>
-  </div>
+</div>

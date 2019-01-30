@@ -12,22 +12,21 @@ import { Partenaire } from 'src/app/modeles/partenaire';
   styleUrls: ['./liste-entreprises.component.css']
 })
 export class ListeEntreprisesComponent implements OnInit {
-
   entreprises: Observable<Entreprise[]>;
   entreprisesPartenaires: Observable<Partenaire[]>;
 
-  constructor(private entrepriseService: EntrepriseService,
-    private partenaireService: PartenaireService) { }
+  constructor(
+    private entrepriseService: EntrepriseService,
+    private partenaireService: PartenaireService
+  ) {}
 
   ngOnInit() {
-    this.entrepriseService.getEntreprisesActives()
-      .subscribe(data => {
+    this.entrepriseService.getEntreprisesActives().subscribe(data => {
       this.entreprises = data;
-      })
+    });
 
-    this.partenaireService.getAllEntreprises()
-      .subscribe(data => {
+    this.partenaireService.getAllEntreprises().subscribe(data => {
       this.entreprisesPartenaires = data;
-      })
+    });
   }
 }

@@ -16,35 +16,35 @@ export class ListeAideAdminComponent implements OnInit {
   constructor(
     private alertService: AlertService,
     private aideService: AideService,
-    private SimpleModalService: SimpleModalService ) { }
+    private SimpleModalService: SimpleModalService
+  ) {}
 
   deleteAide(i) {
-    this.aideService.deleteAide(i)
-      .subscribe(
-        data => {
-          console.log(data)
-        },
-      error => console.log(error));
+    this.aideService
+      .deleteAide(i)
+      .subscribe(data => {}, error => console.log(error));
   }
 
-   showConfirm(i) {
-    console.log(i);
-    this.SimpleModalService.addModal(ConfirmComponent)
-      .subscribe((isConfirmed) => {
-
+  showConfirm(i) {
+    this.SimpleModalService.addModal(ConfirmComponent).subscribe(
+      isConfirmed => {
         // Get modal result
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
-          this.alertService.success('L\'information d\'aide a bien été supprimée.', true);
+          this.alertService.success(
+            "L'information d'aide a bien été supprimée.",
+            true
+          );
           this.deleteAide(i);
           this.reloadData();
         }
-      });
-  } 
+      }
+    );
+  }
 
   reloadData() {
     setTimeout(() => {
-      this.aideService.getAidesList().subscribe((data) => {
+      this.aideService.getAidesList().subscribe(data => {
         this.aides = data;
         this.aides.sort((actu, actu2) => actu2.id - actu.id);
       });
@@ -55,8 +55,7 @@ export class ListeAideAdminComponent implements OnInit {
     this.reloadData();
   }
 
-   ngOnChanges() {
+  ngOnChanges() {
     this.reloadData();
-  } 
-
+  }
 }

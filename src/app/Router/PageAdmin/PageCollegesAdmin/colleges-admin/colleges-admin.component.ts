@@ -12,8 +12,15 @@ import { College } from 'src/app/modeles/college';
   styleUrls: ['./colleges-admin.component.css']
 })
 export class CollegesAdminComponent implements OnInit {
-
-  displayedColumns: string[] = ['nom', 'adresse', 'contactPublic', 'nomReferent', 'telReferent', 'modifier', 'supprimer'];
+  displayedColumns: string[] = [
+    'nom',
+    'adresse',
+    'contactPublic',
+    'nomReferent',
+    'telReferent',
+    'modifier',
+    'supprimer'
+  ];
   public array: any;
   public colleges: any;
   public pageSize = 5;
@@ -22,13 +29,16 @@ export class CollegesAdminComponent implements OnInit {
   confirmResult = null;
   pageEvent;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   constructor(
     private alertService: AlertService,
     private collegeService: CollegeService,
-    private SimpleModalService: SimpleModalService) { }
+    private SimpleModalService: SimpleModalService
+  ) {}
 
   // Fonctions pagination & filtre du tableau
 
@@ -52,34 +62,30 @@ export class CollegesAdminComponent implements OnInit {
   // Fonctions supprimer & modifier du tableau
 
   deleteCollege(i) {
-    this.collegeService.deleteCollege(i)
-      .subscribe(
-        data => {
-          console.log(data)
-          this.alertService.success('Le collège a bien été supprimé.', true);
-        },
-        error => console.log(error));
+    this.collegeService.deleteCollege(i).subscribe(
+      data => {
+        this.alertService.success('Le collège a bien été supprimé.', true);
+      },
+      error => console.log(error)
+    );
   }
 
   showConfirm(i) {
-    console.log(i);
-    this.SimpleModalService.addModal(ConfirmComponent)
-      .subscribe((isConfirmed) => {
-
+    this.SimpleModalService.addModal(ConfirmComponent).subscribe(
+      isConfirmed => {
         // Get modal result
         this.confirmResult = isConfirmed;
         if (isConfirmed) {
           this.deleteCollege(i);
           this.reloadData();
         }
-      });
+      }
+    );
   }
 
   reloadData() {
     setTimeout(() => {
-      this.collegeService.getCollegesList().subscribe
-      (data => {
-        console.log(data);
+      this.collegeService.getCollegesList().subscribe(data => {
         this.colleges = new MatTableDataSource<College[]>(data);
         setTimeout(() => {
           this.colleges.paginator = this.paginator;

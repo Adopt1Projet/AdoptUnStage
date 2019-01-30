@@ -15,6 +15,8 @@
 
 img {
     width: 100px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .btn {
@@ -43,6 +45,7 @@ tr.mat-row {
 td {
     cursor: pointer;
 }
+
 tr.mat-row:hover {
     background-color: #f8f9fa;
 }
@@ -63,19 +66,30 @@ b {
     color: #FB6F07;
 }
 
+#titre {
+    color: #26a69a;
+    margin-bottom: 2vh;
+
+}
+
+/* 
 .titre {
     background-color: #83c6bf;
     margin-bottom: 2vh;
     border-radius: 5px;
-}
+} */
 
 .borderCard {
-    border-style: solid;
-    border-color: #00ac9a;
+    border: 2px solid #545454;
     box-shadow: 7px 7px #e1e8e7;
     border-radius: 5px;
 }
 
 .motRelief {
     font-weight: bold;
+}
+
+h4 {
+    color: #FB6F07;
+
 }

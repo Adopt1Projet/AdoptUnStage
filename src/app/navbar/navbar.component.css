@@ -40,38 +40,41 @@ a:active {
     padding-right: 0;
 }
 
-.navbanner {
+.navbanner {
     z-index: 999;
 }
 
-.open{
+.open {
     height: 295px;
 }
 
 
 @media(max-width: 991px) {
 
-     .bannerImg {
-         display : none;
-     }
-     .bannerSansLogo {
+    .bannerImg {
+        display: none;
+    }
+
+    .bannerSansLogo {
         margin-top: 60px;
-     }
-     .logo {
-         max-width: 20%;
-         margin-right: 40%;
-         margin-top: 1%; 
-     }
-    
+    }
+
+    .logo {
+        max-width: 20%;
+        margin-right: 40%;
+        margin-top: 1%;
+        outline: none;
+    }
+
 }
 
 @media(min-width: 992px) {
 
     .bannerSansLogo {
-        display : none;
+        display: none;
     }
+
     .logo {
-        display : none;
+        display: none;
     }
 }
-
