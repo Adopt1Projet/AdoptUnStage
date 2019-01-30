@@ -3,32 +3,33 @@
   <h3 class="titre2">Référence : {{offre.id}}</h3>
 
   <br>
-
-  <table *ngIf="postulants" class="table-striped thead-light table-hover">
-    <thead class="bandeau">
-      <tr>
-        <th>Mr/Mme</th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Etablissement</th>
-        <th>Mail</th>
-        <th>CV</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let postulant of postulants" style=" width: 300px;">
-        <td> {{postulant.civilite}} </td>
-        <td> {{postulant.prenom}} </td>
-        <td> {{postulant.name}} </td>
-        <td> {{postulant.etablissement}} </td>
-        <td><a href="mailto:{{postulant.email}}">{{postulant.email}}</a></td>
-        <td>
-          <a *ngIf="postulant.cv.fileDownloadUri" href="{{postulant.cv.fileDownloadUri}}">Télécharger le CV</a>
-          <p *ngIf="postulant.cv.fileDownloadUri == null">CV à venir</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive-lg">
+    <table *ngIf="postulants" class="table-striped thead-light table-hover">
+      <thead class="bandeau">
+        <tr>
+          <th>Mr/Mme</th>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Etablissement</th>
+          <th>Mail</th>
+          <th>CV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let postulant of postulants" style=" width: 300px;">
+          <td> {{postulant.civilite}} </td>
+          <td> {{postulant.prenom}} </td>
+          <td> {{postulant.name}} </td>
+          <td> {{postulant.etablissement}} </td>
+          <td><a href="mailto:{{postulant.email}}">{{postulant.email}}</a></td>
+          <td>
+            <a *ngIf="postulant.cv.fileDownloadUri" href="{{postulant.cv.fileDownloadUri}}">Télécharger le CV</a>
+            <p *ngIf="postulant.cv.fileDownloadUri == null">CV à venir</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <h4 *ngIf="!postulants">Il n'y a aucun postulant sur cette offre de stage pour le moment.</h4>
 

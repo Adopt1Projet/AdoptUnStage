@@ -56,15 +56,12 @@ export class ListeOffresComponent implements OnInit {
     setTimeout(() => {
       this.offreService.getAllOffres().subscribe(data => {
         this.offres2 = data;
-        this.offres = data;
-        for (let i = 0; i < this.offres.length; i++) {
-          this.offres[i].dateDebut = moment(this.offres[i].dateDebut).format(
-            'DD/MM/YYYY'
-          );
-          this.offres[i].dateFin = moment(this.offres[i].dateFin).format(
-            'DD/MM/YYYY'
-          );
+        this.offres2.sort((offre, offre2) => offre2.id - offre.id);
+        for (let i = 0; i < this.offres2.length; i++) {
+          this.offres2[i].dateDebut = moment(this.offres2[i].dateDebut).format('DD/MM/YYYY');
+          this.offres2[i].dateFin = moment(this.offres2[i].dateFin).format('DD/MM/YYYY');
         }
+        this.offres = this.offres2;
         this.offres.map(offre => {
           offre.raisonSociale = offre.entreprise.raisonSociale;
           offre.period = offre.dateDebut + ` <br/> au <br/>` + offre.dateFin;

@@ -4,11 +4,6 @@
     font-weight: bold;
 }
 
-.bgHead {
-    background-color: #00B499;
-    font-size: 1.2em;
-}
-
 .bodyOffres {
     background-color: #a2f2e7;
 }
@@ -52,7 +47,7 @@ tr.mat-row:hover {
 
 th.mat-header-cell {
     justify-content: flex-start;
-    background-color: #7eccc1;
+    background-color: #00B499;
     font-size: 1.4em;
     font-weight: bold;
     color: white;
