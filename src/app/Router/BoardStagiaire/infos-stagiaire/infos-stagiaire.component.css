@@ -41,12 +41,12 @@ input, select {
 
 .btnValider{
     background-color: #00ac9a;
-    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 3vh;
     box-shadow: 3px 3px 8px rgb(105, 105, 105);
+    white-space: normal;
 }
 
 .btnValider:hover {
@@ -55,7 +55,6 @@ input, select {
 
 .btnSupprimer{
     background-color: #ED0000;
-    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;

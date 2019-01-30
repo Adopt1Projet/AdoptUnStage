@@ -47,7 +47,6 @@ select {
 
 .btnValider {
     background-color: #26a69a;
-    height: 8vh;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
@@ -61,7 +60,6 @@ select {
 
 .btnRetour {
     background-color: rgb(139, 139, 139);
-    height: 8vh;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;

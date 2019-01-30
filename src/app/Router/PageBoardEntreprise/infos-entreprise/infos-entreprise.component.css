@@ -48,7 +48,6 @@ input, select, textarea{
   
 .btnValider{
     background-color: #00ac9a;
-    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
@@ -63,7 +62,6 @@ input, select, textarea{
 
 .btnSupprimer {
     background-color: #ED0000;
-    width: 20vw;
     color: white;
     font-weight: bold;
     font-size: 1.25rem;
