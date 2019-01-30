@@ -21,6 +21,7 @@ export class OffresAccueilComponent implements OnInit {
   ];
 
   public offres2: any;
+  public offresMobile: Offre[] = [];
   public array: any;
   public offres: any;
   public pageSize = 5;
@@ -43,6 +44,12 @@ export class OffresAccueilComponent implements OnInit {
   ngOnInit() {
     this.offreService.getAllOffres().subscribe(data => {
       this.offres2 = data;
+      this.offres2.sort(function(a, b){return a - b});
+      for (let i = 0; i < this.offres2.length; i++) {
+        if (i > (this.offres2.length - 6)) {
+          this.offresMobile.push(this.offres2[i]);
+        }
+      }
       this.offres = new MatTableDataSource<Offre[]>(data);
       setTimeout(() => {
         this.offres.paginator = this.paginator;
