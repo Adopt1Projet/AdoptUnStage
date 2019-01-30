@@ -5,6 +5,9 @@
 
 a {
     color: #00AC9A;
+    word-wrap: break-word;
+
+
 }
 
 a:hover {
