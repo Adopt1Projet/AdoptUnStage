@@ -16,13 +16,17 @@ export class CreerAideAdminComponent implements OnInit {
   public formAide: FormGroup;
   loading = false;
   submitted = false;
-  constructor(private aideService: AideService,
+  constructor(
+    private aideService: AideService,
     private alertService: AlertService,
     private router: Router,
     private fb: FormBuilder,
-    private token: TokenStorageService) { }
+    private token: TokenStorageService
+  ) {}
 
-  get f() { return this.formAide.controls; }
+  get f() {
+    return this.formAide.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -33,32 +37,27 @@ export class CreerAideAdminComponent implements OnInit {
       return;
     }
     this.router.navigate(['../admin/aide/listeaide']);
-    this.aideService.createAide(this.username, aide)
-      .subscribe(data => {
-        console.log(data),
-          this.alertService.success('Votre nouveau texte d\'aide à bien été créée. Vous pouvez le modifier si nécessaire.', true);
-      }, error => console.log(error));
+    this.aideService.createAide(this.username, aide).subscribe(
+      data => {
+        this.alertService.success(
+          "Votre nouveau texte d'aide à bien été créée. Vous pouvez le modifier si nécessaire.",
+          true
+        );
+      },
+      error => console.log(error)
+    );
     Object.keys(this.formAide.controls).forEach(key => {
-      this.formAide.controls[key].setErrors(null)
+      this.formAide.controls[key].setErrors(null);
     });
   }
 
   ngOnInit() {
     this.username = this.token.getUsername();
     this.formAide = this.fb.group({
-      titre: [
-        ''
-      ],
-      intertitre: [
-        ''
-      ],
-      texte: [
-        ''
-      ],
-      lien: [
-        ''
-      ]
-    })
+      titre: [''],
+      intertitre: [''],
+      texte: [''],
+      lien: ['']
+    });
   }
-
 }

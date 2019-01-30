@@ -43,6 +43,7 @@ tr.mat-row {
 td {
     cursor: pointer;
 }
+
 tr.mat-row:hover {
     background-color: #f8f9fa;
 }
@@ -70,12 +71,16 @@ b {
 }
 
 .borderCard {
-    border-style: solid;
-    border-color: #00ac9a;
+    border: 2px solid #00ac9a;
     box-shadow: 7px 7px #e1e8e7;
     border-radius: 5px;
 }
 
 .motRelief {
     font-weight: bold;
+}
+
+h4 {
+    color: #FB6F07;
+
 }

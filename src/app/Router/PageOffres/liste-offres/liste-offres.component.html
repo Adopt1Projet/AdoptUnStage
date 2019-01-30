@@ -68,18 +68,21 @@
             </mat-card-header>
             <img mat-card-image src="{{offre.entreprise.logo.fileDownloadUri}}" alt="Photo of a Shiba Inu">
             <mat-card-content>
-                <p><span class="motRelief">Lieu:</span> {{offre.entreprise.raisonSociale}} ({{offre.ville}})</p>
+                <h4>{{offre.raisonSociale}}</h4>
+                <p><span class="motRelief">Ville:</span> {{offre.ville}}</p>
                 <!-- <h5><span class="mobile-label"></span>
                     {{offre.entreprise.secteur}}</h5> -->
-                <p><span class="motRelief">période:</span> {{offre.dateDebut}} au {{offre.dateFin}}</p>
+                <p><span class="motRelief">Période:</span> {{offre.dateDebut}} au {{offre.dateFin}}</p>
             </mat-card-content>
             <mat-card-actions>
+
                 <button mat-button style="justify-content: center"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
                         style="color:#FB6F07; cursor: pointer; font-size: 2.5em;">visibility</i></button>
-                <button mat-button style="justify-content: center"> <i [routerLink]="['/detailoffre', offre.id]" class="material-icons"
-                    style="color:#0f2d84; cursor: pointer; font-size: 2.5em;">work</i></button>
+                <a [routerLink]="['/detailoffre', offre.id]">
+                    <p class="justify-content-center" style="color:#FB6F07">Voir
+                        détails...</p>
+                </a>
             </mat-card-actions>
-            <mat-card-footer></mat-card-footer>
         </mat-card>
     </div>
 </div>
