@@ -39,7 +39,8 @@
 
  img {
    width: 100px;
-   ;
+   margin-top: 1vh;
+   margin-bottom: 1vh;
  }
 
  .example-container {
@@ -93,4 +94,28 @@
 
  .example-card {
    max-width: 400px;
+ }
+
+
+
+ #titre {
+   color: #26a69a;
+   margin-bottom: 2vh;
+
+ }
+
+
+ .borderCard {
+   border: 2px solid #545454;
+   box-shadow: 7px 7px #e1e8e7;
+   border-radius: 5px;
+ }
+
+ .motRelief {
+   font-weight: bold;
+ }
+
+ h4 {
+   color: #FB6F07;
+
  }
